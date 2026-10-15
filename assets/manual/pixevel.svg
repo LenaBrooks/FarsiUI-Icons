@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-label="Pixevel">
+  <path d="M186 122 Q226 112 238 82" stroke="#111111" stroke-width="13" stroke-linecap="round"/>
+  <path d="M97 55 Q128 24 159 55 L201 97 Q232 128 201 159 L159 201 Q128 232 97 201 L55 159 Q24 128 55 97 Z" fill="#FCFCFA" stroke="#111111" stroke-width="14" stroke-linejoin="round"/>
+  <ellipse cx="80" cy="136" rx="14" ry="8" fill="#F8A8B8" transform="rotate(-12 80 136)"/>
+  <ellipse cx="176" cy="136" rx="14" ry="8" fill="#F8A8B8" transform="rotate(12 176 136)"/>
+  <ellipse cx="97" cy="102" rx="13" ry="17" fill="#111111"/>
+  <ellipse cx="159" cy="102" rx="13" ry="17" fill="#111111"/>
+  <circle cx="92.5" cy="95" r="5" fill="#FCFCFA"/>
+  <circle cx="154.5" cy="95" r="5" fill="#FCFCFA"/>
+  <circle cx="101.5" cy="110" r="2.5" fill="#FCFCFA"/>
+  <circle cx="161.5" cy="110" r="2.5" fill="#FCFCFA"/>
+  <path d="M116 142 Q122 149 128 142 Q134 149 140 142" stroke="#111111" stroke-width="9" stroke-linecap="round"/>
+</svg>

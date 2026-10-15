@@ -1,0 +1,132 @@
+import { iconCategories, iconManifest } from "@farsiui/icons";
+
+const PACKAGES = [
+  {
+    name: "@farsiui/icons",
+    blurb: "Main entry: LogoIcon, catalog, loaders, types.",
+    importExample: `import { LogoIcon, iconManifest } from "@farsiui/icons";`,
+  },
+  {
+    name: "@farsiui/icons/icons",
+    blurb: "Named icon components for tree-shaking.",
+    importExample: `import { BankMelliIcon } from "@farsiui/icons/icons";`,
+  },
+];
+
+const SOURCES = [
+  {
+    id: "persian-labs",
+    label: "Persian Labs",
+    license: "MIT",
+    note: "Core multi-category color + mono set",
+  },
+  {
+    id: "aasaam",
+    label: "Aasaam",
+    license: "CC0",
+    note: "Monochrome brand marks",
+  },
+  {
+    id: "persian-simple-icons",
+    label: "Persian Simple Icons",
+    license: "MIT",
+    note: "Simple currentColor marks",
+  },
+  {
+    id: "logos-per-service",
+    label: "Utility services",
+    license: "see source",
+    note: "برق، گاز، آب، پست، مخابرات",
+  },
+  {
+    id: "logos-per-banks",
+    label: "LogoS Banks / Gateways",
+    license: "CC0",
+    note: "Extra bank and gateway artwork",
+  },
+  {
+    id: "devicons",
+    label: "Devicons (curated)",
+    license: "MIT",
+    note: "Telegram, React, GitHub, … — curated for Iranian dev UIs",
+  },
+  {
+    id: "manual",
+    label: "Manual",
+    license: "per asset",
+    note: "User-provided logos (e.g. Shenakhti)",
+  },
+];
+
+export function PackagesPage() {
+  const bySource = new Map<string, number>();
+  for (const e of iconManifest) {
+    const s = e.source ?? "manual";
+    bySource.set(s, (bySource.get(s) ?? 0) + 1);
+  }
+
+  return (
+    <article className="doc-page">
+      <header className="doc-hero">
+        <p className="doc-eyebrow">Packages</p>
+        <h1>What ships in this repo</h1>
+        <p className="doc-lead">
+          {iconManifest.length} icons across {iconCategories.length} categories.
+          One npm package, two import paths.
+        </p>
+      </header>
+
+      <section className="doc-section">
+        <h2>Import paths</h2>
+        <div className="doc-cards">
+          {PACKAGES.map((p) => (
+            <div key={p.name} className="doc-card">
+              <h3>
+                <code>{p.name}</code>
+              </h3>
+              <p>{p.blurb}</p>
+              <pre>
+                <code>{p.importExample}</code>
+              </pre>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="doc-section">
+        <h2>Artwork sources</h2>
+        <div className="doc-table-wrap">
+          <table className="doc-table">
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>Count</th>
+                <th>License</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {SOURCES.map((s) => (
+                <tr key={s.id}>
+                  <td>{s.label}</td>
+                  <td>{bySource.get(s.id) ?? "—"}</td>
+                  <td>{s.license}</td>
+                  <td>{s.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="doc-section">
+        <h2>Publish status</h2>
+        <p>
+          Version <code>0.1.0</code> is publish-ready (ESM + types). Publishing
+          waits on the <code>farsiui</code> npm org — not done from this
+          playground.
+        </p>
+      </section>
+    </article>
+  );
+}

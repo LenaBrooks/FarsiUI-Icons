@@ -1,0 +1,30 @@
+{
+  "note": "User-provided logos (one-off).",
+  "icons": {
+    "shenakhti": {
+      "nameFa": "مرکز شناختی علم و صنعت",
+      "nameEn": "Cognitive Science & Industry Center",
+      "from": "logo-elmi-150x150.png (embedded)"
+    },
+    "vibefarsi": {
+      "nameFa": "وایب فارسی",
+      "nameEn": "Vibefarsi",
+      "from": "inline SVG mark (brand #cf5c49 gradient, exact 32×32 viewBox)"
+    },
+    "banana-ai": {
+      "nameFa": "Banana AI",
+      "nameEn": "Banana AI",
+      "from": "favicon-96x96.avif → PNG embed (64×64)"
+    },
+    "farsiui": {
+      "nameFa": "فارسی‌یوآی",
+      "nameEn": "FarsiUI",
+      "from": "favicon PNG embed (FarsiUI mark)"
+    },
+    "pixevel": {
+      "nameFa": "پیکسیول",
+      "nameEn": "Pixevel",
+      "from": "inline SVG mascot mark"
+    }
+  }
+}
