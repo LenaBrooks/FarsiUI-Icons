@@ -185,7 +185,6 @@ export const LogoIcon = forwardRef(function LogoIcon(
       viewBox={glyph.viewBox}
       width={width}
       height={height}
-      fill="none"
       preserveAspectRatio="xMidYMid meet"
       className={className}
       style={style}

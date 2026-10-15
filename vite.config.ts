@@ -9,9 +9,17 @@ export default defineConfig({
   root: path.resolve(rootDir, "playground"),
   plugins: [react()],
   resolve: {
-    alias: {
-      "@farsiui/icons": path.resolve(rootDir, "src/index.ts"),
-    },
+    alias: [
+      // More specific first — otherwise `/icons` hits the package `dist` export.
+      {
+        find: "@farsiui/icons/icons",
+        replacement: path.resolve(rootDir, "src/named-icons.ts"),
+      },
+      {
+        find: "@farsiui/icons",
+        replacement: path.resolve(rootDir, "src/index.ts"),
+      },
+    ],
   },
   server: {
     port: 5173,

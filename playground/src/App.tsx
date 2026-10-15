@@ -12,9 +12,9 @@ import {
   preloadAllIconData,
   type IconCategory,
   type IconManifestEntry,
-  type IconSource,
   type IconVariant,
 } from "@farsiui/icons";
+import { toFaDigits } from "./fa-digits";
 import { GuidePage } from "./GuidePage";
 import { PackagesPage } from "./PackagesPage";
 import { entryMatchesQuery } from "./search";
@@ -224,7 +224,6 @@ export function App() {
   const [activeCategory, setActiveCategory] = useState<IconCategory | "all">(
     "all",
   );
-  const [source, setSource] = useState<IconSource | "all">("all");
   const [customizer, setCustomizer] = useState(readStoredCustomizer);
   const variant = customizer.variant;
   const tileSize = customizer.size;
@@ -281,11 +280,8 @@ export function App() {
   }, [categoryQuery]);
 
   const filtered = useMemo(() => {
-    return iconManifest.filter((entry) => {
-      if (source !== "all" && entry.source !== source) return false;
-      return entryMatchesQuery(entry, query);
-    });
-  }, [query, source]);
+    return iconManifest.filter((entry) => entryMatchesQuery(entry, query));
+  }, [query]);
 
   const sections = useMemo(() => {
     const byCat = new Map<IconCategory, IconManifestEntry[]>();
@@ -306,22 +302,18 @@ export function App() {
   const categoryCounts = useMemo(() => {
     const counts = new Map<string, number>();
     for (const entry of iconManifest) {
-      if (source !== "all" && entry.source !== source) continue;
       counts.set(entry.category, (counts.get(entry.category) ?? 0) + 1);
     }
     return counts;
-  }, [source]);
+  }, []);
 
   const visibleCategories = useMemo(() => {
     return categories.filter((c) => (categoryCounts.get(c.id) ?? 0) > 0);
   }, [categories, categoryCounts]);
 
-  const totalVisible = useMemo(() => {
-    if (source === "all") return iconManifest.length;
-    return iconManifest.filter((e) => e.source === source).length;
-  }, [source]);
+  const totalVisible = iconManifest.length;
 
-  const isSearching = query.trim().length > 0 || source !== "all";
+  const isSearching = query.trim().length > 0;
 
   const activeCategoryLabel = isSearching
     ? "نتایج"
@@ -348,9 +340,8 @@ export function App() {
   };
 
   function scrollToCategory(id: IconCategory | "all") {
-    // Leave search/source filters so section anchors exist again.
+    // Clear search so section anchors exist again.
     if (query.trim()) setQuery("");
-    if (source !== "all") setSource("all");
     setActiveCategory(id);
     scrollingToRef.current = true;
     pendingScrollRef.current = id;
@@ -640,33 +631,10 @@ export function App() {
                   onChange={(e) => setQuery(e.target.value)}
                   aria-label="Search icons"
                 />
-                <span className="search-meta">
-                  {filtered.length}/{totalVisible}
+                <span className="search-meta" dir="rtl" lang="fa">
+                  {toFaDigits(filtered.length)}/{toFaDigits(totalVisible)}
                 </span>
                 <span className="kbd">Ctrl+K</span>
-              </label>
-
-              <label className="variant-select">
-                <span className="sr-only">Source</span>
-                <select
-                  value={source}
-                  onChange={(e) => {
-                    setSource(e.target.value as IconSource | "all");
-                    setActiveCategory("all");
-                  }}
-                  aria-label="Icon source"
-                >
-                  <option value="all">All sources</option>
-                  <option value="persian-labs">Persian Labs</option>
-                  <option value="aasaam">Aasaam</option>
-                  <option value="persian-simple-icons">
-                    Persian Simple Icons
-                  </option>
-                  <option value="logos-per-service">Utility Services</option>
-                  <option value="logos-per-banks">LogoS Banks</option>
-                  <option value="devicons">Devicons</option>
-                  <option value="manual">Manual</option>
-                </select>
               </label>
             </div>
 
@@ -730,8 +698,8 @@ export function App() {
                         lang="fa"
                       >
                         {section.labelFa}
-                        <span className="icon-section-count">
-                          {section.icons.length}
+                        <span className="icon-section-count" dir="rtl" lang="fa">
+                          {toFaDigits(section.icons.length)}
                         </span>
                       </h2>
                       <div className="grid">
@@ -784,18 +752,18 @@ export function App() {
           >
             <div
               className={`customizer-card ${isCustomized ? "customized" : ""}`}
-              dir="ltr"
-              lang="en"
+              dir="rtl"
+              lang="fa"
             >
               <div className="customizer-header">
-                <h2 className="customizer-title">Customizer</h2>
+                <h2 className="customizer-title">سفارشی‌سازی</h2>
                 <button
                   type="button"
                   className="customizer-reset"
                   disabled={!isCustomized}
                   onClick={resetCustomizer}
-                  aria-label="Reset customizer"
-                  title="Reset"
+                  aria-label="بازنشانی سفارشی‌سازی"
+                  title="بازنشانی"
                 >
                   ↺
                 </button>
@@ -803,25 +771,27 @@ export function App() {
 
               <label className="customizer-field">
                 <span className="customizer-label-row">
-                  <span>Size</span>
-                  <span className="customizer-value">{tileSize}px</span>
+                  <span>اندازه</span>
+                  <span className="customizer-value" dir="rtl" lang="fa">
+                    {toFaDigits(tileSize)}px
+                  </span>
                 </span>
                 <input
                   type="range"
                   min={16}
                   max={64}
-                  step={2}
+                  step={1}
                   value={tileSize}
                   onChange={(e) =>
                     updateCustomizer({ size: Number(e.target.value) })
                   }
-                  aria-label="Icon size"
+                  aria-label="اندازه آیکون"
                 />
               </label>
 
               <label className="customizer-field">
                 <span className="customizer-label-row">
-                  <span>Variant</span>
+                  <span>حالت</span>
                 </span>
                 <div className="customizer-segment" role="group">
                   <button
@@ -829,14 +799,14 @@ export function App() {
                     className={variant === "color" ? "active" : ""}
                     onClick={() => updateCustomizer({ variant: "color" })}
                   >
-                    Color
+                    رنگی
                   </button>
                   <button
                     type="button"
                     className={variant === "mono" ? "active" : ""}
                     onClick={() => updateCustomizer({ variant: "mono" })}
                   >
-                    Mono
+                    تک‌رنگ
                   </button>
                 </div>
               </label>
@@ -845,13 +815,13 @@ export function App() {
                 className={`customizer-field ${variant !== "mono" ? "is-disabled" : ""}`}
               >
                 <span className="customizer-label-row">
-                  <span>Color</span>
-                  <span className="customizer-value">
+                  <span>رنگ</span>
+                  <span className="customizer-value" dir="ltr">
                     {variant === "mono"
                       ? iconColor === "currentColor"
-                        ? "inherit"
+                        ? "ارث‌بری"
                         : iconColor
-                      : "brand"}
+                      : "برند"}
                   </span>
                 </span>
                 <div className="customizer-color-row">
@@ -865,7 +835,7 @@ export function App() {
                     onChange={(e) =>
                       updateCustomizer({ color: e.target.value })
                     }
-                    aria-label="Mono icon color"
+                    aria-label="رنگ آیکون تک‌رنگ"
                   />
                   <button
                     type="button"
@@ -875,7 +845,7 @@ export function App() {
                       updateCustomizer({ color: "currentColor" })
                     }
                   >
-                    Inherit
+                    ارث‌بری
                   </button>
                 </div>
               </label>
@@ -909,7 +879,9 @@ export function App() {
                 <span className="cat-row-label">
                   <span className="cat-fa">همه دسته‌ها</span>
                 </span>
-                <span className="cat-count">{totalVisible}</span>
+                <span className="cat-count" dir="rtl" lang="fa">
+                  {toFaDigits(totalVisible)}
+                </span>
               </button>
 
               {visibleCategories.map((c) => (
@@ -924,8 +896,8 @@ export function App() {
                   <span className="cat-row-label">
                     <span className="cat-fa">{c.labelFa}</span>
                   </span>
-                  <span className="cat-count">
-                    {categoryCounts.get(c.id) ?? c.count}
+                  <span className="cat-count" dir="rtl" lang="fa">
+                    {toFaDigits(categoryCounts.get(c.id) ?? c.count)}
                   </span>
                 </button>
               ))}
@@ -968,8 +940,10 @@ export function App() {
                     type="button"
                     className={`size-chip ${previewSize === s ? "active" : ""}`}
                     onClick={() => setPreviewSize(s)}
+                    dir="rtl"
+                    lang="fa"
                   >
-                    {s}
+                    {toFaDigits(s)}
                   </button>
                 ))}
               </div>

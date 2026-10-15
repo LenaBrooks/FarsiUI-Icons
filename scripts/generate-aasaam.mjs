@@ -28,10 +28,26 @@ const CATEGORY = {
  * Checkmark cutouts stay transparent so the host background shows through.
  */
 const BRAND_COLORS = {
-  asanpardakht: "#F04E23", // آپ / آسان‌پرداخت — primary from brand artwork
+  // Catalog order — solid Simple Icons–style fills (skip = no reliable logo color)
+  "40tikke": "#E85D04", // logo URL unreliable; warm craft accent from legacy mark refs
+  "55online": "#485CC7", // 55online.ir SVG fill (+ favicon ≈ #4455CC)
+  "7sobh": "#065D91", // 7sobh.com theme-color (favicon blue-dominant)
+  // 9sobh — not found
+  aasaam: "#070707", // aasaam.com theme-color / tile
+  // abidi — no direct logo path
+  afkarnews: "#880000", // afkarnews.com/images/aasaam.png dominant
+  // afta, amar, ansar — not found
+  aparat: "#ED145B", // aparat.com/logo — Simple Icons / brand palette
+  armanmeli: "#00A651", // armanmeli.ir favicon green (≈ #00AA55)
+  // arshehonline, artdayme — not found
+  arvancloud: "#00BABA", // Brandfetch / arvancloud favicon teal
+  asanpardakht: "#F04923", // asanpardakht Logofooter.svg .st0
+  asiatech: "#009FE3", // rangebrand.ir primary blue (logo URL 404)
+
   bale: "#00B894",
   behran: "#ED1C24", // نفت بهران — wordmark red
   eitaa: "#FF7534", // ایتا — official brand orange (eitaa.com/page/badge)
+  esteghlalfc: "#0067AD", // استقلال — primary blue from official mark / user logo
 };
 
 /** Map well-known slugs to nicer FA names. */
@@ -43,6 +59,9 @@ const NAME_FA = {
   divar: "دیوار",
   cafebazaar: "کافه‌بازار",
   zarinpal: "زرین‌پال",
+  "40tikke": "چهل‌تیکه",
+  "55online": "۵۵ آنلاین",
+  "7sobh": "هفت صبح",
   asanpardakht: "آسان‌پرداخت",
   behran: "بهران",
   melli: "بانک ملی",
@@ -54,6 +73,7 @@ const NAME_FA = {
   rightel: "رایتل",
   bale: "بله",
   eitaa: "ایتا",
+  esteghlalfc: "استقلال",
   rubika: "روبیکا",
   soroush: "سروش",
   shad: "شاد",
@@ -99,14 +119,20 @@ function titleFromSlug(slug) {
 }
 
 function optimizeSvg(svg) {
-  const withCurrentColor = svg.replace(
-    /fill=("|')(?!none\1)[^"']+\1/gi,
-    'fill="currentColor"',
-  );
-  return optimize(withCurrentColor, {
+  return optimize(svg, {
     multipass: true,
     plugins: ["preset-default", "removeDimensions"],
   }).data;
+}
+
+/** Stamp an explicit fill onto every paintable shape (not just parent <g>). */
+function applyShapeFill(inner, fill) {
+  return inner
+    .replace(/\sfill="[^"]*"/gi, "")
+    .replace(
+      /<(path|circle|rect|polygon|ellipse|polyline)\b/gi,
+      `<$1 fill="${fill}"`,
+    );
 }
 
 function parseSvg(svg, fill = "currentColor") {
@@ -118,7 +144,7 @@ function parseSvg(svg, fill = "currentColor") {
   if (!viewBox || viewBox.length !== 4 || viewBox.some(Number.isNaN)) {
     throw new Error("SVG is missing a valid viewBox");
   }
-  const inner = svg
+  let inner = svg
     .replace(/^[\s\S]*?<svg[^>]*>/i, "")
     .replace(/<\/svg>[\s\S]*$/i, "")
     .replace(/<(title|desc)\b[^>]*>[\s\S]*?<\/\1>/gi, "")
@@ -126,7 +152,8 @@ function parseSvg(svg, fill = "currentColor") {
     .replace(/\s+/g, " ")
     .replace(/> </g, "><")
     .trim();
-  const body = `<g fill="${fill}">${inner}</g>`;
+  inner = applyShapeFill(inner, fill);
+  const body = `<g>${inner}</g>`;
   return {
     viewBox: viewBox.join(" "),
     width: viewBox[2],

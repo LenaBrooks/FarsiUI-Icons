@@ -1,4 +1,5 @@
 import { iconCategories, iconManifest } from "@farsiui/icons";
+import { toFaDigits } from "./fa-digits";
 
 const PACKAGES = [
   {
@@ -70,9 +71,10 @@ export function PackagesPage() {
       <header className="doc-hero">
         <p className="doc-eyebrow">Packages</p>
         <h1>What ships in this repo</h1>
-        <p className="doc-lead">
-          {iconManifest.length} icons across {iconCategories.length} categories.
-          One npm package, two import paths.
+        <p className="doc-lead" dir="rtl" lang="fa">
+          {toFaDigits(iconManifest.length)} آیکون در{" "}
+          {toFaDigits(iconCategories.length)} دسته.
+          یک پکیج npm، دو مسیر import.
         </p>
       </header>
 
@@ -109,7 +111,11 @@ export function PackagesPage() {
               {SOURCES.map((s) => (
                 <tr key={s.id}>
                   <td>{s.label}</td>
-                  <td>{bySource.get(s.id) ?? "—"}</td>
+                  <td dir="rtl" lang="fa">
+                    {bySource.has(s.id)
+                      ? toFaDigits(bySource.get(s.id)!)
+                      : "—"}
+                  </td>
                   <td>{s.license}</td>
                   <td>{s.note}</td>
                 </tr>

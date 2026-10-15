@@ -94,7 +94,6 @@ export function createIcon({
         viewBox={viewBox}
         width={width}
         height={height}
-        fill="none"
         preserveAspectRatio="xMidYMid meet"
         className={className}
         style={style}

@@ -320,7 +320,9 @@ a {
 .cat-count {
   flex-shrink: 0;
   font-size: 0.75rem;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: normal;
+  font-feature-settings: "tnum" 0, "lnum" 0;
+  letter-spacing: -0.08em;
   opacity: 0.8;
 }
 
@@ -362,7 +364,9 @@ a {
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--muted);
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: normal;
+  font-feature-settings: "tnum" 0, "lnum" 0;
+  letter-spacing: -0.08em;
 }
 
 .customizer-card {
@@ -438,7 +442,9 @@ a {
 }
 
 .customizer-value {
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: normal;
+  font-feature-settings: "tnum" 0, "lnum" 0;
+  letter-spacing: -0.08em;
   color: var(--text);
   font-size: 0.75rem;
 }
@@ -541,7 +547,9 @@ a {
 .search-meta {
   font-size: 0.75rem;
   color: var(--muted);
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: normal;
+  font-feature-settings: "tnum" 0, "lnum" 0;
+  letter-spacing: -0.08em;
   white-space: nowrap;
 }
 
@@ -674,15 +682,17 @@ a {
   display: grid;
   grid-template-columns: repeat(
     auto-fill,
-    minmax(max(72px, calc(var(--icon-size, 28px) + 36px)), 1fr)
+    minmax(calc(var(--icon-size, 28px) + 20px), max-content)
   );
   gap: 8px;
+  justify-content: start;
 }
 
 .tile {
   position: relative;
   appearance: none;
-  aspect-ratio: 1;
+  width: calc(var(--icon-size, 28px) + 20px);
+  height: calc(var(--icon-size, 28px) + 20px);
   border: 1px solid transparent;
   background: var(--tile);
   border-radius: 12px;
@@ -691,6 +701,7 @@ a {
   align-items: center;
   justify-content: center;
   padding: 10px;
+  box-sizing: border-box;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
@@ -706,8 +717,8 @@ a {
 }
 
 .tile-icon {
-  width: max(40px, var(--icon-size, 28px));
-  height: max(40px, var(--icon-size, 28px));
+  width: var(--icon-size, 28px);
+  height: var(--icon-size, 28px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -841,7 +852,9 @@ a {
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: normal;
+  font-feature-settings: "tnum" 0, "lnum" 0;
+  letter-spacing: -0.08em;
   text-align: center;
 }
 
