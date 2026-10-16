@@ -33,6 +33,9 @@ export {
   type LogoIconProps,
 } from "./logo-icon";
 
+/** Named icon components — `import { BankMelliIcon } from "@farsiui/icons"` */
+export * from "./named-icons";
+
 export {
   persianLabsCategories,
   persianLabsManifest,
@@ -53,4 +56,8 @@ export {
   logosPerBanksCategories,
   logosPerBanksManifest,
 } from "./generated/logos-per-banks/catalog";
+export {
+  cryptoCategory,
+  cryptoManifest,
+} from "./generated/crypto/catalog";
 export { categoryDataLoaders } from "./icon-loaders";

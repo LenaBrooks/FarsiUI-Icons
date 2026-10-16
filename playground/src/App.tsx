@@ -36,8 +36,17 @@ const PREVIEW_FRAME_PX = 128;
 const CUSTOMIZER_DEFAULTS = {
   size: 28,
   variant: "color" as IconVariant,
-  color: "currentColor",
+  color: "#a1a1aa",
 };
+
+const COLOR_COMMIT_MS = 180;
+
+function normalizeCustomizerColor(value: unknown): string {
+  if (typeof value !== "string" || !value || value === "currentColor") {
+    return CUSTOMIZER_DEFAULTS.color;
+  }
+  return /^#[0-9a-fA-F]{6}$/.test(value) ? value : CUSTOMIZER_DEFAULTS.color;
+}
 
 function readStoredCustomizer(): typeof CUSTOMIZER_DEFAULTS {
   try {
@@ -50,10 +59,7 @@ function readStoredCustomizer(): typeof CUSTOMIZER_DEFAULTS {
           ? parsed.size
           : CUSTOMIZER_DEFAULTS.size,
       variant: parsed.variant === "mono" ? "mono" : "color",
-      color:
-        typeof parsed.color === "string" && parsed.color
-          ? parsed.color
-          : CUSTOMIZER_DEFAULTS.color,
+      color: normalizeCustomizerColor(parsed.color),
     };
   } catch {
     return { ...CUSTOMIZER_DEFAULTS };
@@ -75,28 +81,13 @@ async function copyText(text: string): Promise<boolean> {
   }
 }
 
-function BrandMark() {
+const REPO_URL = "https://github.com/MiladJoodi/FarsiUI-Icons";
+const REPO_API = "https://api.github.com/repos/MiladJoodi/FarsiUI-Icons";
+
+function GitHubIcon() {
   return (
-    <svg
-      className="brand-mark"
-      width="28"
-      height="28"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden
-    >
-      <path
-        d="M14 12a4 4 0 1 0-8 0c0 4.418 3.582 8 8 8s8-3.582 8-8c0-3.554-1.545-6.747-4-8.944"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M10 12a4 4 0 1 0 8 0c0-4.418-3.582-8-8-8S2 7.582 2 12c0 3.584 1.571 6.801 4.063 9"
-        stroke="#f56565"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M12 2C6.477 2 2 6.486 2 12.021c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.866-.013-1.7-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.467-1.11-1.467-.908-.621.069-.608.069-.608 1.004.071 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.952 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.56 9.56 0 0 1 12 6.844a9.56 9.56 0 0 1 2.504.337c1.909-1.296 2.747-1.026 2.747-1.026.546 1.378.203 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.944.359.31.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.58.688.481A10.02 10.02 0 0 0 22 12.021C22 6.486 17.523 2 12 2Z" />
     </svg>
   );
 }
@@ -117,12 +108,19 @@ function SearchIcon() {
 
 function SunIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
+    <svg
+      className="nav-theme-icon"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.75" />
       <path
-        d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+        d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.4 5.4l1.55 1.55M17.05 17.05l1.55 1.55M5.4 18.6l1.55-1.55M17.05 6.95l1.55-1.55"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1.75"
         strokeLinecap="round"
       />
     </svg>
@@ -131,11 +129,18 @@ function SunIcon() {
 
 function MoonIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+    <svg
+      className="nav-theme-icon"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+    >
       <path
-        d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"
+        d="M20.2 14.1A7.8 7.8 0 0 1 9.9 3.8 8.4 8.4 0 1 0 20.2 14.1Z"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1.75"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -221,7 +226,6 @@ function hasPersianScript(value: string): boolean {
 export function App() {
   const [page, setPage] = useState<PageId>(() => pageFromHash());
   const [query, setQuery] = useState("");
-  const [categoryQuery, setCategoryQuery] = useState("");
   /** Highlights sidebar + scroll target; does not filter the grid. */
   const [activeGroup, setActiveGroup] = useState<DisplayGroupId | "all">(
     "all",
@@ -230,6 +234,9 @@ export function App() {
   const variant = customizer.variant;
   const tileSize = customizer.size;
   const iconColor = customizer.color;
+  /** Local draft so the color picker stays snappy; gallery commits after debounce. */
+  const [colorDraft, setColorDraft] = useState(iconColor);
+  const colorCommitTimer = useRef<number | null>(null);
   const [previewSize, setPreviewSize] =
     useState<(typeof PREVIEW_SIZES)[number]>(48);
   const previewRenderPx = Math.round(
@@ -245,6 +252,10 @@ export function App() {
   const [copiedKind, setCopiedKind] = useState<"svg" | "jsx" | "import" | null>(
     null,
   );
+  const [usageCopied, setUsageCopied] = useState<"install" | "import" | null>(
+    null,
+  );
+  const [starCount, setStarCount] = useState<number | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
@@ -272,17 +283,26 @@ export function App() {
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
-  const groups = useMemo(() => {
-    const q = categoryQuery.trim();
-    if (!q) return displayGroups;
-    const qLower = q.toLowerCase();
-    return displayGroups.filter(
-      (g) =>
-        g.labelFa.includes(q) ||
-        g.labelEn.toLowerCase().includes(qLower) ||
-        g.id.includes(qLower),
-    );
-  }, [categoryQuery]);
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(REPO_API, {
+          headers: { Accept: "application/vnd.github+json" },
+        });
+        if (!res.ok) return;
+        const data = (await res.json()) as { stargazers_count?: number };
+        if (!cancelled && typeof data.stargazers_count === "number") {
+          setStarCount(data.stargazers_count);
+        }
+      } catch {
+        /* ignore network errors */
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const filtered = useMemo(() => {
     return iconManifest.filter((entry) => entryMatchesQuery(entry, query));
@@ -315,8 +335,8 @@ export function App() {
   }, []);
 
   const visibleGroups = useMemo(() => {
-    return groups.filter((g) => (groupCounts.get(g.id) ?? 0) > 0);
-  }, [groups, groupCounts]);
+    return displayGroups.filter((g) => (groupCounts.get(g.id) ?? 0) > 0);
+  }, [groupCounts]);
 
   const totalVisible = iconManifest.length;
 
@@ -358,9 +378,53 @@ export function App() {
     setCustomizer((prev) => ({ ...prev, ...patch }));
   }
 
+  function commitIconColor(next: string) {
+    const color = normalizeCustomizerColor(next);
+    setColorDraft(color);
+    setCustomizer((prev) =>
+      prev.color === color ? prev : { ...prev, color },
+    );
+  }
+
+  function onColorDraftChange(next: string) {
+    setColorDraft(next);
+    if (colorCommitTimer.current != null) {
+      window.clearTimeout(colorCommitTimer.current);
+    }
+    colorCommitTimer.current = window.setTimeout(() => {
+      colorCommitTimer.current = null;
+      commitIconColor(next);
+    }, COLOR_COMMIT_MS);
+  }
+
+  function flushColorDraft() {
+    if (colorCommitTimer.current != null) {
+      window.clearTimeout(colorCommitTimer.current);
+      colorCommitTimer.current = null;
+    }
+    commitIconColor(colorDraft);
+  }
+
   function resetCustomizer() {
+    if (colorCommitTimer.current != null) {
+      window.clearTimeout(colorCommitTimer.current);
+      colorCommitTimer.current = null;
+    }
+    setColorDraft(CUSTOMIZER_DEFAULTS.color);
     setCustomizer({ ...CUSTOMIZER_DEFAULTS });
   }
+
+  useEffect(() => {
+    setColorDraft(iconColor);
+  }, [iconColor]);
+
+  useEffect(() => {
+    return () => {
+      if (colorCommitTimer.current != null) {
+        window.clearTimeout(colorCommitTimer.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -514,7 +578,7 @@ export function App() {
   }, [page]);
 
   const importLine = selected
-    ? `import { ${selected.componentName} } from "@farsiui/icons/icons";`
+    ? `import { ${selected.componentName} } from "@farsiui/icons";`
     : "";
   const jsxLine = selected
     ? `<${selected.componentName} size={${previewSize}} variant="${variant}" />`
@@ -554,22 +618,21 @@ export function App() {
 
   return (
     <div className="app">
-      <header className="site-nav">
+      <header className="site-nav" dir="rtl" lang="fa">
         <div className="site-nav-inner">
           <a
             className="nav-brand"
             href="#icons"
-            aria-label="FarsiUI Icons"
+            aria-label="فارسی‌آیکون"
             onClick={(e) => {
               e.preventDefault();
               go("icons");
             }}
           >
-            <BrandMark />
-            <span className="nav-brand-text">FarsiUI Icons</span>
+            <span className="nav-brand-text">فارسی‌آیکون</span>
           </a>
 
-          <nav className="nav-links" aria-label="Main">
+          <nav className="nav-links" aria-label="منوی اصلی" dir="ltr" lang="en">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.page}
@@ -586,13 +649,31 @@ export function App() {
           </nav>
 
           <div className="nav-controls">
+            <a
+              className="nav-star-btn"
+              href={REPO_URL}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={
+                starCount != null
+                  ? `${starCount} stars on GitHub`
+                  : "GitHub repository"
+              }
+            >
+              <GitHubIcon />
+              {starCount != null ? (
+                <span className="nav-star-count" dir="ltr" lang="en">
+                  {starCount}
+                </span>
+              ) : null}
+            </a>
+
             <button
               type="button"
               className="nav-icon-btn"
               aria-label={
-                theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+                theme === "dark" ? "حالت روشن" : "حالت تاریک"
               }
-              title="Appearance"
               onClick={() =>
                 setTheme((t) => (t === "dark" ? "light" : "dark"))
               }
@@ -603,7 +684,7 @@ export function App() {
             <button
               type="button"
               className={`nav-icon-btn hamburger ${navOpen ? "open" : ""}`}
-              aria-label="Menu"
+              aria-label="منو"
               aria-expanded={navOpen}
               onClick={() => setNavOpen((v) => !v)}
             >
@@ -663,16 +744,58 @@ export function App() {
                   type="search"
                   dir="rtl"
                   lang="fa"
-                  placeholder="جستجو: دیجی‌کالا، ملی، snapp…"
+                  placeholder="جستجو"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  aria-label="Search icons"
+                  aria-label="جستجو"
                 />
-                <span className="search-meta" dir="rtl" lang="fa">
-                  {toFaDigits(filtered.length)}/{toFaDigits(totalVisible)}
-                </span>
                 <span className="kbd">Ctrl+K</span>
               </label>
+            </div>
+
+            <div className="usage-strip" dir="ltr" lang="en">
+              <div className="usage-row">
+                <span className="usage-label">نصب</span>
+                <code className="usage-code">npm install @farsiui/icons</code>
+                <button
+                  type="button"
+                  className="usage-copy"
+                  aria-label="کپی دستور نصب"
+                  title={usageCopied === "install" ? "کپی شد" : "کپی"}
+                  onClick={async () => {
+                    const ok = await copyText("npm install @farsiui/icons");
+                    if (ok) {
+                      setUsageCopied("install");
+                      window.setTimeout(() => setUsageCopied(null), 1200);
+                    }
+                  }}
+                >
+                  {usageCopied === "install" ? <CheckIcon /> : <CopyIcon />}
+                </button>
+              </div>
+              <div className="usage-row">
+                <span className="usage-label">مثال</span>
+                <code className="usage-code">
+                  {`import { IspRightelIcon } from "@farsiui/icons";`}
+                </code>
+                <button
+                  type="button"
+                  className="usage-copy"
+                  aria-label="کپی مثال import"
+                  title={usageCopied === "import" ? "کپی شد" : "کپی"}
+                  onClick={async () => {
+                    const ok = await copyText(
+                      `import { IspRightelIcon } from "@farsiui/icons";`,
+                    );
+                    if (ok) {
+                      setUsageCopied("import");
+                      window.setTimeout(() => setUsageCopied(null), 1200);
+                    }
+                  }}
+                >
+                  {usageCopied === "import" ? <CheckIcon /> : <CopyIcon />}
+                </button>
+              </div>
             </div>
 
             <p className="gallery-caption" dir="rtl" lang="fa">
@@ -707,7 +830,7 @@ export function App() {
                             size={tileSize}
                             variant={variant}
                             style={
-                              variant === "mono" && iconColor !== "currentColor"
+                              variant === "mono"
                                 ? { color: iconColor }
                                 : undefined
                             }
@@ -762,8 +885,7 @@ export function App() {
                                   size={tileSize}
                                   variant={variant}
                                   style={
-                                    variant === "mono" &&
-                                    iconColor !== "currentColor"
+                                    variant === "mono"
                                       ? { color: iconColor }
                                       : undefined
                                   }
@@ -793,26 +915,25 @@ export function App() {
               lang="fa"
             >
               <div className="customizer-header">
-                <h2 className="customizer-title">سفارشی‌سازی</h2>
-                <button
-                  type="button"
-                  className="customizer-reset"
-                  disabled={!isCustomized}
-                  onClick={resetCustomizer}
-                  aria-label="بازنشانی سفارشی‌سازی"
-                  title="بازنشانی"
-                >
-                  ↺
-                </button>
-              </div>
-
-              <label className="customizer-field">
-                <span className="customizer-label-row">
-                  <span>اندازه</span>
+                <h2 className="customizer-title">نمایش</h2>
+                <div className="customizer-header-actions">
                   <span className="customizer-value" dir="rtl" lang="fa">
                     {toFaDigits(tileSize)}px
                   </span>
-                </span>
+                  <button
+                    type="button"
+                    className="customizer-reset"
+                    disabled={!isCustomized}
+                    onClick={resetCustomizer}
+                    aria-label="بازنشانی"
+                    title="بازنشانی"
+                  >
+                    ↺
+                  </button>
+                </div>
+              </div>
+
+              <label className="customizer-field customizer-field-size">
                 <input
                   type="range"
                   min={16}
@@ -826,11 +947,8 @@ export function App() {
                 />
               </label>
 
-              <label className="customizer-field">
-                <span className="customizer-label-row">
-                  <span>حالت</span>
-                </span>
-                <div className="customizer-segment" role="group">
+              <div className="customizer-toolbar" role="group" aria-label="حالت و رنگ">
+                <div className="customizer-segment">
                   <button
                     type="button"
                     className={variant === "color" ? "active" : ""}
@@ -846,60 +964,22 @@ export function App() {
                     تک‌رنگ
                   </button>
                 </div>
-              </label>
-
-              <label
-                className={`customizer-field ${variant !== "mono" ? "is-disabled" : ""}`}
-              >
-                <span className="customizer-label-row">
-                  <span>رنگ</span>
-                  <span className="customizer-value" dir="ltr">
-                    {variant === "mono"
-                      ? iconColor === "currentColor"
-                        ? "ارث‌بری"
-                        : iconColor
-                      : "برند"}
-                  </span>
-                </span>
-                <div className="customizer-color-row">
+                <div
+                  className={`customizer-color-row ${variant !== "mono" ? "is-disabled" : ""}`}
+                >
                   <input
                     type="color"
                     className="customizer-color"
-                    value={
-                      iconColor === "currentColor" ? "#a1a1aa" : iconColor
-                    }
+                    value={colorDraft}
                     disabled={variant !== "mono"}
-                    onChange={(e) =>
-                      updateCustomizer({ color: e.target.value })
-                    }
+                    onChange={(e) => onColorDraftChange(e.target.value)}
+                    onBlur={flushColorDraft}
                     aria-label="رنگ آیکون تک‌رنگ"
+                    title={variant === "mono" ? colorDraft : "رنگ برند"}
                   />
-                  <button
-                    type="button"
-                    className="customizer-color-inherit"
-                    disabled={variant !== "mono"}
-                    onClick={() =>
-                      updateCustomizer({ color: "currentColor" })
-                    }
-                  >
-                    ارث‌بری
-                  </button>
                 </div>
-              </label>
+              </div>
             </div>
-
-            <label className="cat-filter">
-              <SearchIcon />
-              <input
-                type="search"
-                dir="rtl"
-                lang="fa"
-                placeholder="جستجوی دسته…"
-                value={categoryQuery}
-                onChange={(e) => setCategoryQuery(e.target.value)}
-                aria-label="جستجوی دسته‌بندی"
-              />
-            </label>
 
             <div
               className="cat-list"
@@ -960,9 +1040,7 @@ export function App() {
                   variant={variant}
                   title={drawerTitle}
                   style={
-                    variant === "mono" && iconColor !== "currentColor"
-                      ? { color: iconColor }
-                      : undefined
+                    variant === "mono" ? { color: iconColor } : undefined
                   }
                 />
               </div>
@@ -1064,7 +1142,7 @@ export function App() {
                     <span className="tok-id">{selected.componentName}</span>
                     <span className="tok-punc"> {"}"} </span>
                     <span className="tok-kw">from</span>{" "}
-                    <span className="tok-str">"@farsiui/icons/icons"</span>
+                    <span className="tok-str">"@farsiui/icons"</span>
                     <span className="tok-punc">;</span>
                   </code>
                 </pre>

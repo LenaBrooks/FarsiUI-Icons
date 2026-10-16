@@ -9,7 +9,8 @@ Includes:
 - **40** marks from [persian-simple-icons](https://github.com/mojtabaahn/persian-simple-icons) (MIT) — monochrome brand icons
 - **5** utility service marks from logos-per-service — color + mono (برق، گاز، آب، پست، مخابرات)
 - **52** bank/gateway marks from [zegond/logos-per-banks](https://github.com/zegond/logos-per-banks) (CC0) — color + mono
-- **70** curated tech/social brands from [vorillaz/devicons](https://github.com/vorillaz/devicons) (MIT) — Telegram, React, GitHub, …
+- **200** curated tech/social brands from [vorillaz/devicons](https://github.com/vorillaz/devicons) (MIT) — Telegram, React, GitHub, …
+- **100** popular cryptocurrency marks from [react-crypto-icons](https://github.com/rileystephens28/react-crypto-icons) (MIT) — BTC, ETH, …
 
 ## Install
 
@@ -42,7 +43,7 @@ import {
   PsiDigikalaIcon,
   LpsElectricityIcon,
   LpbBankMelliIcon,
-} from "@farsiui/icons/icons";
+} from "@farsiui/icons";
 
 <BankMelliIcon size={32} />
 <WebsiteDigikalaIcon size={32} variant="mono" title="Digikala" />
@@ -101,3 +102,4 @@ MIT for package code.
 - logos-per-service: see [zegond/logos-per-service](https://github.com/zegond/logos-per-service)
 - logos-per-banks: CC0 — [zegond/logos-per-banks](https://github.com/zegond/logos-per-banks)
 - Devicons (curated): MIT — [vorillaz/devicons](https://github.com/vorillaz/devicons)
+- Crypto: MIT — [rileystephens28/react-crypto-icons](https://github.com/rileystephens28/react-crypto-icons)

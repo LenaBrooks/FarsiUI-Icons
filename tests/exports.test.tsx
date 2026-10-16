@@ -1,19 +1,17 @@
 import { createElement } from "react";
 import { describe, expect, it } from "vitest";
 import {
-  LogoIcon,
-  getIconManifestEntry,
-  iconCategories,
-  iconManifest,
-} from "@farsiui/icons";
-import {
   AasaamDigikalaIcon,
   BankMelliIcon,
+  LogoIcon,
   LpbBankMelliIcon,
   LpsElectricityIcon,
   PsiDigikalaIcon,
   WebsiteDigikalaIcon,
-} from "../src/named-icons";
+  getIconManifestEntry,
+  iconCategories,
+  iconManifest,
+} from "@farsiui/icons";
 
 describe("package exports", () => {
   it("ships all source catalogs", () => {

@@ -18,5 +18,6 @@ export const categoryDataLoaders: Record<
   "logos-per-gateways": () =>
     import("./generated/logos-per-banks/data/logos-per-gateways"),
   devicons: () => import("./generated/devicons/data"),
+  crypto: () => import("./generated/crypto/data"),
   manual: () => import("./generated/manual/data"),
 };

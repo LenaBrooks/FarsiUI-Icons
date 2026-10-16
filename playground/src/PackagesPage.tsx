@@ -4,13 +4,8 @@ import { toFaDigits } from "./fa-digits";
 const PACKAGES = [
   {
     name: "@farsiui/icons",
-    blurb: "Main entry: LogoIcon, catalog, loaders, types.",
-    importExample: `import { LogoIcon, iconManifest } from "@farsiui/icons";`,
-  },
-  {
-    name: "@farsiui/icons/icons",
-    blurb: "Named icon components for tree-shaking.",
-    importExample: `import { BankMelliIcon } from "@farsiui/icons/icons";`,
+    blurb: "LogoIcon، کاتالوگ، و کامپوننت‌های نام‌دار (tree-shake).",
+    importExample: `import { LogoIcon, BankMelliIcon, iconManifest } from "@farsiui/icons";`,
   },
 ];
 
@@ -50,6 +45,12 @@ const SOURCES = [
     label: "Devicons (curated)",
     license: "MIT",
     note: "Telegram, React, GitHub, … — curated for Iranian dev UIs",
+  },
+  {
+    id: "crypto",
+    label: "Crypto",
+    license: "MIT",
+    note: "100 popular cryptocurrency marks (react-crypto-icons)",
   },
   {
     id: "manual",

@@ -121,29 +121,24 @@ export function PayRow() {
       <section className="doc-section">
         <h2>Tree-shake (named icons)</h2>
         <p>
-          Prefer named components from <code>@farsiui/icons/icons</code> when you
-          know the icon at build time — bundlers can drop unused modules.
+          Prefer named components from <code>@farsiui/icons</code> when you know
+          the icon at build time — bundlers can drop unused modules.
         </p>
         <CodeBlock
           label="tsx"
-          code={`import { BankMelliIcon, WebsiteDigikalaIcon } from "@farsiui/icons/icons";
+          code={`import { IspRightelIcon } from "@farsiui/icons";
 
-export function Brands() {
-  return (
-    <>
-      <BankMelliIcon size={32} title="Melli" />
-      <WebsiteDigikalaIcon size={32} variant="mono" />
-    </>
-  );
+export function Brand() {
+  return <IspRightelIcon size={32} title="رایتل" />;
 }`}
         />
         <ul className="doc-list">
           <li>
-            <code>@farsiui/icons</code> — catalog helpers + <code>LogoIcon</code>
+            <code>LogoIcon</code> — by catalog id (lazy category data)
           </li>
           <li>
-            <code>@farsiui/icons/icons</code> — per-icon components (best for
-            production UI)
+            Named exports like <code>BankMelliIcon</code> — best for production
+            UI
           </li>
         </ul>
       </section>

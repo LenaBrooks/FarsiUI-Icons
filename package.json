@@ -34,6 +34,7 @@
     "generate:logos-per-service": "node scripts/generate-logos-per-service.mjs",
     "generate:logos-per-banks": "node scripts/generate-logos-per-banks.mjs",
     "generate:devicons": "node scripts/generate-devicons.mjs",
+    "generate:crypto": "node scripts/generate-crypto.mjs",
     "generate:manual": "node scripts/generate-manual.mjs",
     "dev": "vite --config vite.config.ts",
     "build": "tsup",

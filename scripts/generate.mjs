@@ -10,6 +10,7 @@ const scripts = [
   "generate-logos-per-service.mjs",
   "generate-logos-per-banks.mjs",
   "generate-devicons.mjs",
+  "generate-crypto.mjs",
   "generate-manual.mjs",
 ];
 

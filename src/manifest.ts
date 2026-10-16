@@ -23,6 +23,10 @@ import {
   deviconsManifest,
 } from "./generated/devicons/catalog";
 import {
+  cryptoCategory,
+  cryptoManifest,
+} from "./generated/crypto/catalog";
+import {
   manualCategory,
   manualManifest,
 } from "./generated/manual/catalog";
@@ -38,6 +42,7 @@ export const iconManifest: IconManifestEntry[] = [
   ...logosPerServiceManifest,
   ...logosPerBanksManifest,
   ...deviconsManifest,
+  ...cryptoManifest,
   ...manualManifest,
 ];
 
@@ -48,6 +53,7 @@ export const iconCategories: IconCategoryMeta[] = [
   logosPerServiceCategory,
   ...logosPerBanksCategories,
   deviconsCategory,
+  cryptoCategory,
   manualCategory,
 ];
 

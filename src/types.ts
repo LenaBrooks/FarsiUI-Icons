@@ -29,6 +29,7 @@ export type IconCategory =
   | "logos-per-banks"
   | "logos-per-gateways"
   | "devicons"
+  | "crypto"
   | "manual";
 
 export type VerificationStatus = "verified" | "needs-official-svg";
@@ -42,6 +43,7 @@ export type IconSource =
   | "logos-per-service"
   | "logos-per-banks"
   | "devicons"
+  | "crypto"
   | "manual";
 
 export interface IconProps extends SVGProps<SVGSVGElement> {

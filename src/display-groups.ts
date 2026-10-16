@@ -15,6 +15,7 @@ export type DisplayGroupId =
   | "org"
   | "utility"
   | "developer"
+  | "crypto"
   | "brands";
 
 export interface DisplayGroupMeta {
@@ -47,6 +48,7 @@ export const displayGroups: DisplayGroupMeta[] = [
     labelFa: "دولوپر و ابزار",
     labelEn: "Developer & Tools",
   },
+  { id: "crypto", labelFa: "رمزارز", labelEn: "Crypto" },
   { id: "brands", labelFa: "برندها", labelEn: "Brands" },
 ];
 
@@ -77,6 +79,7 @@ const CATEGORY_TO_GROUP: Partial<Record<IconCategory, DisplayGroupId>> = {
   university: "org",
   "logos-per-service": "utility",
   devicons: "developer",
+  crypto: "crypto",
   // Source dumps classified by keywords / fallback:
   aasaam: "brands",
   "persian-simple-icons": "brands",

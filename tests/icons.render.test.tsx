@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { BankMelliIcon, WebsiteDigikalaIcon } from "../src/named-icons";
+import { BankMelliIcon, WebsiteDigikalaIcon } from "@farsiui/icons";
 
 describe("icon rendering", () => {
   it("renders WebsiteDigikalaIcon as an svg with accessible title", () => {
