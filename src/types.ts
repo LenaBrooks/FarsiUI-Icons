@@ -30,6 +30,7 @@ export type IconCategory =
   | "logos-per-gateways"
   | "devicons"
   | "crypto"
+  | "social"
   | "manual";
 
 export type VerificationStatus = "verified" | "needs-official-svg";
@@ -44,6 +45,7 @@ export type IconSource =
   | "logos-per-banks"
   | "devicons"
   | "crypto"
+  | "social"
   | "manual";
 
 export interface IconProps extends SVGProps<SVGSVGElement> {
@@ -83,6 +85,8 @@ export interface IconManifestEntry {
   sourceUrl: string;
   verificationStatus: VerificationStatus;
   notes?: string;
+  /** Optional brand palette hex codes shown in the playground drawer. */
+  brandColors?: string[];
   viewBox: string;
   aspectRatio: number;
 }

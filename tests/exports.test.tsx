@@ -1,13 +1,10 @@
 import { createElement } from "react";
 import { describe, expect, it } from "vitest";
 import {
-  AasaamDigikalaIcon,
   BankMelliIcon,
+  DigikalaIcon,
   LogoIcon,
-  LpbBankMelliIcon,
-  LpsElectricityIcon,
-  PsiDigikalaIcon,
-  WebsiteDigikalaIcon,
+  ZarinpalIcon,
   getIconManifestEntry,
   iconCategories,
   iconManifest,
@@ -16,9 +13,9 @@ import {
 describe("package exports", () => {
   it("ships all source catalogs", () => {
     expect(iconManifest.length).toBeGreaterThan(790);
-    expect(iconCategories.length).toBe(28);
-    expect(getIconManifestEntry("dev-telegram")?.componentName).toBe(
-      "DevTelegramIcon",
+    expect(iconCategories.length).toBe(30);
+    expect(getIconManifestEntry("dev-telegram")?.componentName).toMatch(
+      /^Telegram\d*Icon$/,
     );
     expect(getIconManifestEntry("shenakhti")?.componentName).toBe(
       "ShenakhtiIcon",
@@ -35,17 +32,18 @@ describe("package exports", () => {
     expect(getIconManifestEntry("bank-melli")?.componentName).toBe(
       "BankMelliIcon",
     );
-    expect(getIconManifestEntry("aasaam-digikala")?.componentName).toBe(
-      "AasaamDigikalaIcon",
+    // Manual curated mark wins bare ZarinpalIcon (no Aasaam/Psi source prefix).
+    expect(getIconManifestEntry("zarinpal")?.componentName).toBe(
+      "ZarinpalIcon",
     );
-    expect(getIconManifestEntry("psi-digikala")?.componentName).toBe(
-      "PsiDigikalaIcon",
-    );
-    expect(getIconManifestEntry("lps-electricity")?.componentName).toBe(
-      "LpsElectricityIcon",
-    );
-    expect(getIconManifestEntry("lpb-bank-melli")?.componentName).toBe(
-      "LpbBankMelliIcon",
+    expect(
+      getIconManifestEntry("aasaam-zarinpal")?.componentName,
+    ).not.toMatch(/Aasaam|Psi|Lps|Lpb|Social|Dev|Crypto/i);
+    expect(
+      getIconManifestEntry("aasaam-digikala")?.componentName,
+    ).not.toMatch(/Aasaam|Psi/i);
+    expect(getIconManifestEntry("lps-electricity")?.componentName).toMatch(
+      /^Electricity\d*Icon$/,
     );
   });
 
@@ -55,15 +53,26 @@ describe("package exports", () => {
     expect(el.type).toBe(LogoIcon);
   });
 
-  it("exports named icon components", () => {
+  it("exports named icon components without source prefixes", () => {
     expect(BankMelliIcon).toBeTruthy();
-    expect(WebsiteDigikalaIcon).toBeTruthy();
-    expect(AasaamDigikalaIcon).toBeTruthy();
-    expect(PsiDigikalaIcon).toBeTruthy();
-    expect(LpsElectricityIcon).toBeTruthy();
-    expect(LpbBankMelliIcon).toBeTruthy();
+    expect(ZarinpalIcon).toBeTruthy();
+    expect(DigikalaIcon).toBeTruthy();
     const el = createElement(BankMelliIcon, { size: 24, title: "Melli" });
     expect(el.type).toBe(BankMelliIcon);
+  });
+
+  it("component names never include source labels", () => {
+    // Ban source-pack prefixes glued onto another brand (AasaamDigikalaIcon),
+    // but allow the brand itself (aasaam-aasaam → AasaamIcon).
+    // Social* is OK for persian-labs social-media (topical, like Bank*/App*).
+    const banned =
+      /^(Aasaam|Psi|Lps|Lpb|LpbBank|LpbGateway|Dev|Crypto)(?!Icon$)[A-Z]/;
+    for (const entry of iconManifest) {
+      expect(
+        entry.componentName,
+        `${entry.id} → ${entry.componentName}`,
+      ).not.toMatch(banned);
+    }
   });
 
   it("categories include banks with counts", () => {

@@ -13,6 +13,7 @@ export type {
 export type { DisplayGroupId, DisplayGroupMeta } from "./display-groups";
 export {
   displayGroups,
+  FEATURED_ICON_IDS,
   getDisplayGroupId,
   getDisplayGroupMeta,
 } from "./display-groups";
@@ -60,4 +61,8 @@ export {
   cryptoCategory,
   cryptoManifest,
 } from "./generated/crypto/catalog";
+export {
+  socialCategory,
+  socialManifest,
+} from "./generated/social/catalog";
 export { categoryDataLoaders } from "./icon-loaders";

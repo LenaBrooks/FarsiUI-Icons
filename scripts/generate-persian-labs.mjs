@@ -7,6 +7,11 @@ import { basename, dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
+import {
+  flushComponentRegistry,claimComponentName,
+  unregisterIds,
+} from "./lib/component-registry.mjs";
+
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(root, "assets", "persian-labs");
@@ -274,6 +279,10 @@ if (files.length === 0) {
   throw new Error(`No SVGs found under ${sourceRoot}`);
 }
 
+unregisterIds((id) =>
+  Object.values(CATEGORIES).some((c) => id.startsWith(`${c.prefix}-`)),
+);
+
 /** @type {Map<string, { id: string, slug: string, category: string, nameEn: string, nameFa: string, componentName: string, color?: object, mono?: object }>} */
 const byId = new Map();
 
@@ -309,7 +318,7 @@ for (const file of files) {
     nameEn = `Bank ${nameEn}`;
   }
   const nameFa = nameFaFor(slug, nameEn);
-  const componentName = `${pascal(id)}Icon`;
+  const componentName = claimComponentName(`${pascal(id)}Icon`, id);
 
   let entry = byId.get(id);
   if (!entry) {
@@ -452,6 +461,7 @@ await writeFile(
 );
 
 const colorBytes = Buffer.byteLength(serialize(allData));
+flushComponentRegistry();
 console.log(
   `Generated ${icons.length} icons across ${categoryIds.length} categories`,
 );

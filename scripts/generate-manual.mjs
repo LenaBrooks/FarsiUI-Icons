@@ -9,6 +9,12 @@ import { mkdir, readdir, readFile, writeFile, rm } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
+import {
+  flushComponentRegistry,claimComponentName,
+  preferredIconName,
+  unregisterIds,
+} from "./lib/component-registry.mjs";
+
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(root, "assets", "manual");
@@ -27,6 +33,12 @@ const NAME_FA = {
   "banana-ai": "Banana AI",
   farsiui: "فارسی‌یوآی",
   pixevel: "پیکسیول",
+  easycandle: "ایزی‌کندل",
+  gapgpt: "گپ‌جی‌پی‌تی",
+  claude: "کلود",
+  vercel: "ورسل",
+  netlify: "نتلی‌فای",
+  zarinpal: "زرین‌پال",
 };
 
 const NAME_EN = {
@@ -35,11 +47,46 @@ const NAME_EN = {
   "banana-ai": "Banana AI",
   farsiui: "FarsiUI",
   pixevel: "Pixevel",
+  easycandle: "EasyCandle",
+  gapgpt: "GapGPT",
+  claude: "Claude",
+  vercel: "Vercel",
+  netlify: "Netlify",
+  zarinpal: "Zarinpal",
 };
 
 const COMPONENT = {
   farsiui: "FarsiUIIcon",
   "banana-ai": "BananaAIIcon",
+  gapgpt: "GapGPTIcon",
+  claude: "ClaudeIcon",
+  vercel: "VercelIcon",
+  netlify: "NetlifyIcon",
+  zarinpal: "ZarinpalIcon",
+};
+
+const SOURCE_URL = {
+  easycandle: "https://easycandle.app/easycandle-icon.svg",
+  gapgpt: "https://gapgpt.app/model_icons/gapgpt-icon-v3.png",
+  claude:
+    "https://commons.wikimedia.org/wiki/File:Claude_AI_symbol.svg",
+  vercel: "https://www.svgrepo.com/show/354513/vercel-icon.svg",
+  netlify: "https://www.svgrepo.com/show/354110/netlify.svg",
+  zarinpal: "https://connect.zarinpal.com/media_files/img/ZarinPal-Logo.svg",
+};
+
+/** Brand palette samples shown in playground drawer. */
+const BRAND_COLORS = {
+  easycandle: ["#0B2A4A", "#FFC400", "#FF7A00"],
+  vibefarsi: ["#E39A8E", "#cf5c49"],
+  pixevel: ["#111111", "#FCFCFA", "#F8A8B8"],
+  farsiui: ["#2E2E2E", "#FFFFFF"],
+  "banana-ai": ["#000000", "#FE8301"],
+  shenakhti: ["#009FE3"],
+  claude: ["#D97757"],
+  vercel: ["#000000"],
+  netlify: ["#00C7B7"],
+  zarinpal: ["#FFD60A", "#0A33FF"],
 };
 
 function kebab(value) {
@@ -74,6 +121,49 @@ function titleFromSlug(slug) {
 
 function hasRasterEmbed(svg) {
   return /<image\b/i.test(svg) || /data:image\//i.test(svg);
+}
+
+/**
+ * Build a mono glyph that follows CSS `color` / currentColor.
+ * Vectors: rewrite fills/strokes. Rasters: luminance/alpha mask + rect.
+ * @param {{ viewBox: string, width: number, height: number, body: string }} glyph
+ * @param {string} idPrefix
+ * @param {boolean} raster
+ */
+function toMonoGlyph(glyph, idPrefix, raster) {
+  if (!raster) {
+    let body = glyph.body
+      .replace(/\sfill=(")(?!none\1)[^"]*\1/gi, ' fill="currentColor"')
+      .replace(/\sfill=(')(?!none\1)[^']*\1/gi, " fill='currentColor'")
+      .replace(/\sstroke=(")(?!none\1)[^"]*\1/gi, ' stroke="currentColor"')
+      .replace(/\sstroke=(')(?!none\1)[^']*\1/gi, " stroke='currentColor'")
+      .replace(/\sstop-color=("[^"]*"|'[^']*')/gi, ' stop-color="currentColor"');
+    // SVGO often drops fill="#000" (SVG default). Without an explicit fill,
+    // mono stays black and ignores CSS `color` — force currentColor.
+    body = body.replace(
+      /<(path|circle|rect|polygon|ellipse|polyline)\b([^>]*?)(\/?)\s*>/gi,
+      (full, tag, attrs, selfClose) => {
+        if (/\bfill\s*=/i.test(attrs)) return full;
+        if (/\bstroke\s*=/i.test(attrs)) {
+          return `<${tag}${attrs} fill="none"${selfClose}>`;
+        }
+        return `<${tag}${attrs} fill="currentColor"${selfClose}>`;
+      },
+    );
+    return { ...glyph, body };
+  }
+
+  const image = glyph.body.match(/<image\b[^>]*\/?>/i)?.[0];
+  if (!image) return glyph;
+
+  const [vx, vy, vw, vh] = glyph.viewBox.split(/[\s,]+/).map(Number);
+  const maskId = `${idPrefix}-mono-mask`;
+  const body =
+    `<defs><mask id="${maskId}" maskUnits="userSpaceOnUse" ` +
+    `x="${vx}" y="${vy}" width="${vw}" height="${vh}">${image}</mask></defs>` +
+    `<rect x="${vx}" y="${vy}" width="${vw}" height="${vh}" ` +
+    `fill="currentColor" mask="url(#${maskId})"/>`;
+  return { ...glyph, body };
 }
 
 function parseSvg(svg) {
@@ -143,15 +233,21 @@ if (files.length === 0) {
 const icons = [];
 const data = {};
 
+// Manual ids are bare slugs (zarinpal, gapgpt, …) — clear those claims on re-run.
+unregisterIds((id) => files.some((f) => kebab(f) === id));
+
 for (const file of files) {
   const slug = kebab(file);
   const id = slug;
   const source = await readFile(join(sourceRoot, file), "utf8");
   const prepared = prepareSvg(source, id);
-  const glyph = parseSvg(prepared);
+  const raster = hasRasterEmbed(prepared);
+  const color = parseSvg(prepared);
+  const mono = toMonoGlyph(color, id, raster);
   const nameEn = titleFromSlug(slug);
   const nameFa = NAME_FA[slug] ?? nameEn;
-  const componentName = COMPONENT[slug] ?? `${pascal(slug)}Icon`;
+  const preferred = COMPONENT[slug] ?? preferredIconName(slug);
+  const componentName = claimComponentName(preferred, id);
 
   icons.push({
     id,
@@ -160,10 +256,10 @@ for (const file of files) {
     nameEn,
     nameFa,
     componentName,
-    viewBox: glyph.viewBox,
-    aspectRatio: glyph.width / glyph.height,
+    viewBox: color.viewBox,
+    aspectRatio: color.width / color.height,
   });
-  data[id] = { color: glyph, mono: glyph };
+  data[id] = { color, mono };
 }
 
 icons.sort((a, b) => a.id.localeCompare(b.id));
@@ -186,9 +282,12 @@ const catalogEntries = icons.map((icon) => ({
   componentName: icon.componentName,
   category: icon.category,
   source: "manual",
-  sourceUrl: "",
+  sourceUrl: SOURCE_URL[icon.slug] ?? "",
   verificationStatus: "needs-official-svg",
   notes: "User-provided logo under assets/manual (may include raster embed).",
+  ...(BRAND_COLORS[icon.slug]
+    ? { brandColors: BRAND_COLORS[icon.slug] }
+    : {}),
   viewBox: icon.viewBox,
   aspectRatio: icon.aspectRatio,
 }));
@@ -225,5 +324,6 @@ await writeFile(
     `export { data as manualIconData } from "./data";\n`,
 );
 
+flushComponentRegistry();
 console.log(`Generated ${icons.length} manual icons`);
 console.log(`Output: ${outRoot}`);

@@ -7,6 +7,12 @@ import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
+import {
+  flushComponentRegistry,claimComponentName,
+  preferredIconName,
+  unregisterIds,
+} from "./lib/component-registry.mjs";
+
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(root, "assets", "logos-per-service");
@@ -84,7 +90,7 @@ function parseSvg(svg) {
     .replace(/<(title|desc)\b[^>]*>[\s\S]*?<\/\1>/gi, "")
     .replace(/<!--[\s\S]*?-->/g, "")
     .replace(/\sdata-name=("[^"]*"|'[^']*')/gi, "")
-    .replace(/\sid=("[^"]*"|'[^']*')/gi, "")
+    // Keep gradient/clip ids — stripping them breaks fill="url(#…)".
     .replace(/\s+/g, " ")
     .replace(/> </g, "><")
     .trim();
@@ -110,6 +116,8 @@ if (colorFiles.length === 0) {
   throw new Error(`No SVGs found under ${colorDir}`);
 }
 
+unregisterIds((id) => id.startsWith("lps-"));
+
 /** @type {Map<string, any>} */
 const byId = new Map();
 
@@ -129,7 +137,7 @@ for (const file of colorFiles) {
   const mono = parseSvg(normalizeOpticalViewBox(optimizeSvg(monoSource, "mono")));
   const nameEn = NAME_EN[slug] ?? pascal(slug);
   const nameFa = NAME_FA[slug] ?? nameEn;
-  const componentName = `Lps${pascal(slug)}Icon`;
+  const componentName = claimComponentName(preferredIconName(slug), id);
 
   byId.set(id, {
     id,
@@ -208,5 +216,6 @@ await writeFile(
     `export { data as logosPerServiceData } from "./data";\n`,
 );
 
+flushComponentRegistry();
 console.log(`Generated ${icons.length} logos-per-service icons`);
 console.log(`Output: ${outRoot}`);

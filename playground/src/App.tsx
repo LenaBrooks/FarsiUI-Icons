@@ -1,4 +1,5 @@
 import {
+  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -9,7 +10,6 @@ import {
   LogoIcon,
   displayGroups,
   getDisplayGroupId,
-  getDisplayGroupMeta,
   iconManifest,
   preloadAllIconData,
   type DisplayGroupId,
@@ -19,19 +19,49 @@ import {
 import { toFaDigits } from "./fa-digits";
 import { GuidePage } from "./GuidePage";
 import { PackagesPage } from "./PackagesPage";
-import { entryMatchesQuery } from "./search";
+import { buildSearchIndex, searchEntries } from "./search";
+import { VirtualIconGallery } from "./VirtualIconGallery";
+
+buildSearchIndex(iconManifest);
 
 type PageId = "icons" | "guide" | "packages";
 
-const NAV_LINKS: Array<{ label: string; page: PageId }> = [
-  { label: "Icons", page: "icons" },
-  { label: "Guide", page: "guide" },
-  { label: "Packages", page: "packages" },
+type ExtNavLink = {
+  label: string;
+  href: string;
+  icon: "components" | "blocks" | "skills" | "charts" | "animation";
+};
+
+const EXT_NAV_LINKS: ExtNavLink[] = [
+  {
+    label: "کامپوننت‌ها",
+    href: "https://farsiui.ir/docs/components",
+    icon: "components",
+  },
+  { label: "بلوک‌ها", href: "https://farsiui.ir/blocks", icon: "blocks" },
+  { label: "مهارت‌ها", href: "https://farsiui.ir/skills", icon: "skills" },
+  { label: "نمودارها", href: "https://farsiui.ir/charts", icon: "charts" },
+  { label: "انیمیشن", href: "https://tarhak.ir/", icon: "animation" },
 ];
+
+const CONTRIBUTE_URL =
+  "https://github.com/MiladJoodi/FarsiUI-Icons/issues/new?title=%D9%BE%DB%8C%D8%B4%D9%86%D9%87%D8%A7%D8%AF%20%D8%A2%DB%8C%DA%A9%D9%88%D9%86&body=%D9%86%D8%A7%D9%85%20%D8%A2%DB%8C%DA%A9%D9%88%D9%86%3A%0A%D9%84%DB%8C%D9%86%DA%A9%20%D9%84%D9%88%DA%AF%D9%88%20%DB%8C%D8%A7%20SVG%3A%0A";
 
 const PREVIEW_SIZES = [16, 24, 32, 48] as const;
 /** Drawer stage size in px; `48` fills this box completely. */
 const PREVIEW_FRAME_PX = 128;
+
+/** Fallback brand palettes if catalog omits brandColors. */
+const BRAND_COLORS: Record<string, string[]> = {
+  easycandle: ["#0B2A4A", "#FFC400", "#FF7A00"],
+  vibefarsi: ["#E39A8E", "#cf5c49"],
+  pixevel: ["#111111", "#FCFCFA", "#F8A8B8"],
+  farsiui: ["#2E2E2E", "#FFFFFF"],
+  "banana-ai": ["#000000", "#FE8301"],
+  shenakhti: ["#009FE3"],
+  zarinpal: ["#FFD60A", "#0A33FF"],
+  "bank-sepah": ["#484848", "#E86018"],
+};
 
 const CUSTOMIZER_DEFAULTS = {
   size: 28,
@@ -40,6 +70,8 @@ const CUSTOMIZER_DEFAULTS = {
 };
 
 const COLOR_COMMIT_MS = 180;
+/** Delay gallery filter while typing so fast input stays smooth. */
+const SEARCH_DEBOUNCE_MS = 200;
 
 function normalizeCustomizerColor(value: unknown): string {
   if (typeof value !== "string" || !value || value === "currentColor") {
@@ -161,6 +193,103 @@ function MenuIcon() {
   );
 }
 
+/** RTL back/clear: horizontal arrow pointing right (فارسی). */
+function SearchClearArrowIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M5 12h14M13 6l6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ExtNavIcon({ name }: { name: ExtNavLink["icon"] }) {
+  const common = {
+    width: 16,
+    height: 16,
+    viewBox: "0 0 24 24",
+    fill: "none" as const,
+    "aria-hidden": true as const,
+  };
+  if (name === "components") {
+    return (
+      <svg {...common}>
+        <rect x="3" y="3" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.75" />
+        <rect x="13" y="3" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.75" />
+        <rect x="3" y="13" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.75" />
+        <rect x="13" y="13" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.75" />
+      </svg>
+    );
+  }
+  if (name === "blocks") {
+    return (
+      <svg {...common}>
+        <rect x="4" y="4" width="16" height="5" rx="1.2" stroke="currentColor" strokeWidth="1.75" />
+        <rect x="4" y="10.5" width="16" height="5" rx="1.2" stroke="currentColor" strokeWidth="1.75" />
+        <rect x="4" y="17" width="16" height="3" rx="1" stroke="currentColor" strokeWidth="1.75" />
+      </svg>
+    );
+  }
+  if (name === "skills") {
+    return (
+      <svg {...common}>
+        <path
+          d="M12 3l1.6 4.8L18.5 9.5l-4 3.1L15.8 18 12 15.2 8.2 18l1.3-5.4-4-3.1 4.9-1.7L12 3Z"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+  if (name === "charts") {
+    return (
+      <svg {...common}>
+        <path
+          d="M4 19V5M4 19h16"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+        />
+        <path
+          d="M8 16v-5M12 16V8M16 16v-8"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+  return (
+    <svg {...common}>
+      <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.75" />
+      <path
+        d="M10 9.2v5.6l5-2.8-5-2.8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function PlusCircleIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <circle cx="12" cy="12" r="8.25" stroke="currentColor" strokeWidth="1.75" />
+      <path
+        d="M12 8.5v7M8.5 12h7"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 function CopyIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -188,6 +317,27 @@ function CheckIcon() {
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
         d="M20 6 9 17l-5-5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ResetIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3 3v5h5"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
@@ -226,6 +376,8 @@ function hasPersianScript(value: string): boolean {
 export function App() {
   const [page, setPage] = useState<PageId>(() => pageFromHash());
   const [query, setQuery] = useState("");
+  /** Debounced copy of `query` — drives filtering / virtual gallery. */
+  const [debouncedQuery, setDebouncedQuery] = useState("");
   /** Highlights sidebar + scroll target; does not filter the grid. */
   const [activeGroup, setActiveGroup] = useState<DisplayGroupId | "all">(
     "all",
@@ -244,7 +396,7 @@ export function App() {
   );
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [navOpen, setNavOpen] = useState(false);
-  const [ready, setReady] = useState(false);
+  const [, setReady] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">(() => {
     const saved = window.localStorage.getItem("farsiui-icons-theme");
     return saved === "light" || saved === "dark" ? saved : "dark";
@@ -252,9 +404,8 @@ export function App() {
   const [copiedKind, setCopiedKind] = useState<"svg" | "jsx" | "import" | null>(
     null,
   );
-  const [usageCopied, setUsageCopied] = useState<"install" | "import" | null>(
-    null,
-  );
+  const [installCopied, setInstallCopied] = useState(false);
+  const [copiedColor, setCopiedColor] = useState<string | null>(null);
   const [starCount, setStarCount] = useState<number | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
@@ -304,13 +455,27 @@ export function App() {
     };
   }, []);
 
-  const filtered = useMemo(() => {
-    return iconManifest.filter((entry) => entryMatchesQuery(entry, query));
+  useEffect(() => {
+    // Clear results immediately when the box is emptied.
+    if (!query.trim()) {
+      setDebouncedQuery("");
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      setDebouncedQuery(query);
+    }, SEARCH_DEBOUNCE_MS);
+    return () => window.clearTimeout(timer);
   }, [query]);
 
+  const filtered = useMemo(() => {
+    return searchEntries(iconManifest, debouncedQuery);
+  }, [debouncedQuery]);
+
   const sections = useMemo(() => {
+    // Browse mode groups the full catalog; search uses the flat filtered list.
+    const source = debouncedQuery.trim() ? filtered : iconManifest;
     const byGroup = new Map<DisplayGroupId, IconManifestEntry[]>();
-    for (const entry of filtered) {
+    for (const entry of source) {
       const gid = getDisplayGroupId(entry);
       const list = byGroup.get(gid);
       if (list) list.push(entry);
@@ -323,7 +488,7 @@ export function App() {
         icons: byGroup.get(g.id) ?? [],
       }))
       .filter((s) => s.icons.length > 0);
-  }, [filtered]);
+  }, [filtered, debouncedQuery]);
 
   const groupCounts = useMemo(() => {
     const counts = new Map<DisplayGroupId, number>();
@@ -340,13 +505,7 @@ export function App() {
 
   const totalVisible = iconManifest.length;
 
-  const isSearching = query.trim().length > 0;
-
-  const activeGroupLabel = isSearching
-    ? "نتایج"
-    : activeGroup === "all"
-      ? "همه"
-      : (getDisplayGroupMeta(activeGroup)?.labelFa ?? activeGroup);
+  const isSearching = debouncedQuery.trim().length > 0;
 
   const isCustomized =
     customizer.size !== CUSTOMIZER_DEFAULTS.size ||
@@ -356,6 +515,10 @@ export function App() {
   const selected: IconManifestEntry | undefined = selectedId
     ? iconManifest.find((e) => e.id === selectedId)
     : undefined;
+
+  const selectedBrandColors =
+    selected?.brandColors ??
+    (selected ? BRAND_COLORS[selected.id] : undefined);
 
   const flashCopied = (kind: "svg" | "jsx" | "import") => {
     if (copyTimer.current != null) {
@@ -483,83 +646,25 @@ export function App() {
 
   useEffect(() => {
     if (page !== "icons") return;
+    setReady(true);
     let cancelled = false;
-    (async () => {
-      try {
-        await preloadAllIconData();
-      } catch {
-        /* ignore */
-      }
-      if (!cancelled) setReady(true);
-    })();
+    void preloadAllIconData().catch(() => {
+      /* ignore — LogoIcon loads categories on demand */
+    });
     return () => {
       cancelled = true;
+      void cancelled;
     };
   }, [page]);
 
-  useEffect(() => {
-    if (page !== "icons" || isSearching || scrollNonce === 0) return;
-    const pending = pendingScrollRef.current;
-    if (pending == null) return;
-    pendingScrollRef.current = null;
+  const onSelectIcon = useCallback((id: string) => {
+    setCopiedKind(null);
+    setSelectedId((prev) => (prev === id ? null : id));
+  }, []);
 
-    const run = () => {
-      if (pending === "all") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        const el = document.getElementById(`group-${pending}`);
-        if (el) {
-          const nav = document.querySelector(".site-nav") as HTMLElement | null;
-          const sticky = document.querySelector(
-            ".sticky-bar",
-          ) as HTMLElement | null;
-          const offset =
-            (nav?.offsetHeight ?? 64) + (sticky?.offsetHeight ?? 0) + 8;
-          const top =
-            el.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: "smooth" });
-        }
-      }
-      window.setTimeout(() => {
-        scrollingToRef.current = false;
-      }, 800);
-    };
-
-    window.requestAnimationFrame(run);
-  }, [page, isSearching, sections, scrollNonce]);
-
-  useEffect(() => {
-    if (page !== "icons" || isSearching || !galleryRef.current) return;
-    const root = galleryRef.current;
-    const nodes = root.querySelectorAll<HTMLElement>("[data-group-section]");
-    if (!nodes.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (scrollingToRef.current) return;
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort(
-            (a, b) =>
-              a.boundingClientRect.top - b.boundingClientRect.top,
-          );
-        const top = visible[0];
-        if (!top?.target) return;
-        const id = (top.target as HTMLElement).dataset.groupSection as
-          | DisplayGroupId
-          | undefined;
-        if (id) setActiveGroup(id);
-      },
-      {
-        root: null,
-        rootMargin: "-20% 0px -55% 0px",
-        threshold: [0, 0.1, 0.25],
-      },
-    );
-
-    nodes.forEach((n) => observer.observe(n));
-    return () => observer.disconnect();
-  }, [page, isSearching, sections]);
+  const onActiveGroup = useCallback((id: DisplayGroupId) => {
+    setActiveGroup(id);
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -618,52 +723,92 @@ export function App() {
 
   return (
     <div className="app">
-      <header className="site-nav" dir="rtl" lang="fa">
+      <header
+        className={`site-nav ${navOpen ? "is-open" : ""}`}
+        dir="rtl"
+        lang="fa"
+      >
         <div className="site-nav-inner">
           <a
             className="nav-brand"
             href="#icons"
-            aria-label="فارسی‌آیکون"
+            aria-label="فارسی‌آیکون — آیکون‌های فارسیUI"
             onClick={(e) => {
               e.preventDefault();
               go("icons");
+              setQuery("");
+              setActiveGroup("all");
+              scrollingToRef.current = false;
+              pendingScrollRef.current = null;
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <span className="nav-brand-text">فارسی‌آیکون</span>
+            <span className="nav-brand-stack">
+              <span className="nav-brand-text">فارسی‌آیکون</span>
+              <span className="nav-brand-sub">آیکون‌های فارسیUI</span>
+            </span>
           </a>
 
-          <nav className="nav-links" aria-label="منوی اصلی" dir="ltr" lang="en">
-            {NAV_LINKS.map((link) => (
+          <nav className="nav-links" aria-label="منوی اصلی">
+            {EXT_NAV_LINKS.map((link) => (
               <a
-                key={link.page}
-                href={`#${link.page}`}
-                className={page === link.page ? "active" : undefined}
-                onClick={(e) => {
-                  e.preventDefault();
-                  go(link.page);
-                }}
+                key={link.href}
+                className="nav-ext"
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
               >
-                {link.label}
+                <ExtNavIcon name={link.icon} />
+                <span>{link.label}</span>
               </a>
             ))}
+            <a
+              className="nav-contribute"
+              href={CONTRIBUTE_URL}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              title="آیکون برندتان را پیشنهاد دهید"
+            >
+              <PlusCircleIcon />
+              <span>پیشنهاد آیکون</span>
+            </a>
           </nav>
 
           <div className="nav-controls">
+            <button
+              type="button"
+              className="install-chip"
+              dir="ltr"
+              lang="en"
+              aria-label="کپی دستور نصب"
+              title={installCopied ? "کپی شد" : "کپی دستور نصب"}
+              onClick={async () => {
+                const ok = await copyText("npm install @farsiui/icons");
+                if (ok) {
+                  setInstallCopied(true);
+                  window.setTimeout(() => setInstallCopied(false), 1200);
+                }
+              }}
+            >
+              <code>npm i @farsiui/icons</code>
+              {installCopied ? <CheckIcon /> : <CopyIcon />}
+            </button>
+
             <a
               className="nav-star-btn"
               href={REPO_URL}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer nofollow"
               aria-label={
                 starCount != null
-                  ? `${starCount} stars on GitHub`
-                  : "GitHub repository"
+                  ? `${toFaDigits(starCount)} ستاره در گیت‌هاب`
+                  : "مخزن گیت‌هاب"
               }
             >
               <GitHubIcon />
               {starCount != null ? (
-                <span className="nav-star-count" dir="ltr" lang="en">
-                  {starCount}
+                <span className="nav-star-count" dir="rtl" lang="fa">
+                  {toFaDigits(starCount)}
                 </span>
               ) : null}
             </a>
@@ -695,20 +840,52 @@ export function App() {
 
         {navOpen ? (
           <div className="mobile-nav" role="menu">
-            {NAV_LINKS.map((link) => (
+            <button
+              type="button"
+              className="mobile-install"
+              dir="ltr"
+              lang="en"
+              role="menuitem"
+              onClick={async () => {
+                const ok = await copyText("npm install @farsiui/icons");
+                if (ok) {
+                  setInstallCopied(true);
+                  window.setTimeout(() => setInstallCopied(false), 1200);
+                }
+                setNavOpen(false);
+              }}
+            >
+              <code>npm i @farsiui/icons</code>
+              {installCopied ? <CheckIcon /> : <CopyIcon />}
+            </button>
+            <div className="mobile-nav-section" role="presentation">
+              فارسیUI
+            </div>
+            {EXT_NAV_LINKS.map((link) => (
               <a
-                key={link.page}
-                href={`#${link.page}`}
-                className={page === link.page ? "active" : undefined}
+                key={link.href}
+                className="nav-ext"
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
                 role="menuitem"
-                onClick={(e) => {
-                  e.preventDefault();
-                  go(link.page);
-                }}
+                onClick={() => setNavOpen(false)}
               >
-                {link.label}
+                <ExtNavIcon name={link.icon} />
+                <span>{link.label}</span>
               </a>
             ))}
+            <a
+              className="nav-contribute"
+              href={CONTRIBUTE_URL}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              role="menuitem"
+              onClick={() => setNavOpen(false)}
+            >
+              <PlusCircleIcon />
+              <span>پیشنهاد آیکون</span>
+            </a>
           </div>
         ) : null}
       </header>
@@ -737,7 +914,7 @@ export function App() {
             }
           >
             <div className="sticky-bar">
-              <label className="search">
+              <label className="search" dir="rtl" lang="fa">
                 <SearchIcon />
                 <input
                   ref={searchRef}
@@ -749,157 +926,40 @@ export function App() {
                   onChange={(e) => setQuery(e.target.value)}
                   aria-label="جستجو"
                 />
+                {query.trim() ? (
+                  <button
+                    type="button"
+                    className="search-clear"
+                    aria-label="پاک کردن جستجو"
+                    title="پاک کردن"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setQuery("");
+                      window.setTimeout(() => searchRef.current?.focus(), 0);
+                    }}
+                  >
+                    <SearchClearArrowIcon />
+                  </button>
+                ) : null}
                 <span className="kbd">Ctrl+K</span>
               </label>
             </div>
 
-            <div className="usage-strip" dir="ltr" lang="en">
-              <div className="usage-row">
-                <span className="usage-label">نصب</span>
-                <code className="usage-code">npm install @farsiui/icons</code>
-                <button
-                  type="button"
-                  className="usage-copy"
-                  aria-label="کپی دستور نصب"
-                  title={usageCopied === "install" ? "کپی شد" : "کپی"}
-                  onClick={async () => {
-                    const ok = await copyText("npm install @farsiui/icons");
-                    if (ok) {
-                      setUsageCopied("install");
-                      window.setTimeout(() => setUsageCopied(null), 1200);
-                    }
-                  }}
-                >
-                  {usageCopied === "install" ? <CheckIcon /> : <CopyIcon />}
-                </button>
-              </div>
-              <div className="usage-row">
-                <span className="usage-label">مثال</span>
-                <code className="usage-code">
-                  {`import { IspRightelIcon } from "@farsiui/icons";`}
-                </code>
-                <button
-                  type="button"
-                  className="usage-copy"
-                  aria-label="کپی مثال import"
-                  title={usageCopied === "import" ? "کپی شد" : "کپی"}
-                  onClick={async () => {
-                    const ok = await copyText(
-                      `import { IspRightelIcon } from "@farsiui/icons";`,
-                    );
-                    if (ok) {
-                      setUsageCopied("import");
-                      window.setTimeout(() => setUsageCopied(null), 1200);
-                    }
-                  }}
-                >
-                  {usageCopied === "import" ? <CheckIcon /> : <CopyIcon />}
-                </button>
-              </div>
-            </div>
-
-            <p className="gallery-caption" dir="rtl" lang="fa">
-              {activeGroupLabel}
-              {!ready ? " · loading…" : null}
-            </p>
-
             <div className="grid-wrap">
-              {filtered.length === 0 ? (
-                <p className="empty">No icons match your search.</p>
-              ) : isSearching ? (
-                <div className="grid">
-                  {filtered.map((entry) => {
-                    const active = entry.id === selectedId;
-                    return (
-                      <button
-                        key={entry.id}
-                        type="button"
-                        className={`tile ${active ? "active" : ""}`}
-                        onClick={() => {
-                          setCopiedKind(null);
-                          setSelectedId((prev) =>
-                            prev === entry.id ? null : entry.id,
-                          );
-                        }}
-                        aria-label={entry.nameEn}
-                        aria-pressed={active}
-                      >
-                        <span className="tile-icon">
-                          <LogoIcon
-                            name={entry.id}
-                            size={tileSize}
-                            variant={variant}
-                            style={
-                              variant === "mono"
-                                ? { color: iconColor }
-                                : undefined
-                            }
-                          />
-                        </span>
-                        <span className="tile-tip">{entry.nameEn}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className="icon-sections">
-                  {sections.map((section) => (
-                    <section
-                      key={section.id}
-                      id={`group-${section.id}`}
-                      className="icon-section"
-                      data-group-section={section.id}
-                      aria-labelledby={`group-heading-${section.id}`}
-                    >
-                      <h2
-                        id={`group-heading-${section.id}`}
-                        className="icon-section-title"
-                        dir="rtl"
-                        lang="fa"
-                      >
-                        {section.labelFa}
-                        <span className="icon-section-count" dir="rtl" lang="fa">
-                          {toFaDigits(section.icons.length)}
-                        </span>
-                      </h2>
-                      <div className="grid">
-                        {section.icons.map((entry) => {
-                          const active = entry.id === selectedId;
-                          return (
-                            <button
-                              key={entry.id}
-                              type="button"
-                              className={`tile ${active ? "active" : ""}`}
-                              onClick={() => {
-                                setCopiedKind(null);
-                                setSelectedId((prev) =>
-                                  prev === entry.id ? null : entry.id,
-                                );
-                              }}
-                              aria-label={entry.nameEn}
-                              aria-pressed={active}
-                            >
-                              <span className="tile-icon">
-                                <LogoIcon
-                                  name={entry.id}
-                                  size={tileSize}
-                                  variant={variant}
-                                  style={
-                                    variant === "mono"
-                                      ? { color: iconColor }
-                                      : undefined
-                                  }
-                                />
-                              </span>
-                              <span className="tile-tip">{entry.nameEn}</span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </section>
-                  ))}
-                </div>
-              )}
+              <VirtualIconGallery
+                sections={sections}
+                filtered={filtered}
+                isSearching={isSearching}
+                tileSize={tileSize}
+                variant={variant}
+                iconColor={iconColor}
+                selectedId={selectedId}
+                onSelect={onSelectIcon}
+                pendingScrollRef={pendingScrollRef}
+                scrollNonce={scrollNonce}
+                scrollingToRef={scrollingToRef}
+                onActiveGroup={onActiveGroup}
+              />
             </div>
           </div>
 
@@ -916,26 +976,21 @@ export function App() {
             >
               <div className="customizer-header">
                 <h2 className="customizer-title">نمایش</h2>
-                <div className="customizer-header-actions">
-                  <span className="customizer-value" dir="rtl" lang="fa">
-                    {toFaDigits(tileSize)}px
-                  </span>
-                  <button
-                    type="button"
-                    className="customizer-reset"
-                    disabled={!isCustomized}
-                    onClick={resetCustomizer}
-                    aria-label="بازنشانی"
-                    title="بازنشانی"
-                  >
-                    ↺
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  className="customizer-reset"
+                  disabled={!isCustomized}
+                  onClick={resetCustomizer}
+                  aria-label="بازنشانی"
+                >
+                  <ResetIcon />
+                </button>
               </div>
 
-              <label className="customizer-field customizer-field-size">
+              <div className="customizer-size-row">
                 <input
                   type="range"
+                  className="customizer-size-slider"
                   min={16}
                   max={64}
                   step={1}
@@ -945,7 +1000,10 @@ export function App() {
                   }
                   aria-label="اندازه آیکون"
                 />
-              </label>
+                <span className="customizer-value" dir="ltr" lang="en">
+                  {tileSize}px
+                </span>
+              </div>
 
               <div className="customizer-toolbar" role="group" aria-label="حالت و رنگ">
                 <div className="customizer-segment">
@@ -1055,10 +1113,10 @@ export function App() {
                     type="button"
                     className={`size-chip ${previewSize === s ? "active" : ""}`}
                     onClick={() => setPreviewSize(s)}
-                    dir="rtl"
-                    lang="fa"
+                    dir="ltr"
+                    lang="en"
                   >
-                    {toFaDigits(s)}
+                    {s}
                   </button>
                 ))}
               </div>
@@ -1075,18 +1133,6 @@ export function App() {
                     >
                       {drawerTitle}
                     </h2>
-                    {selected.sourceUrl ? (
-                      <a
-                        className="drawer-source"
-                        href={selected.sourceUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="Open source"
-                        title={selected.sourceUrl}
-                      >
-                        <ExternalLinkIcon />
-                      </a>
-                    ) : null}
                   </div>
                   {drawerSubtitle ? (
                     <p className="drawer-en" dir="ltr" lang="en">
@@ -1121,6 +1167,53 @@ export function App() {
                 >
                   Copy JSX
                 </button>
+                {selected.sourceUrl ? (
+                  <a
+                    className="copy-btn drawer-source-btn"
+                    href={selected.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    title={selected.sourceUrl}
+                  >
+                    <ExternalLinkIcon />
+                    <span>Source</span>
+                  </a>
+                ) : null}
+                {selectedBrandColors && selectedBrandColors.length > 0 ? (
+                  <div
+                    className="brand-colors"
+                    dir="ltr"
+                    lang="en"
+                    aria-label="رنگ‌های برند"
+                  >
+                    {selectedBrandColors.map((hex) => (
+                      <button
+                        key={hex}
+                        type="button"
+                        className={`brand-swatch confetti-btn ${copiedColor === hex ? "animate" : ""}`}
+                        style={{ ["--swatch" as string]: hex }}
+                        data-confetti-text="Copied!"
+                        title={
+                          copiedColor === hex ? "Copied!" : `Copy ${hex}`
+                        }
+                        aria-label={`Copy color ${hex}`}
+                        onClick={async () => {
+                          const ok = await copyText(hex);
+                          if (ok) {
+                            setCopiedColor(hex);
+                            window.setTimeout(
+                              () => setCopiedColor(null),
+                              1200,
+                            );
+                          }
+                        }}
+                      >
+                        <span className="brand-swatch-chip" />
+                        <span className="brand-swatch-hex">{hex}</span>
+                      </button>
+                    ))}
+                  </div>
+                ) : null}
               </div>
 
               <div className="import-block">

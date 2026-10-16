@@ -2,8 +2,8 @@
 import { createPersianLabsIcon } from "../../../create-persian-labs-icon";
 import { data } from "../data";
 
-export const LpsElectricityIcon = createPersianLabsIcon("lps-electricity", "LpsElectricityIcon", data["lps-electricity"]!);
-export const LpsGasIcon = createPersianLabsIcon("lps-gas", "LpsGasIcon", data["lps-gas"]!);
-export const LpsPostIcon = createPersianLabsIcon("lps-post", "LpsPostIcon", data["lps-post"]!);
-export const LpsTelecomIcon = createPersianLabsIcon("lps-telecom", "LpsTelecomIcon", data["lps-telecom"]!);
-export const LpsWaterIcon = createPersianLabsIcon("lps-water", "LpsWaterIcon", data["lps-water"]!);
+export const ElectricityIcon = createPersianLabsIcon("lps-electricity", "ElectricityIcon", data["lps-electricity"]!);
+export const GasIcon = createPersianLabsIcon("lps-gas", "GasIcon", data["lps-gas"]!);
+export const Post2Icon = createPersianLabsIcon("lps-post", "Post2Icon", data["lps-post"]!);
+export const TelecomIcon = createPersianLabsIcon("lps-telecom", "TelecomIcon", data["lps-telecom"]!);
+export const WaterIcon = createPersianLabsIcon("lps-water", "WaterIcon", data["lps-water"]!);

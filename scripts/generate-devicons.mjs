@@ -7,6 +7,12 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
+import {
+  flushComponentRegistry,claimComponentName,
+  preferredIconName,
+  unregisterIds,
+} from "./lib/component-registry.mjs";
+
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(root, "assets", "devicons");
@@ -428,6 +434,8 @@ if (files.length === 0) {
   throw new Error(`No SVGs found under ${sourceRoot}`);
 }
 
+unregisterIds((id) => id.startsWith("dev-"));
+
 const icons = [];
 const data = {};
 
@@ -452,7 +460,7 @@ for (const file of files) {
 
   const nameEn = titleFromSlug(slug);
   const nameFa = NAME_FA[slug] ?? nameEn;
-  const componentName = `Dev${pascal(slug)}Icon`;
+  const componentName = claimComponentName(preferredIconName(slug), id);
 
   icons.push({
     id,
@@ -528,6 +536,7 @@ await writeFile(
 );
 
 const bytes = Buffer.byteLength(serialize(data));
+flushComponentRegistry();
 console.log(`Generated ${icons.length} devicons`);
 console.log(`Icon data JSON ~${(bytes / 1024).toFixed(1)} KB`);
 console.log(`Output: ${outRoot}`);

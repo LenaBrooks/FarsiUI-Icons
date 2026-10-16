@@ -8,6 +8,12 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
+import {
+  flushComponentRegistry,claimComponentName,
+  pascalSlug,
+  unregisterIds,
+} from "./lib/component-registry.mjs";
+
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(root, "assets", "crypto");
@@ -47,6 +53,10 @@ const NAME_FA = {
   op: "آپتیمیسم",
   ton: "تون",
   pepe: "پپه",
+  sui: "سویی",
+  qnt: "کوانت",
+  stx: "استکس",
+  ar: "آرویو",
   aave: "آوه",
   mkr: "میکر",
   dai: "دای",
@@ -76,6 +86,15 @@ const NAME_EN = {
   uni: "Uniswap",
   near: "NEAR",
   dai: "Dai",
+  ton: "TON",
+  pepe: "Pepe",
+  sui: "Sui",
+  arb: "Arbitrum",
+  op: "Optimism",
+  apt: "Aptos",
+  qnt: "Quant",
+  stx: "Stacks",
+  ar: "Arweave",
 };
 
 function kebab(value) {
@@ -101,10 +120,10 @@ function pascal(value) {
 }
 
 /** Valid JS identifier component name (slugs may start with a digit). */
-function componentNameFromSlug(slug) {
-  let body = pascal(slug);
+function preferredFromSlug(slug) {
+  let body = pascalSlug(slug);
   if (!/^[A-Za-z_]/.test(body)) body = `N${body}`;
-  return `Crypto${body}Icon`;
+  return `${body}Icon`;
 }
 
 function titleFromSlug(slug) {
@@ -210,11 +229,12 @@ if (files.length === 0) {
   throw new Error(`No SVGs found under ${sourceRoot}`);
 }
 
+unregisterIds((id) => id.startsWith("crypto-"));
+
 const icons = [];
 const data = {};
 const skipped = [];
 const usedIds = new Set();
-const usedComponents = new Set();
 
 for (const file of files) {
   let slug = kebab(file);
@@ -244,14 +264,7 @@ for (const file of files) {
     const baseName = kebab(file);
     const nameEn = titleFromSlug(baseName);
     const nameFa = NAME_FA[baseName] ?? nameEn;
-    let componentName = componentNameFromSlug(slug);
-    let c = 2;
-    while (usedComponents.has(componentName)) {
-      componentName = componentNameFromSlug(`${slug}-${c}`);
-      c += 1;
-    }
-
-    usedComponents.add(componentName);
+    const componentName = claimComponentName(preferredFromSlug(slug), id);
     icons.push({
       id,
       slug,
@@ -350,6 +363,7 @@ await writeFile(
 );
 
 const bytes = Buffer.byteLength(serialize(data));
+flushComponentRegistry();
 console.log(`Generated ${icons.length} crypto icons`);
 if (skipped.length) {
   console.log(`Skipped ${skipped.length}:`);

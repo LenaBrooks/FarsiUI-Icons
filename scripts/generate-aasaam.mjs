@@ -11,6 +11,12 @@ import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
+import {
+  flushComponentRegistry,claimComponentName,
+  preferredIconName,
+  unregisterIds,
+} from "./lib/component-registry.mjs";
+
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(root, "assets", "aasaam");
@@ -45,7 +51,8 @@ const BRAND_COLORS = {
   asiatech: "#009FE3", // rangebrand.ir primary blue (logo URL 404)
 
   bale: "#00B894",
-  behran: "#ED1C24", // نفت بهران — wordmark red
+  // Multi-color mark: blue ring + red wordmark — keep fills from source SVG
+  behran: "preserve",
   eitaa: "#FF7534", // ایتا — official brand orange (eitaa.com/page/badge)
   esteghlalfc: "#0067AD", // استقلال — primary blue from official mark / user logo
 };
@@ -88,6 +95,14 @@ const NAME_FA = {
   zoomit: "زومیت",
   varzesh3: "ورزش ۳",
   aasaam: "آسام",
+};
+
+/**
+ * Per-icon optical-normalize overrides.
+ * Wide wordmarks default to a zoom that clips ends — set maxZoom: 1 to keep full ink.
+ */
+const OPTICAL_OPTIONS = {
+  zarinpal: { maxZoom: 1 },
 };
 
 function kebab(value) {
@@ -152,7 +167,9 @@ function parseSvg(svg, fill = "currentColor") {
     .replace(/\s+/g, " ")
     .replace(/> </g, "><")
     .trim();
-  inner = applyShapeFill(inner, fill);
+  if (fill !== "preserve") {
+    inner = applyShapeFill(inner, fill);
+  }
   const body = `<g>${inner}</g>`;
   return {
     viewBox: viewBox.join(" "),
@@ -174,6 +191,8 @@ if (files.length === 0) {
   throw new Error(`No SVGs found under ${sourceRoot}`);
 }
 
+unregisterIds((id) => id.startsWith("aasaam-"));
+
 const icons = [];
 const data = {};
 
@@ -181,14 +200,21 @@ for (const file of files) {
   const slug = kebab(file);
   const id = `aasaam-${slug}`;
   const source = await readFile(join(sourceRoot, file), "utf8");
-  const optimized = normalizeOpticalViewBox(optimizeSvg(source));
+  // Wide wordmarks: skip optical zoom so left/right aren't clipped in the square.
+  const opticalOpts = OPTICAL_OPTIONS[slug];
+  const optimized = normalizeOpticalViewBox(
+    optimizeSvg(source),
+    opticalOpts,
+  );
   const brandFill = BRAND_COLORS[slug];
   const mono = parseSvg(optimized);
-  const color = brandFill ? parseSvg(optimized, brandFill) : mono;
+  const color = brandFill
+    ? parseSvg(optimized, brandFill === "preserve" ? "preserve" : brandFill)
+    : mono;
   const variants = { color, mono };
   const nameEn = titleFromSlug(slug);
   const nameFa = NAME_FA[slug] ?? nameEn;
-  const componentName = `Aasaam${pascal(slug)}Icon`;
+  const componentName = claimComponentName(preferredIconName(slug), id);
 
   icons.push({
     id,
@@ -282,6 +308,7 @@ await writeFile(
 );
 
 const bytes = Buffer.byteLength(serialize(data));
+flushComponentRegistry();
 console.log(`Generated ${icons.length} aasaam icons`);
 console.log(`Icon data JSON ~${(bytes / 1024 / 1024).toFixed(2)} MB`);
 console.log(`Output: ${outRoot}`);

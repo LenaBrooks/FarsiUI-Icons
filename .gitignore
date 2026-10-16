@@ -6,6 +6,7 @@ dist
 .env
 .env.*
 .vite
+.cache
 coverage
 _svg_tmp
 .idea

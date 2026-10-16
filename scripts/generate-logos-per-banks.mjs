@@ -7,6 +7,13 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
+import {
+  flushComponentRegistry,claimComponentName,
+  preferredIconName,
+  pascalSlug,
+  unregisterIds,
+} from "./lib/component-registry.mjs";
+
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(root, "assets", "logos-per-banks-master");
@@ -16,22 +23,22 @@ const KINDS = {
   Bank: {
     id: "logos-per-banks",
     prefix: "lpb-bank",
-    componentPrefix: "LpbBank",
     labelEn: "LogoS Banks",
     labelFa: "بانک‌های لوگاس",
   },
   Gateway: {
     id: "logos-per-gateways",
     prefix: "lpb-gateway",
-    componentPrefix: "LpbGateway",
     labelEn: "LogoS Gateways",
     labelFa: "درگاه‌های لوگاس",
   },
 };
 
+/** Skip LogoS duplicates when a better copy exists elsewhere (e.g. persian-labs / manual). */
+const SKIP_SLUGS = new Set(["iran-venezuela", "zarrinpal"]);
+
 const NAME_FA = {
   ansar: "بانک انصار",
-  ayandeh: "بانک آینده",
   "bank-markazi": "بانک مرکزی",
   caspian: "بانک کاسپین",
   dey: "بانک دی",
@@ -41,15 +48,11 @@ const NAME_FA = {
   ghavamin: "بانک قوامین",
   hekmat: "بانک حکمت",
   "iran-europe": "ایران اروپا",
-  "iran-venezuela": "ایران ونزوئلا",
-  "iran-zamin": "بانک ایران‌زمین",
   karafarin: "بانک کارآفرین",
   keshavarzi: "بانک کشاورزی",
   "khavar-mianeh": "بانک خاورمیانه",
   kosar: "بانک کوثر",
   maskan: "بانک مسکن",
-  "mehr-eghtesad": "مهر اقتصاد",
-  "mehr-iran": "مهر ایران",
   melall: "بانک ملل",
   mellat: "بانک ملت",
   melli: "بانک ملی",
@@ -63,7 +66,6 @@ const NAME_FA = {
   saman: "بانک سامان",
   "sanat-madan": "بانک صنعت و معدن",
   sarmayeh: "بانک سرمایه",
-  sepah: "بانک سپه",
   shahr: "بانک شهر",
   sina: "بانک سینا",
   "standard-chartered": "استاندارد چارترد",
@@ -81,7 +83,6 @@ const NAME_FA = {
   sedad: "سداد",
   shaparak: "شاپرک",
   vandar: "وندار",
-  zarrinpal: "زرین‌پال",
 };
 
 function kebab(value) {
@@ -154,7 +155,7 @@ function parseSvg(svg) {
     .replace(/<(title|desc)\b[^>]*>[\s\S]*?<\/\1>/gi, "")
     .replace(/<!--[\s\S]*?-->/g, "")
     .replace(/\sdata-name=("[^"]*"|'[^']*')/gi, "")
-    .replace(/\sid=("[^"]*"|'[^']*')/gi, "")
+    // Keep gradient/clip ids — stripping them breaks fill="url(#…)".
     .replace(/\s+/g, " ")
     .replace(/> </g, "><")
     .trim();
@@ -169,6 +170,10 @@ function parseSvg(svg) {
 function serialize(value) {
   return JSON.stringify(value);
 }
+
+unregisterIds(
+  (id) => id.startsWith("lpb-bank-") || id.startsWith("lpb-gateway-"),
+);
 
 const icons = [];
 /** @type {Map<string, Record<string, any>>} */
@@ -185,6 +190,7 @@ for (const [folder, meta] of Object.entries(KINDS)) {
 
   for (const file of colorFiles) {
     const slug = kebab(file);
+    if (SKIP_SLUGS.has(slug)) continue;
     const id = `${meta.prefix}-${slug}`;
     const colorSource = await readFile(join(colorDir, file), "utf8");
     let monoSource;
@@ -201,7 +207,14 @@ for (const [folder, meta] of Object.entries(KINDS)) {
         ? `Bank ${titleFromSlug(slug)}`.replace(/^Bank Bank /, "Bank ")
         : titleFromSlug(slug);
     const nameFa = NAME_FA[slug] ?? nameEn;
-    const componentName = `${meta.componentPrefix}${pascal(slug)}Icon`;
+    // Topical Bank/Gateway prefix OK; never Lpb / source labels.
+    let preferred = preferredIconName(slug);
+    if (folder === "Bank" && !/^bank/i.test(slug)) {
+      preferred = `Bank${pascalSlug(slug)}Icon`;
+    } else if (folder === "Gateway" && !/^gateway/i.test(slug)) {
+      preferred = `Gateway${pascalSlug(slug)}Icon`;
+    }
+    const componentName = claimComponentName(preferred, id);
 
     icons.push({
       id,
@@ -297,6 +310,7 @@ await writeFile(
     `export { logosPerBanksCategories, logosPerBanksManifest } from "./catalog";\n`,
 );
 
+flushComponentRegistry();
 console.log(
   `Generated ${icons.length} logos-per-banks icons across ${categoriesExport.length} categories`,
 );

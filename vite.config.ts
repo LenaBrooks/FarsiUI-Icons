@@ -5,9 +5,20 @@ import react from "@vitejs/plugin-react";
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
+const packageSrc = path.resolve(rootDir, "src");
+
 export default defineConfig({
   root: path.resolve(rootDir, "playground"),
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      // Playground `root` is nested — chokidar may miss generate:* writes under ../src.
+      name: "watch-package-src",
+      configureServer(server) {
+        server.watcher.add(packageSrc);
+      },
+    },
+  ],
   resolve: {
     alias: [
       // More specific first — otherwise `/icons` hits the package `dist` export.
@@ -29,5 +40,13 @@ export default defineConfig({
   server: {
     port: 5173,
     open: false,
+    // Playground root is nested; watch package `src/` so generate:* HMR updates.
+    watch: {
+      ignored: ["**/node_modules/**", "**/dist/**"],
+    },
+    fs: {
+      allow: [rootDir],
+    },
   },
 });
+

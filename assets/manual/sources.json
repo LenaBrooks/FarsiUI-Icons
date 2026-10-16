@@ -9,7 +9,7 @@
     "vibefarsi": {
       "nameFa": "وایب فارسی",
       "nameEn": "Vibefarsi",
-      "from": "inline SVG mark (brand #cf5c49 gradient, exact 32×32 viewBox)"
+      "from": "inline SVG mark (gradient #E39A8E → #cf5c49, exact 32×32 viewBox)"
     },
     "banana-ai": {
       "nameFa": "Banana AI",
@@ -25,6 +25,31 @@
       "nameFa": "پیکسیول",
       "nameEn": "Pixevel",
       "from": "inline SVG mascot mark"
+    },
+    "gapgpt": {
+      "nameFa": "گپ‌جی‌پی‌تی",
+      "nameEn": "GapGPT",
+      "from": "gapgpt-icon-v3.png embedded (official asset)"
+    },
+    "claude": {
+      "nameFa": "کلود",
+      "nameEn": "Claude",
+      "from": "Claude_AI_symbol.svg (Wikimedia Commons)"
+    },
+    "vercel": {
+      "nameFa": "ورسل",
+      "nameEn": "Vercel",
+      "from": "vercel-icon.svg (SVG Repo / Simple Icons path)"
+    },
+    "netlify": {
+      "nameFa": "نتلی‌فای",
+      "nameEn": "Netlify",
+      "from": "Netlify icon mark (SVG Repo / Simple Icons, #00C7B7)"
+    },
+    "zarinpal": {
+      "nameFa": "زرین‌پال",
+      "nameEn": "Zarinpal",
+      "from": "ZarinPal-Logo.svg (connect.zarinpal.com official mark)"
     }
   }
 }

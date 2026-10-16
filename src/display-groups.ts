@@ -5,6 +5,7 @@ import type { IconCategory, IconManifestEntry } from "./types";
  * Keeps loader `entry.category` untouched; only remaps UI grouping.
  */
 export type DisplayGroupId =
+  | "featured"
   | "finance"
   | "payments"
   | "apps"
@@ -24,8 +25,22 @@ export interface DisplayGroupMeta {
   labelEn: string;
 }
 
+/**
+ * Curated picks the maintainer adds by hand (sidebar: منتخب‌ها).
+ * Add new manual icon ids here when they should appear in Featured.
+ */
+export const FEATURED_ICON_IDS = new Set([
+  "farsiui",
+  "vibefarsi",
+  "easycandle",
+  "banana-ai",
+  "shenakhti",
+  "pixevel",
+]);
+
 /** Ordered topical groups shown in the playground sidebar. */
 export const displayGroups: DisplayGroupMeta[] = [
+  { id: "featured", labelFa: "منتخب‌ها", labelEn: "Featured" },
   { id: "finance", labelFa: "بانک و بیمه", labelEn: "Banks & Insurance" },
   { id: "payments", labelFa: "پرداخت و درگاه", labelEn: "Payments" },
   { id: "apps", labelFa: "اپ و خدمات آنلاین", labelEn: "Apps & Online" },
@@ -80,6 +95,7 @@ const CATEGORY_TO_GROUP: Partial<Record<IconCategory, DisplayGroupId>> = {
   "logos-per-service": "utility",
   devicons: "developer",
   crypto: "crypto",
+  social: "media",
   // Source dumps classified by keywords / fallback:
   aasaam: "brands",
   "persian-simple-icons": "brands",
@@ -137,6 +153,8 @@ function classifyByKeywords(entry: IconManifestEntry): DisplayGroupId | null {
  * Persian-labs (and similar) categories map directly; source dumps use keywords.
  */
 export function getDisplayGroupId(entry: IconManifestEntry): DisplayGroupId {
+  if (FEATURED_ICON_IDS.has(entry.id)) return "featured";
+
   const fromCategory = CATEGORY_TO_GROUP[entry.category];
 
   // Source-based categories: prefer keyword classification.

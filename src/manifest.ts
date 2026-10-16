@@ -27,6 +27,10 @@ import {
   cryptoManifest,
 } from "./generated/crypto/catalog";
 import {
+  socialCategory,
+  socialManifest,
+} from "./generated/social/catalog";
+import {
   manualCategory,
   manualManifest,
 } from "./generated/manual/catalog";
@@ -43,6 +47,7 @@ export const iconManifest: IconManifestEntry[] = [
   ...logosPerBanksManifest,
   ...deviconsManifest,
   ...cryptoManifest,
+  ...socialManifest,
   ...manualManifest,
 ];
 
@@ -54,6 +59,7 @@ export const iconCategories: IconCategoryMeta[] = [
   ...logosPerBanksCategories,
   deviconsCategory,
   cryptoCategory,
+  socialCategory,
   manualCategory,
 ];
 

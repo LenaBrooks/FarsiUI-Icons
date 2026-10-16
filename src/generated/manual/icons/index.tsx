@@ -3,7 +3,13 @@ import { createPersianLabsIcon } from "../../../create-persian-labs-icon";
 import { data } from "../data";
 
 export const BananaAIIcon = createPersianLabsIcon("banana-ai", "BananaAIIcon", data["banana-ai"]!);
+export const ClaudeIcon = createPersianLabsIcon("claude", "ClaudeIcon", data["claude"]!);
+export const EasycandleIcon = createPersianLabsIcon("easycandle", "EasycandleIcon", data["easycandle"]!);
 export const FarsiUIIcon = createPersianLabsIcon("farsiui", "FarsiUIIcon", data["farsiui"]!);
+export const GapGPTIcon = createPersianLabsIcon("gapgpt", "GapGPTIcon", data["gapgpt"]!);
+export const NetlifyIcon = createPersianLabsIcon("netlify", "NetlifyIcon", data["netlify"]!);
 export const PixevelIcon = createPersianLabsIcon("pixevel", "PixevelIcon", data["pixevel"]!);
 export const ShenakhtiIcon = createPersianLabsIcon("shenakhti", "ShenakhtiIcon", data["shenakhti"]!);
+export const VercelIcon = createPersianLabsIcon("vercel", "VercelIcon", data["vercel"]!);
 export const VibefarsiIcon = createPersianLabsIcon("vibefarsi", "VibefarsiIcon", data["vibefarsi"]!);
+export const ZarinpalIcon = createPersianLabsIcon("zarinpal", "ZarinpalIcon", data["zarinpal"]!);
