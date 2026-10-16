@@ -11,6 +11,7 @@ Includes:
 - **52** bank/gateway marks from [zegond/logos-per-banks](https://github.com/zegond/logos-per-banks) (CC0) — color + mono
 - **200** curated tech/social brands from [vorillaz/devicons](https://github.com/vorillaz/devicons) (MIT) — Telegram, React, GitHub, …
 - **100** popular cryptocurrency marks from [react-crypto-icons](https://github.com/rileystephens28/react-crypto-icons) (MIT) — BTC, ETH, …
+- **50** Iranian startup logos collected for the startup directory on [trustmrr.ir](https://trustmrr.ir) — Kavenegar, Paziresh24, 7Learn, … (`assets/manual`)
 
 ## Install
 
@@ -103,3 +104,4 @@ MIT for package code.
 - logos-per-banks: CC0 — [zegond/logos-per-banks](https://github.com/zegond/logos-per-banks)
 - Devicons (curated): MIT — [vorillaz/devicons](https://github.com/vorillaz/devicons)
 - Crypto: MIT — [rileystephens28/react-crypto-icons](https://github.com/rileystephens28/react-crypto-icons)
+- Iranian startup logos: collected by [trustmrr.ir](https://trustmrr.ir) from each company's own website (source URLs in `assets/manual/sources.json`); each logo remains its company's trademark
