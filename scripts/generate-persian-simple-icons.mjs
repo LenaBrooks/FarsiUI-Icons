@@ -10,10 +10,13 @@ import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
 import {
-  flushComponentRegistry,claimComponentName,
+  flushComponentRegistry,
+  claimComponentName,
   preferredIconName,
   unregisterIds,
 } from "./lib/component-registry.mjs";
+import { brandColorsField } from "./lib/brand-colors.mjs";
+import { nameFaForId } from "./lib/name-fa.mjs";
 
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -27,11 +30,13 @@ const CATEGORY = {
   labelFa: "آیکون‌های ساده فارسی",
 };
 
+/** Prefer persian-labs color marks when both packs ship the same brand. */
+const SKIP_SLUGS = new Set(["tapsi"]);
+
 const NAME_FA = {
   alibaba: "علی‌بابا",
   aparat: "آپارات",
   arvancloud: "ابر آروان",
-  asanpardakht: "آسان‌پرداخت",
   balad: "بلد",
   basalam: "باسلام",
   bookapo: "بوکاپو",
@@ -51,22 +56,17 @@ const NAME_FA = {
   navaar: "نوار",
   neshan: "نشان",
   netbarg: "نت‌برگ",
-  nextpay: "نکست‌پی",
   okala: "اکالا",
   otaghak: "اتاقک",
-  payir: "پی‌ایر",
-  payping: "پی‌پینگ",
   sabketo: "سبکتو",
   shenoto: "شنوتو",
   sheypoor: "شیپور",
   snap: "اسنپ",
   takhfifan: "تخفیفان",
-  tapsi: "تپسی",
   telewebion: "تلوبیون",
   torob: "ترب",
   xaas: "اکساس",
   yektanet: "یکتانت",
-  zarinpal: "زرین‌پال",
   zoomit: "زومیت",
 };
 
@@ -91,7 +91,6 @@ function pascal(value) {
 function titleFromSlug(slug) {
   const special = {
     cafebazar: "Cafe Bazaar",
-    payir: "Pay.ir",
     hafthashtad: "780",
     xaas: "XaaS",
   };
@@ -162,13 +161,14 @@ const data = {};
 
 for (const file of files) {
   const slug = kebab(file);
+  if (SKIP_SLUGS.has(slug)) continue;
   const id = `psi-${slug}`;
   const source = await readFile(join(sourceRoot, file), "utf8");
   const optimized = normalizeOpticalViewBox(optimizeSvg(source));
   const glyph = parseSvg(optimized);
   const variants = { color: glyph, mono: glyph };
   const nameEn = titleFromSlug(slug);
-  const nameFa = NAME_FA[slug] ?? nameEn;
+  const nameFa = nameFaForId(id) ?? NAME_FA[slug] ?? nameEn;
   const componentName = claimComponentName(preferredIconName(slug), id);
 
   icons.push({
@@ -208,6 +208,7 @@ const catalogEntries = icons.map((icon) => ({
   verificationStatus: "verified",
   notes:
     "SVG from mojtabaahn/persian-simple-icons (MIT). Monochrome mark; color/mono share the same glyph (currentColor).",
+  ...brandColorsField(icon.id),
   viewBox: icon.viewBox,
   aspectRatio: icon.aspectRatio,
 }));

@@ -2,6 +2,7 @@
 import { createPersianLabsIcon } from "../../../create-persian-labs-icon";
 import { data } from "../data";
 
+export const AlamtoIcon = createPersianLabsIcon("alamto", "AlamtoIcon", data["alamto"]!);
 export const BananaAIIcon = createPersianLabsIcon("banana-ai", "BananaAIIcon", data["banana-ai"]!);
 export const ClaudeIcon = createPersianLabsIcon("claude", "ClaudeIcon", data["claude"]!);
 export const EasycandleIcon = createPersianLabsIcon("easycandle", "EasycandleIcon", data["easycandle"]!);

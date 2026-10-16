@@ -218,11 +218,11 @@ a {
 }
 
 .nav-star-count {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
-  font-variant-numeric: normal;
-  font-feature-settings: "tnum" 0, "lnum" 0;
-  letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
 }
 
 .nav-icon-btn {
@@ -1080,36 +1080,58 @@ a {
 }
 
 .size-chips {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
+  display: flex;
+  align-items: stretch;
+  width: 128px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--btn);
+  overflow: hidden;
 }
 
 .size-chip {
   appearance: none;
-  border: 1px solid var(--border);
-  background: var(--btn);
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  border-inline-end: 1px solid var(--border-subtle);
+  background: transparent;
   color: var(--muted);
-  border-radius: 8px;
-  padding: 6px 0;
-  font-size: 0.75rem;
-  font-weight: 600;
+  padding: 7px 0;
+  font-size: 0.74rem;
+  font-weight: 650;
   cursor: pointer;
-  font-variant-numeric: normal;
-  font-feature-settings: "tnum" 0, "lnum" 0;
-  letter-spacing: -0.08em;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
   text-align: center;
+  line-height: 1;
+}
+
+.size-chip:last-of-type {
+  border-inline-end: 0;
 }
 
 .size-chip:hover {
-  background: var(--btn-hover);
   color: var(--text);
+  background: var(--btn-hover);
 }
 
 .size-chip.active {
-  border-color: var(--accent);
   color: var(--text);
   background: var(--accent-soft);
+}
+
+.size-chips-unit {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0 6px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--muted);
+  border-inline-start: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--btn) 70%, transparent);
+  user-select: none;
 }
 
 .drawer-body {
@@ -1226,14 +1248,36 @@ a {
   letter-spacing: 0.02em;
 }
 
-.drawer-source-btn {
+.drawer-head-actions {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  text-decoration: none;
+  gap: 2px;
+  flex-shrink: 0;
+  margin-inline-start: auto;
 }
 
-.drawer-source-btn svg {
+.drawer-source-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: color 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+}
+
+.drawer-source-link:hover {
+  background: var(--tile-hover);
+  color: var(--text);
+  opacity: 1;
+}
+
+.drawer-source-link svg {
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
 }
 
@@ -1249,7 +1293,6 @@ a {
   font-size: 1.2rem;
   line-height: 1;
   flex-shrink: 0;
-  margin-inline-start: auto;
 }
 
 .drawer-close:hover {

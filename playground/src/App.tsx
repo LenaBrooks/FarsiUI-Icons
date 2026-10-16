@@ -60,6 +60,7 @@ const BRAND_COLORS: Record<string, string[]> = {
   "banana-ai": ["#000000", "#FE8301"],
   shenakhti: ["#009FE3"],
   zarinpal: ["#FFD60A", "#0A33FF"],
+  alamto: ["#FFC10A", "#FD5722"],
   "bank-sepah": ["#484848", "#E86018"],
 };
 
@@ -732,7 +733,7 @@ export function App() {
           <a
             className="nav-brand"
             href="#icons"
-            aria-label="فارسی‌آیکون — آیکون‌های فارسیUI"
+            aria-label="آیکون‌های فارسیUI"
             onClick={(e) => {
               e.preventDefault();
               go("icons");
@@ -744,8 +745,7 @@ export function App() {
             }}
           >
             <span className="nav-brand-stack">
-              <span className="nav-brand-text">فارسی‌آیکون</span>
-              <span className="nav-brand-sub">آیکون‌های فارسیUI</span>
+              <span className="nav-brand-text">آیکون‌های فارسیUI</span>
             </span>
           </a>
 
@@ -801,14 +801,14 @@ export function App() {
               rel="noopener noreferrer nofollow"
               aria-label={
                 starCount != null
-                  ? `${toFaDigits(starCount)} ستاره در گیت‌هاب`
-                  : "مخزن گیت‌هاب"
+                  ? `${starCount} stars on GitHub`
+                  : "GitHub repository"
               }
             >
               <GitHubIcon />
               {starCount != null ? (
-                <span className="nav-star-count" dir="rtl" lang="fa">
-                  {toFaDigits(starCount)}
+                <span className="nav-star-count" dir="ltr" lang="en">
+                  {starCount}
                 </span>
               ) : null}
             </a>
@@ -1105,7 +1105,9 @@ export function App() {
               <div
                 className="size-chips"
                 role="group"
-                aria-label="Preview size"
+                aria-label="اندازه خروجی"
+                dir="ltr"
+                lang="en"
               >
                 {PREVIEW_SIZES.map((s) => (
                   <button
@@ -1113,12 +1115,16 @@ export function App() {
                     type="button"
                     className={`size-chip ${previewSize === s ? "active" : ""}`}
                     onClick={() => setPreviewSize(s)}
-                    dir="ltr"
-                    lang="en"
+                    aria-pressed={previewSize === s}
+                    aria-label={`${s} پیکسل`}
+                    title={`${s}px`}
                   >
                     {s}
                   </button>
                 ))}
+                <span className="size-chips-unit" aria-hidden="true">
+                  px
+                </span>
               </div>
             </div>
 
@@ -1140,21 +1146,35 @@ export function App() {
                     </p>
                   ) : null}
                 </div>
-                <button
-                  type="button"
-                  className="drawer-close"
-                  aria-label="Close"
-                  onClick={() => setSelectedId(null)}
-                >
-                  ×
-                </button>
+                <div className="drawer-head-actions">
+                  {selected.sourceUrl ? (
+                    <a
+                      className="drawer-source-link"
+                      href={selected.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      title={selected.sourceUrl}
+                      aria-label="منبع"
+                    >
+                      <ExternalLinkIcon />
+                    </a>
+                  ) : null}
+                  <button
+                    type="button"
+                    className="drawer-close"
+                    aria-label="Close"
+                    onClick={() => setSelectedId(null)}
+                  >
+                    ×
+                  </button>
+                </div>
               </div>
 
               <div className="drawer-actions">
                 <button
                   type="button"
                   className={`copy-btn confetti-btn ${copiedKind === "svg" ? "animate" : ""}`}
-                  data-confetti-text="Copied!"
+                  data-confetti-text="کپی شد"
                   onClick={copySvg}
                 >
                   Copy SVG
@@ -1162,23 +1182,11 @@ export function App() {
                 <button
                   type="button"
                   className={`copy-btn confetti-btn ${copiedKind === "jsx" ? "animate" : ""}`}
-                  data-confetti-text="Copied!"
+                  data-confetti-text="کپی شد"
                   onClick={copyJsx}
                 >
                   Copy JSX
                 </button>
-                {selected.sourceUrl ? (
-                  <a
-                    className="copy-btn drawer-source-btn"
-                    href={selected.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    title={selected.sourceUrl}
-                  >
-                    <ExternalLinkIcon />
-                    <span>Source</span>
-                  </a>
-                ) : null}
                 {selectedBrandColors && selectedBrandColors.length > 0 ? (
                   <div
                     className="brand-colors"
@@ -1192,9 +1200,9 @@ export function App() {
                         type="button"
                         className={`brand-swatch confetti-btn ${copiedColor === hex ? "animate" : ""}`}
                         style={{ ["--swatch" as string]: hex }}
-                        data-confetti-text="Copied!"
+                        data-confetti-text="کپی شد"
                         title={
-                          copiedColor === hex ? "Copied!" : `Copy ${hex}`
+                          copiedColor === hex ? "کپی شد" : `کپی ${hex}`
                         }
                         aria-label={`Copy color ${hex}`}
                         onClick={async () => {
@@ -1222,9 +1230,9 @@ export function App() {
                   className="import-copy"
                   onClick={copyImport}
                   aria-label={
-                    copiedKind === "import" ? "Copied" : "Copy import"
+                    copiedKind === "import" ? "کپی شد" : "کپی ایمپورت"
                   }
-                  title={copiedKind === "import" ? "Copied!" : "Copy"}
+                  title={copiedKind === "import" ? "کپی شد" : "کپی"}
                 >
                   {copiedKind === "import" ? <CheckIcon /> : <CopyIcon />}
                 </button>

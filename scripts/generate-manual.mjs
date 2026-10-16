@@ -10,10 +10,12 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import {
-  flushComponentRegistry,claimComponentName,
+  flushComponentRegistry,
+  claimComponentName,
   preferredIconName,
   unregisterIds,
 } from "./lib/component-registry.mjs";
+import { brandColorsFor } from "./lib/brand-colors.mjs";
 
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -39,6 +41,7 @@ const NAME_FA = {
   vercel: "ورسل",
   netlify: "نتلی‌فای",
   zarinpal: "زرین‌پال",
+  alamto: "عالم‌تو",
 };
 
 const NAME_EN = {
@@ -53,6 +56,7 @@ const NAME_EN = {
   vercel: "Vercel",
   netlify: "Netlify",
   zarinpal: "Zarinpal",
+  alamto: "Alamto",
 };
 
 const COMPONENT = {
@@ -63,6 +67,7 @@ const COMPONENT = {
   vercel: "VercelIcon",
   netlify: "NetlifyIcon",
   zarinpal: "ZarinpalIcon",
+  alamto: "AlamtoIcon",
 };
 
 const SOURCE_URL = {
@@ -73,6 +78,7 @@ const SOURCE_URL = {
   vercel: "https://www.svgrepo.com/show/354513/vercel-icon.svg",
   netlify: "https://www.svgrepo.com/show/354110/netlify.svg",
   zarinpal: "https://connect.zarinpal.com/media_files/img/ZarinPal-Logo.svg",
+  alamto: "https://www.alamto.com/wp-content/uploads/2013/02/favicon.ico",
 };
 
 /** Brand palette samples shown in playground drawer. */
@@ -87,6 +93,7 @@ const BRAND_COLORS = {
   vercel: ["#000000"],
   netlify: ["#00C7B7"],
   zarinpal: ["#FFD60A", "#0A33FF"],
+  alamto: ["#FFC10A", "#FD5722"],
 };
 
 function kebab(value) {
@@ -285,9 +292,10 @@ const catalogEntries = icons.map((icon) => ({
   sourceUrl: SOURCE_URL[icon.slug] ?? "",
   verificationStatus: "needs-official-svg",
   notes: "User-provided logo under assets/manual (may include raster embed).",
-  ...(BRAND_COLORS[icon.slug]
-    ? { brandColors: BRAND_COLORS[icon.slug] }
-    : {}),
+  ...(() => {
+    const colors = brandColorsFor(icon.id) ?? BRAND_COLORS[icon.slug];
+    return colors ? { brandColors: colors } : {};
+  })(),
   viewBox: icon.viewBox,
   aspectRatio: icon.aspectRatio,
 }));

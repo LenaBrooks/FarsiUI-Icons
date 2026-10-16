@@ -6,8 +6,10 @@ export default defineConfig({
     "named-icons": "src/named-icons.ts",
   },
   format: ["esm"],
-  dts: true,
-  sourcemap: true,
+  // dts generated separately (scripts/generate-dts.mjs) — tsup splitting
+  // mangles exports to `A as FooIcon` and breaks IDE autocomplete.
+  dts: false,
+  sourcemap: false,
   clean: true,
   treeshake: true,
   splitting: true,

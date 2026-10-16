@@ -8,11 +8,13 @@ import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
 import {
-  flushComponentRegistry,claimComponentName,
+  flushComponentRegistry,
+  claimComponentName,
   preferredIconName,
   pascalSlug,
   unregisterIds,
 } from "./lib/component-registry.mjs";
+import { brandColorsField } from "./lib/brand-colors.mjs";
 
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -265,6 +267,7 @@ const catalogEntries = icons.map((icon) => ({
   verificationStatus: "verified",
   notes:
     "SVG from zegond/logos-per-banks (CC0). Color and mono variants available.",
+  ...brandColorsField(icon.id),
   viewBox: icon.color.viewBox,
   aspectRatio: icon.color.width / icon.color.height,
 }));

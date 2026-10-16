@@ -36,6 +36,7 @@ export const FEATURED_ICON_IDS = new Set([
   "banana-ai",
   "shenakhti",
   "pixevel",
+  "alamto",
 ]);
 
 /** Ordered topical groups shown in the playground sidebar. */
@@ -108,7 +109,7 @@ type Rule = { group: DisplayGroupId; re: RegExp };
 const KEYWORD_RULES: Rule[] = [
   {
     group: "finance",
-    re: /bimeh|insurance|bank|bourse|ansar|ayandeh|mellat|melli|saderat|tejarat|parsian|pasargad|saman|sina|shahr|mehriran|hekmat|ghavamin|futurebank|eghtesadnovin|armanmeli|gardeshgari|\bdey\b|\bday\b|caspian|karafarin|refah|postbank|maskan|tosee|tourism|اقتصادنوین|بانک|بیمه|بورس/,
+    re: /bimeh|insurance|bank|bourse|ansar|ayandeh|mellat|melli|saderat|tejarat|parsian|pasargad|saman|sina|mehriran|hekmat|ghavamin|futurebank|eghtesadnovin|armanmeli|gardeshgari|\bdey\b|\bday\b|caspian|karafarin|refah|postbank|maskan|tosee|tourism|اقتصادنوین|بانک|بیمه|بورس|(?<!mun-)shahr(?!ekord|emohtava|vand)/,
   },
   {
     group: "payments",
@@ -137,6 +138,10 @@ const KEYWORD_RULES: Rule[] = [
   {
     group: "food",
     re: /behnoosh|food|drink|restaurant|pizza|نوشید|خوراک|غذا/,
+  },
+  {
+    group: "developer",
+    re: /vercel|netlify|claude|gapgpt|\bgit\b|github|gitlab|docker|kubernetes|react|vue|angular|nodejs|typescript|vscode|cursor|cloudflare|supabase|prisma|webpack|vite|npm|pnpm|دولوپر|ورسل|نتلی/,
   },
 ];
 

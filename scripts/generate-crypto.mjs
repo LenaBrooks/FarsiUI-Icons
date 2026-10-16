@@ -150,8 +150,22 @@ function uniquifyIds(svg, prefix) {
   return out;
 }
 
+function monoCssProps(css) {
+  return css
+    .replace(/fill\s*:\s*(?!none\b|currentColor\b)[^;]+/gi, "fill:currentColor")
+    .replace(
+      /stroke\s*:\s*(?!none\b|currentColor\b)[^;]+/gi,
+      "stroke:currentColor",
+    )
+    .replace(/stop-color\s*:\s*[^;]+/gi, "stop-color:currentColor");
+}
+
 function makeMono(svg) {
   return svg
+    // Illustrator-style packs put fills in <style>.st0{fill:#…}</style>
+    .replace(/<style\b[^>]*>([\s\S]*?)<\/style>/gi, (full, css) =>
+      full.replace(css, monoCssProps(css)),
+    )
     .replace(/fill=(["'])url\([^"']+\)\1/gi, 'fill="currentColor"')
     .replace(/stroke=(["'])url\([^"']+\)\1/gi, 'stroke="currentColor"')
     .replace(/fill=(["'])(?!none\1|currentColor\1)[^"']+\1/gi, 'fill="currentColor"')
@@ -161,17 +175,7 @@ function makeMono(svg) {
     )
     .replace(/stop-color=(["'])[^"']+\1/gi, 'stop-color="currentColor"')
     .replace(/style=(["'])([^"']*)\1/gi, (_, q, style) => {
-      const next = style
-        .replace(/fill\s*:\s*(?!none\b|currentColor\b)[^;]+/gi, "fill:currentColor")
-        .replace(
-          /stroke\s*:\s*(?!none\b|currentColor\b)[^;]+/gi,
-          "stroke:currentColor",
-        )
-        .replace(
-          /stop-color\s*:\s*[^;]+/gi,
-          "stop-color:currentColor",
-        );
-      return `style=${q}${next}${q}`;
+      return `style=${q}${monoCssProps(style)}${q}`;
     });
 }
 

@@ -8,10 +8,12 @@ import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
 import {
-  flushComponentRegistry,claimComponentName,
+  flushComponentRegistry,
+  claimComponentName,
   unregisterIds,
 } from "./lib/component-registry.mjs";
-
+import { brandColorsField } from "./lib/brand-colors.mjs";
+import { nameFaForId } from "./lib/name-fa.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(root, "assets", "persian-labs");
@@ -216,8 +218,8 @@ function titleFromSlug(slug) {
     .join(" ");
 }
 
-function nameFaFor(slug, nameEn) {
-  return NAME_FA[slug] ?? nameEn;
+function nameFaFor(id, slug, nameEn) {
+  return nameFaForId(id) ?? NAME_FA[slug] ?? nameEn;
 }
 
 async function walkSvgs(directory) {
@@ -317,7 +319,7 @@ for (const file of files) {
   ) {
     nameEn = `Bank ${nameEn}`;
   }
-  const nameFa = nameFaFor(slug, nameEn);
+  const nameFa = nameFaFor(id, slug, nameEn);
   const componentName = claimComponentName(`${pascal(id)}Icon`, id);
 
   let entry = byId.get(id);
@@ -399,6 +401,7 @@ const catalogEntries = icons.map((icon) => ({
   verificationStatus: "verified",
   notes:
     "SVG from persianlabs/icons (MIT). Color and mono variants available.",
+  ...brandColorsField(icon.id),
   viewBox: icon.color.viewBox,
   aspectRatio: icon.color.width / icon.color.height,
 }));

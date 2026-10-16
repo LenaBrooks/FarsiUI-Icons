@@ -27,7 +27,7 @@ function CodeBlock({ code, label }: { code: string; label: string }) {
             }
           }}
         >
-          {copied ? "Copied" : "Copy"}
+          {copied ? "کپی شد" : "کپی"}
         </button>
       </div>
       <pre>
