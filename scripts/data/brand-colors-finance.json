@@ -1,0 +1,544 @@
+{
+  "_comment": "Curated brandColors for display-group finance (banks & insurance).",
+  "aasaam-ansar": [
+    "#EEB900",
+    "#AA1A1F"
+  ],
+  "aasaam-armanmeli": [
+    "#00A651"
+  ],
+  "aasaam-ayandeh": [
+    "#6E2616",
+    "#9B4722",
+    "#F4B31B"
+  ],
+  "aasaam-bazarebours": [
+    "#007B3F"
+  ],
+  "aasaam-bimehiran": [
+    "#2E3192",
+    "#F58220",
+    "#806B64"
+  ],
+  "aasaam-bimehmarkazi": [
+    "#009EDD"
+  ],
+  "aasaam-bimehsalamat": [
+    "#00897B"
+  ],
+  "aasaam-bourseon": [
+    "#1565C0"
+  ],
+  "aasaam-caspian": [
+    "#313C4C",
+    "#FDB816"
+  ],
+  "aasaam-dey": [
+    "#008B9A"
+  ],
+  "aasaam-eghtesadnovin": [
+    "#662892"
+  ],
+  "aasaam-futurebank": [
+    "#4DA2E7",
+    "#82BEEE",
+    "#A6D0F3"
+  ],
+  "aasaam-gardeshgari": [
+    "#B11116",
+    "#00A1BF"
+  ],
+  "aasaam-ghavamin": [
+    "#007D3D",
+    "#FFF400"
+  ],
+  "aasaam-hekmat": [
+    "#324C88"
+  ],
+  "aasaam-karafarin": [
+    "#AB7342",
+    "#0C730A"
+  ],
+  "aasaam-keshavarzi": [
+    "#1F261A",
+    "#D8AC4E",
+    "#ECE482"
+  ],
+  "aasaam-markazi": [
+    "#00194A"
+  ],
+  "aasaam-maskan": [
+    "#EC520D"
+  ],
+  "aasaam-mehriran": [
+    "#209B1C"
+  ],
+  "aasaam-mellat": [
+    "#BA0B22",
+    "#FFC730"
+  ],
+  "aasaam-melli": [
+    "#F1AF0E",
+    "#DF0024"
+  ],
+  "aasaam-parsian": [
+    "#B27D53"
+  ],
+  "aasaam-pasargad": [
+    "#FECC09"
+  ],
+  "aasaam-paydarymelli": [
+    "#C62828"
+  ],
+  "aasaam-postbank": [
+    "#14763E"
+  ],
+  "aasaam-refah": [
+    "#173576"
+  ],
+  "aasaam-refahstore": [
+    "#173576"
+  ],
+  "aasaam-saderat": [
+    "#2D2A68"
+  ],
+  "aasaam-saman": [
+    "#7DCDF1",
+    "#00AAE7",
+    "#006FBA"
+  ],
+  "aasaam-samandehi": [
+    "#1565C0"
+  ],
+  "aasaam-sazmanmellijavanan": [
+    "#1565C0"
+  ],
+  "aasaam-shahr": [
+    "#D8262C"
+  ],
+  "aasaam-sina": [
+    "#277EB5",
+    "#DBAF2E"
+  ],
+  "aasaam-tejarat": [
+    "#2F4A98"
+  ],
+  "aasaam-tejaratfarda": [
+    "#2F4A98"
+  ],
+  "aasaam-tosee": [
+    "#8F2426"
+  ],
+  "aasaam-toseeirani": [
+    "#1565C0"
+  ],
+  "aasaam-toseesaderat": [
+    "#006D08"
+  ],
+  "aasaam-toseetaavon": [
+    "#CDCCCC",
+    "#51B5D1"
+  ],
+  "aasaam-tse": [
+    "#007B3F"
+  ],
+  "bank-ansar": [
+    "#EEB900",
+    "#AA1A1F"
+  ],
+  "bank-ayandeh": [
+    "#6E2616",
+    "#9B4722",
+    "#F4B31B"
+  ],
+  "bank-bank-markazi": [
+    "#00194A"
+  ],
+  "bank-bankino": [
+    "#F68E1E"
+  ],
+  "bank-blubank": [
+    "#4E91E6"
+  ],
+  "bank-caspian": [
+    "#313C4C",
+    "#FDB816"
+  ],
+  "bank-dey": [
+    "#008B9A"
+  ],
+  "bank-eghtesad-novin": [
+    "#662892"
+  ],
+  "bank-futurebank": [
+    "#4DA2E7",
+    "#82BEEE",
+    "#A6D0F3"
+  ],
+  "bank-gardeshgari": [
+    "#B11116",
+    "#00A1BF"
+  ],
+  "bank-ghavamin": [
+    "#007D3D",
+    "#FFF400"
+  ],
+  "bank-hekmat": [
+    "#324C88"
+  ],
+  "bank-iran-europe": [
+    "#A3A3A2",
+    "#05326E"
+  ],
+  "bank-iran-venezuela": [
+    "#EDC53A",
+    "#2E3390"
+  ],
+  "bank-iran-zamin": [
+    "#4C2A93",
+    "#F10B7C"
+  ],
+  "bank-karafarin": [
+    "#AB7342",
+    "#0C730A"
+  ],
+  "bank-keshavarzi": [
+    "#1F261A",
+    "#D8AC4E",
+    "#ECE482"
+  ],
+  "bank-khavar-mianeh": [
+    "#F29200"
+  ],
+  "bank-kosar": [
+    "#FAA61A",
+    "#EC008C",
+    "#621A4F"
+  ],
+  "bank-maskan": [
+    "#EC520D"
+  ],
+  "bank-mehr-eghtesad": [
+    "#029A4C",
+    "#EB8C30"
+  ],
+  "bank-mehr-iran": [
+    "#209B1C"
+  ],
+  "bank-melall": [
+    "#FF7F31",
+    "#37389A"
+  ],
+  "bank-mellat": [
+    "#BA0B22",
+    "#FFC730"
+  ],
+  "bank-melli": [
+    "#F1AF0E",
+    "#DF0024"
+  ],
+  "bank-noor": [
+    "#002263",
+    "#0BBBB9"
+  ],
+  "bank-parsian": [
+    "#B27D53"
+  ],
+  "bank-pasargad": [
+    "#FECC09"
+  ],
+  "bank-postbank": [
+    "#14763E"
+  ],
+  "bank-refah": [
+    "#173576"
+  ],
+  "bank-resalat": [
+    "#00BBE6"
+  ],
+  "bank-saderat": [
+    "#2D2A68"
+  ],
+  "bank-saman": [
+    "#7DCDF1",
+    "#00AAE7",
+    "#006FBA"
+  ],
+  "bank-sanat-madan": [
+    "#9B814C"
+  ],
+  "bank-sarmayeh": [
+    "#1F1F48",
+    "#AFB2AE"
+  ],
+  "bank-sepah": [
+    "#484848",
+    "#E86018"
+  ],
+  "bank-shahr": [
+    "#D8262C"
+  ],
+  "bank-sina": [
+    "#277EB5",
+    "#DBAF2E"
+  ],
+  "bank-standard-chartered": [
+    "#80B0D5",
+    "#A2D993",
+    "#086DA9"
+  ],
+  "bank-taavon-eslami": [
+    "#00920A"
+  ],
+  "bank-tejarat": [
+    "#2F4A98"
+  ],
+  "bank-tosee": [
+    "#8F2426"
+  ],
+  "bank-tosee-saderat": [
+    "#006D08"
+  ],
+  "bank-tosee-taavon": [
+    "#CDCCCC",
+    "#51B5D1"
+  ],
+  "insurance-alborz": [
+    "#0B9300"
+  ],
+  "insurance-arman": [
+    "#69237A",
+    "#DF017A"
+  ],
+  "insurance-asia": [
+    "#23067C"
+  ],
+  "insurance-dana": [
+    "#ED1B24",
+    "#0054A7"
+  ],
+  "insurance-dey": [
+    "#009AA6",
+    "#A61D5B"
+  ],
+  "insurance-iran": [
+    "#2E3192",
+    "#F58220",
+    "#806B64"
+  ],
+  "insurance-karafarin": [
+    "#21A001",
+    "#FFFF00"
+  ],
+  "insurance-kosar": [
+    "#FFCB08",
+    "#0A4595"
+  ],
+  "insurance-ma": [
+    "#D61629",
+    "#E46965",
+    "#9D0A0E"
+  ],
+  "insurance-markazi": [
+    "#009EDD"
+  ],
+  "insurance-mellat": [
+    "#0072BC",
+    "#ED1651"
+  ],
+  "insurance-moalem": [
+    "#2E3192"
+  ],
+  "insurance-novin": [
+    "#F69820",
+    "#B21F8C"
+  ],
+  "insurance-parsian": [
+    "#0457AC",
+    "#F3AF21"
+  ],
+  "insurance-pasargad": [
+    "#FDCA03",
+    "#0F2D62"
+  ],
+  "insurance-raazi": [
+    "#25387E",
+    "#E5310E"
+  ],
+  "insurance-saman": [
+    "#122F79",
+    "#FF0000"
+  ],
+  "insurance-sina": [
+    "#2BBDBE"
+  ],
+  "insurance-taavon": [
+    "#DF0914",
+    "#1A193A"
+  ],
+  "insurance-toseei": [
+    "#7C1315",
+    "#A3A7AA"
+  ],
+  "lpb-bank-ansar": [
+    "#EEB900",
+    "#AA1A1F"
+  ],
+  "lpb-bank-ayandeh": [
+    "#6E2616",
+    "#9B4722",
+    "#F4B31B"
+  ],
+  "lpb-bank-bank-markazi": [
+    "#00194A"
+  ],
+  "lpb-bank-bankino": [
+    "#F68E1E"
+  ],
+  "lpb-bank-blubank": [
+    "#4E91E6"
+  ],
+  "lpb-bank-caspian": [
+    "#313C4C",
+    "#FDB816"
+  ],
+  "lpb-bank-dey": [
+    "#008B9A"
+  ],
+  "lpb-bank-eghtesad-novin": [
+    "#662892"
+  ],
+  "lpb-bank-futurebank": [
+    "#4DA2E7",
+    "#82BEEE",
+    "#A6D0F3"
+  ],
+  "lpb-bank-gardeshgari": [
+    "#B11116",
+    "#00A1BF"
+  ],
+  "lpb-bank-ghavamin": [
+    "#007D3D",
+    "#FFF400"
+  ],
+  "lpb-bank-hekmat": [
+    "#324C88"
+  ],
+  "lpb-bank-iran-europe": [
+    "#A3A3A2",
+    "#05326E"
+  ],
+  "lpb-bank-iran-venezuela": [
+    "#EDC53A",
+    "#2E3390"
+  ],
+  "lpb-bank-iran-zamin": [
+    "#4C2A93",
+    "#F10B7C"
+  ],
+  "lpb-bank-karafarin": [
+    "#AB7342",
+    "#0C730A"
+  ],
+  "lpb-bank-keshavarzi": [
+    "#1F261A",
+    "#D8AC4E",
+    "#ECE482"
+  ],
+  "lpb-bank-khavar-mianeh": [
+    "#F29200"
+  ],
+  "lpb-bank-kosar": [
+    "#FAA61A",
+    "#EC008C",
+    "#621A4F"
+  ],
+  "lpb-bank-maskan": [
+    "#EC520D"
+  ],
+  "lpb-bank-mehr-eghtesad": [
+    "#029A4C",
+    "#EB8C30"
+  ],
+  "lpb-bank-mehr-iran": [
+    "#209B1C"
+  ],
+  "lpb-bank-melall": [
+    "#FF7F31",
+    "#37389A"
+  ],
+  "lpb-bank-mellat": [
+    "#BA0B22",
+    "#FFC730"
+  ],
+  "lpb-bank-melli": [
+    "#F1AF0E",
+    "#DF0024"
+  ],
+  "lpb-bank-noor": [
+    "#002263",
+    "#0BBBB9"
+  ],
+  "lpb-bank-parsian": [
+    "#B27D53"
+  ],
+  "lpb-bank-pasargad": [
+    "#FECC09"
+  ],
+  "lpb-bank-postbank": [
+    "#14763E"
+  ],
+  "lpb-bank-refah": [
+    "#173576"
+  ],
+  "lpb-bank-resalat": [
+    "#00BBE6"
+  ],
+  "lpb-bank-saderat": [
+    "#2D2A68"
+  ],
+  "lpb-bank-saman": [
+    "#7DCDF1",
+    "#00AAE7",
+    "#006FBA"
+  ],
+  "lpb-bank-sanat-madan": [
+    "#9B814C"
+  ],
+  "lpb-bank-sarmayeh": [
+    "#1F1F48",
+    "#AFB2AE"
+  ],
+  "lpb-bank-sepah": [
+    "#484848",
+    "#E86018"
+  ],
+  "lpb-bank-shahr": [
+    "#D8262C"
+  ],
+  "lpb-bank-sina": [
+    "#277EB5",
+    "#DBAF2E"
+  ],
+  "lpb-bank-standard-chartered": [
+    "#80B0D5",
+    "#A2D993",
+    "#086DA9"
+  ],
+  "lpb-bank-taavon-eslami": [
+    "#00920A"
+  ],
+  "lpb-bank-tejarat": [
+    "#2F4A98"
+  ],
+  "lpb-bank-tosee": [
+    "#8F2426"
+  ],
+  "lpb-bank-tosee-saderat": [
+    "#006D08"
+  ],
+  "lpb-bank-tosee-taavon": [
+    "#CDCCCC",
+    "#51B5D1"
+  ]
+}

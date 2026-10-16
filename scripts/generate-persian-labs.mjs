@@ -7,6 +7,12 @@ import { basename, dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
+
+/** Wide wordmarks — maxZoom 1 avoids side crop. */
+const OPTICAL_OPTIONS = {
+  "store-ofogh-kourosh": { maxZoom: 1 },
+  "ofogh-kourosh": { maxZoom: 1 },
+};
 import {
   flushComponentRegistry,
   claimComponentName,
@@ -309,7 +315,8 @@ for (const file of files) {
       .replace(/viewBox=("|')0 0 710 356\1/i, 'viewBox="60 60 591 239"');
   }
 
-  const optimized = normalizeOpticalViewBox(optimizeSvg(source, variant));
+  const opticalOpts = OPTICAL_OPTIONS[id] ?? OPTICAL_OPTIONS[slug];
+  const optimized = normalizeOpticalViewBox(optimizeSvg(source, variant), opticalOpts);
   const icon = parseSvg(optimized);
   let nameEn =
     id === "gateway-sep" ? "SEP" : titleFromSlug(slug);

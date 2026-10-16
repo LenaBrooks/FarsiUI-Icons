@@ -7,6 +7,7 @@ import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
 import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
+import { brandColorsField } from "./lib/brand-colors.mjs";
 import {
   flushComponentRegistry,claimComponentName,
   preferredIconName,
@@ -180,6 +181,7 @@ const catalogEntries = icons.map((icon) => ({
   verificationStatus: "verified",
   notes:
     "SVG from logos-per-service (zegond). Color + mono utility service marks.",
+  ...brandColorsField(icon.id),
   viewBox: icon.color.viewBox,
   aspectRatio: icon.color.width / icon.color.height,
 }));

@@ -151,6 +151,48 @@ const BRAND_COLORS = {
   womangov: "#AD1457",
 
 
+  // Finance mono marks
+  ansar: "#EEB900",
+  armanmeli: "#00A651",
+  ayandeh: "#6E2616",
+  bazarebours: "#007B3F",
+  bimehiran: "#2E3192",
+  bimehmarkazi: "#009EDD",
+  bimehsalamat: "#00897B",
+  bourseon: "#1565C0",
+  caspian: "#313C4C",
+  dey: "#008B9A",
+  eghtesadnovin: "#662892",
+  futurebank: "#4DA2E7",
+  gardeshgari: "#B11116",
+  ghavamin: "#007D3D",
+  hekmat: "#324C88",
+  karafarin: "#AB7342",
+  keshavarzi: "#1F261A",
+  markazi: "#00194A",
+  maskan: "#EC520D",
+  mehriran: "#209B1C",
+  mellat: "#BA0B22",
+  melli: "#F1AF0E",
+  parsian: "#B27D53",
+  pasargad: "#FECC09",
+  paydarymelli: "#C62828",
+  postbank: "#14763E",
+  refah: "#173576",
+  refahstore: "#173576",
+  saderat: "#2D2A68",
+  saman: "#7DCDF1",
+  samandehi: "#1565C0",
+  sazmanmellijavanan: "#1565C0",
+  shahr: "#D8262C",
+  sina: "#277EB5",
+  tejarat: "#2F4A98",
+  tejaratfarda: "#2F4A98",
+  tosee: "#8F2426",
+  toseeirani: "#1565C0",
+  toseesaderat: "#006D08",
+  toseetaavon: "#CDCCCC",
+  tse: "#007B3F",
   // Brands-group leftover mono marks
   "40tikke": "#E85D04",
   "55online": "#485CC7",
@@ -620,6 +662,8 @@ const NAME_FA = {
  */
 const OPTICAL_OPTIONS = {
   zarinpal: { maxZoom: 1 },
+  // Checkmark wordmark — default zoom clips the sides.
+  snapp: { maxZoom: 1 },
 };
 
 function kebab(value) {

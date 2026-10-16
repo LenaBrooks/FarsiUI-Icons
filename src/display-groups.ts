@@ -109,7 +109,7 @@ type Rule = { group: DisplayGroupId; re: RegExp };
 const KEYWORD_RULES: Rule[] = [
   {
     group: "finance",
-    re: /bimeh|insurance|bank|bourse|ansar|ayandeh|mellat|melli|saderat|tejarat|parsian|pasargad|saman|sina|mehriran|hekmat|ghavamin|futurebank|eghtesadnovin|armanmeli|gardeshgari|\bdey\b|\bday\b|caspian|karafarin|refah|postbank|maskan|tosee|tourism|اقتصادنوین|بانک|بیمه|بورس|(?<!mun-)shahr(?!ekord|emohtava|vand)/,
+    re: /bimeh|insurance|bank|bourse|ansar|ayandeh|mellat|melli|saderat|tejarat|parsian|pasargad|saman|sina|mehriran|hekmat|ghavamin|futurebank|eghtesadnovin|armanmeli|gardeshgari|\bdey\b|\bday\b|caspian|karafarin|refah|postbank|maskan|tosee|tourism|اقتصادنوین|بانک|بیمه|بورس|aasaam-shahr\b|bank-shahr/,
   },
   {
     group: "payments",

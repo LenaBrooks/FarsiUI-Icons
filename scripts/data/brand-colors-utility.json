@@ -1,0 +1,21 @@
+{
+  "_comment": "Curated brandColors for display-group utility (logos-per-service).",
+  "lps-electricity": [
+    "#FFF400",
+    "#DC1B1C"
+  ],
+  "lps-gas": [
+    "#001A64",
+    "#E00000"
+  ],
+  "lps-post": [
+    "#221781"
+  ],
+  "lps-telecom": [
+    "#27318C"
+  ],
+  "lps-water": [
+    "#0059AD",
+    "#00ACF2"
+  ]
+}

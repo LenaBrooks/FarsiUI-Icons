@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const MAP_PATHS = [
+  join(root, "scripts", "data", "brand-colors-finance.json"),
   join(root, "scripts", "data", "brand-colors-payments.json"),
   join(root, "scripts", "data", "brand-colors-apps.json"),
   join(root, "scripts", "data", "brand-colors-food.json"),

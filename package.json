@@ -1,7 +1,7 @@
 {
   "name": "@farsiui/icons",
   "version": "0.1.1",
-  "description": "React icon components for Iranian brands and services",
+  "description": "React icon components for Iranian brands — banks, payments, apps, media, and more",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,

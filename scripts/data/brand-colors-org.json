@@ -1,0 +1,256 @@
+{
+  "_comment": "Curated brandColors for display-group org. Skip black-only (amuzesh-parvaresh, rah-ahan).",
+  "aasaam-behzisti": [
+    "#EA6627"
+  ],
+  "aasaam-bmn": [
+    "#1565C0"
+  ],
+  "aasaam-cra": [
+    "#0D47A1"
+  ],
+  "aasaam-cyberpolice": [
+    "#1A237E"
+  ],
+  "aasaam-daneshbonyan": [
+    "#00838F"
+  ],
+  "aasaam-doe": [
+    "#2E7D32"
+  ],
+  "aasaam-firedepartment": [
+    "#D32F2F"
+  ],
+  "aasaam-iau": [
+    "#0031B6"
+  ],
+  "aasaam-ibto": [
+    "#E3000F"
+  ],
+  "aasaam-ictgov": [
+    "#1565C0"
+  ],
+  "aasaam-perspolicefc": [
+    "#0D47A1"
+  ],
+  "aasaam-womangov": [
+    "#AD1457"
+  ],
+  "organization-ab": [
+    "#388AC8",
+    "#204584"
+  ],
+  "organization-ateshneshani": [
+    "#FA0307"
+  ],
+  "organization-bargh": [
+    "#FFF700",
+    "#E54141"
+  ],
+  "organization-behzisti": [
+    "#EA6627"
+  ],
+  "organization-borse-oraghe-bahador": [
+    "#007B3F",
+    "#C92F2A"
+  ],
+  "organization-e-namad": [
+    "#0F4D94",
+    "#F99623",
+    "#FFEE3E"
+  ],
+  "organization-enteghal-khon": [
+    "#1A1A18",
+    "#E3000F",
+    "#9A9A9A"
+  ],
+  "organization-etehadie-kasb-va-kar-majazi": [
+    "#01AEEF",
+    "#7D6F6C",
+    "#5A514E"
+  ],
+  "organization-fani-o-herfeei": [
+    "#E20613",
+    "#312782"
+  ],
+  "organization-gas": [
+    "#001A64",
+    "#E00000"
+  ],
+  "organization-ghaza-o-darou": [
+    "#23A538",
+    "#3FBFEF"
+  ],
+  "organization-ghove-ghazaeie": [
+    "#303031"
+  ],
+  "organization-helal-ahmar": [
+    "#E30613"
+  ],
+  "organization-khane-cinema": [
+    "#A21412",
+    "#D95150"
+  ],
+  "organization-komite-emdad": [
+    "#FFFF15"
+  ],
+  "organization-mahak": [
+    "#9D2C49"
+  ],
+  "organization-metro": [
+    "#F9D42B"
+  ],
+  "organization-miras-farhangi": [
+    "#02029A"
+  ],
+  "organization-mokhaberat": [
+    "#28348A"
+  ],
+  "organization-nezam-mohandesi": [
+    "#005FAD"
+  ],
+  "organization-nezam-pezeshki": [
+    "#1882A0"
+  ],
+  "organization-omur-maliati": [
+    "#005F27"
+  ],
+  "organization-post": [
+    "#FFC121"
+  ],
+  "organization-sabteahval": [
+    "#009540",
+    "#E20613"
+  ],
+  "organization-sanjesh": [
+    "#013F7C"
+  ],
+  "organization-sedaosima": [
+    "#000D7F"
+  ],
+  "organization-shahrdari": [
+    "#095700"
+  ],
+  "organization-standard": [
+    "#159B86"
+  ],
+  "organization-tamin-ejtemaei": [
+    "#2E3192"
+  ],
+  "organization-taxirani": [
+    "#FBC02D"
+  ],
+  "organization-tosee-fanavari-etelaat-va-rasanehaye-digital": [
+    "#E4AE2B"
+  ],
+  "organization-vezarat-taavon": [
+    "#2554CC"
+  ],
+  "university-afsari": [
+    "#FFCC00",
+    "#73612C",
+    "#C5AD87"
+  ],
+  "university-al-zahra": [
+    "#119932"
+  ],
+  "university-amirkabir": [
+    "#2B398E"
+  ],
+  "university-azad": [
+    "#6690F9",
+    "#0031B6"
+  ],
+  "university-beheshti": [
+    "#003663"
+  ],
+  "university-chamran-ahvaz": [
+    "#018D50",
+    "#A8CB3E"
+  ],
+  "university-elmosanat": [
+    "#261774",
+    "#E61E20"
+  ],
+  "university-emam-hossein": [
+    "#C43419"
+  ],
+  "university-emam-sadegh": [
+    "#614A0B",
+    "#1C39BB"
+  ],
+  "university-esfahan": [
+    "#093D66",
+    "#2C84AA"
+  ],
+  "university-fani-o-herfei": [
+    "#2F3F8D"
+  ],
+  "university-ferdosi": [
+    "#012E6F"
+  ],
+  "university-golestan": [
+    "#27A8DF"
+  ],
+  "university-honar": [
+    "#009BAA"
+  ],
+  "university-khajenasir": [
+    "#00008B"
+  ],
+  "university-kharazmi": [
+    "#134C83"
+  ],
+  "university-olum-pezeshki-iran": [
+    "#04FEFD",
+    "#E0797C"
+  ],
+  "university-olum-pezeshki-tehran": [
+    "#232852"
+  ],
+  "university-payamnoor": [
+    "#E2C25D"
+  ],
+  "university-sanati-qom": [
+    "#021F58",
+    "#29ACDF"
+  ],
+  "university-seda-va-sima": [
+    "#008CD4"
+  ],
+  "university-semnan": [
+    "#F7A940"
+  ],
+  "university-shahed": [
+    "#CD2826",
+    "#008544"
+  ],
+  "university-sharif": [
+    "#1D2D83"
+  ],
+  "university-shiraz": [
+    "#2E3192"
+  ],
+  "university-soore": [
+    "#0D90B0"
+  ],
+  "university-tabatabaei": [
+    "#151E59"
+  ],
+  "university-tabriz": [
+    "#1460C4"
+  ],
+  "university-tarbiat-modarres": [
+    "#C1922C",
+    "#0E6A39"
+  ],
+  "university-tehran": [
+    "#0BAEDD"
+  ],
+  "university-yazd": [
+    "#226699"
+  ],
+  "university-zanjan": [
+    "#4B011C"
+  ]
+}

@@ -1,0 +1,529 @@
+{
+  "_comment": "Curated brandColors for display-group media. Skip psi mono and black-only glyphs.",
+  "aasaam-7sobh": [
+    "#065D91"
+  ],
+  "aasaam-9sobh": [
+    "#0B5F8A"
+  ],
+  "aasaam-afkarnews": [
+    "#880000"
+  ],
+  "aasaam-aparat": [
+    "#ED145B"
+  ],
+  "aasaam-ayandnews": [
+    "#1565C0"
+  ],
+  "aasaam-baeghtesad": [
+    "#0D47A1"
+  ],
+  "aasaam-bartarinha": [
+    "#E53935"
+  ],
+  "aasaam-borna": [
+    "#E11B22"
+  ],
+  "aasaam-cannews": [
+    "#1565C0"
+  ],
+  "aasaam-didgahemrooz": [
+    "#37474F"
+  ],
+  "aasaam-doctv": [
+    "#5C6BC0"
+  ],
+  "aasaam-eghtesad100": [
+    "#1B5E20"
+  ],
+  "aasaam-eghtesadnews": [
+    "#C62828"
+  ],
+  "aasaam-eghtesadonline": [
+    "#1565C0"
+  ],
+  "aasaam-esteghlalfc": [
+    "#0067AD"
+  ],
+  "aasaam-etemad": [
+    "#B71C1C"
+  ],
+  "aasaam-faradeed": [
+    "#0D47A1"
+  ],
+  "aasaam-farazdaily": [
+    "#37474F"
+  ],
+  "aasaam-fardanews": [
+    "#C62828"
+  ],
+  "aasaam-fartaknews": [
+    "#1565C0"
+  ],
+  "aasaam-fartakvarzeshi": [
+    "#2E7D32"
+  ],
+  "aasaam-fidibo": [
+    "#23211F"
+  ],
+  "aasaam-gashtaninews": [
+    "#00695C"
+  ],
+  "aasaam-gostaresh": [
+    "#1565C0"
+  ],
+  "aasaam-honarmrooz": [
+    "#6A1B9A"
+  ],
+  "aasaam-honaronline": [
+    "#6A1B9A"
+  ],
+  "aasaam-iana": [
+    "#2E7D32"
+  ],
+  "aasaam-ilna": [
+    "#C62828"
+  ],
+  "aasaam-khanefootball": [
+    "#1B5E20"
+  ],
+  "aasaam-mahyanews": [
+    "#1565C0"
+  ],
+  "aasaam-mediaad": [
+    "#FF5722"
+  ],
+  "aasaam-mehreghtesad": [
+    "#FF0000"
+  ],
+  "aasaam-mehrnews": [
+    "#FF0000"
+  ],
+  "aasaam-mojnews": [
+    "#0277BD"
+  ],
+  "aasaam-moroornews": [
+    "#455A64"
+  ],
+  "aasaam-mostaghelnewspaper": [
+    "#212121"
+  ],
+  "aasaam-namehnews": [
+    "#1565C0"
+  ],
+  "aasaam-nournews": [
+    "#F9A825"
+  ],
+  "aasaam-parsnews": [
+    "#1565C0"
+  ],
+  "aasaam-rasadeghtesadi": [
+    "#0D47A1"
+  ],
+  "aasaam-rasadvarzeshi": [
+    "#2E7D32"
+  ],
+  "aasaam-rastaanews": [
+    "#C62828"
+  ],
+  "aasaam-shayanews": [
+    "#6A1B9A"
+  ],
+  "aasaam-shomanews": [
+    "#1565C0"
+  ],
+  "aasaam-shomavaeghtesad": [
+    "#0D47A1"
+  ],
+  "aasaam-sobheno": [
+    "#E65100"
+  ],
+  "aasaam-sobhtazeh": [
+    "#EF6C00"
+  ],
+  "aasaam-taadolnewspaper": [
+    "#1565C0"
+  ],
+  "aasaam-taraznameheghtesad": [
+    "#1B5E20"
+  ],
+  "aasaam-varzesh3": [
+    "#E74436"
+  ],
+  "aasaam-varzeshtv": [
+    "#21A5CC"
+  ],
+  "aasaam-zoomit": [
+    "#E1082C"
+  ],
+  "football-alouminium": [
+    "#096C12"
+  ],
+  "football-esteghlal": [
+    "#0067AD",
+    "#E6B315",
+    "#7ECEE2"
+  ],
+  "football-esteghlal-kh": [
+    "#2F2A86"
+  ],
+  "football-foolad": [
+    "#A02627",
+    "#FF6906",
+    "#FDCD01"
+  ],
+  "football-gol-gohar": [
+    "#21295B",
+    "#209CD8",
+    "#2F2483"
+  ],
+  "football-iran": [
+    "#DA0000",
+    "#B9B9B9",
+    "#222020"
+  ],
+  "football-malavan": [
+    "#01348C",
+    "#FBAD18"
+  ],
+  "football-mes-rafsanjan": [
+    "#FF6C00"
+  ],
+  "football-nassaji": [
+    "#303E9A",
+    "#A21D21"
+  ],
+  "football-perspolis": [
+    "#292321",
+    "#E30914",
+    "#EBB900"
+  ],
+  "football-sepahan": [
+    "#1F1A17",
+    "#FFCC00"
+  ],
+  "football-shams-azar": [
+    "#E0A51D",
+    "#FBE7BA",
+    "#6B030E"
+  ],
+  "football-tractor": [
+    "#F5CA32",
+    "#C20605"
+  ],
+  "football-zobahan": [
+    "#231F20",
+    "#E73237",
+    "#01A85A"
+  ],
+  "media-360": [
+    "#00345E",
+    "#3DD463"
+  ],
+  "media-borna": [
+    "#E11B22",
+    "#787878"
+  ],
+  "media-digiato": [
+    "#3391EC",
+    "#0075E7"
+  ],
+  "media-farhikhtegan": [
+    "#B90300"
+  ],
+  "media-fars": [
+    "#345D9D",
+    "#FFB71C"
+  ],
+  "media-hamshahri": [
+    "#ED1B24"
+  ],
+  "media-irna": [
+    "#0C3555"
+  ],
+  "media-isna": [
+    "#2967CA"
+  ],
+  "media-keyhan": [
+    "#08A5EA"
+  ],
+  "media-khabar-online": [
+    "#38386C"
+  ],
+  "media-khabarnegaran-javan": [
+    "#DE0400"
+  ],
+  "media-mehr": [
+    "#FF0000"
+  ],
+  "media-taasnim": [
+    "#A91E22"
+  ],
+  "media-varzesh3": [
+    "#757575",
+    "#E74436",
+    "#2F363D"
+  ],
+  "media-zoomit": [
+    "#E1082C"
+  ],
+  "social-bale": [
+    "#00B894"
+  ],
+  "social-behance": [
+    "#1769FF"
+  ],
+  "social-discord": [
+    "#7289DA"
+  ],
+  "social-dribbble": [
+    "#F26798"
+  ],
+  "social-eita": [
+    "#E37600"
+  ],
+  "social-facebook": [
+    "#1877F2"
+  ],
+  "social-flickr": [
+    "#FF007F",
+    "#0960D5"
+  ],
+  "social-gap": [
+    "#17DC7E",
+    "#13CE90",
+    "#0CB6B0"
+  ],
+  "social-github": [
+    "#333333"
+  ],
+  "social-gmail": [
+    "#D54B3D",
+    "#D72B27",
+    "#E3E3E3"
+  ],
+  "social-google": [
+    "#EA4335",
+    "#4285F4",
+    "#FBBC05"
+  ],
+  "social-google-play": [
+    "#FFE300",
+    "#FF4E54",
+    "#00F085"
+  ],
+  "social-i-gap": [
+    "#CAE19E",
+    "#DBECCB",
+    "#B8D54F"
+  ],
+  "social-instagram": [
+    "#FED576",
+    "#F47133",
+    "#BC3081"
+  ],
+  "social-linkedin": [
+    "#0077B5"
+  ],
+  "social-medium": [
+    "#12100E"
+  ],
+  "social-messenger": [
+    "#00C6FF",
+    "#0068FF"
+  ],
+  "social-nazdika": [
+    "#46CB75"
+  ],
+  "social-patreon": [
+    "#F76754",
+    "#002C49"
+  ],
+  "social-pinterest": [
+    "#E60019"
+  ],
+  "social-product-hunt": [
+    "#DA552F"
+  ],
+  "social-quora": [
+    "#B92B27"
+  ],
+  "social-reddit": [
+    "#FF5700"
+  ],
+  "social-rss": [
+    "#F8991D"
+  ],
+  "social-rubika": [
+    "#E64B50",
+    "#7DB326",
+    "#B8CD02"
+  ],
+  "social-shad": [
+    "#323242",
+    "#FFD541",
+    "#FBBE18"
+  ],
+  "social-skype": [
+    "#00AAEB",
+    "#00AFF0"
+  ],
+  "social-slack": [
+    "#E01E5A",
+    "#36C5F0",
+    "#2EB67D"
+  ],
+  "social-snapchat": [
+    "#FFE400"
+  ],
+  "social-soroush": [
+    "#196FEE"
+  ],
+  "social-spotify": [
+    "#1ED760"
+  ],
+  "social-telegram": [
+    "#37AEE2",
+    "#1E96C8"
+  ],
+  "social-tiktok": [
+    "#00F2EA",
+    "#FF004F"
+  ],
+  "social-tumblr": [
+    "#314358"
+  ],
+  "social-twitch": [
+    "#6441A5",
+    "#F1F1F1"
+  ],
+  "social-twitter": [
+    "#55ACEE"
+  ],
+  "social-viber": [
+    "#7F4DA0"
+  ],
+  "social-whatsapp": [
+    "#25D366",
+    "#FDFDFD"
+  ],
+  "social-youtube": [
+    "#FF0000"
+  ],
+  "tv-shabake-1": [
+    "#0074DB"
+  ],
+  "tv-shabake-2": [
+    "#03A4EC"
+  ],
+  "tv-shabake-3": [
+    "#D11A5D"
+  ],
+  "tv-shabake-4": [
+    "#1A9FA9"
+  ],
+  "tv-shabake-alkosar": [
+    "#2D95D3",
+    "#F5E800",
+    "#E88A06"
+  ],
+  "tv-shabake-amuzesh": [
+    "#0017C1",
+    "#FB9F01"
+  ],
+  "tv-shabake-ifilm": [
+    "#005560",
+    "#00AED8",
+    "#3E2574"
+  ],
+  "tv-shabake-jamejam": [
+    "#089FAC",
+    "#FEA308"
+  ],
+  "tv-shabake-khabar": [
+    "#00CDDD"
+  ],
+  "tv-shabake-mostanad": [
+    "#FFD610",
+    "#A2A0A5"
+  ],
+  "tv-shabake-namayesh": [
+    "#FF7711"
+  ],
+  "tv-shabake-nasim": [
+    "#FF053C"
+  ],
+  "tv-shabake-ofogh": [
+    "#1CAFA2"
+  ],
+  "tv-shabake-omid": [
+    "#8D0051",
+    "#E67303",
+    "#FFE226"
+  ],
+  "tv-shabake-puya": [
+    "#FEC10E",
+    "#C5168D"
+  ],
+  "tv-shabake-quran": [
+    "#FEE099",
+    "#846C35",
+    "#2191A9"
+  ],
+  "tv-shabake-salamat": [
+    "#028E13",
+    "#8DCD07",
+    "#D70302"
+  ],
+  "tv-shabake-sepehr": [
+    "#FA454F",
+    "#20AAB4"
+  ],
+  "tv-shabake-tamasha": [
+    "#4F0810"
+  ],
+  "tv-shabake-tehran": [
+    "#53B2F4",
+    "#ED9100"
+  ],
+  "tv-shabake-varzesh": [
+    "#21A5CC"
+  ],
+  "vod-aio": [
+    "#D4DE23",
+    "#78AE08"
+  ],
+  "vod-anten": [
+    "#A3244C",
+    "#C92659",
+    "#F02867"
+  ],
+  "vod-aparat": [
+    "#231F20",
+    "#ED145B"
+  ],
+  "vod-aparat-kodak": [
+    "#1D1D1B",
+    "#F6851F"
+  ],
+  "vod-aparat-sport": [
+    "#74C15C"
+  ],
+  "vod-filimo": [
+    "#F5853F",
+    "#F99F3F",
+    "#FEC23B"
+  ],
+  "vod-filmnet": [
+    "#D32B4E"
+  ],
+  "vod-namava": [
+    "#1B93FE"
+  ],
+  "vod-tamasha": [
+    "#F11D21"
+  ],
+  "vod-telewebion": [
+    "#BA271B"
+  ]
+}

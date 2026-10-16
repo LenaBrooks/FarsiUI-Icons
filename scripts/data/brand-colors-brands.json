@@ -1,0 +1,639 @@
+{
+  "_comment": "Curated brandColors for display-group brands. Aasaam monos get solid fills; skip unreliable black-only.",
+  "aasaam-40tikke": [
+    "#E85D04"
+  ],
+  "aasaam-55online": [
+    "#485CC7"
+  ],
+  "aasaam-aasaam": [
+    "#070707"
+  ],
+  "aasaam-abidi": [
+    "#1565C0"
+  ],
+  "aasaam-afta": [
+    "#0D47A1"
+  ],
+  "aasaam-amar": [
+    "#1565C0"
+  ],
+  "aasaam-arshehonline": [
+    "#1565C0"
+  ],
+  "aasaam-artdayme": [
+    "#6A1B9A"
+  ],
+  "aasaam-baham": [
+    "#00897B"
+  ],
+  "aasaam-bale": [
+    "#00B894"
+  ],
+  "aasaam-bazarebours": [
+    "#007B3F"
+  ],
+  "aasaam-behran": [
+    "#C62828"
+  ],
+  "aasaam-behrooz": [
+    "#C62828"
+  ],
+  "aasaam-bitido": [
+    "#F9A825"
+  ],
+  "aasaam-butane": [
+    "#CC030E"
+  ],
+  "aasaam-chabokonline": [
+    "#1565C0"
+  ],
+  "aasaam-cloob": [
+    "#1E88E5"
+  ],
+  "aasaam-cspf": [
+    "#1B5E20"
+  ],
+  "aasaam-donya-e-eqtesad": [
+    "#0D47A1"
+  ],
+  "aasaam-donyayemadan": [
+    "#5D4037"
+  ],
+  "aasaam-ecoiran": [
+    "#2E7D32"
+  ],
+  "aasaam-econegar": [
+    "#1565C0"
+  ],
+  "aasaam-ecunion": [
+    "#1565C0"
+  ],
+  "aasaam-eima": [
+    "#00838F"
+  ],
+  "aasaam-eitaa": [
+    "#FF7534"
+  ],
+  "aasaam-esamta": [
+    "#1565C0"
+  ],
+  "aasaam-fajrfilmfestival": [
+    "#C62828"
+  ],
+  "aasaam-gap": [
+    "#17DC7E"
+  ],
+  "aasaam-hafttappeh": [
+    "#2E7D32"
+  ],
+  "aasaam-hepco": [
+    "#F57C00"
+  ],
+  "aasaam-igap": [
+    "#B8D54F"
+  ],
+  "aasaam-ihdae": [
+    "#C62828"
+  ],
+  "aasaam-iranart": [
+    "#6A1B9A"
+  ],
+  "aasaam-iraneurope": [
+    "#1565C0"
+  ],
+  "aasaam-iranmall": [
+    "#C62828"
+  ],
+  "aasaam-irannsr": [
+    "#1565C0"
+  ],
+  "aasaam-iranol": [
+    "#F57C00"
+  ],
+  "aasaam-irantvto": [
+    "#1565C0"
+  ],
+  "aasaam-iranzamin": [
+    "#C62828"
+  ],
+  "aasaam-irib": [
+    "#000D7F"
+  ],
+  "aasaam-irib1": [
+    "#0074DB"
+  ],
+  "aasaam-irib2": [
+    "#03A4EC"
+  ],
+  "aasaam-irib3": [
+    "#D11A5D"
+  ],
+  "aasaam-irib4": [
+    "#1A9FA9"
+  ],
+  "aasaam-irib5": [
+    "#53B2F4"
+  ],
+  "aasaam-irib7": [
+    "#1565C0"
+  ],
+  "aasaam-irimo": [
+    "#0277BD"
+  ],
+  "aasaam-irinn": [
+    "#C62828"
+  ],
+  "aasaam-irisl": [
+    "#0D47A1"
+  ],
+  "aasaam-iritco": [
+    "#1565C0"
+  ],
+  "aasaam-irna": [
+    "#0C3555"
+  ],
+  "aasaam-irost": [
+    "#1565C0"
+  ],
+  "aasaam-isc": [
+    "#1565C0"
+  ],
+  "aasaam-itrc": [
+    "#0D47A1"
+  ],
+  "aasaam-iums": [
+    "#04AEAE"
+  ],
+  "aasaam-iust": [
+    "#261774"
+  ],
+  "aasaam-jadidpress": [
+    "#C62828"
+  ],
+  "aasaam-jahanemana": [
+    "#1565C0"
+  ],
+  "aasaam-jamaran": [
+    "#2E7D32"
+  ],
+  "aasaam-jaygah8": [
+    "#F9A825"
+  ],
+  "aasaam-kanoonparvaresh": [
+    "#C62828"
+  ],
+  "aasaam-kavirtire": [
+    "#212121"
+  ],
+  "aasaam-keshavarzi": [
+    "#2E7D32"
+  ],
+  "aasaam-keshavarzplus": [
+    "#43A047"
+  ],
+  "aasaam-khabareazad": [
+    "#C62828"
+  ],
+  "aasaam-khabarerooz": [
+    "#C62828"
+  ],
+  "aasaam-khabarfoori": [
+    "#D32F2F"
+  ],
+  "aasaam-khabargardoon": [
+    "#1565C0"
+  ],
+  "aasaam-khabaronline": [
+    "#38386C"
+  ],
+  "aasaam-khanehcinema": [
+    "#A21412"
+  ],
+  "aasaam-khavarmianeh": [
+    "#0D47A1"
+  ],
+  "aasaam-khodrotak": [
+    "#1565C0"
+  ],
+  "aasaam-khoondanionline": [
+    "#6A1B9A"
+  ],
+  "aasaam-khwarizmi": [
+    "#134C83"
+  ],
+  "aasaam-kosar": [
+    "#1565C0"
+  ],
+  "aasaam-maj": [
+    "#0D47A1"
+  ],
+  "aasaam-maktabkhooneh": [
+    "#009BA6"
+  ],
+  "aasaam-mamlekatonline": [
+    "#1565C0"
+  ],
+  "aasaam-mapna": [
+    "#0D47A1"
+  ],
+  "aasaam-markazi": [
+    "#1B5E20"
+  ],
+  "aasaam-mci": [
+    "#0095DA"
+  ],
+  "aasaam-mcth": [
+    "#8D6E63"
+  ],
+  "aasaam-medu": [
+    "#1565C0"
+  ],
+  "aasaam-melal": [
+    "#1565C0"
+  ],
+  "aasaam-metrotehran": [
+    "#F9D42B"
+  ],
+  "aasaam-minoo": [
+    "#FFEE00"
+  ],
+  "aasaam-mohme": [
+    "#00897B"
+  ],
+  "aasaam-mojdehartgallery": [
+    "#6A1B9A"
+  ],
+  "aasaam-moniban": [
+    "#1565C0"
+  ],
+  "aasaam-mosalas": [
+    "#C62828"
+  ],
+  "aasaam-mostaghelonline": [
+    "#212121"
+  ],
+  "aasaam-msc": [
+    "#1565C0"
+  ],
+  "aasaam-msrt": [
+    "#0D47A1"
+  ],
+  "aasaam-msy": [
+    "#2E7D32"
+  ],
+  "aasaam-mun-ahvaz": [
+    "#095700"
+  ],
+  "aasaam-mun-arak": [
+    "#095700"
+  ],
+  "aasaam-mun-ardabil": [
+    "#095700"
+  ],
+  "aasaam-mun-bandarabbas": [
+    "#095700"
+  ],
+  "aasaam-mun-birjand": [
+    "#095700"
+  ],
+  "aasaam-mun-bojnurd": [
+    "#095700"
+  ],
+  "aasaam-mun-bushehr": [
+    "#095700"
+  ],
+  "aasaam-mun-gorgan": [
+    "#095700"
+  ],
+  "aasaam-mun-hamedan": [
+    "#095700"
+  ],
+  "aasaam-mun-ilam": [
+    "#095700"
+  ],
+  "aasaam-mun-isfahan": [
+    "#095700"
+  ],
+  "aasaam-mun-karaj": [
+    "#095700"
+  ],
+  "aasaam-mun-kerman": [
+    "#095700"
+  ],
+  "aasaam-mun-kermanshah": [
+    "#095700"
+  ],
+  "aasaam-mun-khorramabad": [
+    "#095700"
+  ],
+  "aasaam-mun-mashhad": [
+    "#095700"
+  ],
+  "aasaam-mun-qazvin": [
+    "#095700"
+  ],
+  "aasaam-mun-qom": [
+    "#095700"
+  ],
+  "aasaam-mun-rasht": [
+    "#095700"
+  ],
+  "aasaam-mun-sanandaj": [
+    "#095700"
+  ],
+  "aasaam-mun-sari": [
+    "#095700"
+  ],
+  "aasaam-mun-semnan": [
+    "#095700"
+  ],
+  "aasaam-mun-shiraz": [
+    "#095700"
+  ],
+  "aasaam-mun-tabriz": [
+    "#095700"
+  ],
+  "aasaam-mun-tehran": [
+    "#095700"
+  ],
+  "aasaam-mun-urmia": [
+    "#095700"
+  ],
+  "aasaam-mun-yasuj": [
+    "#095700"
+  ],
+  "aasaam-mun-yazd": [
+    "#095700"
+  ],
+  "aasaam-mun-zahedan": [
+    "#095700"
+  ],
+  "aasaam-mun-zanjan": [
+    "#095700"
+  ],
+  "aasaam-mvm": [
+    "#C62828"
+  ],
+  "aasaam-nahaltv": [
+    "#2E7D32"
+  ],
+  "aasaam-namayeshtv": [
+    "#FF7711"
+  ],
+  "aasaam-nasim": [
+    "#FF053C"
+  ],
+  "aasaam-ndf": [
+    "#0D47A1"
+  ],
+  "aasaam-niniban": [
+    "#EC407A"
+  ],
+  "aasaam-nlai": [
+    "#1565C0"
+  ],
+  "aasaam-nomanzi": [
+    "#6A1B9A"
+  ],
+  "aasaam-noor": [
+    "#F9A825"
+  ],
+  "aasaam-noorvision": [
+    "#F9A825"
+  ],
+  "aasaam-ntdc": [
+    "#0D47A1"
+  ],
+  "aasaam-ofoghtv": [
+    "#1CAFA2"
+  ],
+  "aasaam-oil": [
+    "#212121"
+  ],
+  "aasaam-okcs": [
+    "#1565C0"
+  ],
+  "aasaam-omidtv": [
+    "#E67303"
+  ],
+  "aasaam-pakat": [
+    "#1565C0"
+  ],
+  "aasaam-panjere": [
+    "#1565C0"
+  ],
+  "aasaam-parsappliance": [
+    "#1565C0"
+  ],
+  "aasaam-parskhazar": [
+    "#FA0302"
+  ],
+  "aasaam-parsonline": [
+    "#DA251D"
+  ],
+  "aasaam-parspal": [
+    "#1565C0"
+  ],
+  "aasaam-paxan": [
+    "#1565C0"
+  ],
+  "aasaam-payameno": [
+    "#1565C0"
+  ],
+  "aasaam-pazonline": [
+    "#FF5722"
+  ],
+  "aasaam-pec": [
+    "#0D47A1"
+  ],
+  "aasaam-petrotahlil": [
+    "#5D4037"
+  ],
+  "aasaam-pishnahadevizheh": [
+    "#E53935"
+  ],
+  "aasaam-pmo": [
+    "#0D47A1"
+  ],
+  "aasaam-pooyatv": [
+    "#FEC10E"
+  ],
+  "aasaam-post": [
+    "#FFC121"
+  ],
+  "aasaam-promizer": [
+    "#7B1FA2"
+  ],
+  "aasaam-qurantv": [
+    "#846C35"
+  ],
+  "aasaam-rcs": [
+    "#E30613"
+  ],
+  "aasaam-resalat": [
+    "#1565C0"
+  ],
+  "aasaam-revayatnameh": [
+    "#5D4037"
+  ],
+  "aasaam-rokna": [
+    "#C62828"
+  ],
+  "aasaam-sabteahval": [
+    "#009540"
+  ],
+  "aasaam-sadad": [
+    "#0D47A1"
+  ],
+  "aasaam-sairan": [
+    "#1565C0"
+  ],
+  "aasaam-salamattv": [
+    "#028E13"
+  ],
+  "aasaam-samt": [
+    "#1565C0"
+  ],
+  "aasaam-sanatmadan": [
+    "#5D4037"
+  ],
+  "aasaam-sanjagh": [
+    "#E91E63"
+  ],
+  "aasaam-sanjesh": [
+    "#013F7C"
+  ],
+  "aasaam-sapp": [
+    "#1565C0"
+  ],
+  "aasaam-sargarmiyerooz": [
+    "#FF5722"
+  ],
+  "aasaam-sarmayeh": [
+    "#0D47A1"
+  ],
+  "aasaam-semnantile": [
+    "#795548"
+  ],
+  "aasaam-sepah": [
+    "#1B5E20"
+  ],
+  "aasaam-setareparsi": [
+    "#C62828"
+  ],
+  "aasaam-shaidbeheshtiuni": [
+    "#003663"
+  ],
+  "aasaam-sharghonline": [
+    "#C62828"
+  ],
+  "aasaam-sharif": [
+    "#1D2D83"
+  ],
+  "aasaam-shetab": [
+    "#0D47A1"
+  ],
+  "aasaam-shomareh1": [
+    "#C62828"
+  ],
+  "aasaam-shomatv": [
+    "#1565C0"
+  ],
+  "aasaam-sibapp": [
+    "#0047FF"
+  ],
+  "aasaam-sindad": [
+    "#1565C0"
+  ],
+  "aasaam-snowa": [
+    "#236CAA"
+  ],
+  "aasaam-sornakhabar": [
+    "#C62828"
+  ],
+  "aasaam-standard": [
+    "#159B86"
+  ],
+  "aasaam-systemgroup": [
+    "#D6001C"
+  ],
+  "aasaam-taavoneslami": [
+    "#2E7D32"
+  ],
+  "aasaam-tamashatv": [
+    "#4F0810"
+  ],
+  "aasaam-tamin": [
+    "#2E3192"
+  ],
+  "aasaam-tap30": [
+    "#F15A22"
+  ],
+  "aasaam-tapesh3": [
+    "#E53935"
+  ],
+  "aasaam-tapsell": [
+    "#FF5722"
+  ],
+  "aasaam-tarafdari": [
+    "#C62828"
+  ],
+  "aasaam-tarintop": [
+    "#1565C0"
+  ],
+  "aasaam-tarjoman": [
+    "#6A1B9A"
+  ],
+  "aasaam-tavakoli": [
+    "#5D4037"
+  ],
+  "aasaam-tavanir": [
+    "#FBC02D"
+  ],
+  "aasaam-tci": [
+    "#27318C"
+  ],
+  "aasaam-tehraneonline": [
+    "#1565C0"
+  ],
+  "aasaam-tehranuni": [
+    "#0BAEDD"
+  ],
+  "aasaam-tinn": [
+    "#1565C0"
+  ],
+  "aasaam-titrekootah": [
+    "#C62828"
+  ],
+  "aasaam-tractorclub": [
+    "#C20605"
+  ],
+  "aasaam-tse": [
+    "#007B3F"
+  ],
+  "aasaam-tvnasim": [
+    "#FF053C"
+  ],
+  "aasaam-varandaz": [
+    "#1565C0"
+  ],
+  "aasaam-virgool": [
+    "#1A8917"
+  ],
+  "aasaam-wikigardi": [
+    "#1565C0"
+  ],
+  "aasaam-xvision": [
+    "#004A8F"
+  ],
+  "aasaam-zenhar": [
+    "#C62828"
+  ],
+  "gapgpt": [
+    "#10A37F"
+  ],
+  "psi-hafthashtad": [
+    "#B9238B"
+  ]
+}

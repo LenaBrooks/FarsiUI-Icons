@@ -6,6 +6,7 @@ import { mkdir, readdir, readFile, writeFile, rm } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
+import { brandColorsField } from "./lib/brand-colors.mjs";
 import {
   flushComponentRegistry,claimComponentName,
   preferredIconName,
@@ -257,6 +258,7 @@ const catalogEntries = icons.map((icon) => ({
   verificationStatus: "needs-official-svg",
   notes:
     "Curated Color SVG from gauravghongde/social-icons. Color keeps badge artwork; mono uses currentColor.",
+  ...brandColorsField(icon.id),
   viewBox: icon.viewBox,
   aspectRatio: icon.aspectRatio,
 }));
