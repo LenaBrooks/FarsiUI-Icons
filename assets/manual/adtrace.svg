@@ -1,0 +1,26 @@
+<svg width="32" height="35" xmlns="http://www.w3.org/2000/svg"
+     viewBox="40 13 32 35">
+    <svg width="20" height="25" xmlns="http://www.w3.org/2000/svg"
+         viewBox="0.256 0 19.487 25" fill="#3c6982" x="46" y="13">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25"
+             viewBox="0.365 0.641 18.864 24.201">
+            <path paint-order="stroke fill markers" fill-rule="evenodd"
+                  d="M19.23 17.391l-9.432 7.45-9.433-7.45 6.96-15.16a2.719 2.719 0 0 1 4.946 0l6.958 15.16z"/>
+        </svg>
+    </svg>
+    <svg width="16" height="18" xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0.352 16 17.297" fill="#05466b" x="40" y="30">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18"
+             viewBox="0.075 0.391 15.721 16.995">
+            <path paint-order="stroke fill markers" fill-rule="evenodd"
+                  d="M15.796 7.842l-11.295 8.94c-2.244 1.775-5.356-.67-4.162-3.27L6.365.392l9.431 7.45z"/>
+        </svg>
+    </svg>
+    <svg width="17" height="18" xmlns="http://www.w3.org/2000/svg"
+         viewBox="0.18 0 16.641 18" fill="#a0a8ae" x="55" y="30">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0.796 0.381 15.722 17.006">
+            <path paint-order="stroke fill markers" fill-rule="evenodd"
+                  d="M12.093 16.792L.796 7.842 10.227.38l6.026 13.131c1.195 2.6-1.917 5.045-4.162 3.27l.002.01"/>
+        </svg>
+    </svg>
+</svg>
