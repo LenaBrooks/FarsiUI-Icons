@@ -21,6 +21,11 @@ export default defineConfig({
       },
     ],
   },
+  build: {
+    // Absolute path so Vercel Output Directory `playground/dist` matches (not nested under root).
+    outDir: path.resolve(rootDir, "playground/dist"),
+    emptyOutDir: true,
+  },
   server: {
     port: 5173,
     open: false,

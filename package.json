@@ -37,6 +37,7 @@
     "generate:manual": "node scripts/generate-manual.mjs",
     "dev": "vite --config vite.config.ts",
     "build": "tsup",
+    "build:web": "vite build --config vite.config.ts",
     "build:icons": "npm run generate && tsup",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "eslint .",

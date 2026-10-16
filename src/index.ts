@@ -10,6 +10,13 @@ export type {
   VerificationStatus,
 } from "./types";
 
+export type { DisplayGroupId, DisplayGroupMeta } from "./display-groups";
+export {
+  displayGroups,
+  getDisplayGroupId,
+  getDisplayGroupMeta,
+} from "./display-groups";
+
 export {
   iconManifest,
   iconCategories,

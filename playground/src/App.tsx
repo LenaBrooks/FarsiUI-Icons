@@ -7,10 +7,12 @@ import {
 } from "react";
 import {
   LogoIcon,
-  iconCategories,
+  displayGroups,
+  getDisplayGroupId,
+  getDisplayGroupMeta,
   iconManifest,
   preloadAllIconData,
-  type IconCategory,
+  type DisplayGroupId,
   type IconManifestEntry,
   type IconVariant,
 } from "@farsiui/icons";
@@ -221,7 +223,7 @@ export function App() {
   const [query, setQuery] = useState("");
   const [categoryQuery, setCategoryQuery] = useState("");
   /** Highlights sidebar + scroll target; does not filter the grid. */
-  const [activeCategory, setActiveCategory] = useState<IconCategory | "all">(
+  const [activeGroup, setActiveGroup] = useState<DisplayGroupId | "all">(
     "all",
   );
   const [customizer, setCustomizer] = useState(readStoredCustomizer);
@@ -248,7 +250,7 @@ export function App() {
   const galleryRef = useRef<HTMLDivElement>(null);
   const copyTimer = useRef<number | null>(null);
   const scrollingToRef = useRef(false);
-  const pendingScrollRef = useRef<IconCategory | "all" | null>(null);
+  const pendingScrollRef = useRef<DisplayGroupId | "all" | null>(null);
   const [scrollNonce, setScrollNonce] = useState(0);
 
   const go = (next: PageId) => {
@@ -270,12 +272,15 @@ export function App() {
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
-  const categories = useMemo(() => {
+  const groups = useMemo(() => {
     const q = categoryQuery.trim();
-    if (!q) return iconCategories;
+    if (!q) return displayGroups;
     const qLower = q.toLowerCase();
-    return iconCategories.filter(
-      (c) => c.labelFa.includes(q) || c.id.includes(qLower),
+    return displayGroups.filter(
+      (g) =>
+        g.labelFa.includes(q) ||
+        g.labelEn.toLowerCase().includes(qLower) ||
+        g.id.includes(qLower),
     );
   }, [categoryQuery]);
 
@@ -284,43 +289,44 @@ export function App() {
   }, [query]);
 
   const sections = useMemo(() => {
-    const byCat = new Map<IconCategory, IconManifestEntry[]>();
+    const byGroup = new Map<DisplayGroupId, IconManifestEntry[]>();
     for (const entry of filtered) {
-      const list = byCat.get(entry.category);
+      const gid = getDisplayGroupId(entry);
+      const list = byGroup.get(gid);
       if (list) list.push(entry);
-      else byCat.set(entry.category, [entry]);
+      else byGroup.set(gid, [entry]);
     }
-    return iconCategories
-      .map((cat) => ({
-        id: cat.id,
-        labelFa: cat.labelFa,
-        icons: byCat.get(cat.id) ?? [],
+    return displayGroups
+      .map((g) => ({
+        id: g.id,
+        labelFa: g.labelFa,
+        icons: byGroup.get(g.id) ?? [],
       }))
       .filter((s) => s.icons.length > 0);
   }, [filtered]);
 
-  const categoryCounts = useMemo(() => {
-    const counts = new Map<string, number>();
+  const groupCounts = useMemo(() => {
+    const counts = new Map<DisplayGroupId, number>();
     for (const entry of iconManifest) {
-      counts.set(entry.category, (counts.get(entry.category) ?? 0) + 1);
+      const gid = getDisplayGroupId(entry);
+      counts.set(gid, (counts.get(gid) ?? 0) + 1);
     }
     return counts;
   }, []);
 
-  const visibleCategories = useMemo(() => {
-    return categories.filter((c) => (categoryCounts.get(c.id) ?? 0) > 0);
-  }, [categories, categoryCounts]);
+  const visibleGroups = useMemo(() => {
+    return groups.filter((g) => (groupCounts.get(g.id) ?? 0) > 0);
+  }, [groups, groupCounts]);
 
   const totalVisible = iconManifest.length;
 
   const isSearching = query.trim().length > 0;
 
-  const activeCategoryLabel = isSearching
+  const activeGroupLabel = isSearching
     ? "نتایج"
-    : activeCategory === "all"
+    : activeGroup === "all"
       ? "همه"
-      : (iconCategories.find((c) => c.id === activeCategory)?.labelFa ??
-        activeCategory);
+      : (getDisplayGroupMeta(activeGroup)?.labelFa ?? activeGroup);
 
   const isCustomized =
     customizer.size !== CUSTOMIZER_DEFAULTS.size ||
@@ -339,10 +345,10 @@ export function App() {
     copyTimer.current = window.setTimeout(() => setCopiedKind(null), 1200);
   };
 
-  function scrollToCategory(id: IconCategory | "all") {
+  function scrollToGroup(id: DisplayGroupId | "all") {
     // Clear search so section anchors exist again.
     if (query.trim()) setQuery("");
-    setActiveCategory(id);
+    setActiveGroup(id);
     scrollingToRef.current = true;
     pendingScrollRef.current = id;
     setScrollNonce((n) => n + 1);
@@ -358,8 +364,39 @@ export function App() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem("farsiui-icons-theme", theme);
+    try {
+      window.localStorage.setItem("farsiui-icons-theme", theme);
+    } catch {
+      /* ignore */
+    }
   }, [theme]);
+
+  // Tab discard / bfcache restore can remount without re-running the HTML boot script.
+  useEffect(() => {
+    const syncTheme = () => {
+      try {
+        const saved = window.localStorage.getItem("farsiui-icons-theme");
+        if (saved === "light" || saved === "dark") {
+          setTheme((prev) => (prev === saved ? prev : saved));
+          document.documentElement.dataset.theme = saved;
+        }
+      } catch {
+        /* ignore */
+      }
+    };
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) syncTheme();
+    };
+    const onVisible = () => {
+      if (document.visibilityState === "visible") syncTheme();
+    };
+    window.addEventListener("pageshow", onPageShow);
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      window.removeEventListener("pageshow", onPageShow);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
+  }, []);
 
   useEffect(() => {
     try {
@@ -406,7 +443,7 @@ export function App() {
       if (pending === "all") {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
-        const el = document.getElementById(`category-${pending}`);
+        const el = document.getElementById(`group-${pending}`);
         if (el) {
           const nav = document.querySelector(".site-nav") as HTMLElement | null;
           const sticky = document.querySelector(
@@ -430,7 +467,7 @@ export function App() {
   useEffect(() => {
     if (page !== "icons" || isSearching || !galleryRef.current) return;
     const root = galleryRef.current;
-    const nodes = root.querySelectorAll<HTMLElement>("[data-category-section]");
+    const nodes = root.querySelectorAll<HTMLElement>("[data-group-section]");
     if (!nodes.length) return;
 
     const observer = new IntersectionObserver(
@@ -444,10 +481,10 @@ export function App() {
           );
         const top = visible[0];
         if (!top?.target) return;
-        const id = (top.target as HTMLElement).dataset.categorySection as
-          | IconCategory
+        const id = (top.target as HTMLElement).dataset.groupSection as
+          | DisplayGroupId
           | undefined;
-        if (id) setActiveCategory(id);
+        if (id) setActiveGroup(id);
       },
       {
         root: null,
@@ -639,7 +676,7 @@ export function App() {
             </div>
 
             <p className="gallery-caption" dir="rtl" lang="fa">
-              {activeCategoryLabel}
+              {activeGroupLabel}
               {!ready ? " · loading…" : null}
             </p>
 
@@ -686,13 +723,13 @@ export function App() {
                   {sections.map((section) => (
                     <section
                       key={section.id}
-                      id={`category-${section.id}`}
+                      id={`group-${section.id}`}
                       className="icon-section"
-                      data-category-section={section.id}
-                      aria-labelledby={`category-heading-${section.id}`}
+                      data-group-section={section.id}
+                      aria-labelledby={`group-heading-${section.id}`}
                     >
                       <h2
-                        id={`category-heading-${section.id}`}
+                        id={`group-heading-${section.id}`}
                         className="icon-section-title"
                         dir="rtl"
                         lang="fa"
@@ -871,10 +908,10 @@ export function App() {
             >
               <button
                 type="button"
-                className={`cat-row ${activeCategory === "all" && !isSearching ? "active" : ""}`}
+                className={`cat-row ${activeGroup === "all" && !isSearching ? "active" : ""}`}
                 role="option"
-                aria-selected={activeCategory === "all"}
-                onClick={() => scrollToCategory("all")}
+                aria-selected={activeGroup === "all"}
+                onClick={() => scrollToGroup("all")}
               >
                 <span className="cat-row-label">
                   <span className="cat-fa">همه دسته‌ها</span>
@@ -884,20 +921,20 @@ export function App() {
                 </span>
               </button>
 
-              {visibleCategories.map((c) => (
+              {visibleGroups.map((g) => (
                 <button
-                  key={c.id}
+                  key={g.id}
                   type="button"
-                  className={`cat-row ${activeCategory === c.id && !isSearching ? "active" : ""}`}
+                  className={`cat-row ${activeGroup === g.id && !isSearching ? "active" : ""}`}
                   role="option"
-                  aria-selected={activeCategory === c.id}
-                  onClick={() => scrollToCategory(c.id)}
+                  aria-selected={activeGroup === g.id}
+                  onClick={() => scrollToGroup(g.id)}
                 >
                   <span className="cat-row-label">
-                    <span className="cat-fa">{c.labelFa}</span>
+                    <span className="cat-fa">{g.labelFa}</span>
                   </span>
                   <span className="cat-count" dir="rtl" lang="fa">
-                    {toFaDigits(categoryCounts.get(c.id) ?? c.count)}
+                    {toFaDigits(groupCounts.get(g.id) ?? 0)}
                   </span>
                 </button>
               ))}
