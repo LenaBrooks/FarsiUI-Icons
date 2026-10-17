@@ -72,4 +72,5 @@ node packages/icons-cli/src/index.mjs add bank-melli --registry ./registry
 ## مجوز
 
 کد پکیج: MIT.  
-آرت‌ورک‌ها از منابع مختلف با مجوزهای اصلی خودشان در `assets/` آمده‌اند.
+آرت‌ورک‌ها از منابع مختلف با مجوزهای اصلی خودشان در `assets/` آمده‌اند.  
+لوگوهای استارتاپی `assets/manual` جمع‌آوری‌شده توسط [trustmrr.ir](https://trustmrr.ir) از وب‌سایت خود شرکت‌ها (جزئیات در `assets/manual/sources.json`)؛ هر لوگو علامت تجاری همان شرکت است.

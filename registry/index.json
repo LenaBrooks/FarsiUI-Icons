@@ -1,8 +1,16 @@
 {
   "name": "@farsiui/icons",
   "version": 1,
-  "count": 1178,
+  "count": 1228,
   "icons": [
+    {
+      "id": "7learn",
+      "nameFa": "سون‌لرن",
+      "nameEn": "7Learn",
+      "componentName": "N7learnIcon",
+      "category": "manual",
+      "file": "icons/7learn.json"
+    },
     {
       "id": "aasaam-40tikke",
       "nameFa": "چهل‌تیکه",
@@ -2716,12 +2724,60 @@
       "file": "icons/aasaam-zoomit.json"
     },
     {
+      "id": "abalon",
+      "nameFa": "آبالون",
+      "nameEn": "Abalon",
+      "componentName": "AbalonIcon",
+      "category": "manual",
+      "file": "icons/abalon.json"
+    },
+    {
+      "id": "adivery",
+      "nameFa": "ادیوری",
+      "nameEn": "Adivery",
+      "componentName": "AdiveryIcon",
+      "category": "manual",
+      "file": "icons/adivery.json"
+    },
+    {
+      "id": "adtrace",
+      "nameFa": "ادتریس",
+      "nameEn": "Adtrace",
+      "componentName": "AdtraceIcon",
+      "category": "manual",
+      "file": "icons/adtrace.json"
+    },
+    {
+      "id": "ahan-online",
+      "nameFa": "آهن آنلاین",
+      "nameEn": "Ahan Online",
+      "componentName": "AhanOnlineIcon",
+      "category": "manual",
+      "file": "icons/ahan-online.json"
+    },
+    {
       "id": "alamto",
       "nameFa": "عالم‌تو",
       "nameEn": "Alamto",
       "componentName": "AlamtoIcon",
       "category": "manual",
       "file": "icons/alamto.json"
+    },
+    {
+      "id": "alan-chand",
+      "nameFa": "الان چند",
+      "nameEn": "Alan Chand",
+      "componentName": "AlanChandIcon",
+      "category": "manual",
+      "file": "icons/alan-chand.json"
+    },
+    {
+      "id": "amadast",
+      "nameFa": "آمادست",
+      "nameEn": "Amadast",
+      "componentName": "AmadastIcon",
+      "category": "manual",
+      "file": "icons/amadast.json"
     },
     {
       "id": "app-anardooni",
@@ -2908,6 +2964,22 @@
       "file": "icons/appliance-x-vision.json"
     },
     {
+      "id": "aqaye-pardakht",
+      "nameFa": "آقای پرداخت",
+      "nameEn": "Aqaye Pardakht",
+      "componentName": "AqayePardakhtIcon",
+      "category": "manual",
+      "file": "icons/aqaye-pardakht.json"
+    },
+    {
+      "id": "arz-digital",
+      "nameFa": "ارزدیجیتال",
+      "nameEn": "Arz Digital",
+      "componentName": "ArzDigitalIcon",
+      "category": "manual",
+      "file": "icons/arz-digital.json"
+    },
+    {
       "id": "automobile-bahman",
       "nameFa": "بهمن",
       "nameEn": "Bahman",
@@ -2962,6 +3034,14 @@
       "componentName": "AutomobileZamyadIcon",
       "category": "automobiles",
       "file": "icons/automobile-zamyad.json"
+    },
+    {
+      "id": "bama",
+      "nameFa": "باما",
+      "nameEn": "Bama",
+      "componentName": "BamaIcon",
+      "category": "manual",
+      "file": "icons/bama.json"
     },
     {
       "id": "banana-ai",
@@ -3314,6 +3394,30 @@
       "componentName": "BankToseeTaavonIcon",
       "category": "banks",
       "file": "icons/bank-tosee-taavon.json"
+    },
+    {
+      "id": "bitbarg",
+      "nameFa": "بیت‌برگ",
+      "nameEn": "Bitbarg",
+      "componentName": "BitbargIcon",
+      "category": "manual",
+      "file": "icons/bitbarg.json"
+    },
+    {
+      "id": "booking-ir",
+      "nameFa": "بوکینگ",
+      "nameEn": "Booking.ir",
+      "componentName": "BookingIrIcon",
+      "category": "manual",
+      "file": "icons/booking-ir.json"
+    },
+    {
+      "id": "cebit",
+      "nameFa": "سبیت",
+      "nameEn": "Cebit",
+      "componentName": "CebitIcon",
+      "category": "manual",
+      "file": "icons/cebit.json"
     },
     {
       "id": "claude",
@@ -4194,6 +4298,14 @@
       "componentName": "ZrxIcon",
       "category": "crypto",
       "file": "icons/crypto-zrx.json"
+    },
+    {
+      "id": "darmankade",
+      "nameFa": "درمانکده",
+      "nameEn": "Darmankade",
+      "componentName": "DarmankadeIcon",
+      "category": "manual",
+      "file": "icons/darmankade.json"
     },
     {
       "id": "detergent-ave",
@@ -5916,12 +6028,36 @@
       "file": "icons/dev-zoom.json"
     },
     {
+      "id": "drdr",
+      "nameFa": "دکتردکتر",
+      "nameEn": "DrDr",
+      "componentName": "DrdrIcon",
+      "category": "manual",
+      "file": "icons/drdr.json"
+    },
+    {
+      "id": "e-estekhdam",
+      "nameFa": "ای‌استخدام",
+      "nameEn": "e-Estekhdam",
+      "componentName": "EEstekhdamIcon",
+      "category": "manual",
+      "file": "icons/e-estekhdam.json"
+    },
+    {
       "id": "easycandle",
       "nameFa": "ایزی‌کندل",
       "nameEn": "EasyCandle",
       "componentName": "EasycandleIcon",
       "category": "manual",
       "file": "icons/easycandle.json"
+    },
+    {
+      "id": "fanafzar",
+      "nameFa": "فن‌افزار",
+      "nameEn": "Fanafzar",
+      "componentName": "FanafzarIcon",
+      "category": "manual",
+      "file": "icons/fanafzar.json"
     },
     {
       "id": "farsiui",
@@ -6010,6 +6146,14 @@
       "componentName": "FashionPatanJameIcon",
       "category": "fashion-clothing",
       "file": "icons/fashion-patan-jame.json"
+    },
+    {
+      "id": "fontiran",
+      "nameFa": "فونت ایران",
+      "nameEn": "Fontiran",
+      "componentName": "FontiranIcon",
+      "category": "manual",
+      "file": "icons/fontiran.json"
     },
     {
       "id": "food-abali",
@@ -6508,6 +6652,14 @@
       "file": "icons/football-zobahan.json"
     },
     {
+      "id": "footballi",
+      "nameFa": "فوتبالی",
+      "nameEn": "Footballi",
+      "componentName": "FootballiIcon",
+      "category": "manual",
+      "file": "icons/footballi.json"
+    },
+    {
       "id": "gapgpt",
       "nameFa": "گپ‌جی‌پی‌تی",
       "nameEn": "GapGPT",
@@ -6658,6 +6810,46 @@
       "componentName": "GatewayZibalIcon",
       "category": "payment-gateways",
       "file": "icons/gateway-zibal.json"
+    },
+    {
+      "id": "goldika",
+      "nameFa": "گلدیکا",
+      "nameEn": "Goldika",
+      "componentName": "GoldikaIcon",
+      "category": "manual",
+      "file": "icons/goldika.json"
+    },
+    {
+      "id": "gooshi-shop",
+      "nameFa": "گوشی شاپ",
+      "nameEn": "Gooshi Shop",
+      "componentName": "GooshiShopIcon",
+      "category": "manual",
+      "file": "icons/gooshi-shop.json"
+    },
+    {
+      "id": "halal-fund",
+      "nameFa": "حلال فاند",
+      "nameEn": "Halal Fund",
+      "componentName": "HalalFundIcon",
+      "category": "manual",
+      "file": "icons/halal-fund.json"
+    },
+    {
+      "id": "hamravesh",
+      "nameFa": "همروش",
+      "nameEn": "Hamravesh",
+      "componentName": "HamraveshIcon",
+      "category": "manual",
+      "file": "icons/hamravesh.json"
+    },
+    {
+      "id": "hayoola",
+      "nameFa": "هیولا",
+      "nameEn": "Hayoola",
+      "componentName": "HayoolaIcon",
+      "category": "manual",
+      "file": "icons/hayoola.json"
     },
     {
       "id": "insurance-alborz",
@@ -6820,6 +7012,14 @@
       "file": "icons/insurance-toseei.json"
     },
     {
+      "id": "iran-dargah",
+      "nameFa": "ایران درگاه",
+      "nameEn": "Iran Dargah",
+      "componentName": "IranDargahIcon",
+      "category": "manual",
+      "file": "icons/iran-dargah.json"
+    },
+    {
       "id": "isp-asiatech",
       "nameFa": "آسیاتک",
       "nameEn": "Asiatech",
@@ -6906,6 +7106,30 @@
       "componentName": "IspZitelIcon",
       "category": "isp",
       "file": "icons/isp-zitel.json"
+    },
+    {
+      "id": "kavenegar",
+      "nameFa": "کاوه‌نگار",
+      "nameEn": "Kavenegar",
+      "componentName": "KavenegarIcon",
+      "category": "manual",
+      "file": "icons/kavenegar.json"
+    },
+    {
+      "id": "last-second",
+      "nameFa": "لست‌سکند",
+      "nameEn": "LastSecond",
+      "componentName": "LastSecondIcon",
+      "category": "manual",
+      "file": "icons/last-second.json"
+    },
+    {
+      "id": "learn-files",
+      "nameFa": "لرن‌فایلز",
+      "nameEn": "LearnFiles",
+      "componentName": "LearnFilesIcon",
+      "category": "manual",
+      "file": "icons/learn-files.json"
     },
     {
       "id": "lpb-bank-ansar",
@@ -7388,12 +7612,36 @@
       "file": "icons/media-zoomit.json"
     },
     {
+      "id": "meli-payamak",
+      "nameFa": "ملی پیامک",
+      "nameEn": "Meli Payamak",
+      "componentName": "MeliPayamakIcon",
+      "category": "manual",
+      "file": "icons/meli-payamak.json"
+    },
+    {
+      "id": "mobit",
+      "nameFa": "مبیت",
+      "nameEn": "Mobit",
+      "componentName": "MobitIcon",
+      "category": "manual",
+      "file": "icons/mobit.json"
+    },
+    {
       "id": "netlify",
       "nameFa": "نتلی‌فای",
       "nameEn": "Netlify",
       "componentName": "NetlifyIcon",
       "category": "manual",
       "file": "icons/netlify.json"
+    },
+    {
+      "id": "novin-hub",
+      "nameFa": "نوین‌هاب",
+      "nameEn": "NovinHub",
+      "componentName": "NovinHubIcon",
+      "category": "manual",
+      "file": "icons/novin-hub.json"
     },
     {
       "id": "organization-ab",
@@ -7668,6 +7916,38 @@
       "file": "icons/organization-vezarat-taavon.json"
     },
     {
+      "id": "payaneh",
+      "nameFa": "پایانه",
+      "nameEn": "Payaneh",
+      "componentName": "PayanehIcon",
+      "category": "manual",
+      "file": "icons/payaneh.json"
+    },
+    {
+      "id": "paziresh24",
+      "nameFa": "پذیرش۲۴",
+      "nameEn": "Paziresh24",
+      "componentName": "Paziresh24Icon",
+      "category": "manual",
+      "file": "icons/paziresh24.json"
+    },
+    {
+      "id": "pezeshket",
+      "nameFa": "پزشکت",
+      "nameEn": "Pezeshket",
+      "componentName": "PezeshketIcon",
+      "category": "manual",
+      "file": "icons/pezeshket.json"
+    },
+    {
+      "id": "pico-file",
+      "nameFa": "پیکوفایل",
+      "nameEn": "PicoFile",
+      "componentName": "PicoFileIcon",
+      "category": "manual",
+      "file": "icons/pico-file.json"
+    },
+    {
       "id": "pixevel",
       "nameFa": "پیکسیول",
       "nameEn": "Pixevel",
@@ -7900,12 +8180,76 @@
       "file": "icons/psi-zoomit.json"
     },
     {
+      "id": "ravan-darman",
+      "nameFa": "روان‌درمان",
+      "nameEn": "Ravan Darman",
+      "componentName": "RavanDarmanIcon",
+      "category": "manual",
+      "file": "icons/ravan-darman.json"
+    },
+    {
+      "id": "respina24",
+      "nameFa": "رسپینا",
+      "nameEn": "Respina24",
+      "componentName": "Respina24Icon",
+      "category": "manual",
+      "file": "icons/respina24.json"
+    },
+    {
+      "id": "robo-vakil",
+      "nameFa": "روبووکیل",
+      "nameEn": "RoboVakil",
+      "componentName": "RoboVakilIcon",
+      "category": "manual",
+      "file": "icons/robo-vakil.json"
+    },
+    {
+      "id": "sahamyab",
+      "nameFa": "سهامیاب",
+      "nameEn": "Sahamyab",
+      "componentName": "SahamyabIcon",
+      "category": "manual",
+      "file": "icons/sahamyab.json"
+    },
+    {
+      "id": "sahmeto",
+      "nameFa": "سهمتو",
+      "nameEn": "Sahmeto",
+      "componentName": "SahmetoIcon",
+      "category": "manual",
+      "file": "icons/sahmeto.json"
+    },
+    {
+      "id": "salamat-news",
+      "nameFa": "سلامت نیوز",
+      "nameEn": "Salamat News",
+      "componentName": "SalamatNewsIcon",
+      "category": "manual",
+      "file": "icons/salamat-news.json"
+    },
+    {
       "id": "shenakhti",
       "nameFa": "مرکز شناختی علم و صنعت",
       "nameEn": "Cognitive Science & Industry Center",
       "componentName": "ShenakhtiIcon",
       "category": "manual",
       "file": "icons/shenakhti.json"
+    },
+    {
+      "id": "shepa",
+      "nameFa": "شپا",
+      "nameEn": "Shepa",
+      "componentName": "ShepaIcon",
+      "category": "manual",
+      "file": "icons/shepa.json"
+    },
+    {
+      "id": "shokolat",
+      "nameFa": "شکلات",
+      "nameEn": "Shokolat",
+      "componentName": "ShokolatIcon",
+      "category": "manual",
+      "file": "icons/shokolat.json"
     },
     {
       "id": "social-bale",
@@ -8218,6 +8562,14 @@
       "componentName": "YoutubeIcon",
       "category": "social",
       "file": "icons/social-youtube.json"
+    },
+    {
+      "id": "spot-player",
+      "nameFa": "اسپات‌پلیر",
+      "nameEn": "SpotPlayer",
+      "componentName": "SpotPlayerIcon",
+      "category": "manual",
+      "file": "icons/spot-player.json"
     },
     {
       "id": "store-aghaye-farsh",
@@ -8932,6 +9284,22 @@
       "file": "icons/university-zanjan.json"
     },
     {
+      "id": "vajehyab",
+      "nameFa": "واژه‌یاب",
+      "nameEn": "Vajehyab",
+      "componentName": "VajehyabIcon",
+      "category": "manual",
+      "file": "icons/vajehyab.json"
+    },
+    {
+      "id": "vakil-digi",
+      "nameFa": "وکیل‌دیجی",
+      "nameEn": "VakilDigi",
+      "componentName": "VakilDigiIcon",
+      "category": "manual",
+      "file": "icons/vakil-digi.json"
+    },
+    {
       "id": "vercel",
       "nameFa": "ورسل",
       "nameEn": "Vercel",
@@ -9026,6 +9394,14 @@
       "componentName": "VodTelewebionIcon",
       "category": "vod",
       "file": "icons/vod-telewebion.json"
+    },
+    {
+      "id": "wall-gold",
+      "nameFa": "وال‌گلد",
+      "nameEn": "WallGold",
+      "componentName": "WallGoldIcon",
+      "category": "manual",
+      "file": "icons/wall-gold.json"
     },
     {
       "id": "website-achareh",
@@ -9420,12 +9796,36 @@
       "file": "icons/website-zhaket.json"
     },
     {
+      "id": "wisgoon",
+      "nameFa": "ویسگون",
+      "nameEn": "Wisgoon",
+      "componentName": "WisgoonIcon",
+      "category": "manual",
+      "file": "icons/wisgoon.json"
+    },
+    {
       "id": "zarinpal",
       "nameFa": "زرین‌پال",
       "nameEn": "Zarinpal",
       "componentName": "ZarinpalIcon",
       "category": "manual",
       "file": "icons/zarinpal.json"
+    },
+    {
+      "id": "zaya",
+      "nameFa": "زایا",
+      "nameEn": "Zaya",
+      "componentName": "ZayaIcon",
+      "category": "manual",
+      "file": "icons/zaya.json"
+    },
+    {
+      "id": "zoodex",
+      "nameFa": "زودکس",
+      "nameEn": "Zoodex",
+      "componentName": "ZoodexIcon",
+      "category": "manual",
+      "file": "icons/zoodex.json"
     }
   ]
 }
