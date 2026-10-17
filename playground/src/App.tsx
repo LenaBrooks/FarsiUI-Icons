@@ -402,8 +402,9 @@ export function App() {
     const saved = window.localStorage.getItem("farsiui-icons-theme");
     return saved === "light" || saved === "dark" ? saved : "dark";
   });
-  const [copiedKind, setCopiedKind] = useState<"svg" | "jsx" | "import" | null>(
-    null,
+  const [copiedKind, setCopiedKind] = useState<
+    "svg" | "jsx" | "import" | "cli" | null
+  >(    null,
   );
   const [installCopied, setInstallCopied] = useState(false);
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
@@ -483,11 +484,19 @@ export function App() {
       else byGroup.set(gid, [entry]);
     }
     return displayGroups
-      .map((g) => ({
-        id: g.id,
-        labelFa: g.labelFa,
-        icons: byGroup.get(g.id) ?? [],
-      }))
+      .map((g) => {
+        const icons = [...(byGroup.get(g.id) ?? [])].sort(
+          (a, b) =>
+            a.nameFa.localeCompare(b.nameFa, "fa") ||
+            a.nameEn.localeCompare(b.nameEn, "en") ||
+            a.id.localeCompare(b.id),
+        );
+        return {
+          id: g.id,
+          labelFa: g.labelFa,
+          icons,
+        };
+      })
       .filter((s) => s.icons.length > 0);
   }, [filtered, debouncedQuery]);
 
@@ -521,7 +530,7 @@ export function App() {
     selected?.brandColors ??
     (selected ? BRAND_COLORS[selected.id] : undefined);
 
-  const flashCopied = (kind: "svg" | "jsx" | "import") => {
+  const flashCopied = (kind: "svg" | "jsx" | "import" | "cli") => {
     if (copyTimer.current != null) {
       window.clearTimeout(copyTimer.current);
     }
@@ -683,8 +692,11 @@ export function App() {
     return () => window.removeEventListener("keydown", onKey);
   }, [page]);
 
+  const cliLine = selected
+    ? `npx @farsiui/icons-cli add ${selected.id}`
+    : "";
   const importLine = selected
-    ? `import { ${selected.componentName} } from "@farsiui/icons";`
+    ? `import { ${selected.componentName} } from "@/components/icons/${selected.componentName}";`
     : "";
   const jsxLine = selected
     ? `<${selected.componentName} size={${previewSize}} variant="${variant}" />`
@@ -715,6 +727,11 @@ export function App() {
   const copyJsx = async () => {
     const ok = await copyText(jsxLine);
     if (ok) flashCopied("jsx");
+  };
+
+  const copyCli = async () => {
+    const ok = await copyText(cliLine);
+    if (ok) flashCopied("cli");
   };
 
   const copyImport = async () => {
@@ -1228,22 +1245,46 @@ export function App() {
                 <button
                   type="button"
                   className="import-copy"
+                  onClick={copyCli}
+                  aria-label={
+                    copiedKind === "cli" ? "کپی شد" : "کپی دستور CLI"
+                  }
+                  title={copiedKind === "cli" ? "کپی شد" : "کپی"}
+                >
+                  {copiedKind === "cli" ? <CheckIcon /> : <CopyIcon />}
+                </button>
+                <pre className="import-code" aria-label="CLI add command" dir="ltr">
+                  <code>
+                    <span className="tok-kw">npx</span>{" "}
+                    <span className="tok-id">@farsiui/icons-cli</span>{" "}
+                    <span className="tok-kw">add</span>{" "}
+                    <span className="tok-str">{selected.id}</span>
+                  </code>
+                </pre>
+              </div>
+
+              <div className="import-block">
+                <button
+                  type="button"
+                  className="import-copy"
                   onClick={copyImport}
                   aria-label={
-                    copiedKind === "import" ? "کپی شد" : "کپی ایمپورت"
+                    copiedKind === "import" ? "کپی شد" : "کپی ایمپورت محلی"
                   }
                   title={copiedKind === "import" ? "کپی شد" : "کپی"}
                 >
                   {copiedKind === "import" ? <CheckIcon /> : <CopyIcon />}
                 </button>
-                <pre className="import-code" aria-label="Import statement">
+                <pre className="import-code" aria-label="Local import statement">
                   <code>
                     <span className="tok-kw">import</span>
                     <span className="tok-punc"> {"{"} </span>
                     <span className="tok-id">{selected.componentName}</span>
                     <span className="tok-punc"> {"}"} </span>
                     <span className="tok-kw">from</span>{" "}
-                    <span className="tok-str">"@farsiui/icons"</span>
+                    <span className="tok-str">
+                      {`"@/components/icons/${selected.componentName}"`}
+                    </span>
                     <span className="tok-punc">;</span>
                   </code>
                 </pre>

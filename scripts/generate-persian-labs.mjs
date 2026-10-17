@@ -12,6 +12,8 @@ import { normalizeOpticalViewBox } from "./lib/optical-normalize.mjs";
 const OPTICAL_OPTIONS = {
   "store-ofogh-kourosh": { maxZoom: 1 },
   "ofogh-kourosh": { maxZoom: 1 },
+  "appliance-dipoint": { maxZoom: 1 },
+  dipoint: { maxZoom: 1 },
 };
 import {
   flushComponentRegistry,
@@ -24,6 +26,13 @@ import { nameFaForId } from "./lib/name-fa.mjs";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(root, "assets", "persian-labs");
 const outRoot = join(root, "src", "generated", "persian-labs");
+
+/** Dropped from the package (keep assets for reference). */
+const SKIP_IDS = new Set([
+  "bank-futurebank",
+  // Prefer aasaam SaipaIcon over persian-labs AutomobileSaipaIcon
+  "automobile-saipa",
+]);
 
 /** Folder → stable id prefix + display labels (matches icons.persian-labs.ir) */
 const CATEGORIES = {
@@ -306,6 +315,7 @@ for (const file of files) {
 
   const slug = kebab(basename(file));
   const id = `${meta.prefix}-${slug}`;
+  if (SKIP_IDS.has(id)) continue;
   let source = await readFile(file, "utf8");
 
   // Same presentation fix as upstream persianlabs generate script

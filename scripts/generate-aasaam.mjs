@@ -32,6 +32,9 @@ const CATEGORY = {
   labelFa: "آیکون‌های آسام",
 };
 
+/** Prefer persian-labs Bank* icons over these aasaam mono duplicates. */
+const SKIP_SLUGS = new Set(["tejarat", "saderat", "ghavamin", "hekmat", "futurebank"]);
+
 /**
  * Official brand fills for color variant (Simple Icons–style solid mark).
  * Checkmark cutouts stay transparent so the host background shows through.
@@ -66,7 +69,7 @@ const BRAND_COLORS = {
   hiweb: "#00AEEF",
   irancell: "#FFCB05",
   rightel: "#9C2776",
-  shatel: "#002A63",
+  shatel: "#1A457F",
   yektanet: "#6B2D9B",
 
   // Food / retail mono marks
@@ -75,7 +78,7 @@ const BRAND_COLORS = {
   digikala: "#ED1944",
   divar: "#A62626",
   golrang: "#E3000F",
-  kanonvokala: "#1B4F72",
+  kanonvokala: "#2E6A94",
   sheypoor: "#0060FF",
   torob: "#E91E31",
 
@@ -156,17 +159,17 @@ const BRAND_COLORS = {
   armanmeli: "#00A651",
   ayandeh: "#6E2616",
   bazarebours: "#007B3F",
-  bimehiran: "#2E3192",
+  bimehiran: "#4548AE",
   bimehmarkazi: "#009EDD",
   bimehsalamat: "#00897B",
   bourseon: "#1565C0",
-  caspian: "#313C4C",
+  caspian: "#4E5A6C",
   dey: "#008B9A",
   eghtesadnovin: "#662892",
   futurebank: "#4DA2E7",
   gardeshgari: "#B11116",
   ghavamin: "#007D3D",
-  hekmat: "#324C88",
+  hekmat: "#4A66A5",
   karafarin: "#AB7342",
   keshavarzi: "#1F261A",
   markazi: "#00194A",
@@ -178,16 +181,16 @@ const BRAND_COLORS = {
   pasargad: "#FECC09",
   paydarymelli: "#C62828",
   postbank: "#14763E",
-  refah: "#173576",
-  refahstore: "#173576",
-  saderat: "#2D2A68",
+  refah: "#2B4F8F",
+  refahstore: "#2B4F8F",
+  saderat: "#45429A",
   saman: "#7DCDF1",
   samandehi: "#1565C0",
   sazmanmellijavanan: "#1565C0",
   shahr: "#D8262C",
   sina: "#277EB5",
-  tejarat: "#2F4A98",
-  tejaratfarda: "#2F4A98",
+  tejarat: "#4562B0",
+  tejaratfarda: "#4562B0",
   tosee: "#8F2426",
   toseeirani: "#1565C0",
   toseesaderat: "#006D08",
@@ -265,7 +268,7 @@ const BRAND_COLORS = {
   khabaronline: "#38386C",
   khanehcinema: "#A21412",
   khavarmianeh: "#0D47A1",
-  khodrotak: "#1565C0",
+  khodrotak: "#2A7AD4",
   khoondanionline: "#6A1B9A",
   khwarizmi: "#134C83",
   kosar: "#1565C0",
@@ -466,7 +469,7 @@ const BRAND_COLORS = {
   khabaronline: "#38386C",
   khanehcinema: "#A21412",
   khavarmianeh: "#0D47A1",
-  khodrotak: "#1565C0",
+  khodrotak: "#2A7AD4",
   khoondanionline: "#6A1B9A",
   khwarizmi: "#134C83",
   kosar: "#1565C0",
@@ -664,6 +667,8 @@ const OPTICAL_OPTIONS = {
   zarinpal: { maxZoom: 1 },
   // Checkmark wordmark — default zoom clips the sides.
   snapp: { maxZoom: 1 },
+  // Wide wordmark — default zoom clips left/right.
+  bourseon: { maxZoom: 1 },
 };
 
 function kebab(value) {
@@ -759,6 +764,7 @@ const data = {};
 
 for (const file of files) {
   const slug = kebab(file);
+  if (SKIP_SLUGS.has(slug)) continue;
   const id = `aasaam-${slug}`;
   const source = await readFile(join(sourceRoot, file), "utf8");
   // Wide wordmarks: skip optical zoom so left/right aren't clipped in the square.

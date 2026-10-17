@@ -2,20 +2,15 @@
 import { createPersianLabsIcon } from "../../../create-persian-labs-icon";
 import { data } from "../data";
 
-export const AlibabaIcon = createPersianLabsIcon("psi-alibaba", "AlibabaIcon", data["psi-alibaba"]!);
-export const Aparat2Icon = createPersianLabsIcon("psi-aparat", "Aparat2Icon", data["psi-aparat"]!);
 export const Arvancloud2Icon = createPersianLabsIcon("psi-arvancloud", "Arvancloud2Icon", data["psi-arvancloud"]!);
 export const BaladIcon = createPersianLabsIcon("psi-balad", "BaladIcon", data["psi-balad"]!);
 export const BasalamIcon = createPersianLabsIcon("psi-basalam", "BasalamIcon", data["psi-basalam"]!);
 export const BookapoIcon = createPersianLabsIcon("psi-bookapo", "BookapoIcon", data["psi-bookapo"]!);
-export const CafebazarIcon = createPersianLabsIcon("psi-cafebazar", "CafebazarIcon", data["psi-cafebazar"]!);
 export const DigiatoIcon = createPersianLabsIcon("psi-digiato", "DigiatoIcon", data["psi-digiato"]!);
 export const Digikala2Icon = createPersianLabsIcon("psi-digikala", "Digikala2Icon", data["psi-digikala"]!);
-export const Divar2Icon = createPersianLabsIcon("psi-divar", "Divar2Icon", data["psi-divar"]!);
 export const FilimoIcon = createPersianLabsIcon("psi-filimo", "FilimoIcon", data["psi-filimo"]!);
 export const FilmnetIcon = createPersianLabsIcon("psi-filmnet", "FilmnetIcon", data["psi-filmnet"]!);
 export const HafthashtadIcon = createPersianLabsIcon("psi-hafthashtad", "HafthashtadIcon", data["psi-hafthashtad"]!);
-export const JabamaIcon = createPersianLabsIcon("psi-jabama", "JabamaIcon", data["psi-jabama"]!);
 export const JabinjaIcon = createPersianLabsIcon("psi-jabinja", "JabinjaIcon", data["psi-jabinja"]!);
 export const JajigaIcon = createPersianLabsIcon("psi-jajiga", "JajigaIcon", data["psi-jajiga"]!);
 export const JobvisionIcon = createPersianLabsIcon("psi-jobvision", "JobvisionIcon", data["psi-jobvision"]!);
@@ -24,7 +19,6 @@ export const NamavaIcon = createPersianLabsIcon("psi-namava", "NamavaIcon", data
 export const NavaarIcon = createPersianLabsIcon("psi-navaar", "NavaarIcon", data["psi-navaar"]!);
 export const NeshanIcon = createPersianLabsIcon("psi-neshan", "NeshanIcon", data["psi-neshan"]!);
 export const NetbargIcon = createPersianLabsIcon("psi-netbarg", "NetbargIcon", data["psi-netbarg"]!);
-export const OkalaIcon = createPersianLabsIcon("psi-okala", "OkalaIcon", data["psi-okala"]!);
 export const OtaghakIcon = createPersianLabsIcon("psi-otaghak", "OtaghakIcon", data["psi-otaghak"]!);
 export const SabketoIcon = createPersianLabsIcon("psi-sabketo", "SabketoIcon", data["psi-sabketo"]!);
 export const ShenotoIcon = createPersianLabsIcon("psi-shenoto", "ShenotoIcon", data["psi-shenoto"]!);

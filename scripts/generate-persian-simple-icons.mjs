@@ -31,7 +31,22 @@ const CATEGORY = {
 };
 
 /** Prefer persian-labs color marks when both packs ship the same brand. */
-const SKIP_SLUGS = new Set(["tapsi"]);
+const SKIP_SLUGS = new Set([
+  "tapsi",
+  "divar",
+  "jabama",
+  "cafebazar",
+  "alibaba",
+  "okala",
+  // Prefer aasaam AparatIcon over psi Aparat2Icon
+  "aparat",
+]);
+
+/** Solid brand fills for color variant (mono stays currentColor). */
+const BRAND_COLORS = {
+  alibaba: "#FF6A00",
+  arvancloud: "#00BABA",
+};
 
 const NAME_FA = {
   alibaba: "علی‌بابا",
@@ -165,8 +180,15 @@ for (const file of files) {
   const id = `psi-${slug}`;
   const source = await readFile(join(sourceRoot, file), "utf8");
   const optimized = normalizeOpticalViewBox(optimizeSvg(source));
-  const glyph = parseSvg(optimized);
-  const variants = { color: glyph, mono: glyph };
+  const mono = parseSvg(optimized);
+  const brandFill = BRAND_COLORS[slug];
+  const color = brandFill
+    ? {
+        ...mono,
+        body: mono.body.replace(/currentColor/g, brandFill),
+      }
+    : mono;
+  const variants = { color, mono };
   const nameEn = titleFromSlug(slug);
   const nameFa = nameFaForId(id) ?? NAME_FA[slug] ?? nameEn;
   const componentName = claimComponentName(preferredIconName(slug), id);
@@ -178,8 +200,9 @@ for (const file of files) {
     nameEn,
     nameFa,
     componentName,
-    viewBox: glyph.viewBox,
-    aspectRatio: glyph.width / glyph.height,
+    viewBox: mono.viewBox,
+    aspectRatio: mono.width / mono.height,
+    brandFill: brandFill ?? null,
   });
   data[id] = variants;
 }
@@ -197,21 +220,28 @@ await writeFile(
     `export const data: Record<string, IconVariantData> = ${serialize(data)};\n`,
 );
 
-const catalogEntries = icons.map((icon) => ({
-  id: icon.id,
-  nameFa: icon.nameFa,
-  nameEn: icon.nameEn,
-  componentName: icon.componentName,
-  category: icon.category,
-  source: "persian-simple-icons",
-  sourceUrl: "https://github.com/mojtabaahn/persian-simple-icons",
-  verificationStatus: "verified",
-  notes:
-    "SVG from mojtabaahn/persian-simple-icons (MIT). Monochrome mark; color/mono share the same glyph (currentColor).",
-  ...brandColorsField(icon.id),
-  viewBox: icon.viewBox,
-  aspectRatio: icon.aspectRatio,
-}));
+const catalogEntries = icons.map((icon) => {
+  const curated = brandColorsField(icon.id);
+  return {
+    id: icon.id,
+    nameFa: icon.nameFa,
+    nameEn: icon.nameEn,
+    componentName: icon.componentName,
+    category: icon.category,
+    source: "persian-simple-icons",
+    sourceUrl: "https://github.com/mojtabaahn/persian-simple-icons",
+    verificationStatus: "verified",
+    notes: icon.brandFill
+      ? `SVG from mojtabaahn/persian-simple-icons (MIT). Color uses brand fill ${icon.brandFill}; mono uses currentColor.`
+      : "SVG from mojtabaahn/persian-simple-icons (MIT). Monochrome mark; color/mono share the same glyph (currentColor).",
+    ...curated,
+    ...(icon.brandFill && !curated.brandColors
+      ? { brandColors: [icon.brandFill] }
+      : {}),
+    viewBox: icon.viewBox,
+    aspectRatio: icon.aspectRatio,
+  };
+});
 
 await writeFile(
   join(outRoot, "catalog.ts"),

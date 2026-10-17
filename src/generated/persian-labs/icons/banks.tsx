@@ -10,7 +10,6 @@ export const BankBlubankIcon = createPersianLabsIcon("bank-blubank", "BankBluban
 export const BankCaspianIcon = createPersianLabsIcon("bank-caspian", "BankCaspianIcon", data["bank-caspian"]!);
 export const BankDeyIcon = createPersianLabsIcon("bank-dey", "BankDeyIcon", data["bank-dey"]!);
 export const BankEghtesadNovinIcon = createPersianLabsIcon("bank-eghtesad-novin", "BankEghtesadNovinIcon", data["bank-eghtesad-novin"]!);
-export const BankFuturebankIcon = createPersianLabsIcon("bank-futurebank", "BankFuturebankIcon", data["bank-futurebank"]!);
 export const BankGardeshgariIcon = createPersianLabsIcon("bank-gardeshgari", "BankGardeshgariIcon", data["bank-gardeshgari"]!);
 export const BankGhavaminIcon = createPersianLabsIcon("bank-ghavamin", "BankGhavaminIcon", data["bank-ghavamin"]!);
 export const BankHekmatIcon = createPersianLabsIcon("bank-hekmat", "BankHekmatIcon", data["bank-hekmat"]!);

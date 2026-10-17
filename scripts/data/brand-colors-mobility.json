@@ -1,31 +1,83 @@
 {
   "_comment": "Curated brandColors for display-group mobility. Skip psi mono and black-only glyphs (kerman-motor, niromotor).",
-
-  "aasaam-carpino": ["#EC008C"],
-  "aasaam-ikco": ["#0C4DA2"],
-  "aasaam-neshanonline": ["#EF5E60"],
-  "aasaam-saipa": ["#E77817"],
-  "aasaam-snapp": ["#00E261"],
-
-  "automobile-bahman": ["#231F20"],
-  "automobile-iran-khodro": ["#0C4DA2"],
-  "automobile-kavir": ["#C52126"],
-  "automobile-pars-khodro": ["#362D8A"],
-  "automobile-saipa": ["#E77817"],
-  "automobile-zamyad": ["#2E3192"],
-
-  "transportation-aseman": ["#165BA4"],
-  "transportation-ata": ["#D3010A"],
-  "transportation-caspian": ["#2E3191", "#F6921E"],
-  "transportation-fadak": ["#C6A216"],
-  "transportation-iran-air": ["#1F2C51"],
-  "transportation-iran-airtour": ["#231F59"],
-  "transportation-karun-air": ["#4D207A"],
-  "transportation-kish-air": ["#FEDC21", "#E21E24"],
-  "transportation-mahan": ["#004846"],
-  "transportation-meraj": ["#2A2F76", "#A5303C"],
-  "transportation-qeshm-air": ["#F02037"],
-  "transportation-raja": ["#0014FF"],
-  "transportation-saha": ["#B98A42", "#0C0D51"],
-  "transportation-taban": ["#282E67", "#F78526"]
+  "aasaam-carpino": [
+    "#EC008C"
+  ],
+  "aasaam-ikco": [
+    "#0C4DA2"
+  ],
+  "aasaam-neshanonline": [
+    "#EF5E60"
+  ],
+  "aasaam-saipa": [
+    "#E77817"
+  ],
+  "aasaam-snapp": [
+    "#00E261"
+  ],
+  "automobile-bahman": [
+    "#424040"
+  ],
+  "automobile-iran-khodro": [
+    "#0C4DA2"
+  ],
+  "automobile-kavir": [
+    "#C52126"
+  ],
+  "automobile-pars-khodro": [
+    "#4E45A5"
+  ],
+  "automobile-saipa": [
+    "#E77817"
+  ],
+  "automobile-zamyad": [
+    "#4548AE"
+  ],
+  "transportation-aseman": [
+    "#165BA4"
+  ],
+  "transportation-ata": [
+    "#D3010A"
+  ],
+  "transportation-caspian": [
+    "#2E3191",
+    "#F6921E"
+  ],
+  "transportation-fadak": [
+    "#C6A216"
+  ],
+  "transportation-iran-air": [
+    "#354A78"
+  ],
+  "transportation-iran-airtour": [
+    "#3A377A"
+  ],
+  "transportation-karun-air": [
+    "#4D207A"
+  ],
+  "transportation-kish-air": [
+    "#FEDC21",
+    "#E21E24"
+  ],
+  "transportation-mahan": [
+    "#004846"
+  ],
+  "transportation-meraj": [
+    "#4449A0",
+    "#A5303C"
+  ],
+  "transportation-qeshm-air": [
+    "#F02037"
+  ],
+  "transportation-raja": [
+    "#0014FF"
+  ],
+  "transportation-saha": [
+    "#B98A42",
+    "#2A2B7A"
+  ],
+  "transportation-taban": [
+    "#282E67",
+    "#F78526"
+  ]
 }

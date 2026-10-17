@@ -37,7 +37,19 @@ const KINDS = {
 };
 
 /** Skip LogoS duplicates when a better copy exists elsewhere (e.g. persian-labs / manual). */
-const SKIP_SLUGS = new Set(["iran-venezuela", "zarrinpal"]);
+const SKIP_SLUGS = new Set([
+  "iran-venezuela",
+  "zarrinpal",
+  // Prefer persian-labs Bank* over LogoS *2 duplicates
+  "tejarat",
+  "saderat",
+  "ghavamin",
+  // Dropped from package
+  "futurebank",
+  // Prefer persian-labs Gateway* over LogoS *2 duplicates
+  "pay-ir",
+  "payping",
+]);
 
 const NAME_FA = {
   ansar: "بانک انصار",

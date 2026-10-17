@@ -2,9 +2,6 @@
 import { createPersianLabsIcon } from "../../../create-persian-labs-icon";
 import { data } from "../data";
 
-export const MehreghtesadIcon = createPersianLabsIcon("aasaam-mehreghtesad", "MehreghtesadIcon", data["aasaam-mehreghtesad"]!);
-export const MehriranIcon = createPersianLabsIcon("aasaam-mehriran", "MehriranIcon", data["aasaam-mehriran"]!);
-export const MehrnewsIcon = createPersianLabsIcon("aasaam-mehrnews", "MehrnewsIcon", data["aasaam-mehrnews"]!);
 export const MelalIcon = createPersianLabsIcon("aasaam-melal", "MelalIcon", data["aasaam-melal"]!);
 export const MellatIcon = createPersianLabsIcon("aasaam-mellat", "MellatIcon", data["aasaam-mellat"]!);
 export const MelliIcon = createPersianLabsIcon("aasaam-melli", "MelliIcon", data["aasaam-melli"]!);
@@ -82,3 +79,6 @@ export const PasargadIcon = createPersianLabsIcon("aasaam-pasargad", "PasargadIc
 export const PaxanIcon = createPersianLabsIcon("aasaam-paxan", "PaxanIcon", data["aasaam-paxan"]!);
 export const PayamenoIcon = createPersianLabsIcon("aasaam-payameno", "PayamenoIcon", data["aasaam-payameno"]!);
 export const PaydarymelliIcon = createPersianLabsIcon("aasaam-paydarymelli", "PaydarymelliIcon", data["aasaam-paydarymelli"]!);
+export const PazonlineIcon = createPersianLabsIcon("aasaam-pazonline", "PazonlineIcon", data["aasaam-pazonline"]!);
+export const PecIcon = createPersianLabsIcon("aasaam-pec", "PecIcon", data["aasaam-pec"]!);
+export const PerspolicefcIcon = createPersianLabsIcon("aasaam-perspolicefc", "PerspolicefcIcon", data["aasaam-perspolicefc"]!);

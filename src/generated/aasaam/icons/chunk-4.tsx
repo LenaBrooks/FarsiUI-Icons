@@ -2,11 +2,6 @@
 import { createPersianLabsIcon } from "../../../create-persian-labs-icon";
 import { data } from "../data";
 
-export const TehranuniIcon = createPersianLabsIcon("aasaam-tehranuni", "TehranuniIcon", data["aasaam-tehranuni"]!);
-export const TejaratIcon = createPersianLabsIcon("aasaam-tejarat", "TejaratIcon", data["aasaam-tejarat"]!);
-export const TejaratfardaIcon = createPersianLabsIcon("aasaam-tejaratfarda", "TejaratfardaIcon", data["aasaam-tejaratfarda"]!);
-export const TinnIcon = createPersianLabsIcon("aasaam-tinn", "TinnIcon", data["aasaam-tinn"]!);
-export const TitrekootahIcon = createPersianLabsIcon("aasaam-titrekootah", "TitrekootahIcon", data["aasaam-titrekootah"]!);
 export const TorobIcon = createPersianLabsIcon("aasaam-torob", "TorobIcon", data["aasaam-torob"]!);
 export const ToseeIcon = createPersianLabsIcon("aasaam-tosee", "ToseeIcon", data["aasaam-tosee"]!);
 export const ToseeiraniIcon = createPersianLabsIcon("aasaam-toseeirani", "ToseeiraniIcon", data["aasaam-toseeirani"]!);

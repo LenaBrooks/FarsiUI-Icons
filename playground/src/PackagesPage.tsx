@@ -3,8 +3,13 @@ import { toFaDigits } from "./fa-digits";
 
 const PACKAGES = [
   {
+    name: "@farsiui/icons-cli",
+    blurb: "پیشنهادی: آیکون را با npx داخل پروژه کپی کنید (حجم سبک).",
+    importExample: `npx @farsiui/icons-cli add bank-melli`,
+  },
+  {
     name: "@farsiui/icons",
-    blurb: "LogoIcon، کاتالوگ، و کامپوننت‌های نام‌دار (tree-shake).",
+    blurb: "پکیج کامل: LogoIcon، کاتالوگ، و کامپوننت‌های نام‌دار.",
     importExample: `import { LogoIcon, BankMelliIcon, iconManifest } from "@farsiui/icons";`,
   },
 ];
@@ -75,7 +80,7 @@ export function PackagesPage() {
         <p className="doc-lead" dir="rtl" lang="fa">
           {toFaDigits(iconManifest.length)} آیکون در{" "}
           {toFaDigits(iconCategories.length)} دسته.
-          یک پکیج npm، دو مسیر import.
+          مسیر پیشنهادی CLI؛ پکیج npm کامل هم موجود است.
         </p>
       </header>
 

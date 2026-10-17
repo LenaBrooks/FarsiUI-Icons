@@ -68,6 +68,12 @@ export const displayGroups: DisplayGroupMeta[] = [
   { id: "brands", labelFa: "برندها", labelEn: "Brands" },
 ];
 
+/** Pin specific icons into a group (overrides category / keyword). */
+const ID_GROUP_OVERRIDES: Partial<Record<string, DisplayGroupId>> = {
+  // Keep Torob variants together under retail (price-comparison / shopping).
+  "website-torob": "retail",
+};
+
 /** Direct map from package categories that already are topical. */
 const CATEGORY_TO_GROUP: Partial<Record<IconCategory, DisplayGroupId>> = {
   banks: "finance",
@@ -125,11 +131,12 @@ const KEYWORD_RULES: Rule[] = [
   },
   {
     group: "retail",
-    re: /digikala|okala|basalam|torob|netbarg|takhfifan|sheypoor|divar|alibaba|golrang|canbo|hyper|market|store|فروشگاه|دیجی.?کالا|شیپور|دیوار/,
+    re: /digikala|okala|basalam|torob|netbarg|takhfifan|sheypoor|alibaba|golrang|canbo|hyper|market|store|فروشگاه|دیجی.?کالا|شیپور/,
   },
   {
     group: "apps",
-    re: /cafebazaar|cafebazar|myket|jobvision|jabinja|jabama|jajiga|otaghak|yektanet|arvan|enamad|bitbaan|authin|deema|sabketo|bookapo|xaas|asiatech|hiweb|shatel|mokhaberat|irancell|hamrah|rightel|blogfa|digisargarmy|اپ|کافه.?بازار|آروان|ایرانسل/,
+    // Divar with website-divar (website-applications → apps)
+    re: /cafebazaar|cafebazar|myket|jobvision|jabinja|jabama|jajiga|otaghak|yektanet|arvan|enamad|bitbaan|authin|deema|sabketo|bookapo|xaas|asiatech|hiweb|shatel|mokhaberat|irancell|hamrah|rightel|blogfa|digisargarmy|\bdivar\b|اپ|کافه.?بازار|آروان|ایرانسل|دیوار/,
   },
   {
     group: "org",
@@ -159,6 +166,9 @@ function classifyByKeywords(entry: IconManifestEntry): DisplayGroupId | null {
  */
 export function getDisplayGroupId(entry: IconManifestEntry): DisplayGroupId {
   if (FEATURED_ICON_IDS.has(entry.id)) return "featured";
+
+  const override = ID_GROUP_OVERRIDES[entry.id];
+  if (override) return override;
 
   const fromCategory = CATEGORY_TO_GROUP[entry.category];
 

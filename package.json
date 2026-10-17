@@ -37,6 +37,7 @@
     "generate:crypto": "node scripts/generate-crypto.mjs",
     "generate:social": "node scripts/generate-social.mjs",
     "generate:manual": "node scripts/generate-manual.mjs",
+    "generate:registry": "node scripts/generate-registry.mjs",
     "dev": "vite --config vite.config.ts",
     "build": "tsup && node scripts/generate-dts.mjs",
     "build:web": "vite build --config vite.config.ts",

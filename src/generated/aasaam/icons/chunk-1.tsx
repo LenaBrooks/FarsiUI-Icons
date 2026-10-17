@@ -3,15 +3,12 @@ import { createPersianLabsIcon } from "../../../create-persian-labs-icon";
 import { data } from "../data";
 
 export const FiredepartmentIcon = createPersianLabsIcon("aasaam-firedepartment", "FiredepartmentIcon", data["aasaam-firedepartment"]!);
-export const FuturebankIcon = createPersianLabsIcon("aasaam-futurebank", "FuturebankIcon", data["aasaam-futurebank"]!);
 export const GapIcon = createPersianLabsIcon("aasaam-gap", "GapIcon", data["aasaam-gap"]!);
 export const GardeshgariIcon = createPersianLabsIcon("aasaam-gardeshgari", "GardeshgariIcon", data["aasaam-gardeshgari"]!);
 export const GashtaninewsIcon = createPersianLabsIcon("aasaam-gashtaninews", "GashtaninewsIcon", data["aasaam-gashtaninews"]!);
-export const GhavaminIcon = createPersianLabsIcon("aasaam-ghavamin", "GhavaminIcon", data["aasaam-ghavamin"]!);
 export const GolrangIcon = createPersianLabsIcon("aasaam-golrang", "GolrangIcon", data["aasaam-golrang"]!);
 export const GostareshIcon = createPersianLabsIcon("aasaam-gostaresh", "GostareshIcon", data["aasaam-gostaresh"]!);
 export const HafttappehIcon = createPersianLabsIcon("aasaam-hafttappeh", "HafttappehIcon", data["aasaam-hafttappeh"]!);
-export const HekmatIcon = createPersianLabsIcon("aasaam-hekmat", "HekmatIcon", data["aasaam-hekmat"]!);
 export const HepcoIcon = createPersianLabsIcon("aasaam-hepco", "HepcoIcon", data["aasaam-hepco"]!);
 export const HiwebIcon = createPersianLabsIcon("aasaam-hiweb", "HiwebIcon", data["aasaam-hiweb"]!);
 export const HonarmroozIcon = createPersianLabsIcon("aasaam-honarmrooz", "HonarmroozIcon", data["aasaam-honarmrooz"]!);
@@ -82,3 +79,6 @@ export const MciIcon = createPersianLabsIcon("aasaam-mci", "MciIcon", data["aasa
 export const McthIcon = createPersianLabsIcon("aasaam-mcth", "McthIcon", data["aasaam-mcth"]!);
 export const MediaadIcon = createPersianLabsIcon("aasaam-mediaad", "MediaadIcon", data["aasaam-mediaad"]!);
 export const MeduIcon = createPersianLabsIcon("aasaam-medu", "MeduIcon", data["aasaam-medu"]!);
+export const MehreghtesadIcon = createPersianLabsIcon("aasaam-mehreghtesad", "MehreghtesadIcon", data["aasaam-mehreghtesad"]!);
+export const MehriranIcon = createPersianLabsIcon("aasaam-mehriran", "MehriranIcon", data["aasaam-mehriran"]!);
+export const MehrnewsIcon = createPersianLabsIcon("aasaam-mehrnews", "MehrnewsIcon", data["aasaam-mehrnews"]!);

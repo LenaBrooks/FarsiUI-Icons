@@ -32,7 +32,7 @@ const CATEGORY = {
 const NAME_FA = {
   shenakhti: "مرکز شناختی علم و صنعت",
   vibefarsi: "وایب فارسی",
-  "banana-ai": "Banana AI",
+  "banana-ai": "بانانا ای‌آی",
   farsiui: "فارسی‌یوآی",
   pixevel: "پیکسیول",
   easycandle: "ایزی‌کندل",

@@ -8,5 +8,4 @@ export const AutomobileKavirIcon = createPersianLabsIcon("automobile-kavir", "Au
 export const AutomobileKermanMotorIcon = createPersianLabsIcon("automobile-kerman-motor", "AutomobileKermanMotorIcon", data["automobile-kerman-motor"]!);
 export const AutomobileNiromotorIcon = createPersianLabsIcon("automobile-niromotor", "AutomobileNiromotorIcon", data["automobile-niromotor"]!);
 export const AutomobileParsKhodroIcon = createPersianLabsIcon("automobile-pars-khodro", "AutomobileParsKhodroIcon", data["automobile-pars-khodro"]!);
-export const AutomobileSaipaIcon = createPersianLabsIcon("automobile-saipa", "AutomobileSaipaIcon", data["automobile-saipa"]!);
 export const AutomobileZamyadIcon = createPersianLabsIcon("automobile-zamyad", "AutomobileZamyadIcon", data["automobile-zamyad"]!);

@@ -1,51 +1,112 @@
 {
   "_comment": "Curated brandColors for display-group payments. Keys are catalog icon ids.",
-  "zarinpal": ["#FFD60A", "#0A33FF"],
-  "aasaam-zarinpal": ["#FFD60A", "#0A33FF"],
-  "gateway-zarrinpal": ["#FFD23F", "#0A33FF"],
-
-  "aasaam-asanpardakht": ["#F04E23"],
-  "gateway-asan-pardakht": ["#F04E23", "#B20C0C"],
-  "lpb-gateway-asan-pardakht": ["#F04E23", "#B20C0C"],
-
-  "aasaam-shaparak": ["#1D93D1"],
-  "gateway-shaparak": ["#1D93D1"],
-  "lpb-gateway-shaparak": ["#1D93D1"],
-
-  "gateway-idpay": ["#1471EA"],
-  "lpb-gateway-idpay": ["#1471EA"],
-
-  "gateway-payping": ["#172B4D", "#0080FF"],
-  "lpb-gateway-payping": ["#172B4D", "#0080FF"],
-
-  "gateway-vandar": ["#4B9F87"],
-  "lpb-gateway-vandar": ["#4B9F87"],
-
-  "gateway-hesabit": ["#00BBBC"],
-  "lpb-gateway-hesabit": ["#00BBBC"],
-
-  "gateway-digipay": ["#242B64", "#EF4472"],
-  "lpb-gateway-digipay": ["#242B64", "#EF4472"],
-
-  "gateway-pay-ir": ["#025577", "#FF9700"],
-  "lpb-gateway-pay-ir": ["#025577", "#FF9700"],
-
-  "gateway-sedad": ["#FDB913"],
-  "lpb-gateway-sedad": ["#FDB913"],
-
-  "gateway-zibal": ["#3A3AE4"],
-
-  "gateway-snap-pay": ["#008DF9"],
-
-  "gateway-nextpay": ["#148C9B", "#303366"],
-
-  "gateway-payfa": ["#EC6462", "#593577"],
-
-  "gateway-sep": ["#014A94", "#008BD2"],
-
-  "gateway-aghay-pardakht": ["#4B3484"],
-
-  "gateway-pasargad-pep": ["#ED1C24", "#F7931E"],
-
-  "gateway-saman-kish": ["#000153", "#890100"]
+  "zarinpal": [
+    "#FFD60A",
+    "#0A33FF"
+  ],
+  "aasaam-zarinpal": [
+    "#FFD60A",
+    "#0A33FF"
+  ],
+  "gateway-zarrinpal": [
+    "#FFD23F",
+    "#0A33FF"
+  ],
+  "aasaam-asanpardakht": [
+    "#F04E23"
+  ],
+  "gateway-asan-pardakht": [
+    "#F04E23",
+    "#B20C0C"
+  ],
+  "lpb-gateway-asan-pardakht": [
+    "#F04E23",
+    "#B20C0C"
+  ],
+  "aasaam-shaparak": [
+    "#1D93D1"
+  ],
+  "gateway-shaparak": [
+    "#1D93D1"
+  ],
+  "lpb-gateway-shaparak": [
+    "#1D93D1"
+  ],
+  "gateway-idpay": [
+    "#1471EA"
+  ],
+  "lpb-gateway-idpay": [
+    "#1471EA"
+  ],
+  "gateway-payping": [
+    "#2E4568",
+    "#0080FF"
+  ],
+  "lpb-gateway-payping": [
+    "#2E4568",
+    "#0080FF"
+  ],
+  "gateway-vandar": [
+    "#4B9F87"
+  ],
+  "lpb-gateway-vandar": [
+    "#4B9F87"
+  ],
+  "gateway-hesabit": [
+    "#00BBBC"
+  ],
+  "lpb-gateway-hesabit": [
+    "#00BBBC"
+  ],
+  "gateway-digipay": [
+    "#242B64",
+    "#EF4472"
+  ],
+  "lpb-gateway-digipay": [
+    "#242B64",
+    "#EF4472"
+  ],
+  "gateway-pay-ir": [
+    "#025577",
+    "#FF9700"
+  ],
+  "lpb-gateway-pay-ir": [
+    "#025577",
+    "#FF9700"
+  ],
+  "gateway-sedad": [
+    "#FDB913"
+  ],
+  "lpb-gateway-sedad": [
+    "#FDB913"
+  ],
+  "gateway-zibal": [
+    "#3A3AE4"
+  ],
+  "gateway-snap-pay": [
+    "#008DF9"
+  ],
+  "gateway-nextpay": [
+    "#148C9B",
+    "#303366"
+  ],
+  "gateway-payfa": [
+    "#EC6462",
+    "#593577"
+  ],
+  "gateway-sep": [
+    "#1A63B0",
+    "#008BD2"
+  ],
+  "gateway-aghay-pardakht": [
+    "#634BA0"
+  ],
+  "gateway-pasargad-pep": [
+    "#ED1C24",
+    "#F7931E"
+  ],
+  "gateway-saman-kish": [
+    "#1A2A7A",
+    "#890100"
+  ]
 }

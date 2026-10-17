@@ -1,91 +1,280 @@
 {
   "_comment": "Curated brandColors for display-group apps. Keys are catalog icon ids. Skip mono-only without solid brand fill.",
-
-  "aasaam-arvancloud": ["#00BABA"],
-  "aasaam-asiatech": ["#009FE3"],
-  "aasaam-authin": ["#2563EB"],
-  "aasaam-bitbaan": ["#00A651"],
-  "aasaam-blogfa": ["#FF6600"],
-  "aasaam-cafebazaar": ["#0AAD2D"],
-  "aasaam-deema": ["#FF5722"],
-  "aasaam-digisargarmy": ["#ED1944"],
-  "aasaam-enamad": ["#00A651"],
-  "aasaam-hiweb": ["#00AEEF"],
-  "aasaam-irancell": ["#FFCB05"],
-  "aasaam-rightel": ["#9C2776"],
-  "aasaam-shatel": ["#002A63", "#F26322"],
-  "aasaam-yektanet": ["#6B2D9B"],
-
-  "app-anardooni": ["#F63011"],
-  "app-bazar": ["#5DC11D", "#029F63"],
-  "app-i-apps": ["#1767E6", "#14BBF2"],
-  "app-myket": ["#0091EA"],
-  "app-sib-app": ["#0047FF"],
-
-  "isp-asiatech": ["#FDB602", "#E00102", "#0189D4"],
-  "isp-hamrah-avval": ["#0095DA"],
-  "isp-irancell": ["#FFCB05"],
-  "isp-mobin-net": ["#ABD04E"],
-  "isp-pars-online": ["#DA251D", "#37618F"],
-  "isp-pishgaman": ["#ED3237"],
-  "isp-rightel": ["#9C2776"],
-  "isp-sabanet": ["#DA1F26"],
-  "isp-shatel": ["#002A63", "#F26322"],
-  "isp-zitel": ["#000000"],
-
-  "tech-afp-arman-fara-pajoohan": ["#E36B0A", "#075B73"],
-  "tech-ciman-qaen": ["#100E43", "#AA2283", "#059D5A"],
-  "tech-hamkaran-system": ["#D6001C"],
-  "tech-holoo": ["#C60001"],
-  "tech-rayvarz": ["#42B551"],
-
-  "website-achareh": ["#00B7B3", "#ED4423"],
-  "website-alibaba": ["#FDB913", "#F7941F"],
-  "website-alopeik": ["#02BEFC"],
-  "website-azki": ["#23B4FF"],
-  "website-badesaba": ["#029CF5"],
-  "website-balad": ["#241957", "#7868F5", "#F7D648"],
-  "website-banimode": ["#19B16A"],
-  "website-basalam": ["#FF5C39"],
-  "website-bime-bazar": ["#F2BE1A"],
-  "website-bimeh-com": ["#5F27A3", "#39D332"],
-  "website-digikala": ["#ED1944"],
-  "website-digikala-jet": ["#FF6200"],
-  "website-divar": ["#D10F0F"],
-  "website-e-seminar": ["#4EBA65"],
-  "website-fidibo": ["#23211F"],
-  "website-flightio": ["#9A24DD", "#0E58EE"],
-  "website-flytoday": ["#072441"],
-  "website-hafhashtad": ["#B9238B", "#1C4D9C"],
-  "website-hamrahcard": ["#005951", "#E9BA46"],
-  "website-host-iran": ["#00ACED"],
-  "website-iranicard": ["#1E54A5"],
-  "website-jabama": ["#FAA331"],
-  "website-jobvision": ["#5660F2"],
-  "website-karname": ["#FFCE32", "#00A754"],
-  "website-khanoumi": ["#DB2777"],
-  "website-maktabkhoone": ["#009BA6"],
-  "website-miare": ["#722C85"],
-  "website-mili": ["#051061", "#FDB913"],
-  "website-mr-bilit": ["#008AFF"],
-  "website-neshan": ["#EF5E60", "#244D69"],
-  "website-nobitex": ["#5525AC"],
-  "website-otaghak": ["#E81959"],
-  "website-ponisha": ["#39CC64"],
-  "website-raychat": ["#841474"],
-  "website-rtl": ["#92D660"],
-  "website-safar-724": ["#3C98D4"],
-  "website-shab": ["#26A9E1"],
-  "website-sheypoor": ["#0060FF"],
-  "website-snap": ["#00E261"],
-  "website-snapp-doctor": ["#00C5FF"],
-  "website-snapp-food": ["#FF00A6"],
-  "website-snapp-trip": ["#FF4231"],
-  "website-taghche": ["#00A2A4"],
-  "website-takhfifan": ["#E54E63"],
-  "website-tapsi": ["#F15A22"],
-  "website-tec-nolife": ["#223266"],
-  "website-tipax": ["#006230"],
-  "website-torob": ["#E91E31", "#70BD23"],
-  "website-zhaket": ["#F99E06"]
+  "aasaam-arvancloud": [
+    "#00BABA"
+  ],
+  "psi-alibaba": [
+    "#FF6A00"
+  ],
+  "psi-arvancloud": [
+    "#00BABA"
+  ],
+  "aasaam-asiatech": [
+    "#009FE3"
+  ],
+  "aasaam-authin": [
+    "#2563EB"
+  ],
+  "aasaam-bitbaan": [
+    "#00A651"
+  ],
+  "aasaam-blogfa": [
+    "#FF6600"
+  ],
+  "aasaam-cafebazaar": [
+    "#0AAD2D"
+  ],
+  "aasaam-deema": [
+    "#FF5722"
+  ],
+  "aasaam-digisargarmy": [
+    "#ED1944"
+  ],
+  "aasaam-enamad": [
+    "#00A651"
+  ],
+  "aasaam-hiweb": [
+    "#00AEEF"
+  ],
+  "aasaam-irancell": [
+    "#FFCB05"
+  ],
+  "aasaam-rightel": [
+    "#9C2776"
+  ],
+  "aasaam-shatel": [
+    "#1A457F",
+    "#F26322"
+  ],
+  "aasaam-yektanet": [
+    "#6B2D9B"
+  ],
+  "app-anardooni": [
+    "#F63011"
+  ],
+  "app-bazar": [
+    "#5DC11D",
+    "#029F63"
+  ],
+  "app-i-apps": [
+    "#1767E6",
+    "#14BBF2"
+  ],
+  "app-myket": [
+    "#0091EA"
+  ],
+  "app-sib-app": [
+    "#0047FF"
+  ],
+  "isp-asiatech": [
+    "#FDB602",
+    "#E00102",
+    "#0189D4"
+  ],
+  "isp-hamrah-avval": [
+    "#0095DA"
+  ],
+  "isp-irancell": [
+    "#FFCB05"
+  ],
+  "isp-mobin-net": [
+    "#ABD04E"
+  ],
+  "isp-pars-online": [
+    "#DA251D",
+    "#37618F"
+  ],
+  "isp-pishgaman": [
+    "#ED3237"
+  ],
+  "isp-rightel": [
+    "#9C2776"
+  ],
+  "isp-sabanet": [
+    "#DA1F26"
+  ],
+  "isp-shatel": [
+    "#1A457F",
+    "#F26322"
+  ],
+  "isp-zitel": [
+    "#525252"
+  ],
+  "tech-afp-arman-fara-pajoohan": [
+    "#E36B0A",
+    "#075B73"
+  ],
+  "tech-ciman-qaen": [
+    "#3F3D90",
+    "#AA2283",
+    "#059D5A"
+  ],
+  "tech-hamkaran-system": [
+    "#D6001C"
+  ],
+  "tech-holoo": [
+    "#C60001"
+  ],
+  "tech-rayvarz": [
+    "#42B551"
+  ],
+  "website-achareh": [
+    "#00B7B3",
+    "#ED4423"
+  ],
+  "website-alibaba": [
+    "#FDB913",
+    "#F7941F"
+  ],
+  "website-alopeik": [
+    "#02BEFC"
+  ],
+  "website-azki": [
+    "#23B4FF"
+  ],
+  "website-badesaba": [
+    "#029CF5"
+  ],
+  "website-balad": [
+    "#241957",
+    "#7868F5",
+    "#F7D648"
+  ],
+  "website-banimode": [
+    "#19B16A"
+  ],
+  "website-basalam": [
+    "#FF5C39"
+  ],
+  "website-bime-bazar": [
+    "#F2BE1A"
+  ],
+  "website-bimeh-com": [
+    "#5F27A3",
+    "#39D332"
+  ],
+  "website-digikala": [
+    "#ED1944"
+  ],
+  "website-digikala-jet": [
+    "#FF6200"
+  ],
+  "website-divar": [
+    "#D10F0F"
+  ],
+  "website-e-seminar": [
+    "#4EBA65"
+  ],
+  "website-fidibo": [
+    "#42403E"
+  ],
+  "website-flightio": [
+    "#9A24DD",
+    "#0E58EE"
+  ],
+  "website-flytoday": [
+    "#2A5278"
+  ],
+  "website-hafhashtad": [
+    "#B9238B",
+    "#1C4D9C"
+  ],
+  "website-hamrahcard": [
+    "#005951",
+    "#E9BA46"
+  ],
+  "website-host-iran": [
+    "#00ACED"
+  ],
+  "website-iranicard": [
+    "#3470C0"
+  ],
+  "website-jabama": [
+    "#FAA331"
+  ],
+  "website-jobvision": [
+    "#6B74F5"
+  ],
+  "website-karname": [
+    "#FFCE32",
+    "#00A754"
+  ],
+  "website-khanoumi": [
+    "#DB2777"
+  ],
+  "website-maktabkhoone": [
+    "#009BA6"
+  ],
+  "website-miare": [
+    "#722C85"
+  ],
+  "website-mili": [
+    "#051061",
+    "#FDB913"
+  ],
+  "website-mr-bilit": [
+    "#008AFF"
+  ],
+  "website-neshan": [
+    "#EF5E60",
+    "#244D69"
+  ],
+  "website-nobitex": [
+    "#5525AC"
+  ],
+  "website-otaghak": [
+    "#E81959"
+  ],
+  "website-ponisha": [
+    "#39CC64"
+  ],
+  "website-raychat": [
+    "#841474"
+  ],
+  "website-rtl": [
+    "#92D660"
+  ],
+  "website-safar-724": [
+    "#3C98D4"
+  ],
+  "website-shab": [
+    "#26A9E1"
+  ],
+  "website-sheypoor": [
+    "#0060FF"
+  ],
+  "website-snap": [
+    "#00E261"
+  ],
+  "website-snapp-doctor": [
+    "#00C5FF"
+  ],
+  "website-snapp-food": [
+    "#FF00A6"
+  ],
+  "website-snapp-trip": [
+    "#FF4231"
+  ],
+  "website-taghche": [
+    "#00A2A4"
+  ],
+  "website-takhfifan": [
+    "#E54E63"
+  ],
+  "website-tapsi": [
+    "#F15A22"
+  ],
+  "website-tec-nolife": [
+    "#3A4A88"
+  ],
+  "website-tipax": [
+    "#006230"
+  ],
+  "website-torob": [
+    "#E91E31",
+    "#70BD23"
+  ],
+  "website-zhaket": [
+    "#F99E06"
+  ]
 }
