@@ -1,6 +1,6 @@
 {
   "name": "@farsiui/icons",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Add Iranian brand React icon components into your project (CLI)",
   "license": "MIT",
   "type": "module",
