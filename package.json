@@ -1,11 +1,10 @@
 {
   "name": "@farsiui/icons",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Iranian brand React icons — CLI copy into your project. https://icons.FarsiUI.ir/",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "farsiui-icons": "./cli/index.mjs",
     "icons": "./cli/index.mjs"
   },
   "files": [
