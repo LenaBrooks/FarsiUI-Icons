@@ -25,6 +25,33 @@ const CATEGORY = {
   labelFa: "برندهای دولوپر و سوشال",
 };
 
+/** Prefer social / manual / crypto when the same brand already ships elsewhere. */
+const SKIP_SLUGS = new Set([
+  // Prefer social-*
+  "behance",
+  "discord",
+  "dribbble",
+  "github",
+  "google",
+  "medium",
+  "reddit",
+  "slack",
+  "spotify",
+  "telegram",
+  "tiktok",
+  "twitch",
+  "twitter",
+  "whatsapp",
+  "youtube",
+  // Prefer manual
+  "claude",
+  "netlify",
+  "vercel",
+  // Prefer crypto-*
+  "bitcoin",
+  "ethereum",
+]);
+
 const NAME_FA = {
   telegram: "تلگرام",
   whatsapp: "واتساپ",
@@ -441,6 +468,7 @@ const data = {};
 
 for (const file of files) {
   const slug = kebab(file);
+  if (SKIP_SLUGS.has(slug)) continue;
   const id = `dev-${slug}`;
   const source = await readFile(join(sourceRoot, file), "utf8");
   // uniquify before SVGO; prefixIds after cleanupIds so short a/b/c don't collide.

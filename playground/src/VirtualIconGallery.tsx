@@ -132,7 +132,7 @@ export type VirtualIconGalleryProps = {
   pendingScrollRef: React.MutableRefObject<DisplayGroupId | "all" | null>;
   scrollNonce: number;
   scrollingToRef: React.MutableRefObject<boolean>;
-  onActiveGroup: (id: DisplayGroupId) => void;
+  onActiveGroup: (id: DisplayGroupId | "all") => void;
   listRef?: React.RefObject<HTMLDivElement | null>;
 };
 
@@ -252,37 +252,61 @@ export function VirtualIconGallery({
     // eslint-disable-next-line react-hooks/exhaustive-deps -- scrollNonce is the trigger
   }, [scrollNonce]);
 
-  // Active group from visible header sentinels
+  // Active group from section headers. At page top → first category (not «همه»).
   useEffect(() => {
     if (isSearching || !listRef.current) return;
     const root = listRef.current;
-    const nodes = root.querySelectorAll<HTMLElement>("[data-group-section]");
+    const nodes = [
+      ...root.querySelectorAll<HTMLElement>("[data-group-section]"),
+    ];
     if (!nodes.length) return;
+    const firstId = sections[0]?.id;
+    const TOP_EPS = 64;
+    const stickyY = 120;
+    let raf = 0;
+    let lastId: string | null = null;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (scrollingToRef.current) return;
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort(
-            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
-          );
-        const top = visible[0];
-        if (!top?.target) return;
-        const id = (top.target as HTMLElement).dataset.groupSection as
-          | DisplayGroupId
-          | undefined;
-        if (id) onActiveGroup(id);
-      },
-      {
-        root: null,
-        rootMargin: "-20% 0px -55% 0px",
-        threshold: [0, 0.1, 0.25],
-      },
-    );
-    nodes.forEach((n) => observer.observe(n));
-    return () => observer.disconnect();
-  }, [isSearching, listRef, onActiveGroup, scrollingToRef, visibleRangeKey]);
+    const setActive = (id: DisplayGroupId) => {
+      if (id === lastId) return;
+      lastId = id;
+      onActiveGroup(id);
+    };
+
+    const pick = () => {
+      if (scrollingToRef.current) return;
+      if (window.scrollY <= TOP_EPS) {
+        if (firstId) setActive(firstId);
+        return;
+      }
+      // Last header that has reached / passed the sticky band.
+      let chosen: HTMLElement | null = null;
+      for (const el of nodes) {
+        if (el.getBoundingClientRect().top <= stickyY) chosen = el;
+      }
+      if (!chosen) chosen = nodes[0] ?? null;
+      const id = chosen?.dataset.groupSection as DisplayGroupId | undefined;
+      if (id) setActive(id);
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(pick);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    pick();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [
+    isSearching,
+    listRef,
+    onActiveGroup,
+    scrollingToRef,
+    visibleRangeKey,
+    sections,
+  ]);
 
   const handleSelect = useCallback(
     (id: string) => {

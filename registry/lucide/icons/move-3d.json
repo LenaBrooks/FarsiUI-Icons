@@ -1,0 +1,1 @@
+{"id":"move-3d","nameEn":"Move 3d","componentName":"Move3dIcon","tags":["arrows","axis","gizmo","coordinates","transform","translate"],"categories":["design"],"viewBox":"0 0 24 24","body":"<path d=\"M5 3v16h16\" /><path d=\"m5 19 6-6\" /><path d=\"m2 6 3-3 3 3\" /><path d=\"m18 16 3 3-3 3\" />","strokeWidth":2}

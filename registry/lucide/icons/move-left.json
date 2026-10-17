@@ -1,0 +1,1 @@
+{"id":"move-left","nameEn":"Move Left","componentName":"MoveLeftIcon","tags":["arrow","direction","back","west"],"categories":["arrows"],"viewBox":"0 0 24 24","body":"<path d=\"M6 8L2 12L6 16\" /><path d=\"M2 12H22\" />","strokeWidth":2}

@@ -1,7 +1,7 @@
 {
   "name": "@farsiui/icons",
   "version": 1,
-  "count": 1228,
+  "count": 1085,
   "icons": [
     {
       "id": "7learn",
@@ -84,30 +84,6 @@
       "file": "icons/aasaam-amar.json"
     },
     {
-      "id": "aasaam-ansar",
-      "nameFa": "بانک انصار",
-      "nameEn": "Ansar",
-      "componentName": "AnsarIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-ansar.json"
-    },
-    {
-      "id": "aasaam-aparat",
-      "nameFa": "آپارات",
-      "nameEn": "Aparat",
-      "componentName": "AparatIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-aparat.json"
-    },
-    {
-      "id": "aasaam-armanmeli",
-      "nameFa": "بانک آرمان",
-      "nameEn": "Armanmeli",
-      "componentName": "ArmanmeliIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-armanmeli.json"
-    },
-    {
       "id": "aasaam-arshehonline",
       "nameFa": "عرشه آنلاین",
       "nameEn": "Arshehonline",
@@ -132,36 +108,12 @@
       "file": "icons/aasaam-arvancloud.json"
     },
     {
-      "id": "aasaam-asanpardakht",
-      "nameFa": "آسان‌پرداخت",
-      "nameEn": "Asanpardakht",
-      "componentName": "AsanpardakhtIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-asanpardakht.json"
-    },
-    {
-      "id": "aasaam-asiatech",
-      "nameFa": "آسیاتک",
-      "nameEn": "Asiatech",
-      "componentName": "AsiatechIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-asiatech.json"
-    },
-    {
       "id": "aasaam-authin",
       "nameFa": "آوتین",
       "nameEn": "Authin",
       "componentName": "AuthinIcon",
       "category": "aasaam",
       "file": "icons/aasaam-authin.json"
-    },
-    {
-      "id": "aasaam-ayandeh",
-      "nameFa": "بانک آینده",
-      "nameEn": "Ayandeh",
-      "componentName": "AyandehIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-ayandeh.json"
     },
     {
       "id": "aasaam-ayandnews",
@@ -186,14 +138,6 @@
       "componentName": "BahamIcon",
       "category": "aasaam",
       "file": "icons/aasaam-baham.json"
-    },
-    {
-      "id": "aasaam-bale",
-      "nameFa": "بله",
-      "nameEn": "Bale",
-      "componentName": "BaleIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-bale.json"
     },
     {
       "id": "aasaam-bartarinha",
@@ -228,46 +172,6 @@
       "file": "icons/aasaam-behran.json"
     },
     {
-      "id": "aasaam-behrooz",
-      "nameFa": "بهروز",
-      "nameEn": "Behrooz",
-      "componentName": "BehroozIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-behrooz.json"
-    },
-    {
-      "id": "aasaam-behzisti",
-      "nameFa": "بهزیستی",
-      "nameEn": "Behzisti",
-      "componentName": "BehzistiIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-behzisti.json"
-    },
-    {
-      "id": "aasaam-bimehiran",
-      "nameFa": "بیمه ایران",
-      "nameEn": "Bimehiran",
-      "componentName": "BimehiranIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-bimehiran.json"
-    },
-    {
-      "id": "aasaam-bimehmarkazi",
-      "nameFa": "بیمه مرکزی",
-      "nameEn": "Bimehmarkazi",
-      "componentName": "BimehmarkaziIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-bimehmarkazi.json"
-    },
-    {
-      "id": "aasaam-bimehsalamat",
-      "nameFa": "بیمه سلامت",
-      "nameEn": "Bimehsalamat",
-      "componentName": "BimehsalamatIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-bimehsalamat.json"
-    },
-    {
       "id": "aasaam-bitbaan",
       "nameFa": "بیت‌بان",
       "nameEn": "Bitbaan",
@@ -300,36 +204,12 @@
       "file": "icons/aasaam-bmn.json"
     },
     {
-      "id": "aasaam-borna",
-      "nameFa": "برنا",
-      "nameEn": "Borna",
-      "componentName": "BornaIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-borna.json"
-    },
-    {
       "id": "aasaam-bourseon",
       "nameFa": "بورس‌آن",
       "nameEn": "Bourseon",
       "componentName": "BourseonIcon",
       "category": "aasaam",
       "file": "icons/aasaam-bourseon.json"
-    },
-    {
-      "id": "aasaam-butane",
-      "nameFa": "بوتان",
-      "nameEn": "Butane",
-      "componentName": "ButaneIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-butane.json"
-    },
-    {
-      "id": "aasaam-cafebazaar",
-      "nameFa": "کافه‌بازار",
-      "nameEn": "Cafebazaar",
-      "componentName": "CafebazaarIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-cafebazaar.json"
     },
     {
       "id": "aasaam-canbo",
@@ -354,14 +234,6 @@
       "componentName": "CarpinoIcon",
       "category": "aasaam",
       "file": "icons/aasaam-carpino.json"
-    },
-    {
-      "id": "aasaam-caspian",
-      "nameFa": "بانک کاسپین",
-      "nameEn": "Caspian",
-      "componentName": "CaspianIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-caspian.json"
     },
     {
       "id": "aasaam-chabokonline",
@@ -420,14 +292,6 @@
       "file": "icons/aasaam-deema.json"
     },
     {
-      "id": "aasaam-dey",
-      "nameFa": "بانک دی",
-      "nameEn": "Dey",
-      "componentName": "DeyIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-dey.json"
-    },
-    {
       "id": "aasaam-didgahemrooz",
       "nameFa": "دیدگاه امروز",
       "nameEn": "Didgahemrooz",
@@ -436,28 +300,12 @@
       "file": "icons/aasaam-didgahemrooz.json"
     },
     {
-      "id": "aasaam-digikala",
-      "nameFa": "دیجی‌کالا",
-      "nameEn": "Digikala",
-      "componentName": "DigikalaIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-digikala.json"
-    },
-    {
       "id": "aasaam-digisargarmy",
       "nameFa": "دیجی‌سرگرمی",
       "nameEn": "Digisargarmy",
       "componentName": "DigisargarmyIcon",
       "category": "aasaam",
       "file": "icons/aasaam-digisargarmy.json"
-    },
-    {
-      "id": "aasaam-divar",
-      "nameFa": "دیوار",
-      "nameEn": "Divar",
-      "componentName": "DivarIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-divar.json"
     },
     {
       "id": "aasaam-doctv",
@@ -530,14 +378,6 @@
       "componentName": "EghtesadnewsIcon",
       "category": "aasaam",
       "file": "icons/aasaam-eghtesadnews.json"
-    },
-    {
-      "id": "aasaam-eghtesadnovin",
-      "nameFa": "بانک اقتصاد نوین",
-      "nameEn": "Eghtesadnovin",
-      "componentName": "EghtesadnovinIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-eghtesadnovin.json"
     },
     {
       "id": "aasaam-eghtesadonline",
@@ -644,14 +484,6 @@
       "file": "icons/aasaam-fartakvarzeshi.json"
     },
     {
-      "id": "aasaam-fidibo",
-      "nameFa": "فیدیبو",
-      "nameEn": "Fidibo",
-      "componentName": "FidiboIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-fidibo.json"
-    },
-    {
       "id": "aasaam-firedepartment",
       "nameFa": "آتش‌نشانی",
       "nameEn": "Firedepartment",
@@ -660,36 +492,12 @@
       "file": "icons/aasaam-firedepartment.json"
     },
     {
-      "id": "aasaam-gap",
-      "nameFa": "گپ",
-      "nameEn": "Gap",
-      "componentName": "GapIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-gap.json"
-    },
-    {
-      "id": "aasaam-gardeshgari",
-      "nameFa": "بانک گردشگری",
-      "nameEn": "Gardeshgari",
-      "componentName": "GardeshgariIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-gardeshgari.json"
-    },
-    {
       "id": "aasaam-gashtaninews",
       "nameFa": "گشتانی نیوز",
       "nameEn": "Gashtaninews",
       "componentName": "GashtaninewsIcon",
       "category": "aasaam",
       "file": "icons/aasaam-gashtaninews.json"
-    },
-    {
-      "id": "aasaam-golrang",
-      "nameFa": "گلرنگ",
-      "nameEn": "Golrang",
-      "componentName": "GolrangIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-golrang.json"
     },
     {
       "id": "aasaam-gostaresh",
@@ -810,14 +618,6 @@
       "componentName": "IranartIcon",
       "category": "aasaam",
       "file": "icons/aasaam-iranart.json"
-    },
-    {
-      "id": "aasaam-irancell",
-      "nameFa": "ایرانسل",
-      "nameEn": "Irancell",
-      "componentName": "IrancellIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-irancell.json"
     },
     {
       "id": "aasaam-iraneurope",
@@ -956,14 +756,6 @@
       "file": "icons/aasaam-iritco.json"
     },
     {
-      "id": "aasaam-irna",
-      "nameFa": "ایرنا",
-      "nameEn": "Irna",
-      "componentName": "IrnaIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-irna.json"
-    },
-    {
       "id": "aasaam-irost",
       "nameFa": "سازمان پژوهش‌های علمی",
       "nameEn": "Irost",
@@ -1052,28 +844,12 @@
       "file": "icons/aasaam-kanoonparvaresh.json"
     },
     {
-      "id": "aasaam-karafarin",
-      "nameFa": "بانک کارآفرین",
-      "nameEn": "Karafarin",
-      "componentName": "KarafarinIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-karafarin.json"
-    },
-    {
       "id": "aasaam-kavirtire",
       "nameFa": "کویر تایر",
       "nameEn": "Kavirtire",
       "componentName": "KavirtireIcon",
       "category": "aasaam",
       "file": "icons/aasaam-kavirtire.json"
-    },
-    {
-      "id": "aasaam-keshavarzi",
-      "nameFa": "بانک کشاورزی",
-      "nameEn": "Keshavarzi",
-      "componentName": "KeshavarziIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-keshavarzi.json"
     },
     {
       "id": "aasaam-keshavarzplus",
@@ -1172,14 +948,6 @@
       "file": "icons/aasaam-khwarizmi.json"
     },
     {
-      "id": "aasaam-kosar",
-      "nameFa": "کوثر",
-      "nameEn": "Kosar",
-      "componentName": "KosarIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-kosar.json"
-    },
-    {
       "id": "aasaam-mahyanews",
       "nameFa": "محیا نیوز",
       "nameEn": "Mahyanews",
@@ -1218,22 +986,6 @@
       "componentName": "MapnaIcon",
       "category": "aasaam",
       "file": "icons/aasaam-mapna.json"
-    },
-    {
-      "id": "aasaam-markazi",
-      "nameFa": "بانک مرکزی",
-      "nameEn": "Markazi",
-      "componentName": "MarkaziIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-markazi.json"
-    },
-    {
-      "id": "aasaam-maskan",
-      "nameFa": "بانک مسکن",
-      "nameEn": "Maskan",
-      "componentName": "MaskanIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-maskan.json"
     },
     {
       "id": "aasaam-mci",
@@ -1276,14 +1028,6 @@
       "file": "icons/aasaam-mehreghtesad.json"
     },
     {
-      "id": "aasaam-mehriran",
-      "nameFa": "بانک مهر ایران",
-      "nameEn": "Mehriran",
-      "componentName": "MehriranIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-mehriran.json"
-    },
-    {
       "id": "aasaam-mehrnews",
       "nameFa": "مهر نیوز",
       "nameEn": "Mehrnews",
@@ -1300,36 +1044,12 @@
       "file": "icons/aasaam-melal.json"
     },
     {
-      "id": "aasaam-mellat",
-      "nameFa": "بانک ملت",
-      "nameEn": "Mellat",
-      "componentName": "MellatIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-mellat.json"
-    },
-    {
-      "id": "aasaam-melli",
-      "nameFa": "بانک ملی",
-      "nameEn": "Melli",
-      "componentName": "MelliIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-melli.json"
-    },
-    {
       "id": "aasaam-metrotehran",
       "nameFa": "مترو تهران",
       "nameEn": "Metrotehran",
       "componentName": "MetrotehranIcon",
       "category": "aasaam",
       "file": "icons/aasaam-metrotehran.json"
-    },
-    {
-      "id": "aasaam-minoo",
-      "nameFa": "مینو",
-      "nameEn": "Minoo",
-      "componentName": "MinooIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-minoo.json"
     },
     {
       "id": "aasaam-mohme",
@@ -1748,14 +1468,6 @@
       "file": "icons/aasaam-nomanzi.json"
     },
     {
-      "id": "aasaam-noor",
-      "nameFa": "نور",
-      "nameEn": "Noor",
-      "componentName": "NoorIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-noor.json"
-    },
-    {
       "id": "aasaam-noorvision",
       "nameFa": "نور ویژن",
       "nameEn": "Noorvision",
@@ -1836,14 +1548,6 @@
       "file": "icons/aasaam-parsappliance.json"
     },
     {
-      "id": "aasaam-parsian",
-      "nameFa": "بانک پارسیان",
-      "nameEn": "Parsian",
-      "componentName": "ParsianIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-parsian.json"
-    },
-    {
       "id": "aasaam-parskhazar",
       "nameFa": "پارس‌خزر",
       "nameEn": "Parskhazar",
@@ -1876,36 +1580,12 @@
       "file": "icons/aasaam-parspal.json"
     },
     {
-      "id": "aasaam-pasargad",
-      "nameFa": "بانک پاسارگاد",
-      "nameEn": "Pasargad",
-      "componentName": "PasargadIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-pasargad.json"
-    },
-    {
-      "id": "aasaam-paxan",
-      "nameFa": "پاکسان",
-      "nameEn": "Paxan",
-      "componentName": "PaxanIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-paxan.json"
-    },
-    {
       "id": "aasaam-payameno",
       "nameFa": "پیام نو",
       "nameEn": "Payameno",
       "componentName": "PayamenoIcon",
       "category": "aasaam",
       "file": "icons/aasaam-payameno.json"
-    },
-    {
-      "id": "aasaam-paydarymelli",
-      "nameFa": "پایداری ملی",
-      "nameEn": "Paydarymelli",
-      "componentName": "PaydarymelliIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-paydarymelli.json"
     },
     {
       "id": "aasaam-pazonline",
@@ -1964,22 +1644,6 @@
       "file": "icons/aasaam-pooyatv.json"
     },
     {
-      "id": "aasaam-post",
-      "nameFa": "پست",
-      "nameEn": "Post",
-      "componentName": "PostIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-post.json"
-    },
-    {
-      "id": "aasaam-postbank",
-      "nameFa": "پست‌بانک",
-      "nameEn": "Postbank",
-      "componentName": "PostbankIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-postbank.json"
-    },
-    {
       "id": "aasaam-promizer",
       "nameFa": "پرومیزر",
       "nameEn": "Promizer",
@@ -2028,28 +1692,12 @@
       "file": "icons/aasaam-rcs.json"
     },
     {
-      "id": "aasaam-refah",
-      "nameFa": "بانک رفاه",
-      "nameEn": "Refah",
-      "componentName": "RefahIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-refah.json"
-    },
-    {
       "id": "aasaam-refahstore",
       "nameFa": "رفاه استور",
       "nameEn": "Refahstore",
       "componentName": "RefahstoreIcon",
       "category": "aasaam",
       "file": "icons/aasaam-refahstore.json"
-    },
-    {
-      "id": "aasaam-resalat",
-      "nameFa": "رسالت",
-      "nameEn": "Resalat",
-      "componentName": "ResalatIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-resalat.json"
     },
     {
       "id": "aasaam-revayatnameh",
@@ -2060,28 +1708,12 @@
       "file": "icons/aasaam-revayatnameh.json"
     },
     {
-      "id": "aasaam-rightel",
-      "nameFa": "رایتل",
-      "nameEn": "Rightel",
-      "componentName": "RightelIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-rightel.json"
-    },
-    {
       "id": "aasaam-rokna",
       "nameFa": "رکنا",
       "nameEn": "Rokna",
       "componentName": "RoknaIcon",
       "category": "aasaam",
       "file": "icons/aasaam-rokna.json"
-    },
-    {
-      "id": "aasaam-sabteahval",
-      "nameFa": "ثبت احوال",
-      "nameEn": "Sabteahval",
-      "componentName": "SabteahvalIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-sabteahval.json"
     },
     {
       "id": "aasaam-sadad",
@@ -2116,14 +1748,6 @@
       "file": "icons/aasaam-salamattv.json"
     },
     {
-      "id": "aasaam-saman",
-      "nameFa": "بانک سامان",
-      "nameEn": "Saman",
-      "componentName": "SamanIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-saman.json"
-    },
-    {
       "id": "aasaam-samandehi",
       "nameFa": "ساماندهی",
       "nameEn": "Samandehi",
@@ -2156,14 +1780,6 @@
       "file": "icons/aasaam-sanjagh.json"
     },
     {
-      "id": "aasaam-sanjesh",
-      "nameFa": "سنجش",
-      "nameEn": "Sanjesh",
-      "componentName": "SanjeshIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-sanjesh.json"
-    },
-    {
       "id": "aasaam-sapp",
       "nameFa": "سپ",
       "nameEn": "Sapp",
@@ -2178,14 +1794,6 @@
       "componentName": "SargarmiyeroozIcon",
       "category": "aasaam",
       "file": "icons/aasaam-sargarmiyerooz.json"
-    },
-    {
-      "id": "aasaam-sarmayeh",
-      "nameFa": "سرمایه",
-      "nameEn": "Sarmayeh",
-      "componentName": "SarmayehIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-sarmayeh.json"
     },
     {
       "id": "aasaam-sazmanmellijavanan",
@@ -2220,28 +1828,12 @@
       "file": "icons/aasaam-setareparsi.json"
     },
     {
-      "id": "aasaam-shahr",
-      "nameFa": "بانک شهر",
-      "nameEn": "Shahr",
-      "componentName": "ShahrIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-shahr.json"
-    },
-    {
       "id": "aasaam-shahremohtava",
       "nameFa": "شهر محتوا",
       "nameEn": "Shahremohtava",
       "componentName": "ShahremohtavaIcon",
       "category": "aasaam",
       "file": "icons/aasaam-shahremohtava.json"
-    },
-    {
-      "id": "aasaam-shahrvand",
-      "nameFa": "شهروند",
-      "nameEn": "Shahrvand",
-      "componentName": "ShahrvandIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-shahrvand.json"
     },
     {
       "id": "aasaam-shaidbeheshtiuni",
@@ -2252,36 +1844,12 @@
       "file": "icons/aasaam-shaidbeheshtiuni.json"
     },
     {
-      "id": "aasaam-shaparak",
-      "nameFa": "شاپرک",
-      "nameEn": "Shaparak",
-      "componentName": "ShaparakIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-shaparak.json"
-    },
-    {
       "id": "aasaam-sharghonline",
       "nameFa": "شرق آنلاین",
       "nameEn": "Sharghonline",
       "componentName": "SharghonlineIcon",
       "category": "aasaam",
       "file": "icons/aasaam-sharghonline.json"
-    },
-    {
-      "id": "aasaam-sharif",
-      "nameFa": "شریف",
-      "nameEn": "Sharif",
-      "componentName": "SharifIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-sharif.json"
-    },
-    {
-      "id": "aasaam-shatel",
-      "nameFa": "شاتل",
-      "nameEn": "Shatel",
-      "componentName": "ShatelIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-shatel.json"
     },
     {
       "id": "aasaam-shayanews",
@@ -2298,14 +1866,6 @@
       "componentName": "ShetabIcon",
       "category": "aasaam",
       "file": "icons/aasaam-shetab.json"
-    },
-    {
-      "id": "aasaam-sheypoor",
-      "nameFa": "شیپور",
-      "nameEn": "Sheypoor",
-      "componentName": "SheypoorIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-sheypoor.json"
     },
     {
       "id": "aasaam-shomanews",
@@ -2348,36 +1908,12 @@
       "file": "icons/aasaam-sibapp.json"
     },
     {
-      "id": "aasaam-sina",
-      "nameFa": "بانک سینا",
-      "nameEn": "Sina",
-      "componentName": "SinaIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-sina.json"
-    },
-    {
       "id": "aasaam-sindad",
       "nameFa": "سینداد",
       "nameEn": "Sindad",
       "componentName": "SindadIcon",
       "category": "aasaam",
       "file": "icons/aasaam-sindad.json"
-    },
-    {
-      "id": "aasaam-snapp",
-      "nameFa": "اسنپ",
-      "nameEn": "Snapp",
-      "componentName": "SnappIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-snapp.json"
-    },
-    {
-      "id": "aasaam-snowa",
-      "nameFa": "اسنوا",
-      "nameEn": "Snowa",
-      "componentName": "SnowaIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-snowa.json"
     },
     {
       "id": "aasaam-sobheno",
@@ -2402,14 +1938,6 @@
       "componentName": "SornakhabarIcon",
       "category": "aasaam",
       "file": "icons/aasaam-sornakhabar.json"
-    },
-    {
-      "id": "aasaam-standard",
-      "nameFa": "استاندارد",
-      "nameEn": "Standard",
-      "componentName": "StandardIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-standard.json"
     },
     {
       "id": "aasaam-systemgroup",
@@ -2572,22 +2100,6 @@
       "file": "icons/aasaam-titrekootah.json"
     },
     {
-      "id": "aasaam-torob",
-      "nameFa": "ترب",
-      "nameEn": "Torob",
-      "componentName": "TorobIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-torob.json"
-    },
-    {
-      "id": "aasaam-tosee",
-      "nameFa": "بانک توسعه",
-      "nameEn": "Tosee",
-      "componentName": "ToseeIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-tosee.json"
-    },
-    {
       "id": "aasaam-toseeirani",
       "nameFa": "توسعه ایرانیان",
       "nameEn": "Toseeirani",
@@ -2644,14 +2156,6 @@
       "file": "icons/aasaam-varandaz.json"
     },
     {
-      "id": "aasaam-varzesh3",
-      "nameFa": "ورزش ۳",
-      "nameEn": "Varzesh3",
-      "componentName": "Varzesh3Icon",
-      "category": "aasaam",
-      "file": "icons/aasaam-varzesh3.json"
-    },
-    {
       "id": "aasaam-varzeshtv",
       "nameFa": "ورزش تی‌وی",
       "nameEn": "Varzeshtv",
@@ -2700,28 +2204,12 @@
       "file": "icons/aasaam-yektanet.json"
     },
     {
-      "id": "aasaam-zarinpal",
-      "nameFa": "زرین‌پال",
-      "nameEn": "Zarinpal",
-      "componentName": "Zarinpal2Icon",
-      "category": "aasaam",
-      "file": "icons/aasaam-zarinpal.json"
-    },
-    {
       "id": "aasaam-zenhar",
       "nameFa": "زنهار",
       "nameEn": "Zenhar",
       "componentName": "ZenharIcon",
       "category": "aasaam",
       "file": "icons/aasaam-zenhar.json"
-    },
-    {
-      "id": "aasaam-zoomit",
-      "nameFa": "زومیت",
-      "nameEn": "Zoomit",
-      "componentName": "ZoomitIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-zoomit.json"
     },
     {
       "id": "abalon",
@@ -4604,28 +4092,12 @@
       "file": "icons/dev-basecamp.json"
     },
     {
-      "id": "dev-behance",
-      "nameFa": "بیهنس",
-      "nameEn": "Behance",
-      "componentName": "Behance2Icon",
-      "category": "devicons",
-      "file": "icons/dev-behance.json"
-    },
-    {
       "id": "dev-bitbucket",
       "nameFa": "بیت‌باکت",
       "nameEn": "Bitbucket",
       "componentName": "BitbucketIcon",
       "category": "devicons",
       "file": "icons/dev-bitbucket.json"
-    },
-    {
-      "id": "dev-bitcoin",
-      "nameFa": "بیت‌کوین",
-      "nameEn": "Bitcoin",
-      "componentName": "BitcoinIcon",
-      "category": "devicons",
-      "file": "icons/dev-bitcoin.json"
     },
     {
       "id": "dev-blender",
@@ -4738,14 +4210,6 @@
       "componentName": "CircleciIcon",
       "category": "devicons",
       "file": "icons/dev-circleci.json"
-    },
-    {
-      "id": "dev-claude",
-      "nameFa": "کلود",
-      "nameEn": "Claude",
-      "componentName": "Claude2Icon",
-      "category": "devicons",
-      "file": "icons/dev-claude.json"
     },
     {
       "id": "dev-clerk",
@@ -4908,14 +4372,6 @@
       "file": "icons/dev-directus.json"
     },
     {
-      "id": "dev-discord",
-      "nameFa": "دیسکورد",
-      "nameEn": "Discord",
-      "componentName": "Discord2Icon",
-      "category": "devicons",
-      "file": "icons/dev-discord.json"
-    },
-    {
       "id": "dev-django",
       "nameFa": "جنگو",
       "nameEn": "Django",
@@ -4930,14 +4386,6 @@
       "componentName": "DockerIcon",
       "category": "devicons",
       "file": "icons/dev-docker.json"
-    },
-    {
-      "id": "dev-dribbble",
-      "nameFa": "دریبل",
-      "nameEn": "Dribbble",
-      "componentName": "Dribbble2Icon",
-      "category": "devicons",
-      "file": "icons/dev-dribbble.json"
     },
     {
       "id": "dev-drone",
@@ -5010,14 +4458,6 @@
       "componentName": "EslintIcon",
       "category": "devicons",
       "file": "icons/dev-eslint.json"
-    },
-    {
-      "id": "dev-ethereum",
-      "nameFa": "اتریوم",
-      "nameEn": "Ethereum",
-      "componentName": "EthereumIcon",
-      "category": "devicons",
-      "file": "icons/dev-ethereum.json"
     },
     {
       "id": "dev-expo",
@@ -5124,14 +4564,6 @@
       "file": "icons/dev-git.json"
     },
     {
-      "id": "dev-github",
-      "nameFa": "گیت‌هاب",
-      "nameEn": "GitHub",
-      "componentName": "Github2Icon",
-      "category": "devicons",
-      "file": "icons/dev-github.json"
-    },
-    {
       "id": "dev-github-actions",
       "nameFa": "گیت‌هاب اکشنز",
       "nameEn": "GitHub Actions",
@@ -5170,14 +4602,6 @@
       "componentName": "GodotIcon",
       "category": "devicons",
       "file": "icons/dev-godot.json"
-    },
-    {
-      "id": "dev-google",
-      "nameFa": "گوگل",
-      "nameEn": "Google",
-      "componentName": "Google2Icon",
-      "category": "devicons",
-      "file": "icons/dev-google.json"
     },
     {
       "id": "dev-google-cloud",
@@ -5500,14 +4924,6 @@
       "file": "icons/dev-less.json"
     },
     {
-      "id": "dev-medium",
-      "nameFa": "مدیوم",
-      "nameEn": "Medium",
-      "componentName": "Medium2Icon",
-      "category": "devicons",
-      "file": "icons/dev-medium.json"
-    },
-    {
       "id": "dev-mongodb",
       "nameFa": "مانگو‌دی‌بی",
       "nameEn": "MongoDB",
@@ -5538,14 +4954,6 @@
       "componentName": "NestjsIcon",
       "category": "devicons",
       "file": "icons/dev-nestjs.json"
-    },
-    {
-      "id": "dev-netlify",
-      "nameFa": "نتلی‌فای",
-      "nameEn": "Netlify",
-      "componentName": "Netlify2Icon",
-      "category": "devicons",
-      "file": "icons/dev-netlify.json"
     },
     {
       "id": "dev-nextjs",
@@ -5708,14 +5116,6 @@
       "file": "icons/dev-react.json"
     },
     {
-      "id": "dev-reddit",
-      "nameFa": "ردیت",
-      "nameEn": "Reddit",
-      "componentName": "Reddit2Icon",
-      "category": "devicons",
-      "file": "icons/dev-reddit.json"
-    },
-    {
       "id": "dev-redis",
       "nameFa": "ردیس",
       "nameEn": "Redis",
@@ -5786,22 +5186,6 @@
       "componentName": "SignalIcon",
       "category": "devicons",
       "file": "icons/dev-signal.json"
-    },
-    {
-      "id": "dev-slack",
-      "nameFa": "اسلک",
-      "nameEn": "Slack",
-      "componentName": "Slack2Icon",
-      "category": "devicons",
-      "file": "icons/dev-slack.json"
-    },
-    {
-      "id": "dev-spotify",
-      "nameFa": "اسپاتیفای",
-      "nameEn": "Spotify",
-      "componentName": "Spotify2Icon",
-      "category": "devicons",
-      "file": "icons/dev-spotify.json"
     },
     {
       "id": "dev-spring",
@@ -5876,14 +5260,6 @@
       "file": "icons/dev-tailwind.json"
     },
     {
-      "id": "dev-telegram",
-      "nameFa": "تلگرام",
-      "nameEn": "Telegram",
-      "componentName": "Telegram2Icon",
-      "category": "devicons",
-      "file": "icons/dev-telegram.json"
-    },
-    {
       "id": "dev-tensorflow",
       "nameFa": "تنسورفلو",
       "nameEn": "Tensorflow",
@@ -5898,30 +5274,6 @@
       "componentName": "TerraformIcon",
       "category": "devicons",
       "file": "icons/dev-terraform.json"
-    },
-    {
-      "id": "dev-tiktok",
-      "nameFa": "تیک‌تاک",
-      "nameEn": "Tiktok",
-      "componentName": "Tiktok2Icon",
-      "category": "devicons",
-      "file": "icons/dev-tiktok.json"
-    },
-    {
-      "id": "dev-twitch",
-      "nameFa": "توییچ",
-      "nameEn": "Twitch",
-      "componentName": "Twitch2Icon",
-      "category": "devicons",
-      "file": "icons/dev-twitch.json"
-    },
-    {
-      "id": "dev-twitter",
-      "nameFa": "توییتر",
-      "nameEn": "Twitter",
-      "componentName": "Twitter2Icon",
-      "category": "devicons",
-      "file": "icons/dev-twitter.json"
     },
     {
       "id": "dev-typescript",
@@ -5946,14 +5298,6 @@
       "componentName": "UnityIcon",
       "category": "devicons",
       "file": "icons/dev-unity.json"
-    },
-    {
-      "id": "dev-vercel",
-      "nameFa": "ورسل",
-      "nameEn": "Vercel",
-      "componentName": "Vercel2Icon",
-      "category": "devicons",
-      "file": "icons/dev-vercel.json"
     },
     {
       "id": "dev-vite",
@@ -5988,14 +5332,6 @@
       "file": "icons/dev-webpack.json"
     },
     {
-      "id": "dev-whatsapp",
-      "nameFa": "واتساپ",
-      "nameEn": "Whatsapp",
-      "componentName": "Whatsapp2Icon",
-      "category": "devicons",
-      "file": "icons/dev-whatsapp.json"
-    },
-    {
       "id": "dev-wordpress",
       "nameFa": "وردپرس",
       "nameEn": "Wordpress",
@@ -6010,14 +5346,6 @@
       "componentName": "YarnIcon",
       "category": "devicons",
       "file": "icons/dev-yarn.json"
-    },
-    {
-      "id": "dev-youtube",
-      "nameFa": "یوتیوب",
-      "nameEn": "Youtube",
-      "componentName": "Youtube2Icon",
-      "category": "devicons",
-      "file": "icons/dev-youtube.json"
     },
     {
       "id": "dev-zoom",
@@ -7132,318 +6460,6 @@
       "file": "icons/learn-files.json"
     },
     {
-      "id": "lpb-bank-ansar",
-      "nameFa": "بانک انصار",
-      "nameEn": "Bank Ansar",
-      "componentName": "BankAnsar2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-ansar.json"
-    },
-    {
-      "id": "lpb-bank-bank-markazi",
-      "nameFa": "بانک مرکزی",
-      "nameEn": "Bank Markazi",
-      "componentName": "BankMarkaziIcon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-bank-markazi.json"
-    },
-    {
-      "id": "lpb-bank-caspian",
-      "nameFa": "بانک کاسپین",
-      "nameEn": "Bank Caspian",
-      "componentName": "BankCaspian2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-caspian.json"
-    },
-    {
-      "id": "lpb-bank-dey",
-      "nameFa": "بانک دی",
-      "nameEn": "Bank Dey",
-      "componentName": "BankDey2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-dey.json"
-    },
-    {
-      "id": "lpb-bank-eghtesad-novin",
-      "nameFa": "بانک اقتصاد نوین",
-      "nameEn": "Bank Eghtesad Novin",
-      "componentName": "BankEghtesadNovin2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-eghtesad-novin.json"
-    },
-    {
-      "id": "lpb-bank-gardeshgari",
-      "nameFa": "بانک گردشگری",
-      "nameEn": "Bank Gardeshgari",
-      "componentName": "BankGardeshgari2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-gardeshgari.json"
-    },
-    {
-      "id": "lpb-bank-hekmat",
-      "nameFa": "بانک حکمت",
-      "nameEn": "Bank Hekmat",
-      "componentName": "BankHekmat2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-hekmat.json"
-    },
-    {
-      "id": "lpb-bank-iran-europe",
-      "nameFa": "ایران اروپا",
-      "nameEn": "Bank Iran Europe",
-      "componentName": "BankIranEurope2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-iran-europe.json"
-    },
-    {
-      "id": "lpb-bank-karafarin",
-      "nameFa": "بانک کارآفرین",
-      "nameEn": "Bank Karafarin",
-      "componentName": "BankKarafarin2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-karafarin.json"
-    },
-    {
-      "id": "lpb-bank-keshavarzi",
-      "nameFa": "بانک کشاورزی",
-      "nameEn": "Bank Keshavarzi",
-      "componentName": "BankKeshavarzi2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-keshavarzi.json"
-    },
-    {
-      "id": "lpb-bank-khavar-mianeh",
-      "nameFa": "بانک خاورمیانه",
-      "nameEn": "Bank Khavar Mianeh",
-      "componentName": "BankKhavarMianeh2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-khavar-mianeh.json"
-    },
-    {
-      "id": "lpb-bank-kosar",
-      "nameFa": "بانک کوثر",
-      "nameEn": "Bank Kosar",
-      "componentName": "BankKosar2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-kosar.json"
-    },
-    {
-      "id": "lpb-bank-maskan",
-      "nameFa": "بانک مسکن",
-      "nameEn": "Bank Maskan",
-      "componentName": "BankMaskan2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-maskan.json"
-    },
-    {
-      "id": "lpb-bank-melall",
-      "nameFa": "بانک ملل",
-      "nameEn": "Bank Melall",
-      "componentName": "BankMelall2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-melall.json"
-    },
-    {
-      "id": "lpb-bank-mellat",
-      "nameFa": "بانک ملت",
-      "nameEn": "Bank Mellat",
-      "componentName": "BankMellat2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-mellat.json"
-    },
-    {
-      "id": "lpb-bank-melli",
-      "nameFa": "بانک ملی",
-      "nameEn": "Bank Melli",
-      "componentName": "BankMelli2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-melli.json"
-    },
-    {
-      "id": "lpb-bank-noor",
-      "nameFa": "بانک نور",
-      "nameEn": "Bank Noor",
-      "componentName": "BankNoor2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-noor.json"
-    },
-    {
-      "id": "lpb-bank-parsian",
-      "nameFa": "بانک پارسیان",
-      "nameEn": "Bank Parsian",
-      "componentName": "BankParsian2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-parsian.json"
-    },
-    {
-      "id": "lpb-bank-pasargad",
-      "nameFa": "بانک پاسارگاد",
-      "nameEn": "Bank Pasargad",
-      "componentName": "BankPasargad2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-pasargad.json"
-    },
-    {
-      "id": "lpb-bank-postbank",
-      "nameFa": "پست‌بانک",
-      "nameEn": "Bank Postbank",
-      "componentName": "BankPostbank2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-postbank.json"
-    },
-    {
-      "id": "lpb-bank-refah",
-      "nameFa": "بانک رفاه",
-      "nameEn": "Bank Refah",
-      "componentName": "BankRefah2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-refah.json"
-    },
-    {
-      "id": "lpb-bank-resalat",
-      "nameFa": "بانک رسالت",
-      "nameEn": "Bank Resalat",
-      "componentName": "BankResalat2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-resalat.json"
-    },
-    {
-      "id": "lpb-bank-saman",
-      "nameFa": "بانک سامان",
-      "nameEn": "Bank Saman",
-      "componentName": "BankSaman2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-saman.json"
-    },
-    {
-      "id": "lpb-bank-sanat-madan",
-      "nameFa": "بانک صنعت و معدن",
-      "nameEn": "Bank Sanat Madan",
-      "componentName": "BankSanatMadan2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-sanat-madan.json"
-    },
-    {
-      "id": "lpb-bank-sarmayeh",
-      "nameFa": "بانک سرمایه",
-      "nameEn": "Bank Sarmayeh",
-      "componentName": "BankSarmayeh2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-sarmayeh.json"
-    },
-    {
-      "id": "lpb-bank-shahr",
-      "nameFa": "بانک شهر",
-      "nameEn": "Bank Shahr",
-      "componentName": "BankShahr2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-shahr.json"
-    },
-    {
-      "id": "lpb-bank-sina",
-      "nameFa": "بانک سینا",
-      "nameEn": "Bank Sina",
-      "componentName": "BankSina2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-sina.json"
-    },
-    {
-      "id": "lpb-bank-standard-chartered",
-      "nameFa": "استاندارد چارترد",
-      "nameEn": "Bank Standard Chartered",
-      "componentName": "BankStandardChartered2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-standard-chartered.json"
-    },
-    {
-      "id": "lpb-bank-taavon-eslami",
-      "nameFa": "بانک تعاون اسلامی",
-      "nameEn": "Bank Taavon Eslami",
-      "componentName": "BankTaavonEslami2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-taavon-eslami.json"
-    },
-    {
-      "id": "lpb-bank-tosee",
-      "nameFa": "بانک توسعه",
-      "nameEn": "Bank Tosee",
-      "componentName": "BankTosee2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-tosee.json"
-    },
-    {
-      "id": "lpb-bank-tosee-saderat",
-      "nameFa": "توسعه صادرات",
-      "nameEn": "Bank Tosee Saderat",
-      "componentName": "BankToseeSaderat2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-tosee-saderat.json"
-    },
-    {
-      "id": "lpb-bank-tosee-taavon",
-      "nameFa": "توسعه تعاون",
-      "nameEn": "Bank Tosee Taavon",
-      "componentName": "BankToseeTaavon2Icon",
-      "category": "logos-per-banks",
-      "file": "icons/lpb-bank-tosee-taavon.json"
-    },
-    {
-      "id": "lpb-gateway-asan-pardakht",
-      "nameFa": "آسان‌پرداخت",
-      "nameEn": "Asan Pardakht",
-      "componentName": "GatewayAsanPardakht2Icon",
-      "category": "logos-per-gateways",
-      "file": "icons/lpb-gateway-asan-pardakht.json"
-    },
-    {
-      "id": "lpb-gateway-digipay",
-      "nameFa": "دیجی‌پی",
-      "nameEn": "Digipay",
-      "componentName": "GatewayDigipay2Icon",
-      "category": "logos-per-gateways",
-      "file": "icons/lpb-gateway-digipay.json"
-    },
-    {
-      "id": "lpb-gateway-hesabit",
-      "nameFa": "حسابیت",
-      "nameEn": "Hesabit",
-      "componentName": "GatewayHesabit2Icon",
-      "category": "logos-per-gateways",
-      "file": "icons/lpb-gateway-hesabit.json"
-    },
-    {
-      "id": "lpb-gateway-idpay",
-      "nameFa": "آیدی‌پی",
-      "nameEn": "IDPay",
-      "componentName": "GatewayIdpay2Icon",
-      "category": "logos-per-gateways",
-      "file": "icons/lpb-gateway-idpay.json"
-    },
-    {
-      "id": "lpb-gateway-sedad",
-      "nameFa": "سداد",
-      "nameEn": "Sedad",
-      "componentName": "GatewaySedad2Icon",
-      "category": "logos-per-gateways",
-      "file": "icons/lpb-gateway-sedad.json"
-    },
-    {
-      "id": "lpb-gateway-shaparak",
-      "nameFa": "شاپرک",
-      "nameEn": "Shaparak",
-      "componentName": "GatewayShaparak2Icon",
-      "category": "logos-per-gateways",
-      "file": "icons/lpb-gateway-shaparak.json"
-    },
-    {
-      "id": "lpb-gateway-vandar",
-      "nameFa": "وندار",
-      "nameEn": "Vandar",
-      "componentName": "GatewayVandar2Icon",
-      "category": "logos-per-gateways",
-      "file": "icons/lpb-gateway-vandar.json"
-    },
-    {
       "id": "lps-electricity",
       "nameFa": "برق",
       "nameEn": "Electricity",
@@ -7463,7 +6479,7 @@
       "id": "lps-post",
       "nameFa": "پست",
       "nameEn": "Post",
-      "componentName": "Post2Icon",
+      "componentName": "PostIcon",
       "category": "logos-per-service",
       "file": "icons/lps-post.json"
     },
@@ -7724,14 +6740,6 @@
       "file": "icons/organization-fani-o-herfeei.json"
     },
     {
-      "id": "organization-gas",
-      "nameFa": "گاز",
-      "nameEn": "Gas",
-      "componentName": "OrganizationGasIcon",
-      "category": "organization-departments",
-      "file": "icons/organization-gas.json"
-    },
-    {
       "id": "organization-ghaza-o-darou",
       "nameFa": "غذا و دارو",
       "nameEn": "Ghaza O Darou",
@@ -7826,14 +6834,6 @@
       "componentName": "OrganizationOmurMaliatiIcon",
       "category": "organization-departments",
       "file": "icons/organization-omur-maliati.json"
-    },
-    {
-      "id": "organization-post",
-      "nameFa": "پست",
-      "nameEn": "Post",
-      "componentName": "OrganizationPostIcon",
-      "category": "organization-departments",
-      "file": "icons/organization-post.json"
     },
     {
       "id": "organization-rah-ahan",
@@ -7956,68 +6956,12 @@
       "file": "icons/pixevel.json"
     },
     {
-      "id": "psi-arvancloud",
-      "nameFa": "ابر آروان",
-      "nameEn": "Arvancloud",
-      "componentName": "Arvancloud2Icon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-arvancloud.json"
-    },
-    {
-      "id": "psi-balad",
-      "nameFa": "بلد",
-      "nameEn": "Balad",
-      "componentName": "BaladIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-balad.json"
-    },
-    {
-      "id": "psi-basalam",
-      "nameFa": "باسلام",
-      "nameEn": "Basalam",
-      "componentName": "BasalamIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-basalam.json"
-    },
-    {
       "id": "psi-bookapo",
       "nameFa": "بوکاپو",
       "nameEn": "Bookapo",
       "componentName": "BookapoIcon",
       "category": "persian-simple-icons",
       "file": "icons/psi-bookapo.json"
-    },
-    {
-      "id": "psi-digiato",
-      "nameFa": "دیجیاتو",
-      "nameEn": "Digiato",
-      "componentName": "DigiatoIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-digiato.json"
-    },
-    {
-      "id": "psi-digikala",
-      "nameFa": "دیجی‌کالا",
-      "nameEn": "Digikala",
-      "componentName": "Digikala2Icon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-digikala.json"
-    },
-    {
-      "id": "psi-filimo",
-      "nameFa": "فیلیمو",
-      "nameEn": "Filimo",
-      "componentName": "FilimoIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-filimo.json"
-    },
-    {
-      "id": "psi-filmnet",
-      "nameFa": "فیلم‌نت",
-      "nameEn": "Filmnet",
-      "componentName": "FilmnetIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-filmnet.json"
     },
     {
       "id": "psi-hafthashtad",
@@ -8044,28 +6988,12 @@
       "file": "icons/psi-jajiga.json"
     },
     {
-      "id": "psi-jobvision",
-      "nameFa": "جاب‌ویژن",
-      "nameEn": "Jobvision",
-      "componentName": "JobvisionIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-jobvision.json"
-    },
-    {
       "id": "psi-maxim",
       "nameFa": "ماکسیم",
       "nameEn": "Maxim",
       "componentName": "MaximIcon",
       "category": "persian-simple-icons",
       "file": "icons/psi-maxim.json"
-    },
-    {
-      "id": "psi-namava",
-      "nameFa": "نماوا",
-      "nameEn": "Namava",
-      "componentName": "NamavaIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-namava.json"
     },
     {
       "id": "psi-navaar",
@@ -8076,28 +7004,12 @@
       "file": "icons/psi-navaar.json"
     },
     {
-      "id": "psi-neshan",
-      "nameFa": "نشان",
-      "nameEn": "Neshan",
-      "componentName": "NeshanIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-neshan.json"
-    },
-    {
       "id": "psi-netbarg",
       "nameFa": "نت‌برگ",
       "nameEn": "Netbarg",
       "componentName": "NetbargIcon",
       "category": "persian-simple-icons",
       "file": "icons/psi-netbarg.json"
-    },
-    {
-      "id": "psi-otaghak",
-      "nameFa": "اتاقک",
-      "nameEn": "Otaghak",
-      "componentName": "OtaghakIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-otaghak.json"
     },
     {
       "id": "psi-sabketo",
@@ -8116,68 +7028,12 @@
       "file": "icons/psi-shenoto.json"
     },
     {
-      "id": "psi-sheypoor",
-      "nameFa": "شیپور",
-      "nameEn": "Sheypoor",
-      "componentName": "Sheypoor2Icon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-sheypoor.json"
-    },
-    {
-      "id": "psi-snap",
-      "nameFa": "اسنپ",
-      "nameEn": "Snap",
-      "componentName": "SnapIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-snap.json"
-    },
-    {
-      "id": "psi-takhfifan",
-      "nameFa": "تخفیفان",
-      "nameEn": "Takhfifan",
-      "componentName": "TakhfifanIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-takhfifan.json"
-    },
-    {
-      "id": "psi-telewebion",
-      "nameFa": "تلوبیون",
-      "nameEn": "Telewebion",
-      "componentName": "TelewebionIcon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-telewebion.json"
-    },
-    {
-      "id": "psi-torob",
-      "nameFa": "ترب",
-      "nameEn": "Torob",
-      "componentName": "Torob2Icon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-torob.json"
-    },
-    {
       "id": "psi-xaas",
       "nameFa": "اکساس",
       "nameEn": "XaaS",
       "componentName": "XaasIcon",
       "category": "persian-simple-icons",
       "file": "icons/psi-xaas.json"
-    },
-    {
-      "id": "psi-yektanet",
-      "nameFa": "یکتانت",
-      "nameEn": "Yektanet",
-      "componentName": "Yektanet2Icon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-yektanet.json"
-    },
-    {
-      "id": "psi-zoomit",
-      "nameFa": "زومیت",
-      "nameEn": "Zoomit",
-      "componentName": "Zoomit2Icon",
-      "category": "persian-simple-icons",
-      "file": "icons/psi-zoomit.json"
     },
     {
       "id": "ravan-darman",

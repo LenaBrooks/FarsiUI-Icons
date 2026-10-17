@@ -4,16 +4,14 @@
 
 دمو: [icons.farsiui.ir](https://icons.farsiui.ir/)
 
-## پیشنهاد: CLI (حجم سبک)
+## استفاده (CLI)
 
-فقط همان آیکون‌هایی که لازم دارید داخل پروژه‌تان کپی می‌شود:
+با `npx` فقط همان آیکون‌هایی که لازم دارید داخل پروژه‌تان کپی می‌شوند — وابستگی به فارسیUI در `package.json` اضافه نمی‌شود.
 
 ```bash
-npx @farsiui/icons-cli add bank-melli
-npx @farsiui/icons-cli add bank-melli website-digikala
+npx @farsiui/icons add bank-melli
+npx @farsiui/icons add bank-melli website-digikala
 ```
-
-سپس:
 
 فایل می‌رود به `src/components/icons` (اگر `src` دارید) یا `components/icons`.
 
@@ -24,27 +22,33 @@ import { BankMelliIcon } from "@/components/icons/BankMelliIcon";
 <BankMelliIcon size={32} variant="mono" style={{ color: "#111" }} />
 ```
 
-جزئیات: [`packages/icons-cli/README.md`](packages/icons-cli/README.md)
+### گزینه‌ها
 
-## پکیج کامل (اختیاری)
+| فلگ | توضیح |
+|------|--------|
+| `--lucide` | رجیستری Lucide (آیکون‌های stroke انگلیسی) |
+| `--out <dir>` | پوشهٔ خروجی |
+| `--registry <url>` | آدرس رجیستری (پیش‌فرض: jsDelivr → GitHub) |
+| `--force` | بازنویسی فایل موجود |
 
-همهٔ آیکون‌ها در `node_modules` (حجم بیشتر):
+## Lucide
+
+آیکون‌های Lucide جدا از برندها هستند (صفحهٔ دمو `#lucide`). با `--lucide` همان‌طور یکی‌یکی کپی می‌شوند:
 
 ```bash
-npm install @farsiui/icons
+npx @farsiui/icons add house --lucide
+npx @farsiui/icons add activity zap --lucide
 ```
+
+خروجی پیش‌فرض: `src/components/lucide` (یا `components/lucide`).
 
 ```tsx
-import { BankMelliIcon, WebsiteDigikalaIcon } from "@farsiui/icons";
-import { LogoIcon, iconManifest } from "@farsiui/icons";
+import { HouseIcon } from "@/components/lucide/HouseIcon";
 
-<BankMelliIcon size={32} />
-<LogoIcon name="website-digikala" variant="mono" />
+<HouseIcon size={24} />
 ```
 
-نیاز به `react` و `react-dom` نسخه ۱۸ یا ۱۹.
-
-## Props
+## Props (برندها)
 
 | Prop | توضیح |
 |------|--------|
@@ -53,24 +57,29 @@ import { LogoIcon, iconManifest } from "@farsiui/icons";
 | `title` | نام دسترس‌پذیر؛ بدون آن تزئینی است |
 | `className` | روی `<svg>` |
 
+نیاز به React و React DOM نسخه ۱۸ یا ۱۹ در پروژه‌ای که آیکون را استفاده می‌کند.
+
 ## توسعه
 
 ```bash
 npm install
-npm run generate            # ساخت آیکون‌ها از assets/
-npm run generate:registry   # رجیستری CLI → registry/
-npm run dev                 # playground
+npm run generate                 # ساخت آیکون‌ها از assets/
+npm run generate:registry        # رجیستری برندها → registry/
+npm run generate:lucide-registry # رجیستری Lucide → registry/lucide/
+npm run dev                      # playground
 npm run build
 ```
 
 CLI محلی روی رجیستری همین ریپو:
 
 ```bash
-node packages/icons-cli/src/index.mjs add bank-melli --registry ./registry
+node cli/index.mjs add bank-melli --registry ./registry
+node cli/index.mjs add house --lucide --registry ./registry/lucide
 ```
 
 ## مجوز
 
 کد پکیج: MIT.  
 آرت‌ورک‌ها از منابع مختلف با مجوزهای اصلی خودشان در `assets/` آمده‌اند.  
-لوگوهای استارتاپی `assets/manual` جمع‌آوری‌شده توسط [trustmrr.ir](https://trustmrr.ir) از وب‌سایت خود شرکت‌ها (جزئیات در `assets/manual/sources.json`)؛ هر لوگو علامت تجاری همان شرکت است.
+لوگوهای استارتاپی `assets/manual` جمع‌آوری‌شده توسط [trustmrr.ir](https://trustmrr.ir) از وب‌سایت خود شرکت‌ها (جزئیات در `assets/manual/sources.json`)؛ هر لوگو علامت تجاری همان شرکت است.  
+آیکون‌های Lucide تحت مجوز ISC متعلق به پروژهٔ [Lucide](https://lucide.dev) هستند.

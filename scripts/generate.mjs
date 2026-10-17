@@ -43,4 +43,16 @@ console.log("\n→ generate-registry.mjs");
   }
 }
 
+console.log("\n→ generate-lucide-registry.mjs");
+{
+  const result = spawnSync(
+    process.execPath,
+    [join(root, "generate-lucide-registry.mjs")],
+    { stdio: "inherit" },
+  );
+  if (result.status !== 0) {
+    process.exit(result.status ?? 1);
+  }
+}
+
 console.log("\n✓ All icon sources generated");

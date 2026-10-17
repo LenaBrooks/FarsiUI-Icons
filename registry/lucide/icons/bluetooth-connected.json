@@ -1,0 +1,1 @@
+{"id":"bluetooth-connected","nameEn":"Bluetooth Connected","componentName":"BluetoothConnectedIcon","tags":["paired"],"categories":["connectivity","devices"],"viewBox":"0 0 24 24","body":"<path d=\"m7 7 10 10-5 5V2l5 5L7 17\" /><line x1=\"18\" x2=\"21\" y1=\"12\" y2=\"12\" /><line x1=\"3\" x2=\"6\" y1=\"12\" y2=\"12\" />","strokeWidth":2}

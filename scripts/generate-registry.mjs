@@ -105,7 +105,13 @@ async function loadDataForCategory(category) {
   return data;
 }
 
-await rm(outRoot, { recursive: true, force: true });
+// Only wipe brand icons + index — keep registry/lucide/ intact.
+await rm(outIcons, { recursive: true, force: true });
+try {
+  await rm(join(outRoot, "index.json"), { force: true });
+} catch {
+  /* missing */
+}
 await mkdir(outIcons, { recursive: true });
 
 const manifest = [];

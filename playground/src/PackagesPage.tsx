@@ -3,14 +3,16 @@ import { toFaDigits } from "./fa-digits";
 
 const PACKAGES = [
   {
-    name: "@farsiui/icons-cli",
-    blurb: "پیشنهادی: آیکون را با npx داخل پروژه کپی کنید (حجم سبک).",
-    importExample: `npx @farsiui/icons-cli add bank-melli`,
+    name: "@farsiui/icons",
+    blurb:
+      "با npx فایل آیکون داخل پروژه کپی می‌شود — وابستگی به فارسی‌یوآی ندارید.",
+    importExample: `npx @farsiui/icons add bank-melli`,
   },
   {
-    name: "@farsiui/icons",
-    blurb: "پکیج کامل: LogoIcon، کاتالوگ، و کامپوننت‌های نام‌دار.",
-    importExample: `import { LogoIcon, BankMelliIcon, iconManifest } from "@farsiui/icons";`,
+    name: "@farsiui/icons --lucide",
+    blurb:
+      "همان پکیج؛ رجیستری جدا برای Lucide (stroke). خروجی پیش‌فرض: components/lucide.",
+    importExample: `npx @farsiui/icons add house --lucide`,
   },
 ];
 
@@ -78,9 +80,10 @@ export function PackagesPage() {
         <p className="doc-eyebrow">Packages</p>
         <h1>What ships in this repo</h1>
         <p className="doc-lead" dir="rtl" lang="fa">
-          {toFaDigits(iconManifest.length)} آیکون در{" "}
-          {toFaDigits(iconCategories.length)} دسته.
-          مسیر پیشنهادی CLI؛ پکیج npm کامل هم موجود است.
+          {toFaDigits(iconManifest.length)} آیکون برند در{" "}
+          {toFaDigits(iconCategories.length)} دسته، به‌علاوهٔ رجیستری جدا برای
+          Lucide. انتشار npm فقط CLI است؛ آیکون با <code>npx</code> داخل پروژه
+          کپی می‌شود.
         </p>
       </header>
 
@@ -134,9 +137,10 @@ export function PackagesPage() {
       <section className="doc-section">
         <h2>Publish status</h2>
         <p>
-          Version <code>0.1.0</code> is publish-ready (ESM + types). Publishing
-          waits on the <code>farsiui</code> npm org — not done from this
-          playground.
+          Version <code>0.2.0</code> publishes the CLI under{" "}
+          <code>@farsiui/icons</code>. Brand registry:{" "}
+          <code>registry/</code>; Lucide: <code>registry/lucide/</code>. Use{" "}
+          <code>--lucide</code> for stroke icons.
         </p>
       </section>
     </article>

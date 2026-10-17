@@ -1,0 +1,1 @@
+{"id":"circle-parking","nameEn":"Circle Parking","componentName":"CircleParkingIcon","tags":["parking lot","car park"],"categories":["transportation","navigation"],"viewBox":"0 0 24 24","body":"<circle cx=\"12\" cy=\"12\" r=\"10\" /><path d=\"M9 17V7h4a3 3 0 0 1 0 6H9\" />","strokeWidth":2}

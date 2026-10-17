@@ -1,0 +1,1 @@
+{"id":"circle-check","nameEn":"Circle Check","componentName":"CircleCheckIcon","tags":["done","todo","tick","complete","task"],"categories":["notifications"],"viewBox":"0 0 24 24","body":"<circle cx=\"12\" cy=\"12\" r=\"10\" /><path d=\"m16 9-5.5 5.5L8 12\" />","strokeWidth":2}

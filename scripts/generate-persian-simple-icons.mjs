@@ -30,7 +30,7 @@ const CATEGORY = {
   labelFa: "آیکون‌های ساده فارسی",
 };
 
-/** Prefer persian-labs color marks when both packs ship the same brand. */
+/** Prefer persian-labs / aasaam when both packs ship the same brand. */
 const SKIP_SLUGS = new Set([
   "tapsi",
   "divar",
@@ -40,6 +40,26 @@ const SKIP_SLUGS = new Set([
   "okala",
   // Prefer aasaam AparatIcon over psi Aparat2Icon
   "aparat",
+  // Prefer persian-labs color marks
+  "balad",
+  "basalam",
+  "digiato",
+  "digikala",
+  "filimo",
+  "filmnet",
+  "jobvision",
+  "namava",
+  "neshan",
+  "otaghak",
+  "sheypoor",
+  "snap",
+  "takhfifan",
+  "telewebion",
+  "torob",
+  "zoomit",
+  // Prefer aasaam when no persian-labs twin
+  "arvancloud",
+  "yektanet",
 ]);
 
 /** Solid brand fills for color variant (mono stays currentColor). */

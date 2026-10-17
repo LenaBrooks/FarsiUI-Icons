@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { LogoIcon } from "@farsiui/icons";
 
 async function copyText(text: string): Promise<boolean> {
@@ -10,15 +10,120 @@ async function copyText(text: string): Promise<boolean> {
   }
 }
 
-function CodeBlock({ code, label }: { code: string; label: string }) {
+function CopyIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <rect
+        x="9"
+        y="9"
+        width="13"
+        height="13"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M20 6 9 17l-5-5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+type CodeLang = "bash" | "tsx";
+
+/** Lightweight VS Code Dark+–style token coloring. */
+function highlightCode(code: string, lang: CodeLang): ReactNode[] {
+  const out: ReactNode[] = [];
+  let key = 0;
+  const push = (text: string, cls?: string) => {
+    if (!text) return;
+    out.push(
+      cls ? (
+        <span key={key++} className={cls}>
+          {text}
+        </span>
+      ) : (
+        <span key={key++}>{text}</span>
+      ),
+    );
+  };
+
+  if (lang === "bash") {
+    const re =
+      /(#[^\n]*)|("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')|(\b(?:npx|npm|pnpm|yarn|add|install)\b)|(--[\w-]+)|(@[\w.-]+\/[\w.-]+)|([\w][\w./@-]*)/g;
+    let m: RegExpExecArray | null;
+    let last = 0;
+    while ((m = re.exec(code))) {
+      if (m.index > last) push(code.slice(last, m.index));
+      if (m[1]) push(m[1], "tok-comment");
+      else if (m[2]) push(m[2], "tok-string");
+      else if (m[3]) push(m[3], "tok-keyword");
+      else if (m[4]) push(m[4], "tok-flag");
+      else if (m[5]) push(m[5], "tok-string");
+      else if (m[6]) push(m[6], "tok-attr");
+      last = m.index + m[0].length;
+    }
+    if (last < code.length) push(code.slice(last));
+    return out;
+  }
+
+  // tsx
+  const re =
+    /(\/\/[^\n]*|\/\*[\s\S]*?\*\/)|("(?:\\.|[^"\\])*"|`(?:\\.|[^`\\])*`|'(?:\\.|[^'\\])*')|(\b(?:import|from|export|function|return|const|let|var|type|interface)\b)|(\b(?:size|variant|title|name|className)\b(?=\s*=))|(<\/?[A-Za-z][\w.]*)|(\{|\}|\(|\)|=|>|;|,)|(\b\d+\b)|(\S+)/g;
+  let m: RegExpExecArray | null;
+  let last = 0;
+  while ((m = re.exec(code))) {
+    if (m.index > last) push(code.slice(last, m.index));
+    if (m[1]) push(m[1], "tok-comment");
+    else if (m[2]) push(m[2], "tok-string");
+    else if (m[3]) push(m[3], "tok-keyword");
+    else if (m[4]) push(m[4], "tok-attr");
+    else if (m[5]) push(m[5], "tok-tag");
+    else if (m[6]) push(m[6], "tok-punct");
+    else if (m[7]) push(m[7], "tok-number");
+    else if (m[8]) push(m[8], "tok-plain");
+    last = m.index + m[0].length;
+  }
+  if (last < code.length) push(code.slice(last));
+  return out;
+}
+
+function CodeBlock({
+  code,
+  label,
+  lang,
+}: {
+  code: string;
+  label: string;
+  lang: CodeLang;
+}) {
   const [copied, setCopied] = useState(false);
   return (
-    <div className="doc-code">
+    <div className="doc-code" dir="ltr" lang="en">
       <div className="doc-code-bar">
-        <span>{label}</span>
+        <span className="doc-code-label">{label}</span>
         <button
           type="button"
           className="doc-copy"
+          aria-label={copied ? "کپی شد" : "کپی"}
+          title={copied ? "کپی شد" : "کپی"}
           onClick={async () => {
             const ok = await copyText(code);
             if (ok) {
@@ -27,11 +132,11 @@ function CodeBlock({ code, label }: { code: string; label: string }) {
             }
           }}
         >
-          {copied ? "کپی شد" : "کپی"}
+          {copied ? <CheckIcon /> : <CopyIcon />}
         </button>
       </div>
-      <pre>
-        <code>{code}</code>
+      <pre className="doc-code-pre">
+        <code>{highlightCode(code, lang)}</code>
       </pre>
     </div>
   );
@@ -39,168 +144,122 @@ function CodeBlock({ code, label }: { code: string; label: string }) {
 
 export function GuidePage() {
   return (
-    <article className="doc-page">
+    <article className="doc-page" dir="rtl" lang="fa">
       <header className="doc-hero">
-        <p className="doc-eyebrow">Guide</p>
-        <h1>Use @farsiui/icons</h1>
+        <h1>استفاده از آیکون‌های فارسیUI</h1>
         <p className="doc-lead">
-          Iranian brand logos as React SVG components — color or mono, searchable
-          catalog, tree-shake friendly named exports.
+          با CLI آیکون‌های موردنیاز را مستقیماً به پروژه اضافه کنید — بدون نصب
+          پکیج کامل.
         </p>
       </header>
 
       <section className="doc-section">
-        <h2>Install</h2>
+        <h2>نصب آیکون با CLI</h2>
         <p>
-          Peer deps: <code>react</code> and <code>react-dom</code> (^18 or ^19).
+          پکیج <code>@farsiui/icons</code> آیکون‌های انتخاب‌شده را مستقیماً به پروژه
+          اضافه می‌کند؛ وابستگی جدیدی در <code>package.json</code> اضافه نمی‌شود.
         </p>
         <CodeBlock
-          label="npm"
-          code={`npm install @farsiui/icons`}
+          label="bash"
+          lang="bash"
+          code={`npx @farsiui/icons add bank-melli`}
         />
-        <p className="doc-note">
-          Package is prepared for publish; use local{" "}
-          <code>npm link</code> / workspace until it is on the registry.
-        </p>
-      </section>
-
-      <section className="doc-section">
-        <h2>LogoIcon (by name)</h2>
-        <p>
-          Lazy-loads category data. Good for galleries and dynamic names from
-          your API.
-        </p>
+        <p>می‌توانید چند آیکون را هم‌زمان اضافه کنید:</p>
         <CodeBlock
-          label="tsx"
-          code={`import { LogoIcon } from "@farsiui/icons";
-
-export function PayRow() {
-  return (
-    <>
-      <LogoIcon name="bank-melli" size={32} title="Bank Melli" />
-      <LogoIcon name="website-digikala" variant="mono" size={28} />
-    </>
-  );
-}`}
+          label="bash"
+          lang="bash"
+          code={`npx @farsiui/icons add bank-melli bank-mellat`}
         />
-        <div className="doc-demo" aria-label="LogoIcon demo">
-          <LogoIcon name="bank-melli" size={36} title="Bank Melli" />
-          <LogoIcon
-            name="website-digikala"
-            variant="mono"
-            size={36}
-            title="Digikala"
-          />
-          <LogoIcon name="lps-electricity" size={36} title="Electricity" />
+        <p>
+          فایل‌های آیکون در مسیر <code>src/components/icons</code> یا{" "}
+          <code>components/icons</code> قرار می‌گیرند و می‌توانید آن‌ها را مستقیماً
+          در پروژه ویرایش کنید.
+        </p>
+        <div className="doc-demo" dir="ltr" aria-label="نمایش نمونه بانک ملی">
+          <div className="doc-demo-item">
+            <span className="doc-demo-label">color</span>
+            <LogoIcon
+              name="bank-melli"
+              variant="color"
+              size={40}
+              title="بانک ملی"
+            />
+          </div>
+          <div className="doc-demo-item" style={{ color: "#a1a1aa" }}>
+            <span className="doc-demo-label">mono</span>
+            <LogoIcon
+              name="bank-melli"
+              variant="mono"
+              size={40}
+              title="بانک ملی"
+            />
+          </div>
         </div>
       </section>
 
       <section className="doc-section">
-        <h2>variant: color | mono</h2>
+        <h2>آیکون‌های عمومی</h2>
         <p>
-          <code>color</code> keeps brand fills. <code>mono</code> uses{" "}
-          <code>currentColor</code> so the icon follows your text/theme color.
+          مجموعهٔ آیکون‌های عمومی (Lucide) جدا از برندهاست (صفحهٔ{" "}
+          <a href="#lucide">آیکون‌های عمومی</a>). با فلگ <code>--lucide</code>{" "}
+          همان مدل کپی تکی را دارید:
         </p>
         <CodeBlock
-          label="tsx"
-          code={`<LogoIcon name="bank-mellat" variant="color" size={40} />
-<LogoIcon name="bank-mellat" variant="mono" size={40} className="text-zinc-500" />`}
+          label="bash"
+          lang="bash"
+          code={`npx @farsiui/icons add house --lucide`}
         />
-        <div className="doc-demo doc-demo-mono" aria-label="Variant demo">
-          <div>
+        <CodeBlock
+          label="bash"
+          lang="bash"
+          code={`npx @farsiui/icons add activity zap --lucide`}
+        />
+        <p>
+          فایل‌ها در <code>src/components/lucide</code> (یا{" "}
+          <code>components/lucide</code>) قرار می‌گیرند.
+        </p>
+      </section>
+
+      <section className="doc-section">
+        <h2>تنظیم ظاهر آیکون‌ها</h2>
+        <p>آیکون‌ها از دو حالت پشتیبانی می‌کنند:</p>
+        <ul className="doc-list">
+          <li>
+            <code>variant=&quot;color&quot;</code> برای حفظ رنگ‌های اصلی برند
+          </li>
+          <li>
+            <code>variant=&quot;mono&quot;</code> برای استفاده از رنگ فعلی متن با{" "}
+            <code>currentColor</code>
+          </li>
+        </ul>
+        <p>همچنین می‌توانید اندازه، عنوان و کلاس‌های CSS را تنظیم کنید:</p>
+        <CodeBlock
+          label="tsx"
+          lang="tsx"
+          code={`<BankMelliIcon
+  size={32}
+  variant="mono"
+  title="بانک ملی"
+/>`}
+        />
+        <div
+          className="doc-demo doc-demo-mono"
+          dir="ltr"
+          aria-label="مقایسه variant"
+        >
+          <div className="doc-demo-item">
             <span className="doc-demo-label">color</span>
             <LogoIcon name="bank-mellat" variant="color" size={40} />
           </div>
-          <div style={{ color: "#a1a1aa" }}>
+          <div className="doc-demo-item" style={{ color: "#a1a1aa" }}>
             <span className="doc-demo-label">mono</span>
             <LogoIcon name="bank-mellat" variant="mono" size={40} />
           </div>
         </div>
-      </section>
-
-      <section className="doc-section">
-        <h2>Tree-shake (named icons)</h2>
-        <p>
-          Prefer named components from <code>@farsiui/icons</code> when you know
-          the icon at build time — bundlers can drop unused modules.
+        <p className="doc-note">
+          <strong>نکته:</strong> برای استفاده از آیکون‌های کپی‌شده، به React و
+          React DOM نسخهٔ ۱۸ یا ۱۹ در پروژه‌تان نیاز دارید.
         </p>
-        <CodeBlock
-          label="tsx"
-          code={`import { IspRightelIcon } from "@farsiui/icons";
-
-export function Brand() {
-  return <IspRightelIcon size={32} title="رایتل" />;
-}`}
-        />
-        <ul className="doc-list">
-          <li>
-            <code>LogoIcon</code> — by catalog id (lazy category data)
-          </li>
-          <li>
-            Named exports like <code>BankMelliIcon</code> — best for production
-            UI
-          </li>
-        </ul>
-      </section>
-
-      <section className="doc-section">
-        <h2>Props</h2>
-        <div className="doc-table-wrap">
-          <table className="doc-table">
-            <thead>
-              <tr>
-                <th>Prop</th>
-                <th>Type</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <code>size</code>
-                </td>
-                <td>number | string</td>
-                <td>Square box (width = height); artwork centered with meet</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>variant</code>
-                </td>
-                <td>"color" | "mono"</td>
-                <td>Default color</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>title</code>
-                </td>
-                <td>string</td>
-                <td>Accessible name; omit if decorative</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>className</code>
-                </td>
-                <td>string</td>
-                <td>On the root SVG</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className="doc-section">
-        <h2>Catalog</h2>
-        <CodeBlock
-          label="ts"
-          code={`import {
-  iconManifest,
-  iconCategories,
-  getIconManifestEntry,
-} from "@farsiui/icons";
-
-getIconManifestEntry("bank-melli")?.componentName;
-// → "BankMelliIcon"`}
-        />
       </section>
     </article>
   );

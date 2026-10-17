@@ -1,0 +1,1 @@
+{"id":"move-up-right","nameEn":"Move Up Right","componentName":"MoveUpRightIcon","tags":["arrow","direction"],"categories":["arrows"],"viewBox":"0 0 24 24","body":"<path d=\"M13 5H19V11\" /><path d=\"M19 5L5 19\" />","strokeWidth":2}

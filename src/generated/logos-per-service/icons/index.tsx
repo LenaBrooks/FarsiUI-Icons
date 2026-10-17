@@ -4,6 +4,6 @@ import { data } from "../data";
 
 export const ElectricityIcon = createPersianLabsIcon("lps-electricity", "ElectricityIcon", data["lps-electricity"]!);
 export const GasIcon = createPersianLabsIcon("lps-gas", "GasIcon", data["lps-gas"]!);
-export const Post2Icon = createPersianLabsIcon("lps-post", "Post2Icon", data["lps-post"]!);
+export const PostIcon = createPersianLabsIcon("lps-post", "PostIcon", data["lps-post"]!);
 export const TelecomIcon = createPersianLabsIcon("lps-telecom", "TelecomIcon", data["lps-telecom"]!);
 export const WaterIcon = createPersianLabsIcon("lps-water", "WaterIcon", data["lps-water"]!);

@@ -18,13 +18,14 @@ import {
 } from "@farsiui/icons";
 import { toFaDigits } from "./fa-digits";
 import { GuidePage } from "./GuidePage";
+import { LucidePage } from "./LucidePage";
 import { PackagesPage } from "./PackagesPage";
 import { buildSearchIndex, searchEntries } from "./search";
 import { VirtualIconGallery } from "./VirtualIconGallery";
 
 buildSearchIndex(iconManifest);
 
-type PageId = "icons" | "guide" | "packages";
+type PageId = "icons" | "guide" | "packages" | "lucide";
 
 type ExtNavLink = {
   label: string;
@@ -101,7 +102,9 @@ function readStoredCustomizer(): typeof CUSTOMIZER_DEFAULTS {
 
 function pageFromHash(): PageId {
   const h = window.location.hash.replace(/^#\/?/, "").toLowerCase();
-  if (h === "guide" || h === "packages" || h === "icons") return h;
+  if (h === "guide" || h === "packages" || h === "icons" || h === "lucide") {
+    return h;
+  }
   return "icons";
 }
 
@@ -194,16 +197,14 @@ function MenuIcon() {
   );
 }
 
-/** RTL back/clear: horizontal arrow pointing right (فارسی). */
-function SearchClearArrowIcon() {
+function SearchClearIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
-        d="M5 12h14M13 6l6 6-6 6"
+        d="M6 6l12 12M18 6L6 18"
         stroke="currentColor"
         strokeWidth="1.75"
         strokeLinecap="round"
-        strokeLinejoin="round"
       />
     </svg>
   );
@@ -381,7 +382,7 @@ export function App() {
   const [debouncedQuery, setDebouncedQuery] = useState("");
   /** Highlights sidebar + scroll target; does not filter the grid. */
   const [activeGroup, setActiveGroup] = useState<DisplayGroupId | "all">(
-    "all",
+    () => displayGroups[0]?.id ?? "all",
   );
   const [customizer, setCustomizer] = useState(readStoredCustomizer);
   const variant = customizer.variant;
@@ -404,8 +405,7 @@ export function App() {
   });
   const [copiedKind, setCopiedKind] = useState<
     "svg" | "jsx" | "import" | "cli" | null
-  >(    null,
-  );
+  >(null);
   const [installCopied, setInstallCopied] = useState(false);
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
   const [starCount, setStarCount] = useState<number | null>(null);
@@ -541,7 +541,8 @@ export function App() {
   function scrollToGroup(id: DisplayGroupId | "all") {
     // Clear search so section anchors exist again.
     if (query.trim()) setQuery("");
-    setActiveGroup(id);
+    // «همه» only scrolls to top; highlight stays on the first category.
+    setActiveGroup(id === "all" ? (visibleGroups[0]?.id ?? "all") : id);
     scrollingToRef.current = true;
     pendingScrollRef.current = id;
     setScrollNonce((n) => n + 1);
@@ -672,15 +673,15 @@ export function App() {
     setSelectedId((prev) => (prev === id ? null : id));
   }, []);
 
-  const onActiveGroup = useCallback((id: DisplayGroupId) => {
+  const onActiveGroup = useCallback((id: DisplayGroupId | "all") => {
     setActiveGroup(id);
   }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        if (page !== "icons") return;
         e.preventDefault();
-        if (page !== "icons") go("icons");
         window.setTimeout(() => searchRef.current?.focus(), 0);
       }
       if (e.key === "Escape") {
@@ -693,7 +694,7 @@ export function App() {
   }, [page]);
 
   const cliLine = selected
-    ? `npx @farsiui/icons-cli add ${selected.id}`
+    ? `npx @farsiui/icons add ${selected.id}`
     : "";
   const importLine = selected
     ? `import { ${selected.componentName} } from "@/components/icons/${selected.componentName}";`
@@ -717,7 +718,6 @@ export function App() {
     const svg = previewRef.current?.querySelector("svg");
     if (!svg) return;
     const clone = svg.cloneNode(true) as SVGElement;
-    // Preview may be scaled up to fill the stage; export at the labeled size.
     clone.setAttribute("width", String(previewSize));
     clone.setAttribute("height", String(previewSize));
     const ok = await copyText(clone.outerHTML);
@@ -750,7 +750,7 @@ export function App() {
           <a
             className="nav-brand"
             href="#icons"
-            aria-label="آیکون‌های فارسیUI"
+            aria-label="فارسیUI"
             onClick={(e) => {
               e.preventDefault();
               go("icons");
@@ -762,11 +762,50 @@ export function App() {
             }}
           >
             <span className="nav-brand-stack">
-              <span className="nav-brand-text">آیکون‌های فارسیUI</span>
+              <span className="nav-brand-text">فارسیUI</span>
             </span>
           </a>
 
           <nav className="nav-links" aria-label="منوی اصلی">
+            {page === "lucide" ? (
+              <a
+                className="nav-ext is-active"
+                href="#icons"
+                onClick={(e) => {
+                  e.preventDefault();
+                  go("icons");
+                  setQuery("");
+                  setActiveGroup("all");
+                  scrollingToRef.current = false;
+                  pendingScrollRef.current = null;
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                <span>آیکون‌های فارسی</span>
+              </a>
+            ) : (
+              <a
+                className="nav-ext is-active"
+                href="#lucide"
+                onClick={(e) => {
+                  e.preventDefault();
+                  go("lucide");
+                }}
+              >
+                <span>آیکون‌های عمومی</span>
+              </a>
+            )}
+            <a
+              className={`nav-ext ${page === "guide" ? "is-active" : ""}`}
+              href="#guide"
+              aria-current={page === "guide" ? "page" : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                go("guide");
+              }}
+            >
+              <span>راهنما</span>
+            </a>
             {EXT_NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -784,7 +823,6 @@ export function App() {
               href={CONTRIBUTE_URL}
               target="_blank"
               rel="noopener noreferrer nofollow"
-              title="آیکون برندتان را پیشنهاد دهید"
             >
               <PlusCircleIcon />
               <span>پیشنهاد آیکون</span>
@@ -800,14 +838,16 @@ export function App() {
               aria-label="کپی دستور نصب"
               title={installCopied ? "کپی شد" : "کپی دستور نصب"}
               onClick={async () => {
-                const ok = await copyText("npm install @farsiui/icons");
+                const ok = await copyText(
+                  "npx @farsiui/icons add bank-melli",
+                );
                 if (ok) {
                   setInstallCopied(true);
                   window.setTimeout(() => setInstallCopied(false), 1200);
                 }
               }}
             >
-              <code>npm i @farsiui/icons</code>
+              <code>npx @farsiui/icons add bank-melli</code>
               {installCopied ? <CheckIcon /> : <CopyIcon />}
             </button>
 
@@ -864,7 +904,9 @@ export function App() {
               lang="en"
               role="menuitem"
               onClick={async () => {
-                const ok = await copyText("npm install @farsiui/icons");
+                const ok = await copyText(
+                  "npx @farsiui/icons add bank-melli",
+                );
                 if (ok) {
                   setInstallCopied(true);
                   window.setTimeout(() => setInstallCopied(false), 1200);
@@ -872,12 +914,54 @@ export function App() {
                 setNavOpen(false);
               }}
             >
-              <code>npm i @farsiui/icons</code>
+              <code>npx @farsiui/icons add bank-melli</code>
               {installCopied ? <CheckIcon /> : <CopyIcon />}
             </button>
             <div className="mobile-nav-section" role="presentation">
               فارسیUI
             </div>
+            {page === "lucide" ? (
+              <a
+                className="nav-ext is-active"
+                href="#icons"
+                role="menuitem"
+                onClick={(e) => {
+                  e.preventDefault();
+                  go("icons");
+                  setQuery("");
+                  setActiveGroup("all");
+                  setNavOpen(false);
+                }}
+              >
+                <span>آیکون‌های فارسی</span>
+              </a>
+            ) : (
+              <a
+                className="nav-ext is-active"
+                href="#lucide"
+                role="menuitem"
+                onClick={(e) => {
+                  e.preventDefault();
+                  go("lucide");
+                  setNavOpen(false);
+                }}
+              >
+                <span>آیکون‌های عمومی</span>
+              </a>
+            )}
+            <a
+              className={`nav-ext ${page === "guide" ? "is-active" : ""}`}
+              href="#guide"
+              role="menuitem"
+              aria-current={page === "guide" ? "page" : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                go("guide");
+                setNavOpen(false);
+              }}
+            >
+              <span>راهنما</span>
+            </a>
             {EXT_NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -919,6 +1003,8 @@ export function App() {
         </div>
       ) : null}
 
+      {page === "lucide" ? <LucidePage /> : null}
+
       {page === "icons" ? (
         <div className="page page-with-sidebar">
           <div
@@ -933,31 +1019,33 @@ export function App() {
             <div className="sticky-bar">
               <label className="search" dir="rtl" lang="fa">
                 <SearchIcon />
-                <input
-                  ref={searchRef}
-                  type="search"
-                  dir="rtl"
-                  lang="fa"
-                  placeholder="جستجو"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  aria-label="جستجو"
-                />
-                {query.trim() ? (
-                  <button
-                    type="button"
-                    className="search-clear"
-                    aria-label="پاک کردن جستجو"
-                    title="پاک کردن"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setQuery("");
-                      window.setTimeout(() => searchRef.current?.focus(), 0);
-                    }}
-                  >
-                    <SearchClearArrowIcon />
-                  </button>
-                ) : null}
+                <span className="search-field">
+                  <input
+                    ref={searchRef}
+                    type="search"
+                    dir="rtl"
+                    lang="fa"
+                    placeholder="جستجو"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    aria-label="جستجو"
+                  />
+                  {query.trim() ? (
+                    <button
+                      type="button"
+                      className="search-clear"
+                      aria-label="پاک کردن جستجو"
+                      title="پاک کردن"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setQuery("");
+                        window.setTimeout(() => searchRef.current?.focus(), 0);
+                      }}
+                    >
+                      <SearchClearIcon />
+                    </button>
+                  ) : null}
+                </span>
                 <span className="kbd">Ctrl+K</span>
               </label>
             </div>
@@ -1063,9 +1151,9 @@ export function App() {
             >
               <button
                 type="button"
-                className={`cat-row ${activeGroup === "all" && !isSearching ? "active" : ""}`}
+                className="cat-row"
                 role="option"
-                aria-selected={activeGroup === "all"}
+                aria-selected={false}
                 onClick={() => scrollToGroup("all")}
               >
                 <span className="cat-row-label">
@@ -1256,7 +1344,7 @@ export function App() {
                 <pre className="import-code" aria-label="CLI add command" dir="ltr">
                   <code>
                     <span className="tok-kw">npx</span>{" "}
-                    <span className="tok-id">@farsiui/icons-cli</span>{" "}
+                    <span className="tok-id">@farsiui/icons</span>{" "}
                     <span className="tok-kw">add</span>{" "}
                     <span className="tok-str">{selected.id}</span>
                   </code>

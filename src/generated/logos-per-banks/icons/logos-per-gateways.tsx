@@ -2,10 +2,3 @@
 import { createPersianLabsIcon } from "../../../create-persian-labs-icon";
 import { data } from "../data/logos-per-gateways";
 
-export const GatewayAsanPardakht2Icon = createPersianLabsIcon("lpb-gateway-asan-pardakht", "GatewayAsanPardakht2Icon", data["lpb-gateway-asan-pardakht"]!);
-export const GatewayDigipay2Icon = createPersianLabsIcon("lpb-gateway-digipay", "GatewayDigipay2Icon", data["lpb-gateway-digipay"]!);
-export const GatewayHesabit2Icon = createPersianLabsIcon("lpb-gateway-hesabit", "GatewayHesabit2Icon", data["lpb-gateway-hesabit"]!);
-export const GatewayIdpay2Icon = createPersianLabsIcon("lpb-gateway-idpay", "GatewayIdpay2Icon", data["lpb-gateway-idpay"]!);
-export const GatewaySedad2Icon = createPersianLabsIcon("lpb-gateway-sedad", "GatewaySedad2Icon", data["lpb-gateway-sedad"]!);
-export const GatewayShaparak2Icon = createPersianLabsIcon("lpb-gateway-shaparak", "GatewayShaparak2Icon", data["lpb-gateway-shaparak"]!);
-export const GatewayVandar2Icon = createPersianLabsIcon("lpb-gateway-vandar", "GatewayVandar2Icon", data["lpb-gateway-vandar"]!);

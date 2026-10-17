@@ -1,0 +1,1 @@
+{"id":"cylinder","nameEn":"Cylinder","componentName":"CylinderIcon","tags":["shape","elliptical","geometry","container","storage","tin","pot"],"categories":["shapes","design","math"],"viewBox":"0 0 24 24","body":"<ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\" /><path d=\"M3 5v14a9 3 0 0 0 18 0V5\" />","strokeWidth":2}

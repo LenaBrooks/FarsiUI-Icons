@@ -1,25 +1,14 @@
 {
   "name": "@farsiui/icons",
-  "version": "0.1.1",
-  "description": "React icon components for Iranian brands — banks, payments, apps, media, and more",
+  "version": "0.2.0",
+  "description": "Add Iranian brand React icon components into your project (CLI)",
   "license": "MIT",
   "type": "module",
-  "sideEffects": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./icons": {
-      "types": "./dist/named-icons.d.ts",
-      "import": "./dist/named-icons.js"
-    }
+  "bin": {
+    "farsiui-icons": "./cli/index.mjs"
   },
   "files": [
-    "dist",
+    "cli",
     "LICENSE",
     "README.md"
   ],
@@ -38,6 +27,7 @@
     "generate:social": "node scripts/generate-social.mjs",
     "generate:manual": "node scripts/generate-manual.mjs",
     "generate:registry": "node scripts/generate-registry.mjs",
+    "generate:lucide-registry": "node scripts/generate-lucide-registry.mjs",
     "dev": "vite --config vite.config.ts",
     "build": "tsup && node scripts/generate-dts.mjs",
     "build:web": "vite build --config vite.config.ts",
@@ -48,10 +38,6 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "pack:check": "npm pack --dry-run"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -81,7 +67,8 @@
     "iran",
     "brands",
     "farsiui",
-    "svg"
+    "svg",
+    "cli"
   ],
   "repository": {
     "type": "git",

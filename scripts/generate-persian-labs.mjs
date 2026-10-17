@@ -32,6 +32,9 @@ const SKIP_IDS = new Set([
   "bank-futurebank",
   // Prefer aasaam SaipaIcon over persian-labs AutomobileSaipaIcon
   "automobile-saipa",
+  // Prefer logos-per-service utility marks
+  "organization-post",
+  "organization-gas",
 ]);
 
 /** Folder → stable id prefix + display labels (matches icons.persian-labs.ir) */
