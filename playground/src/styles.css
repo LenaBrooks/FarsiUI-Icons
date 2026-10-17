@@ -370,6 +370,109 @@ a {
   overflow: hidden;
 }
 
+.cat-menu-btn {
+  display: none;
+  appearance: none;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-soft);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.cat-menu-btn:hover {
+  background: var(--tile-hover);
+  border-color: var(--accent);
+}
+
+.cat-drawer-backdrop {
+  display: none;
+}
+
+.cat-sidebar-head {
+  display: none;
+}
+
+@media (max-width: 959px) {
+  .cat-menu-btn {
+    display: inline-flex;
+  }
+
+  .cat-drawer-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .cat-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(300px, 86vw);
+    z-index: 60;
+    max-height: none;
+    margin: 0;
+    padding: 12px 12px calc(16px + env(safe-area-inset-bottom, 0px));
+    background: var(--bg);
+    border-left: 1px solid var(--border);
+    box-shadow: -16px 0 40px rgba(0, 0, 0, 0.45);
+    transform: translateX(105%);
+    transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .cat-sidebar.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .cat-sidebar-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-shrink: 0;
+    padding: 4px 2px 8px;
+  }
+
+  .cat-sidebar-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 650;
+  }
+
+  .cat-sidebar-close {
+    appearance: none;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-soft);
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .cat-sidebar-close:hover {
+    background: var(--tile-hover);
+  }
+}
+
 .cat-filter {
   display: flex;
   align-items: center;
@@ -787,7 +890,7 @@ a {
   top: var(--nav-height);
   z-index: 20;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 8px;
   margin-bottom: 12px;
@@ -843,6 +946,7 @@ a {
 
 .search {
   flex: 1;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 8px;
