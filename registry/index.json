@@ -2229,7 +2229,7 @@
     },
     {
       "id": "alamto",
-      "nameFa": "عالم‌تو",
+      "nameFa": "آلامتو",
       "nameEn": "Alamto",
       "componentName": "AlamtoIcon",
       "category": "manual",
@@ -2517,7 +2517,7 @@
     },
     {
       "id": "banana-ai",
-      "nameFa": "بانانا ای‌آی",
+      "nameFa": "بنانا ai",
       "nameEn": "Banana AI",
       "componentName": "BananaAIIcon",
       "category": "manual",

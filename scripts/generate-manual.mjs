@@ -32,7 +32,7 @@ const CATEGORY = {
 const NAME_FA = {
   shenakhti: "مرکز شناختی علم و صنعت",
   vibefarsi: "وایب فارسی",
-  "banana-ai": "بانانا ای‌آی",
+  "banana-ai": "بنانا ai",
   farsiui: "فارسی‌یوآی",
   pixevel: "پیکسیول",
   easycandle: "ایزی‌کندل",
@@ -41,7 +41,7 @@ const NAME_FA = {
   vercel: "ورسل",
   netlify: "نتلی‌فای",
   zarinpal: "زرین‌پال",
-  alamto: "عالم‌تو",
+  alamto: "آلامتو",
   tarhak: "طرحَک",
   widgetify: "ویجتیفای",
   "widgetify-full": "ویجتیفای",
