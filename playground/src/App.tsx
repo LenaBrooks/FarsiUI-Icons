@@ -1295,6 +1295,14 @@ export function App() {
                   px
                 </span>
               </div>
+              <button
+                type="button"
+                className={`copy-svg-btn confetti-btn ${copiedKind === "svg" ? "animate" : ""}`}
+                data-confetti-text="کپی شد"
+                onClick={copySvg}
+              >
+                Copy SVG
+              </button>
             </div>
 
             <div className="drawer-body">
@@ -1339,64 +1347,47 @@ export function App() {
                 </div>
               </div>
 
-              <div className="drawer-actions">
-                <button
-                  type="button"
-                  className={`copy-btn confetti-btn ${copiedKind === "svg" ? "animate" : ""}`}
-                  data-confetti-text="کپی شد"
-                  onClick={copySvg}
+              {selectedBrandColors && selectedBrandColors.length > 0 ? (
+                <div
+                  className="brand-colors"
+                  dir="ltr"
+                  lang="en"
+                  aria-label="رنگ‌های برند"
                 >
-                  Copy SVG
-                </button>
-                <button
-                  type="button"
-                  className={`copy-btn confetti-btn ${copiedKind === "jsx" ? "animate" : ""}`}
-                  data-confetti-text="کپی شد"
-                  onClick={copyJsx}
-                >
-                  Copy JSX
-                </button>
-                {selectedBrandColors && selectedBrandColors.length > 0 ? (
-                  <div
-                    className="brand-colors"
-                    dir="ltr"
-                    lang="en"
-                    aria-label="رنگ‌های برند"
-                  >
-                    {selectedBrandColors.map((hex) => (
-                      <button
-                        key={hex}
-                        type="button"
-                        className={`brand-swatch confetti-btn ${copiedColor === hex ? "animate" : ""}`}
-                        style={{ ["--swatch" as string]: hex }}
-                        data-confetti-text="کپی شد"
-                        title={
-                          copiedColor === hex ? "کپی شد" : `کپی ${hex}`
+                  {selectedBrandColors.map((hex) => (
+                    <button
+                      key={hex}
+                      type="button"
+                      className={`brand-swatch confetti-btn ${copiedColor === hex ? "animate" : ""}`}
+                      style={{ ["--swatch" as string]: hex }}
+                      data-confetti-text="کپی شد"
+                      title={
+                        copiedColor === hex ? "کپی شد" : `کپی ${hex}`
+                      }
+                      aria-label={`Copy color ${hex}`}
+                      onClick={async () => {
+                        const ok = await copyText(hex);
+                        if (ok) {
+                          setCopiedColor(hex);
+                          window.setTimeout(
+                            () => setCopiedColor(null),
+                            1200,
+                          );
                         }
-                        aria-label={`Copy color ${hex}`}
-                        onClick={async () => {
-                          const ok = await copyText(hex);
-                          if (ok) {
-                            setCopiedColor(hex);
-                            window.setTimeout(
-                              () => setCopiedColor(null),
-                              1200,
-                            );
-                          }
-                        }}
-                      >
-                        <span className="brand-swatch-chip" />
-                        <span className="brand-swatch-hex">{hex}</span>
-                      </button>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
+                      }}
+                    >
+                      <span className="brand-swatch-chip" />
+                      <span className="brand-swatch-hex">{hex}</span>
+                    </button>
+                  ))}
+                </div>
+              ) : null}
 
               <div className="import-block">
                 <button
                   type="button"
-                  className="import-copy"
+                  className={`import-copy confetti-btn ${copiedKind === "cli" ? "animate" : ""}`}
+                  data-confetti-text="کپی شد"
                   onClick={copyCli}
                   aria-label={
                     copiedKind === "cli" ? "کپی شد" : "کپی دستور CLI"
@@ -1418,7 +1409,8 @@ export function App() {
               <div className="import-block">
                 <button
                   type="button"
-                  className="import-copy"
+                  className={`import-copy confetti-btn ${copiedKind === "import" ? "animate" : ""}`}
+                  data-confetti-text="کپی شد"
                   onClick={copyImport}
                   aria-label={
                     copiedKind === "import" ? "کپی شد" : "کپی ایمپورت محلی"
@@ -1445,7 +1437,8 @@ export function App() {
               <div className="import-block">
                 <button
                   type="button"
-                  className="import-copy"
+                  className={`import-copy confetti-btn ${copiedKind === "jsx" ? "animate" : ""}`}
+                  data-confetti-text="کپی شد"
                   onClick={copyJsx}
                   aria-label={
                     copiedKind === "jsx" ? "کپی شد" : "کپی JSX"

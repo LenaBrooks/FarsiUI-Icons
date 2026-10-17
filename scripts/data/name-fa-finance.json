@@ -1,5 +1,5 @@
 {
-  "_comment": "Curated Persian titles for display-group finance (banks & insurance).",
+  "_comment": "Curated Persian titles for display-group finance (banks, insurance, gateways).",
 
   "aasaam-ansar": "بانک انصار",
   "aasaam-armanmeli": "بانک آرمان",
@@ -92,5 +92,22 @@
   "insurance-mellat": "بیمه ملت",
   "insurance-parsian": "بیمه پارسیان",
   "insurance-pasargad": "بیمه پاسارگاد",
-  "insurance-saman": "بیمه سامان"
+  "insurance-saman": "بیمه سامان",
+
+  "gateway-aghay-pardakht": "آقای پرداخت",
+  "gateway-asan-pardakht": "آسان‌پرداخت",
+  "gateway-digipay": "دیجی‌پی",
+  "gateway-hesabit": "حسابیت",
+  "gateway-idpay": "آیدی‌پی",
+  "gateway-nextpay": "نکست‌پی",
+  "gateway-pasargad-pep": "پپ پاسارگاد",
+  "gateway-pay-ir": "پی‌آی‌آر",
+  "gateway-payfa": "پی‌فا",
+  "gateway-payping": "پی‌پینگ",
+  "gateway-saman-kish": "سامان کیش",
+  "gateway-sedad": "سداد",
+  "gateway-sep": "سپ",
+  "gateway-snap-pay": "اسنپ‌پی",
+  "gateway-vandar": "وندار",
+  "gateway-zibal": "زیبال"
 }

@@ -5997,7 +5997,7 @@
     },
     {
       "id": "gateway-aghay-pardakht",
-      "nameFa": "Aghay Pardakht",
+      "nameFa": "آقای پرداخت",
       "nameEn": "Aghay Pardakht",
       "componentName": "GatewayAghayPardakhtIcon",
       "category": "payment-gateways",
@@ -6005,7 +6005,7 @@
     },
     {
       "id": "gateway-asan-pardakht",
-      "nameFa": "Asan Pardakht",
+      "nameFa": "آسان‌پرداخت",
       "nameEn": "Asan Pardakht",
       "componentName": "GatewayAsanPardakhtIcon",
       "category": "payment-gateways",
@@ -6013,7 +6013,7 @@
     },
     {
       "id": "gateway-digipay",
-      "nameFa": "Digipay",
+      "nameFa": "دیجی‌پی",
       "nameEn": "Digipay",
       "componentName": "GatewayDigipayIcon",
       "category": "payment-gateways",
@@ -6021,7 +6021,7 @@
     },
     {
       "id": "gateway-hesabit",
-      "nameFa": "Hesabit",
+      "nameFa": "حسابیت",
       "nameEn": "Hesabit",
       "componentName": "GatewayHesabitIcon",
       "category": "payment-gateways",
@@ -6029,7 +6029,7 @@
     },
     {
       "id": "gateway-idpay",
-      "nameFa": "IDPay",
+      "nameFa": "آیدی‌پی",
       "nameEn": "IDPay",
       "componentName": "GatewayIdpayIcon",
       "category": "payment-gateways",
@@ -6037,7 +6037,7 @@
     },
     {
       "id": "gateway-nextpay",
-      "nameFa": "Nextpay",
+      "nameFa": "نکست‌پی",
       "nameEn": "Nextpay",
       "componentName": "GatewayNextpayIcon",
       "category": "payment-gateways",
@@ -6045,7 +6045,7 @@
     },
     {
       "id": "gateway-pasargad-pep",
-      "nameFa": "Pasargad Pep",
+      "nameFa": "پپ پاسارگاد",
       "nameEn": "Pasargad Pep",
       "componentName": "GatewayPasargadPepIcon",
       "category": "payment-gateways",
@@ -6053,7 +6053,7 @@
     },
     {
       "id": "gateway-pay-ir",
-      "nameFa": "Pay IR",
+      "nameFa": "پی‌آی‌آر",
       "nameEn": "Pay IR",
       "componentName": "GatewayPayIrIcon",
       "category": "payment-gateways",
@@ -6061,7 +6061,7 @@
     },
     {
       "id": "gateway-payfa",
-      "nameFa": "Payfa",
+      "nameFa": "پی‌فا",
       "nameEn": "Payfa",
       "componentName": "GatewayPayfaIcon",
       "category": "payment-gateways",
@@ -6069,7 +6069,7 @@
     },
     {
       "id": "gateway-payping",
-      "nameFa": "Payping",
+      "nameFa": "پی‌پینگ",
       "nameEn": "Payping",
       "componentName": "GatewayPaypingIcon",
       "category": "payment-gateways",
@@ -6077,7 +6077,7 @@
     },
     {
       "id": "gateway-saman-kish",
-      "nameFa": "Saman Kish",
+      "nameFa": "سامان کیش",
       "nameEn": "Saman Kish",
       "componentName": "GatewaySamanKishIcon",
       "category": "payment-gateways",
@@ -6085,7 +6085,7 @@
     },
     {
       "id": "gateway-sedad",
-      "nameFa": "Sedad",
+      "nameFa": "سداد",
       "nameEn": "Sedad",
       "componentName": "GatewaySedadIcon",
       "category": "payment-gateways",
@@ -6093,7 +6093,7 @@
     },
     {
       "id": "gateway-sep",
-      "nameFa": "SEP",
+      "nameFa": "سپ",
       "nameEn": "SEP",
       "componentName": "GatewaySepIcon",
       "category": "payment-gateways",
@@ -6109,7 +6109,7 @@
     },
     {
       "id": "gateway-snap-pay",
-      "nameFa": "Snap Pay",
+      "nameFa": "اسنپ‌پی",
       "nameEn": "Snap Pay",
       "componentName": "GatewaySnapPayIcon",
       "category": "payment-gateways",
@@ -6117,7 +6117,7 @@
     },
     {
       "id": "gateway-vandar",
-      "nameFa": "Vandar",
+      "nameFa": "وندار",
       "nameEn": "Vandar",
       "componentName": "GatewayVandarIcon",
       "category": "payment-gateways",
@@ -6133,7 +6133,7 @@
     },
     {
       "id": "gateway-zibal",
-      "nameFa": "Zibal",
+      "nameFa": "زیبال",
       "nameEn": "Zibal",
       "componentName": "GatewayZibalIcon",
       "category": "payment-gateways",

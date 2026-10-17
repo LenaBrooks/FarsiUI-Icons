@@ -1138,6 +1138,7 @@ a {
   display: grid;
   grid-template-columns: 140px minmax(0, 1fr);
   gap: 18px;
+  align-items: start;
   max-height: min(52vh, 420px);
   overflow: auto;
   animation: drawer-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both;
@@ -1159,7 +1160,6 @@ a {
   flex-direction: column;
   gap: 10px;
   min-width: 0;
-  align-self: start;
 }
 
 .drawer-preview {
@@ -1204,11 +1204,13 @@ a {
   background: transparent;
   color: var(--muted);
   padding: 7px 0;
+  font-family: ui-sans-serif, system-ui, "Segoe UI", sans-serif;
   font-size: 0.74rem;
   font-weight: 650;
   cursor: pointer;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: -0.04em;
   text-align: center;
   line-height: 1;
 }
@@ -1232,12 +1234,37 @@ a {
   align-items: center;
   flex-shrink: 0;
   padding: 0 6px;
+  font-family: ui-sans-serif, system-ui, "Segoe UI", sans-serif;
   font-size: 0.65rem;
   font-weight: 600;
   color: var(--muted);
   border-inline-start: 1px solid var(--border-subtle);
   background: color-mix(in srgb, var(--btn) 70%, transparent);
   user-select: none;
+  letter-spacing: -0.02em;
+}
+
+.copy-svg-btn {
+  appearance: none;
+  width: 128px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  padding: 7px 0;
+  font-family: ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 550;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.copy-svg-btn:hover {
+  color: var(--text);
+  background: var(--btn-hover);
+  border-color: var(--border);
 }
 
 .drawer-body {
@@ -1307,13 +1334,10 @@ a {
 }
 
 .brand-colors {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 6px;
   align-items: center;
-  margin-inline-start: auto;
-  padding-inline-start: 10px;
-  border-inline-start: 1px solid var(--border-subtle);
 }
 
 .brand-swatch {
@@ -1562,26 +1586,28 @@ a {
 /* Import snippet — VS Code Dark+ / Light+ defaults */
 .import-block {
   position: relative;
-  margin-top: 4px;
+  margin-top: 2px;
+  overflow: visible;
 }
 
 .import-copy {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 5px;
+  right: 6px;
   z-index: 1;
   appearance: none;
   border: 1px solid transparent;
   background: rgba(128, 128, 128, 0.18);
   color: var(--muted);
-  border-radius: 6px;
-  width: 30px;
-  height: 30px;
+  border-radius: 5px;
+  width: 26px;
+  height: 26px;
   padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  overflow: visible;
 }
 
 .import-copy:hover {
@@ -1591,14 +1617,14 @@ a {
 
 .import-code {
   margin: 0;
-  padding: 14px 48px 14px 14px;
-  border-radius: 10px;
+  padding: 8px 40px 8px 12px;
+  border-radius: 8px;
   border: 1px solid var(--border-subtle);
   background: var(--code-bg);
   overflow-x: auto;
   font-family: "Cascadia Code", "Consolas", "Courier New", var(--mono);
-  font-size: 0.9rem;
-  line-height: 1.55;
+  font-size: 0.8rem;
+  line-height: 1.4;
   color: #d4d4d4;
 }
 
@@ -1679,6 +1705,11 @@ html[data-theme="light"] .tok-punc {
   .drawer-preview {
     width: 112px;
     height: 112px;
+  }
+
+  .size-chips,
+  .copy-svg-btn {
+    width: 112px;
   }
 }
 

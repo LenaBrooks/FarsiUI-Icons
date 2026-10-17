@@ -540,6 +540,14 @@ export function LucidePage() {
                   px
                 </span>
               </div>
+              <button
+                type="button"
+                className={`copy-svg-btn confetti-btn ${copiedKind === "svg" ? "animate" : ""}`}
+                data-confetti-text="کپی شد"
+                onClick={copySvg}
+              >
+                Copy SVG
+              </button>
             </div>
 
             <div className="drawer-body">
@@ -566,29 +574,11 @@ export function LucidePage() {
                 </div>
               </div>
 
-              <div className="drawer-actions">
-                <button
-                  type="button"
-                  className={`copy-btn confetti-btn ${copiedKind === "svg" ? "animate" : ""}`}
-                  data-confetti-text="کپی شد"
-                  onClick={copySvg}
-                >
-                  Copy SVG
-                </button>
-                <button
-                  type="button"
-                  className={`copy-btn confetti-btn ${copiedKind === "jsx" ? "animate" : ""}`}
-                  data-confetti-text="کپی شد"
-                  onClick={copyJsx}
-                >
-                  Copy JSX
-                </button>
-              </div>
-
               <div className="import-block">
                 <button
                   type="button"
-                  className="import-copy"
+                  className={`import-copy confetti-btn ${copiedKind === "cli" ? "animate" : ""}`}
+                  data-confetti-text="کپی شد"
                   onClick={copyCli}
                   aria-label={
                     copiedKind === "cli" ? "کپی شد" : "کپی دستور CLI"
@@ -615,7 +605,8 @@ export function LucidePage() {
               <div className="import-block">
                 <button
                   type="button"
-                  className="import-copy"
+                  className={`import-copy confetti-btn ${copiedKind === "import" ? "animate" : ""}`}
+                  data-confetti-text="کپی شد"
                   onClick={copyImport}
                   aria-label={
                     copiedKind === "import" ? "کپی شد" : "کپی ایمپورت محلی"
@@ -646,7 +637,8 @@ export function LucidePage() {
               <div className="import-block">
                 <button
                   type="button"
-                  className="import-copy"
+                  className={`import-copy confetti-btn ${copiedKind === "jsx" ? "animate" : ""}`}
+                  data-confetti-text="کپی شد"
                   onClick={copyJsx}
                   aria-label={
                     copiedKind === "jsx" ? "کپی شد" : "کپی JSX"
