@@ -1012,9 +1012,11 @@ a {
 .virtual-row-icons {
   display: flex;
   flex-wrap: nowrap;
-  gap: 8px;
+  gap: var(--gallery-gap, 8px);
   align-items: flex-start;
-  justify-content: flex-start;
+  /* Pack to the right under RTL section titles; full rows still fill via --gallery-gap. */
+  justify-content: flex-end;
+  width: 100%;
 }
 
 /* Lift the whole row so orange tooltips aren't covered by the next row */

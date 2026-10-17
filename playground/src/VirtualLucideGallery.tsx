@@ -170,6 +170,11 @@ export function VirtualLucideGallery({
     1,
     Math.floor((width + GRID_GAP) / (tileBox + GRID_GAP)),
   );
+  // Stretch inter-tile gap so full rows consume the gallery width (no trailing slack).
+  const galleryGap =
+    columns <= 1
+      ? GRID_GAP
+      : Math.max(GRID_GAP, (width - columns * tileBox) / (columns - 1));
 
   const { rows, groupRowIndex } = useMemo(
     () =>
@@ -368,8 +373,13 @@ export function VirtualLucideGallery({
         return (
           <div
             key={`r-${vRow.index}`}
-            className="virtual-row virtual-row-icons grid"
-            style={style}
+            className="virtual-row virtual-row-icons"
+            style={
+              {
+                ...style,
+                "--gallery-gap": `${galleryGap}px`,
+              } as CSSProperties
+            }
           >
             {row.icons.map((entry) => (
               <IconTile
