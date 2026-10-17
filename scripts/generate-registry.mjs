@@ -168,7 +168,7 @@ await writeFile(
   join(outRoot, "index.json"),
   JSON.stringify(
     {
-      name: "@farsiui/icons",
+      name: "farsiui-icons",
       version: 1,
       count: index.length,
       icons: index,

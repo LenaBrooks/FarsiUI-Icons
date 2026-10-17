@@ -1,15 +1,15 @@
-import { iconCategories, iconManifest } from "@farsiui/icons";
+import { iconCategories, iconManifest } from "farsiui-icons";
 import { toFaDigits } from "./fa-digits";
 
 const PACKAGES = [
   {
-    name: "@farsiui/icons",
+    name: "farsiui-icons",
     blurb:
       "با npx فایل آیکون داخل پروژه کپی می‌شود — وابستگی به فارسی‌یوآی ندارید.",
     importExample: `npx farsiui-icons add bank-melli`,
   },
   {
-    name: "@farsiui/icons --lucide",
+    name: "farsiui-icons --lucide",
     blurb:
       "همان پکیج؛ رجیستری جدا برای Lucide (stroke). خروجی پیش‌فرض: components/lucide.",
     importExample: `npx farsiui-icons add house --lucide`,
@@ -138,7 +138,7 @@ export function PackagesPage() {
         <h2>Publish status</h2>
         <p>
           Version <code>0.2.0</code> publishes the CLI under{" "}
-          <code>@farsiui/icons</code>. Brand registry:{" "}
+          <code>farsiui-icons</code>. Brand registry:{" "}
           <code>registry/</code>; Lucide: <code>registry/lucide/</code>. Use{" "}
           <code>--lucide</code> for stroke icons.
         </p>

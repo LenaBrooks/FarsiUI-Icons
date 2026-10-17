@@ -13,7 +13,7 @@ import {
   type DisplayGroupId,
   type IconManifestEntry,
   type IconVariant,
-} from "@farsiui/icons";
+} from "farsiui-icons";
 import { useWindowRowVirtualizer } from "./use-window-row-virtualizer";
 
 const GRID_GAP = 8;

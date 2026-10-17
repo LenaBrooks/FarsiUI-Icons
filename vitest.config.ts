@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@farsiui/icons": path.resolve(rootDir, "src/index.ts"),
+      "farsiui-icons": path.resolve(rootDir, "src/index.ts"),
     },
   },
   esbuild: {

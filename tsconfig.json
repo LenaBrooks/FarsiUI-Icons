@@ -21,7 +21,8 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@farsiui/icons": ["./src/index.ts"]
+      "@farsiui/icons": ["./src/index.ts"],
+      "farsiui-icons": ["./src/index.ts"]
     }
   },
   "include": ["src", "playground/src", "tests", "vite.config.ts", "vitest.config.ts", "tsup.config.ts"],

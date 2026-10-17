@@ -1,6 +1,6 @@
 /**
  * Named icon components (tree-shake with ESM bundlers).
- * Prefer: `import { BankMelliIcon, DigikalaIcon, ZarinpalIcon } from "@farsiui/icons"`
+ * Prefer: `import { BankMelliIcon, DigikalaIcon, ZarinpalIcon } from "farsiui-icons"`
  * Names never include source labels (Aasaam, Psi, …). Duplicates use Zarinpal2Icon, …
  */
 export * from "./generated/persian-labs/icons";

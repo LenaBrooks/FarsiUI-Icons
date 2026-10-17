@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { LogoIcon } from "@farsiui/icons";
+import { LogoIcon } from "farsiui-icons";
 
 async function copyText(text: string): Promise<boolean> {
   try {
@@ -156,7 +156,7 @@ export function GuidePage() {
       <section className="doc-section">
         <h2>نصب آیکون با CLI</h2>
         <p>
-          پکیج <code>@farsiui/icons</code> آیکون‌های انتخاب‌شده را مستقیماً به پروژه
+          پکیج <code>farsiui-icons</code> آیکون‌های انتخاب‌شده را مستقیماً به پروژه
           اضافه می‌کند؛ وابستگی جدیدی در <code>package.json</code> اضافه نمی‌شود.
         </p>
         <CodeBlock

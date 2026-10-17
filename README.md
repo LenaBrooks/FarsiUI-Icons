@@ -1,4 +1,4 @@
-# @farsiui/icons
+# farsiui-icons
 
 React icons for Iranian brands and services. Copy only what you need via CLI — nothing is added to your `package.json`.
 

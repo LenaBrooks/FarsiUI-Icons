@@ -27,7 +27,15 @@ export default defineConfig({
         replacement: path.resolve(rootDir, "src/named-icons.ts"),
       },
       {
+        find: "farsiui-icons/icons",
+        replacement: path.resolve(rootDir, "src/named-icons.ts"),
+      },
+      {
         find: "@farsiui/icons",
+        replacement: path.resolve(rootDir, "src/index.ts"),
+      },
+      {
+        find: "farsiui-icons",
         replacement: path.resolve(rootDir, "src/index.ts"),
       },
     ],

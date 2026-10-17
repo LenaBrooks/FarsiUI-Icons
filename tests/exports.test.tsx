@@ -8,7 +8,7 @@ import {
   getIconManifestEntry,
   iconCategories,
   iconManifest,
-} from "@farsiui/icons";
+} from "farsiui-icons";
 
 describe("package exports", () => {
   it("ships all source catalogs", () => {

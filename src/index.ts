@@ -34,7 +34,7 @@ export {
   type LogoIconProps,
 } from "./logo-icon";
 
-/** Named icon components — `import { BankMelliIcon } from "@farsiui/icons"` */
+/** Named icon components — `import { BankMelliIcon } from "farsiui-icons"` */
 export * from "./named-icons";
 
 export {

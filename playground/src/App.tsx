@@ -1,4 +1,4 @@
-import {
+﻿import {
   useCallback,
   useEffect,
   useMemo,
@@ -15,7 +15,7 @@ import {
   type DisplayGroupId,
   type IconManifestEntry,
   type IconVariant,
-} from "@farsiui/icons";
+} from "farsiui-icons";
 import { toFaDigits } from "./fa-digits";
 import { GuidePage } from "./GuidePage";
 import { LucidePage } from "./LucidePage";

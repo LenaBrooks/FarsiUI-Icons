@@ -1,6 +1,6 @@
 ﻿#!/usr/bin/env node
 /**
- * @farsiui/icons — copy icon components into your project from the GitHub registry.
+ * farsiui-icons — copy icon components into your project from the GitHub registry.
  *
  *   npx farsiui-icons add bank-melli
  *   npx farsiui-icons add house --lucide
