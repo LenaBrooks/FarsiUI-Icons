@@ -56,6 +56,21 @@
       "nameEn": "Alamto",
       "from": "favicon.ico (alamto.com) → PNG embed 26×26"
     },
+    "tarhak": {
+      "nameFa": "طرحَک",
+      "nameEn": "Tarhak",
+      "from": "official mark PNG (tarhak.ir) → embed 128×128, black keyed out"
+    },
+    "widgetify": {
+      "nameFa": "ویجتیفای",
+      "nameEn": "Widgetify",
+      "from": "official W mark PNG (widgetify.ir) → embed 128×128"
+    },
+    "widgetify-full": {
+      "nameFa": "ویجتیفای",
+      "nameEn": "Widgetify Full",
+      "from": "official full wordmark PNG (widgetify.ir) → embed 128×41"
+    },
     "7learn": { "nameFa": "سون‌لرن", "nameEn": "7Learn", "from": "safari-pinned-tab.svg (7learn.com official site)" },
     "abalon": { "nameFa": "آبالون", "nameEn": "Abalon", "from": "favicon.svg (abalon.cloud official site)" },
     "adivery": { "nameFa": "ادیوری", "nameEn": "Adivery", "from": "logo3.svg (adivery.com official site)" },

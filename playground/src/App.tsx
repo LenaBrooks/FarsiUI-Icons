@@ -8,6 +8,7 @@
 } from "react";
 import {
   LogoIcon,
+  FEATURED_ICON_ORDER,
   displayGroups,
   getDisplayGroupId,
   iconManifest,
@@ -547,14 +548,23 @@ export function App() {
       if (list) list.push(entry);
       else byGroup.set(gid, [entry]);
     }
+    const featuredRank = new Map(
+      FEATURED_ICON_ORDER.map((id, i) => [id, i]),
+    );
     return displayGroups
       .map((g) => {
-        const icons = [...(byGroup.get(g.id) ?? [])].sort(
-          (a, b) =>
+        const icons = [...(byGroup.get(g.id) ?? [])].sort((a, b) => {
+          if (g.id === "featured") {
+            const ra = featuredRank.get(a.id) ?? Number.MAX_SAFE_INTEGER;
+            const rb = featuredRank.get(b.id) ?? Number.MAX_SAFE_INTEGER;
+            if (ra !== rb) return ra - rb;
+          }
+          return (
             a.nameFa.localeCompare(b.nameFa, "fa") ||
             a.nameEn.localeCompare(b.nameEn, "en") ||
-            a.id.localeCompare(b.id),
-        );
+            a.id.localeCompare(b.id)
+          );
+        });
         return {
           id: g.id,
           labelFa: g.labelFa,

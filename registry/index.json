@@ -1,7 +1,7 @@
 {
   "name": "farsiui-icons",
   "version": 1,
-  "count": 1084,
+  "count": 1085,
   "icons": [
     {
       "id": "7learn",
@@ -2106,22 +2106,6 @@
       "componentName": "ToseeiraniIcon",
       "category": "aasaam",
       "file": "icons/aasaam-toseeirani.json"
-    },
-    {
-      "id": "aasaam-toseesaderat",
-      "nameFa": "توسعه صادرات",
-      "nameEn": "Toseesaderat",
-      "componentName": "ToseesaderatIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-toseesaderat.json"
-    },
-    {
-      "id": "aasaam-toseetaavon",
-      "nameFa": "توسعه تعاون",
-      "nameEn": "Toseetaavon",
-      "componentName": "ToseetaavonIcon",
-      "category": "aasaam",
-      "file": "icons/aasaam-toseetaavon.json"
     },
     {
       "id": "aasaam-tractorclub",
@@ -7556,6 +7540,14 @@
       "file": "icons/store-tirajeh.json"
     },
     {
+      "id": "tarhak",
+      "nameFa": "طرحَک",
+      "nameEn": "Tarhak",
+      "componentName": "TarhakIcon",
+      "category": "manual",
+      "file": "icons/tarhak.json"
+    },
+    {
       "id": "tech-afp-arman-fara-pajoohan",
       "nameFa": "آرمان فراپژوهان",
       "nameEn": "Afp Arman Fara Pajoohan",
@@ -8642,6 +8634,22 @@
       "componentName": "WebsiteZhaketIcon",
       "category": "website-applications",
       "file": "icons/website-zhaket.json"
+    },
+    {
+      "id": "widgetify",
+      "nameFa": "ویجتیفای",
+      "nameEn": "Widgetify",
+      "componentName": "WidgetifyIcon",
+      "category": "manual",
+      "file": "icons/widgetify.json"
+    },
+    {
+      "id": "widgetify-full",
+      "nameFa": "ویجتیفای",
+      "nameEn": "Widgetify Full",
+      "componentName": "WidgetifyFullIcon",
+      "category": "manual",
+      "file": "icons/widgetify-full.json"
     },
     {
       "id": "wisgoon",

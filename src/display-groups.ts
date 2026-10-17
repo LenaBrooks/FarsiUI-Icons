@@ -27,17 +27,22 @@ export interface DisplayGroupMeta {
 
 /**
  * Curated picks the maintainer adds by hand (sidebar: منتخب‌ها).
- * Add new manual icon ids here when they should appear in Featured.
+ * Order here is the gallery order for the featured section.
  */
-export const FEATURED_ICON_IDS = new Set([
+export const FEATURED_ICON_ORDER = [
   "farsiui",
   "vibefarsi",
-  "easycandle",
   "banana-ai",
+  "easycandle",
   "shenakhti",
   "pixevel",
   "alamto",
-]);
+  "widgetify",
+  "widgetify-full",
+  "tarhak",
+] as const;
+
+export const FEATURED_ICON_IDS = new Set<string>(FEATURED_ICON_ORDER);
 
 /** Ordered topical groups shown in the playground sidebar. */
 export const displayGroups: DisplayGroupMeta[] = [

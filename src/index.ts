@@ -14,6 +14,7 @@ export type { DisplayGroupId, DisplayGroupMeta } from "./display-groups";
 export {
   displayGroups,
   FEATURED_ICON_IDS,
+  FEATURED_ICON_ORDER,
   getDisplayGroupId,
   getDisplayGroupMeta,
 } from "./display-groups";

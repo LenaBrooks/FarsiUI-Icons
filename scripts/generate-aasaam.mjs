@@ -63,6 +63,8 @@ const SKIP_SLUGS = new Set([
   "shahr",
   "sina",
   "tosee",
+  "toseetaavon", // prefer bank-tosee-taavon
+  "toseesaderat", // prefer bank-tosee-saderat
   // Payments
   "asanpardakht",
   "shaparak",

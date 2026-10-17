@@ -26,6 +26,17 @@ html[data-theme="dark"] {
   color-scheme: dark;
 }
 
+/* Tarhak mark: cream on dark tiles, charcoal on light */
+html[data-theme="light"] .tarhak-on-dark {
+  display: none !important;
+}
+html[data-theme="light"] .tarhak-on-light {
+  display: inline !important;
+}
+html:not([data-theme="light"]) .tarhak-on-light {
+  display: none !important;
+}
+
 html[data-theme="light"] {
   --bg: #ffffff;
   --bg-soft: #f6f6f7;
