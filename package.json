@@ -1,7 +1,7 @@
 {
   "name": "@farsiui/icons",
   "version": "0.2.6",
-  "description": "Iranian brand React icons — CLI copy into your project. https://icons.FarsiUI.ir/",
+  "description": "Iranian brand React icons — CLI copy into your project. https://icons.FarsiUI.ir",
   "license": "MIT",
   "type": "module",
   "bin": {
@@ -70,7 +70,7 @@
     "svg",
     "cli"
   ],
-  "homepage": "https://icons.FarsiUI.ir/",
+  "homepage": "https://icons.FarsiUI.ir",
   "repository": {
     "type": "git",
     "url": "https://github.com/farsiui/icons"
