@@ -12,11 +12,11 @@ import { renderIconTsx, renderLucideIconTsx } from "./render-icon-tsx.mjs";
 
 const DEFAULT_BRAND_REGISTRY =
   process.env.FARSUI_ICONS_REGISTRY ??
-  "https://cdn.jsdelivr.net/gh/farsiui/icons@main/registry";
+  "https://cdn.jsdelivr.net/gh/MiladJoodi/FarsiUI-Icons@master/registry";
 
 const DEFAULT_LUCIDE_REGISTRY =
   process.env.FARSUI_ICONS_LUCIDE_REGISTRY ??
-  "https://cdn.jsdelivr.net/gh/farsiui/icons@main/registry/lucide";
+  "https://cdn.jsdelivr.net/gh/MiladJoodi/FarsiUI-Icons@master/registry/lucide";
 
 async function defaultOutDir(lucide, cwd = process.cwd()) {
   const hasSrc = await fileExists(join(cwd, "src"));
