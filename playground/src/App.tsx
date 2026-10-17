@@ -6,6 +6,7 @@
   useState,
   type CSSProperties,
 } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import {
   LogoIcon,
   FEATURED_ICON_ORDER,
@@ -871,7 +872,7 @@ export function App() {
           <a
             className="nav-brand"
             href="#icons"
-            aria-label="فارسیUI"
+            aria-label="آیکون‌های فارسی UI"
             onClick={(e) => {
               e.preventDefault();
               go("icons");
@@ -883,7 +884,7 @@ export function App() {
             }}
           >
             <span className="nav-brand-stack">
-              <span className="nav-brand-text">فارسیUI</span>
+              <span className="nav-brand-text">آیکون‌های فارسی UI</span>
             </span>
           </a>
 
@@ -1222,7 +1223,7 @@ export function App() {
             lang="fa"
           >
             <div className="cat-sidebar-head">
-              <h2 className="cat-sidebar-title">دسته‌بندی‌ها</h2>
+              <h2 className="cat-sidebar-title">آیکون‌های فارسی UI</h2>
               <button
                 type="button"
                 className="cat-sidebar-close"
@@ -1564,6 +1565,7 @@ export function App() {
           </section>
         </>
       ) : null}
+      <Analytics path={`/${page}`} route={`/${page}`} />
     </div>
   );
 }
