@@ -197,6 +197,70 @@ function MenuIcon() {
   );
 }
 
+function NavGuideIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function NavIconsToggleIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <rect
+        x="3"
+        y="3"
+        width="7"
+        height="7"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <rect
+        x="14"
+        y="3"
+        width="7"
+        height="7"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <rect
+        x="3"
+        y="14"
+        width="7"
+        height="7"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <rect
+        x="14"
+        y="14"
+        width="7"
+        height="7"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
 function SearchClearIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -917,9 +981,6 @@ export function App() {
               <code>npx @farsiui/icons add bank-melli</code>
               {installCopied ? <CheckIcon /> : <CopyIcon />}
             </button>
-            <div className="mobile-nav-section" role="presentation">
-              فارسیUI
-            </div>
             {page === "lucide" ? (
               <a
                 className="nav-ext is-active"
@@ -933,6 +994,7 @@ export function App() {
                   setNavOpen(false);
                 }}
               >
+                <NavIconsToggleIcon />
                 <span>آیکون‌های فارسی</span>
               </a>
             ) : (
@@ -946,6 +1008,7 @@ export function App() {
                   setNavOpen(false);
                 }}
               >
+                <NavIconsToggleIcon />
                 <span>آیکون‌های عمومی</span>
               </a>
             )}
@@ -960,6 +1023,7 @@ export function App() {
                 setNavOpen(false);
               }}
             >
+              <NavGuideIcon />
               <span>راهنما</span>
             </a>
             {EXT_NAV_LINKS.map((link) => (
@@ -977,7 +1041,7 @@ export function App() {
               </a>
             ))}
             <a
-              className="nav-contribute"
+              className="nav-ext"
               href={CONTRIBUTE_URL}
               target="_blank"
               rel="noopener noreferrer nofollow"
@@ -1374,6 +1438,38 @@ export function App() {
                       {`"@/components/icons/${selected.componentName}"`}
                     </span>
                     <span className="tok-punc">;</span>
+                  </code>
+                </pre>
+              </div>
+
+              <div className="import-block">
+                <button
+                  type="button"
+                  className="import-copy"
+                  onClick={copyJsx}
+                  aria-label={
+                    copiedKind === "jsx" ? "کپی شد" : "کپی JSX"
+                  }
+                  title={copiedKind === "jsx" ? "کپی شد" : "کپی"}
+                >
+                  {copiedKind === "jsx" ? <CheckIcon /> : <CopyIcon />}
+                </button>
+                <pre
+                  className="import-code"
+                  aria-label="JSX usage"
+                  dir="ltr"
+                >
+                  <code>
+                    <span className="tok-punc">&lt;</span>
+                    <span className="tok-id">{selected.componentName}</span>{" "}
+                    <span className="tok-kw">size</span>
+                    <span className="tok-punc">={"{"}</span>
+                    <span className="tok-num">{previewSize}</span>
+                    <span className="tok-punc">{"}"}</span>{" "}
+                    <span className="tok-kw">variant</span>
+                    <span className="tok-punc">=</span>
+                    <span className="tok-str">{`"${variant}"`}</span>{" "}
+                    <span className="tok-punc">/&gt;</span>
                   </code>
                 </pre>
               </div>

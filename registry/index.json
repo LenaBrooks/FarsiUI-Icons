@@ -1,7 +1,7 @@
 {
   "name": "@farsiui/icons",
   "version": 1,
-  "count": 1085,
+  "count": 1084,
   "icons": [
     {
       "id": "7learn",
@@ -3213,7 +3213,7 @@
     },
     {
       "id": "crypto-fet",
-      "nameFa": "FET",
+      "nameFa": "فچ",
       "nameEn": "FET",
       "componentName": "FetIcon",
       "category": "crypto",
@@ -6570,14 +6570,6 @@
       "componentName": "MediaKeyhanIcon",
       "category": "media-news",
       "file": "icons/media-keyhan.json"
-    },
-    {
-      "id": "media-khabar-online",
-      "nameFa": "خبر آنلاین",
-      "nameEn": "Khabar Online",
-      "componentName": "MediaKhabarOnlineIcon",
-      "category": "media-news",
-      "file": "icons/media-khabar-online.json"
     },
     {
       "id": "media-khabarnegaran-javan",

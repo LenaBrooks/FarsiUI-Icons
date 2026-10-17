@@ -14,6 +14,12 @@ const OPTICAL_OPTIONS = {
   "ofogh-kourosh": { maxZoom: 1 },
   "appliance-dipoint": { maxZoom: 1 },
   dipoint: { maxZoom: 1 },
+  "appliance-daewoo": { maxZoom: 1 },
+  daewoo: { maxZoom: 1 },
+  "appliance-kachiran": { maxZoom: 1 },
+  kachiran: { maxZoom: 1 },
+  "appliance-himalia": { maxZoom: 1 },
+  himalia: { maxZoom: 1 },
 };
 import {
   flushComponentRegistry,
@@ -35,6 +41,8 @@ const SKIP_IDS = new Set([
   // Prefer logos-per-service utility marks
   "organization-post",
   "organization-gas",
+  // Prefer aasaam KhabaronlineIcon
+  "media-khabar-online",
 ]);
 
 /** Folder → stable id prefix + display labels (matches icons.persian-labs.ir) */

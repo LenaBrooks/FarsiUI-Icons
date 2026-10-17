@@ -63,6 +63,7 @@ const NAME_FA = {
   busd: "بایننس یو‌اس‌دی",
   cake: "پنکیک‌سواپ",
   sushi: "سوشی‌سواپ",
+  fet: "فچ",
 };
 
 const NAME_EN = {

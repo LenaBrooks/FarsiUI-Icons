@@ -11,7 +11,6 @@ export const MediaHamshahriIcon = createPersianLabsIcon("media-hamshahri", "Medi
 export const MediaIrnaIcon = createPersianLabsIcon("media-irna", "MediaIrnaIcon", data["media-irna"]!);
 export const MediaIsnaIcon = createPersianLabsIcon("media-isna", "MediaIsnaIcon", data["media-isna"]!);
 export const MediaKeyhanIcon = createPersianLabsIcon("media-keyhan", "MediaKeyhanIcon", data["media-keyhan"]!);
-export const MediaKhabarOnlineIcon = createPersianLabsIcon("media-khabar-online", "MediaKhabarOnlineIcon", data["media-khabar-online"]!);
 export const MediaKhabarnegaranJavanIcon = createPersianLabsIcon("media-khabarnegaran-javan", "MediaKhabarnegaranJavanIcon", data["media-khabarnegaran-javan"]!);
 export const MediaMehrIcon = createPersianLabsIcon("media-mehr", "MediaMehrIcon", data["media-mehr"]!);
 export const MediaPattternIcon = createPersianLabsIcon("media-patttern", "MediaPattternIcon", data["media-patttern"]!);

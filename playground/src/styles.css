@@ -277,19 +277,6 @@ a {
   background: var(--tile);
 }
 
-.mobile-nav-section {
-  margin-top: 8px;
-  padding: 8px 12px 4px;
-  font-size: 0.72rem;
-  font-weight: 650;
-  color: var(--muted);
-}
-
-.mobile-nav .nav-contribute {
-  margin: 8px 0 0;
-  justify-content: center;
-}
-
 .mobile-install {
   appearance: none;
   display: inline-flex;
@@ -494,7 +481,7 @@ a {
   display: none;
   align-items: center;
   gap: 6px;
-  max-width: min(240px, 36vw);
+  flex-shrink: 0;
   height: 32px;
   padding: 0 9px;
   border: 1px solid var(--border);
@@ -515,8 +502,6 @@ a {
   font-size: 0.72rem;
   color: inherit;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .install-chip svg {
@@ -593,9 +578,9 @@ a {
   appearance: none;
   width: 24px;
   height: 24px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--bg);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--muted);
   cursor: pointer;
   padding: 0;
@@ -606,7 +591,6 @@ a {
 
 .customizer-reset:hover:not(:disabled) {
   color: var(--text);
-  border-color: var(--accent);
 }
 
 .customizer-reset:disabled {
@@ -1175,6 +1159,7 @@ a {
   flex-direction: column;
   gap: 10px;
   min-width: 0;
+  align-self: start;
 }
 
 .drawer-preview {
@@ -1612,9 +1597,17 @@ a {
   background: var(--code-bg);
   overflow-x: auto;
   font-family: "Cascadia Code", "Consolas", "Courier New", var(--mono);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   line-height: 1.55;
   color: #d4d4d4;
+}
+
+.tok-num {
+  color: #b5cea8;
+}
+
+html[data-theme="light"] .tok-num {
+  color: #098658;
 }
 
 .import-code code {

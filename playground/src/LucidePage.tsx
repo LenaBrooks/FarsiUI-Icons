@@ -642,6 +642,44 @@ export function LucidePage() {
                   </code>
                 </pre>
               </div>
+
+              <div className="import-block">
+                <button
+                  type="button"
+                  className="import-copy"
+                  onClick={copyJsx}
+                  aria-label={
+                    copiedKind === "jsx" ? "کپی شد" : "کپی JSX"
+                  }
+                  title={copiedKind === "jsx" ? "کپی شد" : "کپی"}
+                >
+                  {copiedKind === "jsx" ? <CheckIcon /> : <CopyIcon />}
+                </button>
+                <pre
+                  className="import-code"
+                  aria-label="JSX usage"
+                  dir="ltr"
+                >
+                  <code>
+                    <span className="tok-punc">&lt;</span>
+                    <span className="tok-id">{selected.componentName}</span>{" "}
+                    <span className="tok-kw">size</span>
+                    <span className="tok-punc">={"{"}</span>
+                    <span className="tok-num">{previewSize}</span>
+                    <span className="tok-punc">{"}"}</span>
+                    {strokeWidth !== DEFAULT_STROKE ? (
+                      <>
+                        {" "}
+                        <span className="tok-kw">strokeWidth</span>
+                        <span className="tok-punc">={"{"}</span>
+                        <span className="tok-num">{strokeWidth}</span>
+                        <span className="tok-punc">{"}"}</span>
+                      </>
+                    ) : null}{" "}
+                    <span className="tok-punc">/&gt;</span>
+                  </code>
+                </pre>
+              </div>
             </div>
           </section>
         </>
