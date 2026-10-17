@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "icons": "./cli/index.mjs"
+    "farsiui-icons": "./cli/index.mjs"
   },
   "files": [
     "cli",

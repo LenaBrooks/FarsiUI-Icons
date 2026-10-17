@@ -6,13 +6,13 @@ const PACKAGES = [
     name: "@farsiui/icons",
     blurb:
       "با npx فایل آیکون داخل پروژه کپی می‌شود — وابستگی به فارسی‌یوآی ندارید.",
-    importExample: `npx @farsiui/icons add bank-melli`,
+    importExample: `npx farsiui-icons add bank-melli`,
   },
   {
     name: "@farsiui/icons --lucide",
     blurb:
       "همان پکیج؛ رجیستری جدا برای Lucide (stroke). خروجی پیش‌فرض: components/lucide.",
-    importExample: `npx @farsiui/icons add house --lucide`,
+    importExample: `npx farsiui-icons add house --lucide`,
   },
 ];
 

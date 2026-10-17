@@ -220,7 +220,7 @@ export function LucidePage() {
   const previewRenderPx = Math.round((previewSize / 48) * PREVIEW_FRAME_PX);
 
   const cliLine = selected
-    ? `npx @farsiui/icons add ${selected.id} --lucide`
+    ? `npx farsiui-icons add ${selected.id} --lucide`
     : "";
   const importLine = selected
     ? `import { ${selected.componentName} } from "@/components/lucide/${selected.componentName}";`
@@ -594,7 +594,7 @@ export function LucidePage() {
                 >
                   <code>
                     <span className="tok-kw">npx</span>{" "}
-                    <span className="tok-id">@farsiui/icons</span>{" "}
+                    <span className="tok-id">farsiui-icons</span>{" "}
                     <span className="tok-kw">add</span>{" "}
                     <span className="tok-str">{selected.id}</span>{" "}
                     <span className="tok-kw">--lucide</span>

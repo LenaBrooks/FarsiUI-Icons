@@ -1,9 +1,9 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * @farsiui/icons — copy icon components into your project from the GitHub registry.
  *
- *   npx @farsiui/icons add bank-melli
- *   npx @farsiui/icons add house --lucide
+ *   npx farsiui-icons add bank-melli
+ *   npx farsiui-icons add house --lucide
  */
 import { mkdir, writeFile, access } from "node:fs/promises";
 import { join, resolve } from "node:path";
@@ -28,7 +28,7 @@ async function defaultOutDir(lucide, cwd = process.cwd()) {
 
 function printHelp() {
   console.log(`Usage:
-  npx @farsiui/icons add <id-or-name> [id...] [options]
+  npx farsiui-icons add <id-or-name> [id...] [options]
 
 Options:
   --lucide            Use the Lucide stroke-icon registry
@@ -40,9 +40,9 @@ Options:
   -h, --help          Show help
 
 Examples:
-  npx @farsiui/icons add bank-melli
-  npx @farsiui/icons add house --lucide
-  npx @farsiui/icons add activity zap --lucide
+  npx farsiui-icons add bank-melli
+  npx farsiui-icons add house --lucide
+  npx farsiui-icons add activity zap --lucide
 `);
 }
 
@@ -165,7 +165,7 @@ async function addIcons({ ids, out, registry, force, lucide }) {
   for (const query of ids) {
     const entry = resolveEntry(index, query);
     if (!entry) {
-      console.error(`✗ Not found: ${query}`);
+      console.error(`âœ— Not found: ${query}`);
       process.exitCode = 1;
       continue;
     }
@@ -173,7 +173,7 @@ async function addIcons({ ids, out, registry, force, lucide }) {
     const fileName = `${icon.componentName}.tsx`;
     const target = join(outDir, fileName);
     if (!force && (await fileExists(target))) {
-      console.error(`✗ Exists (use --force): ${target}`);
+      console.error(`âœ— Exists (use --force): ${target}`);
       process.exitCode = 1;
       continue;
     }
@@ -181,7 +181,7 @@ async function addIcons({ ids, out, registry, force, lucide }) {
       lucide || (icon.viewBox != null && icon.body != null && !icon.color);
     const source = isLucide ? renderLucideIconTsx(icon) : renderIconTsx(icon);
     await writeFile(target, source, "utf8");
-    console.log(`✓ ${icon.componentName} → ${target}`);
+    console.log(`âœ“ ${icon.componentName} â†’ ${target}`);
   }
 }
 

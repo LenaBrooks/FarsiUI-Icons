@@ -1,6 +1,6 @@
-/**
+﻿/**
  * Builds registry/lucide/ from assets/lucide (SVG + metadata JSON).
- * Separate from brand registry/ — CLI: `npx @farsiui/icons add house --lucide`
+ * Separate from brand registry/ — CLI: `npx farsiui-icons add house --lucide`
  */
 import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -135,6 +135,6 @@ await writeFile(
 );
 
 console.log(
-  `Lucide registry: wrote ${written} icons → ${outRoot}` +
+  `Lucide registry: wrote ${written} icons â†’ ${outRoot}` +
     (skipped ? ` (skipped ${skipped})` : ""),
 );

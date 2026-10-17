@@ -758,7 +758,7 @@ export function App() {
   }, [page]);
 
   const cliLine = selected
-    ? `npx @farsiui/icons add ${selected.id}`
+    ? `npx farsiui-icons add ${selected.id}`
     : "";
   const importLine = selected
     ? `import { ${selected.componentName} } from "@/components/icons/${selected.componentName}";`
@@ -903,7 +903,7 @@ export function App() {
               title={installCopied ? "کپی شد" : "کپی دستور نصب"}
               onClick={async () => {
                 const ok = await copyText(
-                  "npx @farsiui/icons add bank-melli",
+                  "npx farsiui-icons add bank-melli",
                 );
                 if (ok) {
                   setInstallCopied(true);
@@ -911,7 +911,7 @@ export function App() {
                 }
               }}
             >
-              <code>npx @farsiui/icons add bank-melli</code>
+              <code>npx farsiui-icons add bank-melli</code>
               {installCopied ? <CheckIcon /> : <CopyIcon />}
             </button>
 
@@ -969,7 +969,7 @@ export function App() {
               role="menuitem"
               onClick={async () => {
                 const ok = await copyText(
-                  "npx @farsiui/icons add bank-melli",
+                  "npx farsiui-icons add bank-melli",
                 );
                 if (ok) {
                   setInstallCopied(true);
@@ -978,7 +978,7 @@ export function App() {
                 setNavOpen(false);
               }}
             >
-              <code>npx @farsiui/icons add bank-melli</code>
+              <code>npx farsiui-icons add bank-melli</code>
               {installCopied ? <CheckIcon /> : <CopyIcon />}
             </button>
             {page === "lucide" ? (
@@ -1399,7 +1399,7 @@ export function App() {
                 <pre className="import-code" aria-label="CLI add command" dir="ltr">
                   <code>
                     <span className="tok-kw">npx</span>{" "}
-                    <span className="tok-id">@farsiui/icons</span>{" "}
+                    <span className="tok-id">farsiui-icons</span>{" "}
                     <span className="tok-kw">add</span>{" "}
                     <span className="tok-str">{selected.id}</span>
                   </code>

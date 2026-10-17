@@ -162,13 +162,13 @@ export function GuidePage() {
         <CodeBlock
           label="bash"
           lang="bash"
-          code={`npx @farsiui/icons add bank-melli`}
+          code={`npx farsiui-icons add bank-melli`}
         />
         <p>می‌توانید چند آیکون را هم‌زمان اضافه کنید:</p>
         <CodeBlock
           label="bash"
           lang="bash"
-          code={`npx @farsiui/icons add bank-melli bank-mellat`}
+          code={`npx farsiui-icons add bank-melli bank-mellat`}
         />
         <p>
           فایل‌های آیکون در مسیر <code>src/components/icons</code> یا{" "}
@@ -207,12 +207,12 @@ export function GuidePage() {
         <CodeBlock
           label="bash"
           lang="bash"
-          code={`npx @farsiui/icons add house --lucide`}
+          code={`npx farsiui-icons add house --lucide`}
         />
         <CodeBlock
           label="bash"
           lang="bash"
-          code={`npx @farsiui/icons add activity zap --lucide`}
+          code={`npx farsiui-icons add activity zap --lucide`}
         />
         <p>
           فایل‌ها در <code>src/components/lucide</code> (یا{" "}

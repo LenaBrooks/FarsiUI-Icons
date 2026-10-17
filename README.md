@@ -7,8 +7,8 @@ React icons for Iranian brands and services. Copy only what you need via CLI —
 ## Usage
 
 ```bash
-npx @farsiui/icons add bank-melli
-npx @farsiui/icons add bank-melli website-digikala
+npx farsiui-icons add bank-melli
+npx farsiui-icons add bank-melli website-digikala
 ```
 
 Writes to `src/components/icons` (or `components/icons`).
@@ -30,7 +30,7 @@ import { BankMelliIcon } from "@/components/icons/BankMelliIcon";
 ## Lucide
 
 ```bash
-npx @farsiui/icons add house --lucide
+npx farsiui-icons add house --lucide
 ```
 
 Output: `src/components/lucide` (or `components/lucide`).
